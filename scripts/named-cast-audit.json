@@ -1,0 +1,1954 @@
+{
+  "summary": {
+    "total": 180,
+    "none": 144,
+    "some": 24,
+    "rich": 12
+  },
+  "list": [
+    {
+      "id": "ht-abyry-htnkay",
+      "title": "אבירי הטנקאי",
+      "year": 2014,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-agdh-sh-mgdh",
+      "title": "אגדה ש'מגדה",
+      "year": 2007,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-avtv-tvb",
+      "title": "אוטו טוב",
+      "year": 2013,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-atvm-tzvvt-al-glglym",
+      "title": "אטום - צוות על גלגלים",
+      "year": 2005,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-ayh-plvtv",
+      "title": "איה פלוטו",
+      "year": 1997,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-ayny-myny-mv-mtyylym-bspr-hanglyt",
+      "title": "איני מיני מו מטיילים בספר האנגלית",
+      "year": 2008,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-aladyn-vysmyn",
+      "title": "אלאדין ויסמין",
+      "year": 2013,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-atzbavt",
+      "title": "אצבעות",
+      "year": 1995,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-atzbavt-ly",
+      "title": "אצבעות לי",
+      "year": 2000,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-artvr",
+      "title": "ארתור",
+      "year": 1997,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-ba-ly-msybh-ly",
+      "title": "בא לי מסיבה לי",
+      "year": 1995,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-bags-bany-vchbrym",
+      "title": "באגס באני וחברים",
+      "year": 2016,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-batmn-aysh-hatlp",
+      "title": "באטמן - איש העטלף",
+      "year": 2005,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-bg-vngl-shl-rvy-bvy",
+      "title": "בג'ונגל של רוי בוי",
+      "year": 2012,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-bvbvbv-bv-bv-bvbv",
+      "title": "בובובו-בו בו-בובו",
+      "year": 2007,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-byby-vtynh",
+      "title": "ביבי וטינה",
+      "year": 2012,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-bkvgn",
+      "title": "בקוגן",
+      "year": 2009,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-bratz",
+      "title": "בראץ",
+      "year": 2006,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-bt-hym-hktnh",
+      "title": "בת הים הקטנה",
+      "year": 2026,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-g-yysvn-vhgybvrym",
+      "title": "ג'ייסון והגיבורים",
+      "year": 2002,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-g-ky-tz-an",
+      "title": "ג'קי צ'אן",
+      "year": 2002,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-gas-habyr-hzayr",
+      "title": "גאס האביר הזעיר",
+      "year": 2022,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-gvldy-vhdb",
+      "title": "גולדי והדב",
+      "year": 2016,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-gvrym-vchbrym",
+      "title": "גורים וחברים",
+      "year": 2018,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-gybvry-havr-mshymh-mhshkmh",
+      "title": "גיבורי האור - משימה מהשקמה",
+      "year": 2015,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-gynt-hshtvzym-shl-dtyh",
+      "title": "גינת השטוזים של דתיה",
+      "year": 2006,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-glgvlym",
+      "title": "גלגולים",
+      "year": 1995,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-glglym-lvhtym-nkvdt-prytzh",
+      "title": "גלגלים לוהטים - נקודת פריצה",
+      "year": 2006,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-grvb-hyy",
+      "title": "גרוב היי",
+      "year": 2013,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-dvk-rvpat-tzatzvaym",
+      "title": "דוק רופאת צעצועים",
+      "year": 2012,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-dvrh",
+      "title": "דורה",
+      "year": 2023,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-dvrh-vhayr-habvdh",
+      "title": "דורה והעיר האבודה",
+      "year": 2019,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-dynvprvz",
+      "title": "דינופרוז",
+      "year": 2013,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-havlympyadh-shl-hvp",
+      "title": "האולימפיאדה של הופ!",
+      "year": 2016,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hgdh-shl-kvkbym",
+      "title": "הגדה של כוכבים",
+      "year": 2023,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hgybvrym-mshymh-bg-vngl",
+      "title": "הגיבורים - משימה בג'ונגל",
+      "year": 2013,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hdvb-bbyt-hkchvl",
+      "title": "הדוב בבית הכחול",
+      "year": 2000,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hdrk-lal-dvradv",
+      "title": "הדרך לאל-דוראדו",
+      "year": 2000,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hdrkvn-hmtvk-shly",
+      "title": "הדרקון המתוק שלי",
+      "year": 2014,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hvph-hyy-mashh-shhyh",
+      "title": "הופה היי - מעשה שהיה",
+      "year": 2011,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hyv-hyh-stvdyv",
+      "title": "היו היה סטודיו",
+      "year": 2023,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hkl-agdh",
+      "title": "הכל אגדה",
+      "year": 2023,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hmvpa-hmbvlbl-shl-yvbl",
+      "title": "המופע המבולבל של יובל",
+      "year": 2017,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hmchnh-hksvm",
+      "title": "המחנה הקסום",
+      "year": 2022,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hmkbym",
+      "title": "המכבים",
+      "year": 2015,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hmsa-hksvm-shl-aympy",
+      "title": "המסע הקסום של אימפי",
+      "year": 2009,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hmabdh-shl-pvlka",
+      "title": "המעבדה של פולקע",
+      "year": 2011,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hmpvzr-mkpr-az-r",
+      "title": "המפוזר מכפר אז\\\"ר",
+      "year": 1997,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hkvl-brash",
+      "title": "הקול בראש",
+      "year": 2015,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-hkrb-al-hpvp-tart",
+      "title": "הקרב על הפופ-טארט",
+      "year": 2024,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-vvalas-vgrvmyt-vharnb-hktlny",
+      "title": "וואלאס וגרומיט והארנב הקטלני",
+      "year": 2005,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-vyvtypvl-g-v",
+      "title": "ויוטיפול ג'ו",
+      "year": 2007,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-zvbvmpv-vhachym-krat",
+      "title": "זובומפו והאחים קראט",
+      "year": 2026,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-zvtrvpvlys",
+      "title": "זוטרופוליס",
+      "year": 2016,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-chbvbvtp",
+      "title": "חבובוטף",
+      "year": 2019,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-chbvrt-hkdvrgl-hprvah",
+      "title": "חבורת הכדורגל הפרועה",
+      "year": 2016,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-chbvrt-mykl-hktnh",
+      "title": "חבורת מיכל הקטנה",
+      "year": 2012,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-chbrym-ad-hshmyym",
+      "title": "חברים עד השמיים",
+      "year": 2022,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-chg-mvld-mdvrds",
+      "title": "חג מולד מדורדס",
+      "year": 2011,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-chvky-hmrpy-shl-myylv",
+      "title": "חוקי המרפי של מיילו",
+      "year": 2017,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-chyyzr-mchmd",
+      "title": "חייזר מחמד",
+      "year": 2006,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-chnvt-hsprym-shl-shyn-shyn",
+      "title": "חנות הספרים של שין שין",
+      "year": 2023,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-tvrbv",
+      "title": "טורבו",
+      "year": 2013,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-tvrbv-tzvvt-pgz",
+      "title": "טורבו - צוות פגז",
+      "year": 2015,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-tym-glksy",
+      "title": "טים גלקסי",
+      "year": 2007,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-tly-vmvrn-yvatzvt-mkvkb-hagdvt",
+      "title": "טלי ומורן יועצות מכוכב האגדות",
+      "year": 2019,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-trzn-vg-yyn",
+      "title": "טרזן וג'יין",
+      "year": 2023,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-yv-gabh-gabh",
+      "title": "יו גאבה גאבה!",
+      "year": 2009,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-yv-kay-vvtsh",
+      "title": "יו-קאי ווטש",
+      "year": 2016,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-ymy",
+      "title": "ימי",
+      "year": 1996,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-yn-yang-yv",
+      "title": "ין יאנג יו",
+      "year": 2007,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kvch-blagn",
+      "title": "כוח בלאגן",
+      "year": 2023,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kvch-hmym",
+      "title": "כוח המים",
+      "year": 2004,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kvch-htzlh",
+      "title": "כוח הצלה",
+      "year": 2004,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kvch-vydav",
+      "title": "כוח וידאו",
+      "year": 2026,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kvkby-havr",
+      "title": "כוכבי האור",
+      "year": 2023,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-knpy-hram-bpavlh",
+      "title": "כנפי הרעם בפעולה",
+      "year": 2015,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-lasy",
+      "title": "לאסי",
+      "year": 2014,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-lynks-abvd",
+      "title": "לינקס אבוד",
+      "year": 2026,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-llkt-byn-dynvzavrym",
+      "title": "ללכת בין דינוזאורים",
+      "year": 2013,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-mgylt-astr",
+      "title": "מגילת אסתר",
+      "year": 2016,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-mglym-am-dvrh",
+      "title": "מגלים עם דורה",
+      "year": 2006,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-mvmyvt",
+      "title": "מומיות",
+      "year": 2023,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-mvrys-hmdhym",
+      "title": "מוריס המדהים",
+      "year": 2023,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-mvrny-halvph",
+      "title": "מורני האלופה",
+      "year": 2015,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-mchsn-hshtvzym-shl-dtyh",
+      "title": "מחסן השטוזים של דתיה",
+      "year": 2000,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-mtvrllym",
+      "title": "מטורללים",
+      "year": 2014,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-mtlvt-mvzrvt",
+      "title": "מטלות מוזרות",
+      "year": 2019,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-my-shtvb-lv-vshmch-kp-ymcha-shyry-mshchk",
+      "title": "מי שטוב לו ושמח כף ימחא - שירי משחק",
+      "year": 1994,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-mykl-hktnh-vhtvntvnym",
+      "title": "מיכל הקטנה והטונטונים",
+      "year": 2014,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-mykl-hktnh-rvtzh-lhyvt-gdvlh",
+      "title": "מיכל הקטנה רוצה להיות גדולה",
+      "year": 2012,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-myrh-blshyt-mlkvtyt",
+      "title": "מירה, בלשית מלכותית",
+      "year": 2020,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-myrt-chvkrt",
+      "title": "מירט חוקרת",
+      "year": 2017,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-msbyb-lavlm-b-80-yvm",
+      "title": "מסביב לעולם ב-80 יום",
+      "year": 2023,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-magl-ktntnym",
+      "title": "מעגל קטנטנים",
+      "year": 2022,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-mrth-mdbrt",
+      "title": "מרתה מדברת",
+      "year": 2009,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-mshmr-haryvt-hshagh-chvzrt",
+      "title": "משמר האריות - השאגה חוזרת",
+      "year": 2016,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-mshpcht-vylvby",
+      "title": "משפחת וילובי",
+      "year": 2020,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-nchmd-la-nchmd",
+      "title": "נחמד, לא נחמד!",
+      "year": 2022,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-nchshvn-kl-ykvl",
+      "title": "נחשון כל יכול",
+      "year": 2003,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-nyng-gv",
+      "title": "נינג'גו",
+      "year": 2012,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-nykv",
+      "title": "ניקו",
+      "year": 2013,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-nsyk-hagdvt",
+      "title": "נסיך האגדות",
+      "year": 2005,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-nsyk-mtzrym",
+      "title": "נסיך מצרים",
+      "year": 2015,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-nty-hgaty-hvpaty",
+      "title": "נתי הגעתי הופעתי",
+      "year": 2014,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-svnyk-x",
+      "title": "סוניק X",
+      "year": 2004,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-sypvry-gdlyar",
+      "title": "סיפורי גדליער",
+      "year": 2026,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-sypvry-chyvt",
+      "title": "סיפורי חיות",
+      "year": 2000,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-sypvry-rpaym",
+      "title": "סיפורי רפאים",
+      "year": 2016,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-sypvry-shpt-hnchl",
+      "title": "סיפורי שפת הנחל",
+      "year": 2008,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-sypvrym-shl-brvvzym",
+      "title": "סיפורים של ברווזים",
+      "year": 2017,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-sndy-tz-yks-mtzylh-at-bykyny-bvtvm",
+      "title": "סנדי צ'יקס מצילה את ביקיני בוטום",
+      "year": 2024,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-sndrh-blshyt-mhagdvt",
+      "title": "סנדרה - בלשית מהאגדות",
+      "year": 2010,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-spyydrmn-lla-gbvlvt",
+      "title": "ספיידרמן ללא גבולות",
+      "year": 2000,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-skvvysh",
+      "title": "סקוויש",
+      "year": 2020,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-skrdy-hsnay",
+      "title": "סקרדי הסנאי",
+      "year": 2011,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-pynvkyv",
+      "title": "פינוקיו",
+      "year": 2006,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-pntzyh-alp-lylh-vlylh",
+      "title": "פנטזיה אלף לילה ולילה",
+      "year": 2014,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-prykbvy-vtz-am-tz-am",
+      "title": "פריקבוי וצ'אם צ'אם",
+      "year": 2010,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-prpr-nchmd",
+      "title": "פרפר נחמד",
+      "year": 2021,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-tz-ak",
+      "title": "צ'אק",
+      "year": 2016,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kayv",
+      "title": "קאיו",
+      "year": 2002,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kdymh-ltyyl-bartz-yshral",
+      "title": "קדימה לטייל בארץ ישראל",
+      "year": 2023,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kvlr-nvld",
+      "title": "קולר נולד",
+      "year": 2017,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kvny-haglh",
+      "title": "קוני העגלה",
+      "year": 2005,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kvpydv",
+      "title": "קופידו",
+      "year": 2026,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kvpykv-bspryyh",
+      "title": "קופיקו בספרייה",
+      "year": 2022,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kvpt-hmlak",
+      "title": "קופת המלאך",
+      "year": 2010,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kvkv-harnb",
+      "title": "קוקו הארנב",
+      "year": 2008,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kyd-vkat",
+      "title": "קיד וקאט",
+      "year": 2009,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-ksm-shl-dvd",
+      "title": "קסם של דוד",
+      "year": 2023,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-ksm-shl-chg",
+      "title": "קסם של חג",
+      "year": 2022,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-ksm-shl-mshpchh",
+      "title": "קסם של משפחה",
+      "year": 2009,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-kptn-plmyngv",
+      "title": "קפטן פלמינגו",
+      "year": 2006,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-rasty",
+      "title": "ראסטי",
+      "year": 2017,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-rvy-bvy-yvtzaym-lhrptkh",
+      "title": "רוי בוי יוצאים להרפתקה",
+      "year": 2023,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-rvny-bvtz",
+      "title": "רוני בוץ",
+      "year": 2010,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-rybyt",
+      "title": "ריביט",
+      "year": 2014,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-shavlyn-vvzang",
+      "title": "שאולין ווזאנג",
+      "year": 2007,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-shvrykn-skvl-byt-spr-lnyng-vt",
+      "title": "שוריקן סקול - בית ספר לנינג'ות",
+      "year": 2007,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-shkchv-avty-bbyt",
+      "title": "שכחו אותי בבית",
+      "year": 2011,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-shlgyh-vhtzyyd",
+      "title": "שלגיה והצייד",
+      "year": 2013,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-shpytzym",
+      "title": "שפיצים",
+      "year": 2014,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "ht-tmyrvsh",
+      "title": "תמירוש",
+      "year": 2026,
+      "credits": 0,
+      "named": 0,
+      "cast": 0,
+      "namedCast": 0,
+      "sample": []
+    },
+    {
+      "id": "danny-phantom-style-danny",
+      "title": "דני שובבני",
+      "year": 1987,
+      "credits": 1,
+      "named": 1,
+      "cast": 1,
+      "namedCast": 1,
+      "sample": [
+        "יפה גבאי=דני שובבני"
+      ]
+    },
+    {
+      "id": "dragonball-he",
+      "title": "דרגון בול",
+      "year": 1986,
+      "credits": 1,
+      "named": 1,
+      "cast": 1,
+      "namedCast": 1,
+      "sample": [
+        "צביקה פורמן=גוקו / דמויות"
+      ]
+    },
+    {
+      "id": "ht-drgvn-bvl",
+      "title": "דרגון בול",
+      "year": 2002,
+      "credits": 1,
+      "named": 1,
+      "cast": 1,
+      "namedCast": 1,
+      "sample": [
+        "צביקה פורמן=גוקו"
+      ]
+    },
+    {
+      "id": "once-upon-a-time-life",
+      "title": "היה היה – החיים",
+      "year": 1987,
+      "credits": 1,
+      "named": 1,
+      "cast": 1,
+      "namedCast": 1,
+      "sample": [
+        "שפרירה זכאי=בימוי דיבוב"
+      ]
+    },
+    {
+      "id": "the-heart-marco",
+      "title": "הלב",
+      "year": 1979,
+      "credits": 1,
+      "named": 1,
+      "cast": 1,
+      "namedCast": 1,
+      "sample": [
+        "יפה גבאי=מרקו"
+      ]
+    },
+    {
+      "id": "ht-tvtly-spyys",
+      "title": "טוטלי ספייס",
+      "year": 2003,
+      "credits": 1,
+      "named": 1,
+      "cast": 1,
+      "namedCast": 1,
+      "sample": [
+        "אליענה מגון=סם"
+      ]
+    },
+    {
+      "id": "ht-lyrvy-vstytz",
+      "title": "לירוי וסטיץ",
+      "year": 2023,
+      "credits": 1,
+      "named": 1,
+      "cast": 1,
+      "namedCast": 1,
+      "sample": [
+        "שמחה ברבירו=סטיץ׳ / דמויות"
+      ]
+    },
+    {
+      "id": "winx-he",
+      "title": "מועדון ווינקס",
+      "year": 2004,
+      "credits": 1,
+      "named": 1,
+      "cast": 1,
+      "namedCast": 1,
+      "sample": [
+        "ספיר דרמון=בלום / דמויות"
+      ]
+    },
+    {
+      "id": "ht-mshmr-haryvt",
+      "title": "משמר האריות",
+      "year": 2016,
+      "credits": 1,
+      "named": 1,
+      "cast": 1,
+      "namedCast": 1,
+      "sample": [
+        "עמי מנדלמן=סימבה / דמויות"
+      ]
+    },
+    {
+      "id": "sailormoon-he",
+      "title": "סיילור מון",
+      "year": 1992,
+      "credits": 1,
+      "named": 1,
+      "cast": 1,
+      "namedCast": 1,
+      "sample": [
+        "אורנה כץ=סיילור מון"
+      ]
+    },
+    {
+      "id": "sefi-tv",
+      "title": "ספי",
+      "year": 1998,
+      "credits": 1,
+      "named": 1,
+      "cast": 1,
+      "namedCast": 1,
+      "sample": [
+        "ספי ריבלין=ספי"
+      ]
+    },
+    {
+      "id": "totally-spies-he",
+      "title": "שלוש אספנות",
+      "year": 2001,
+      "credits": 1,
+      "named": 1,
+      "cast": 1,
+      "namedCast": 1,
+      "sample": [
+        "אליענה מגון=סם / דמויות"
+      ]
+    },
+    {
+      "id": "miraculous-he",
+      "title": "המשושים",
+      "year": 2015,
+      "credits": 2,
+      "named": 2,
+      "cast": 2,
+      "namedCast": 2,
+      "sample": [
+        "ספיר דרמון=מרינט / דמויות",
+        "רומי פרחומובסקי=דמויות"
+      ]
+    },
+    {
+      "id": "paw-patrol-he",
+      "title": "מפרץ ההרפתקאות",
+      "year": 2013,
+      "credits": 2,
+      "named": 2,
+      "cast": 2,
+      "namedCast": 2,
+      "sample": [
+        "עינת גליקסמן=דמויות ראשיות",
+        "אופק פטי=דמויות"
+      ]
+    },
+    {
+      "id": "pokemon-he",
+      "title": "פוקימון",
+      "year": 1997,
+      "credits": 2,
+      "named": 2,
+      "cast": 2,
+      "namedCast": 2,
+      "sample": [
+        "יהונתן מגון=אש קטצ׳ם",
+        "דניאל מגון=דמויות"
+      ]
+    },
+    {
+      "id": "peppa-pig-he",
+      "title": "פפה פיג",
+      "year": 2004,
+      "credits": 2,
+      "named": 2,
+      "cast": 2,
+      "namedCast": 2,
+      "sample": [
+        "עינת גליקסמן=פפה / דמויות",
+        "גיתית שובל=דמויות"
+      ]
+    },
+    {
+      "id": "bluey-he",
+      "title": "בלואי",
+      "year": 2018,
+      "credits": 3,
+      "named": 3,
+      "cast": 3,
+      "namedCast": 3,
+      "sample": [
+        "איילת רובינסון=דמויות",
+        "הדר שחף־מעיין=דמויות",
+        "עינת גליקסמן=דמויות"
+      ]
+    },
+    {
+      "id": "care-bears-he",
+      "title": "דובוני אכפת לי",
+      "year": 1985,
+      "credits": 3,
+      "named": 3,
+      "cast": 3,
+      "namedCast": 3,
+      "sample": [
+        "שפרירה זכאי=בימוי דיבוב",
+        "יפה גבאי=דמויות ראשיות",
+        "יורם יוספסברג=דמויות"
+      ]
+    },
+    {
+      "id": "digimon-he",
+      "title": "דיג'ימון",
+      "year": 1999,
+      "credits": 3,
+      "named": 3,
+      "cast": 3,
+      "namedCast": 3,
+      "sample": [
+        "דניאל מגון=דמויות",
+        "אליענה מגון=דמויות",
+        "יהונתן מגון=דמויות"
+      ]
+    },
+    {
+      "id": "naruto-he",
+      "title": "נארוטו",
+      "year": 2002,
+      "credits": 3,
+      "named": 3,
+      "cast": 3,
+      "namedCast": 3,
+      "sample": [
+        "יהונתן מגון=נארוטו / דמויות",
+        "צביקה פורמן=דמויות",
+        "דניאל מגון=נארוטו / דמויות"
+      ]
+    },
+    {
+      "id": "itcha",
+      "title": "איצ׳ה",
+      "year": 1994,
+      "credits": 4,
+      "named": 4,
+      "cast": 4,
+      "namedCast": 4,
+      "sample": [
+        "ספי ריבלין=יצחק „איצ׳ה” שולמן",
+        "עליזה רוזן=שפרה שולמן",
+        "שגית אמת=שולי שולמן",
+        "אבי טרמין=ציון כהן"
+      ]
+    },
+    {
+      "id": "the-smurfs-he",
+      "title": "הדרדסים",
+      "year": 1981,
+      "credits": 4,
+      "named": 4,
+      "cast": 4,
+      "namedCast": 4,
+      "sample": [
+        "שפרירה זכאי=בימוי דיבוב",
+        "צביקה פורמן=דרדס גדול / דמויות",
+        "אורנה כץ=דרדסית / דמויות",
+        "יפה גבאי=דרדסים / דמויות"
+      ]
+    },
+    {
+      "id": "hop",
+      "title": "הופ!",
+      "year": 2007,
+      "credits": 16,
+      "named": 4,
+      "cast": 16,
+      "namedCast": 4,
+      "sample": [
+        "טל מוסרי=מנחה",
+        "יובל המבולבל=יובל המבולבל",
+        "מיכל צפיר=מנחה",
+        "גידי גוב=מנחה / אורח"
+      ]
+    },
+    {
+      "id": "rega-im-dudley",
+      "title": "רגע עם דודלי",
+      "year": 1976,
+      "credits": 4,
+      "named": 4,
+      "cast": 4,
+      "namedCast": 4,
+      "sample": [
+        "שלמה ניצן=דודלי",
+        "שלמה ניצן=חביתוש",
+        "ציפי מור=רגע",
+        "ספי ריבלין=פיסטוק"
+      ]
+    },
+    {
+      "id": "ht-lylv-vstytz",
+      "title": "לילו וסטיץ",
+      "year": 2007,
+      "credits": 6,
+      "named": 6,
+      "cast": 6,
+      "namedCast": 6,
+      "sample": [
+        "שמחה ברבירו=סטיץ׳ / דוקטור האמסטרוויל / קומו",
+        "הדר שחף־מעיין=נאני פלקאי / דמויות",
+        "גלעד קלטר=וונדי פליקלי / דמויות",
+        "יורם יוספסברג=קפטן גאנטו / דמויות",
+        "יובל סגל=ראובן / דמויות"
+      ]
+    },
+    {
+      "id": "spongebob-he",
+      "title": "בובספוג",
+      "year": 1999,
+      "credits": 7,
+      "named": 7,
+      "cast": 7,
+      "namedCast": 7,
+      "sample": [
+        "צביקה פורמן=דמויות שונות",
+        "עידו מוסרי=בובספוג מכנסמרובע",
+        "לירון ברנס=פטריק סטאר",
+        "גלעד קלטר=סקווידוויד",
+        "עמי מנדלמן=מר קראב"
+      ]
+    },
+    {
+      "id": "ht-ampybyh",
+      "title": "אמפיביה",
+      "year": 2020,
+      "credits": 8,
+      "named": 8,
+      "cast": 8,
+      "namedCast": 8,
+      "sample": [
+        "נעמה שטרית=אן בונצ׳וי",
+        "צביקה פורמן=הופ פופ",
+        "ערן מור=וולי",
+        "אליענה מגון=מרסי",
+        "תמיר גינזבורג=טודי / אנדריאס / דמויות"
+      ]
+    },
+    {
+      "id": "hopa-hey",
+      "title": "הופה היי",
+      "year": 1986,
+      "credits": 14,
+      "named": 14,
+      "cast": 9,
+      "namedCast": 9,
+      "sample": [
+        "יגאל בשן=מנחה / שירה",
+        "עוזי חיטמן=מנחה / שירה",
+        "יונתן מילר=מנחה / כינור",
+        "אבי דור=מנחה (הרכב שני)",
+        "אהרון פררה=מנחה (הרכב שני)"
+      ]
+    },
+    {
+      "id": "shtisel",
+      "title": "שטיסל",
+      "year": 2013,
+      "credits": 14,
+      "named": 10,
+      "cast": 14,
+      "namedCast": 10,
+      "sample": [
+        "דב גליקמן=שלום שטיסל",
+        "מיכאל אלוני=עקיבא שטיסל",
+        "נטע ריסקין=גיטי וייס",
+        "שירה האס=רוח׳לה קושניר",
+        "ששון גבאי=נחמיה וייס"
+      ]
+    },
+    {
+      "id": "ha-hamama",
+      "title": "החממה",
+      "year": 2012,
+      "credits": 13,
+      "named": 12,
+      "cast": 12,
+      "namedCast": 11,
+      "sample": [
+        "גאיה שליטא-כץ=אלה־לי רשף",
+        "לי בירן=יפתח הר לב",
+        "דניאל ליטמן=דניאל גורן",
+        "דר זוזובסקי=נטלי קליין",
+        "ידין גולדמן=אלפי רשף"
+      ]
+    },
+    {
+      "id": "fauda",
+      "title": "פאודה",
+      "year": 2015,
+      "credits": 13,
+      "named": 11,
+      "cast": 12,
+      "namedCast": 11,
+      "sample": [
+        "ליאור רז=דורון קביליו",
+        "צחי הלוי=נאור ברזני",
+        "איציק כהן=גבי (קפטן איוב)",
+        "יובל סגל=מיקי מורנו",
+        "יעקב זדה-דניאל=אלי אהרון"
+      ]
+    },
+    {
+      "id": "ht-tymvn-vpvmbh",
+      "title": "טימון ופומבה",
+      "year": 1997,
+      "credits": 16,
+      "named": 16,
+      "cast": 14,
+      "namedCast": 14,
+      "sample": [
+        "שפרירה זכאי=בימוי דיבוב",
+        "שפרירה זכאי=שנזי",
+        "תומר שרון=טימון",
+        "עמי מנדלמן=פומבה",
+        "שמוליק טנא=בנזאי"
+      ]
+    },
+    {
+      "id": "sesame-israel",
+      "title": "רחוב סומסום",
+      "year": 1983,
+      "credits": 15,
+      "named": 15,
+      "cast": 15,
+      "namedCast": 15,
+      "sample": [
+        "יורם יוספסברג=דמויות",
+        "טוביה צפיר=טוביה / דמויות",
+        "שרי צוריאל=קיפי בן קיפוד",
+        "שרי צוריאל=קיפי בן קיפוד",
+        "נתן דטנר=נתן"
+      ]
+    },
+    {
+      "id": "ht-peter-pan-adventures",
+      "title": "פיטר פן",
+      "year": 1990,
+      "credits": 20,
+      "named": 20,
+      "cast": 16,
+      "namedCast": 16,
+      "sample": [
+        "חנה דרורי קשי=בימוי דיבוב",
+        "אורנה לביא פלינט=טינקרבל",
+        "חני נחמיאס=וונדי דרלינג / ג'יין דרלינג",
+        "כנרת טריפון רשף=ג'ון דרלינג",
+        "פזית נוני=מייקל דרלינג"
+      ]
+    },
+    {
+      "id": "ramzor",
+      "title": "רמזור",
+      "year": 2008,
+      "credits": 21,
+      "named": 16,
+      "cast": 17,
+      "namedCast": 16,
+      "sample": [
+        "אדיר מילר=אמיר „מירי” רוזנר",
+        "ליאור כלפון=אייל „איצקו” איצקוביץ׳",
+        "נירו לוי=חפר גורי",
+        "יעל שרוני=לילך איצקוביץ׳–יפה",
+        "ליאת הר לב=טלי רוזנר"
+      ]
+    },
+    {
+      "id": "parpar-nechmad",
+      "title": "פרפר נחמד",
+      "year": 1982,
+      "credits": 20,
+      "named": 20,
+      "cast": 20,
+      "namedCast": 20,
+      "sample": [
+        "יורם יוספסברג=אורח / דמויות",
+        "יפה גבאי=דמויות",
+        "דודו זר=מנחה",
+        "עוזי חיטמן=מנחה",
+        "עפרה ויינגרטן=מנחה"
+      ]
+    }
+  ]
+}

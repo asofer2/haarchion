@@ -1,0 +1,20 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isSignedIn() {
+      return request.auth != null && request.auth.uid != null;
+    }
+
+    function isImageUnder8mb() {
+      return request.resource.size < 8 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+
+    // Public read for portraits / posters; signed-in users may upload images
+    match /{allPaths=**} {
+      allow read: if true;
+      allow create, update: if isSignedIn() && isImageUnder8mb();
+      allow delete: if isSignedIn();
+    }
+  }
+}

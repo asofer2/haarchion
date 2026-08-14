@@ -1,0 +1,1232 @@
+{
+  "total": 175,
+  "withBirth": 10,
+  "withDeath": 5,
+  "people": [
+    {
+      "id": "gila-almagor",
+      "name": "גילה אלמגור",
+      "also": "Gila Almagor",
+      "birthDate": "1939-07-21",
+      "deathDate": ""
+    },
+    {
+      "id": "assi-dayan",
+      "name": "אסי דיין",
+      "also": "Assi Dayan",
+      "birthDate": "1945-11-06",
+      "deathDate": "2014-05-01"
+    },
+    {
+      "id": "lior-ashkenazi",
+      "name": "ליאור אשכנזי",
+      "also": "Lior Ashkenazi",
+      "birthDate": "1968-12-28",
+      "deathDate": ""
+    },
+    {
+      "id": "yael-abeccassis",
+      "name": "יעל אבקסיס",
+      "also": "Yael Abecassis",
+      "birthDate": "1967-07-19",
+      "deathDate": ""
+    },
+    {
+      "id": "uri-zohar",
+      "name": "אורי זוהר",
+      "also": "Uri Zohar",
+      "birthDate": "1935-11-04",
+      "deathDate": "2022-06-02"
+    },
+    {
+      "id": "maya-dagan",
+      "name": "מיה דגן",
+      "also": "Maya Dagan",
+      "birthDate": "1971-05-01",
+      "deathDate": ""
+    },
+    {
+      "id": "ronny-kuban",
+      "name": "רוני קובן",
+      "also": "Roni Kuban",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "hana-maron",
+      "name": "חנה מרון",
+      "also": "Hanna Maron",
+      "birthDate": "1923-11-22",
+      "deathDate": "2014-05-30"
+    },
+    {
+      "id": "shafrira-zachai",
+      "name": "שפרירה זכאי",
+      "also": "Shafrira Zachai",
+      "birthDate": "1932-01-01",
+      "deathDate": ""
+    },
+    {
+      "id": "yaffa-gabay",
+      "name": "יפה גבאי",
+      "also": "Yaffa Gabay",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "sharon-cohen",
+      "name": "שרון כהן",
+      "also": "Sharon Cohen",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "daniel-magon",
+      "name": "דניאל מגון",
+      "also": "Daniel Magon",
+      "birthDate": "1988-03-15",
+      "deathDate": ""
+    },
+    {
+      "id": "eliana-magon",
+      "name": "אליענה מגון",
+      "also": "Eliana Magon",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yonatan-magon",
+      "name": "יהונתן מגון",
+      "also": "Yonatan Magon",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "kobi-likverman",
+      "name": "קובי ליקורמן",
+      "also": "Kobi Likverman",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "laura-shopov",
+      "name": "לורה שופוב",
+      "also": "Laura Shopov",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "shiri-gadni",
+      "name": "שירי גדני",
+      "also": "Shiri Gadni",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "tsvika-furman",
+      "name": "צביקה פורמן",
+      "also": "Tsvika Furman",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ayelet-robinson",
+      "name": "איילת רובינסון",
+      "also": "Ayelet Robinson",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "rama-messinger",
+      "name": "רמה מסינגר",
+      "also": "Rama Messinger",
+      "birthDate": "1968-01-01",
+      "deathDate": "2015-07-18"
+    },
+    {
+      "id": "avi-hadash",
+      "name": "אבי חדש",
+      "also": "Avi Hadash",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yoram-yosefsberg",
+      "name": "יורם יוספסברג",
+      "also": "Yoram Yosefsberg",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ami-mandelman",
+      "name": "עמי מנדלמן",
+      "also": "Ami Mandelman",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "gilad-kelter",
+      "name": "גלעד קלטר",
+      "also": "Gilad Kelter",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "liron-lev",
+      "name": "לירון לב",
+      "also": "Liron Lev",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "einat-gliksman",
+      "name": "עינת גליקסמן",
+      "also": "Einat Gliksman",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "hadar-shahaf-maayan",
+      "name": "הדר שחף־מעיין",
+      "also": "Hadar Shahaf-Maayan",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "tal-mosseri",
+      "name": "טל מוסרי",
+      "also": "Tal Mosseri",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "tomer-sharon",
+      "name": "תומר שרון",
+      "also": "Tomer Sharon",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "miki-kam",
+      "name": "מיקי קם",
+      "also": "Miki Kam",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "dudu-zar",
+      "name": "דודו זר",
+      "also": "Dudu Zar",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "shasi-keshet",
+      "name": "ששי קשת",
+      "also": "Sassi Keshet",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "riki-gal",
+      "name": "ריקי גל",
+      "also": "Riki Gal",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "moni-moshonov",
+      "name": "מוני מושונוב",
+      "also": "Moni Moshonov",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "shlomo-baraba",
+      "name": "שלמה בראבא",
+      "also": "Shlomo Baraba",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "debi-beserglik",
+      "name": "דבי בסרגליק",
+      "also": "Debi Beserglik",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "orna-katz",
+      "name": "אורנה כץ",
+      "also": "Orna Katz",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "alon-neumann",
+      "name": "אלון נוימן",
+      "also": "Alon Neumann",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "nir-ron",
+      "name": "ניר רון",
+      "also": "Nir Ron",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "sapir-dermon",
+      "name": "ספיר דרמון",
+      "also": "Sapir Dermon",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yoav-tsarfati",
+      "name": "יואב צרפתי",
+      "also": "Yoav Tsarfati",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "eran-mor",
+      "name": "ערן מור",
+      "also": "Eran Mor",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "mati-atlas",
+      "name": "מתי אטלס",
+      "also": "Mati Atlas",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "efi-ben-israel",
+      "name": "אפי בן ישראל",
+      "also": "Efi Ben Israel",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "gilit-shoval",
+      "name": "גיתית שובל",
+      "also": "Gilit Shoval",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "simcha-barbiro",
+      "name": "שמחה ברבירו",
+      "also": "Simcha Barbiro",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "assaf-preenta",
+      "name": "אסף פריינטא",
+      "also": "Assaf Preenta",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "michal-reshef",
+      "name": "מיכל רשף",
+      "also": "Michal Reshef",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "dani-bassan",
+      "name": "דני בסן",
+      "also": "Dani Bassan",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "tamir-ginsburg",
+      "name": "תמיר גינזבורג",
+      "also": "Tamir Ginsburg",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yuval-segal",
+      "name": "יובל סגל",
+      "also": "Yuval Segal",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "michael-moshonov",
+      "name": "מיכאל מושונוב",
+      "also": "Michael Moshonov",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yangal-glazer",
+      "name": "ינגל גלזר־ז׳אן",
+      "also": "Inbal Glazer",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "alon-sharr",
+      "name": "אלון שר",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "barak-brinksman",
+      "name": "ברק בריקמן",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "maya-bar-shalom",
+      "name": "מאיה בר שלום",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "doron-ben-ami",
+      "name": "דורון בן־עמי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "sharon-bles",
+      "name": "שרון בלס",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "rona-bakerman",
+      "name": "רונה בקרמן",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "orly-katan",
+      "name": "אורלי קטן",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "shi-zenzuri",
+      "name": "שי זנזורי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "eldad-privs",
+      "name": "אלדד פריבס",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "gilad-malek",
+      "name": "גלעד מאלך",
+      "also": "Gilad Malek",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "michal-tzafir",
+      "name": "מיכל צפיר",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "dan-shatzberg",
+      "name": "דן שצברג",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "avi-grinik",
+      "name": "אבי גריניק",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "alon-ofir",
+      "name": "אלון אופיר",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yael-nurit",
+      "name": "יעל טל",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "adi-kozlovsky",
+      "name": "עדי קוזלובסקי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "noa-kashpitzky",
+      "name": "נועה קשפיצקי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "jonathan-ptishi",
+      "name": "יונתן פטישי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ortal-zamir",
+      "name": "אורטל זמיר",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ido-mosseri",
+      "name": "עידו מוסרי",
+      "also": "Ido Mosseri",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "shaul-amos",
+      "name": "שאול עמי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "anat-waschitz",
+      "name": "ענת ושלץ",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "roy-steinberg",
+      "name": "רועי שטיינברג",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "maya-mizrahi",
+      "name": "מאיה מזרחי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "omri-rosenkrantz",
+      "name": "עומרי רוזנקרנץ",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "lihi-barbour",
+      "name": "ליהי ברבור",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yoram-yosefsberg-extra",
+      "name": "גדי לוי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ziv-meir",
+      "name": "זיו מאיר",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "shira-naor",
+      "name": "שירה נאור",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "amit-yosovich",
+      "name": "עמית יוסוביץ׳",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "noam-tal",
+      "name": "נועם טל",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yahel-sherman",
+      "name": "יהל שרמן",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "chen-cohen",
+      "name": "חן כהן",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "itay-shinman",
+      "name": "איתי שינמן",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "maya-goldstein",
+      "name": "מאיה גולדשטיין",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "rita",
+      "name": "ריטה",
+      "also": "Rita (Israeli singer)",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "shlomi-shabat",
+      "name": "שלומי שבת",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yardena-arazi",
+      "name": "ירדנה ארזי",
+      "also": "Yardena Arazi",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "svika-pick",
+      "name": "צביקה פיק",
+      "also": "Svika Pick",
+      "birthDate": "",
+      "deathDate": "2022-08-14"
+    },
+    {
+      "id": "tzipi-shavit",
+      "name": "ציפי שביט",
+      "also": "Tzipi Shavit",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "mariko",
+      "name": "מריקו",
+      "also": "Mariko",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "uchi",
+      "name": "אוחי",
+      "also": "Ochi",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yuval-hamevulbal",
+      "name": "יובל המבולבל",
+      "also": "Yuval HaMebulbal",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "michal-haiktanit",
+      "name": "מיכל הקטנה",
+      "also": "Michal HaKtana",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "natalie-atiya",
+      "name": "נטעלי עטייה",
+      "also": "Netta Garti",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "agam-rodberg",
+      "name": "אגם רודברג",
+      "also": "Agam Rodberg",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "liam-giini",
+      "name": "ליאם ג׳יני",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "noam-ben-gur",
+      "name": "נועם בן גור",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "shira-levi",
+      "name": "שירה לוי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ido-rosenblum",
+      "name": "עידו רוזנבלום",
+      "also": "Ido Rosenblum",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "eden-hason",
+      "name": "עדן חסון",
+      "also": "Eden Hason",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "static-ben-el",
+      "name": "סטטיק",
+      "also": "Static (rapper)",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ben-el-tavori",
+      "name": "בן אל תבורי",
+      "also": "Ben El Tavori",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "anna-zak",
+      "name": "אנה זק",
+      "also": "Anna Zak",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "noa-kirel",
+      "name": "נועה קירל",
+      "also": "Noa Kirel",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yon-tumarkin",
+      "name": "יון תומרקין",
+      "also": "Yon Tumarkin",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "adi-himelbloy",
+      "name": "עדי הימלבלוי",
+      "also": "Adi Himelbloy",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ninet-tayeb",
+      "name": "נינט טייב",
+      "also": "Ninet Tayeb",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "harel-skaat",
+      "name": "הראל סקעת",
+      "also": "Harel Skaat",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "shiri-mimon",
+      "name": "שירי מימון",
+      "also": "Shiri Maimon",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ozi-fux",
+      "name": "עוזי פוקס",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "eli-gorenstein",
+      "name": "אלי גורנשטיין",
+      "also": "Eli Gorenstein",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "dov-reiber",
+      "name": "דב רייזר",
+      "also": "Dov Reiser",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yehezkel-lazarov",
+      "name": "יחזקאל לזרוב",
+      "also": "Yehezkel Lazarov",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ania-bukstein",
+      "name": "אניה בוקשטיין",
+      "also": "Ania Bukstein",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "liraz-charhi",
+      "name": "לירז צ׳רכי",
+      "also": "Liraz Charhi",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "israel-katorza",
+      "name": "ישראל קטורזה",
+      "also": "Israel Katorza",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "shalom-asherov",
+      "name": "שלום אסייג",
+      "also": "Shalom Asayag",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "eli-finish",
+      "name": "אלי פיניש",
+      "also": "Eli Finish",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "tuvia-tsafir",
+      "name": "טוביה צפיר",
+      "also": "Tuvia Tzafir",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "gidi-gov",
+      "name": "גידי גוב",
+      "also": "Gidi Gov",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "matti-caspi",
+      "name": "מתי כספי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ehud-banai",
+      "name": "אהוד בנאי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "shaanan-street",
+      "name": "שאנן סטריט",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "hadag-nahash-shanan",
+      "name": "מיכה רבינוביץ׳",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "talya-cohen",
+      "name": "טליה כהן",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "romi-parkhomovsky",
+      "name": "רומי פרחומובסקי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "amit-farkash",
+      "name": "עמית פרקש",
+      "also": "Amit Farkash",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yonatan-bass",
+      "name": "יונתן בס",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "maayan-turjeman",
+      "name": "מעין תורג׳מן",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ofek-pati",
+      "name": "אופק פטי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "halleli-avi",
+      "name": "הללי אבי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yoav-hayun",
+      "name": "יואב חיון",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "sivan-sharon",
+      "name": "סיון שרון",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "tamirosh-star",
+      "name": "תמירוש",
+      "also": "Tamirosh",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "oran-tal",
+      "name": "אורן טל",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "talya-barkai",
+      "name": "טליה ברקאי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "hilla-priel",
+      "name": "הילה פריאל",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "omri-dreznin",
+      "name": "עומרי דרזנין",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "shaked-levy",
+      "name": "שקד לוי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "maya-shoef",
+      "name": "מאיה שואף",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "gal-levin",
+      "name": "גל לוין",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "nofar-cohen",
+      "name": "נופר כהן",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yonatan-hashiloni",
+      "name": "יונתן השילוני",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "adi-bianko",
+      "name": "עדי ביאנקו",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "roy-maman",
+      "name": "רועי ממן",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "shira-gavrielov",
+      "name": "שירה גבריאלוב",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "itay-zaidman",
+      "name": "איתי זיידמן",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "yael-ben-aryeh",
+      "name": "יעל בן אריה",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "lihi-kornowski",
+      "name": "ליהי קורנובסקי",
+      "also": "Lihi Kornowski",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "daniel-gad",
+      "name": "דניאל גד",
+      "also": "Daniel Gad",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "shira-katzenellenbogen",
+      "name": "שירה קצנלנבוגן",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "michael-alinor",
+      "name": "מיכאל אלוני",
+      "also": "Michael Aloni",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "rotum-sela",
+      "name": "רותם סלע",
+      "also": "Rotem Sela",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "moshe-ashkenazi",
+      "name": "משה אשכנזי",
+      "also": "Moshe Ashkenazi",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-chnh-drvry-kshy",
+      "name": "חנה דרורי קשי",
+      "also": "Hanna Drori Kashi",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-chsyh-vrthyym",
+      "name": "חסיה ורטהיים",
+      "also": "Hasia Wertheim",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-rvty-hvltzmn",
+      "name": "רותי הולצמן",
+      "also": "Ruti Holtzman",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-avrnh-lbya-plynt",
+      "name": "אורנה לביא פלינט",
+      "also": "Orna Lavi Flint",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-chny-nchmyas",
+      "name": "חני נחמיאס",
+      "also": "Hani Nahmias",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-knrt-trypvn-rshp",
+      "name": "כנרת טריפון רשף",
+      "also": "Kinneret Trifon Reshef",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-pzyt-nvny",
+      "name": "פזית נוני",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-tmy-ashl",
+      "name": "תמי אשל",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-nvryt-bnay-kvrn",
+      "name": "נורית בנאי קורן",
+      "also": "Nurit Banai Koren",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-lylyan-brtv",
+      "name": "ליליאן ברטו",
+      "also": "Lilian Barreto",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-shmavn-khn",
+      "name": "שמעון כהן",
+      "also": "Shimon Cohen",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-avdd-mnshh",
+      "name": "עודד מנשה",
+      "also": "Oded Menashe",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-shchr-tzrpty",
+      "name": "שחר צרפתי",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-shmvlyk-yprch",
+      "name": "שמוליק יפרח",
+      "also": "Shmulik Yifrah",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-yvrm-gl",
+      "name": "יורם גל",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-rvny-vyys",
+      "name": "רוני וייס",
+      "also": "",
+      "birthDate": "",
+      "deathDate": ""
+    },
+    {
+      "id": "ht-lah-navr",
+      "name": "לאה נאור",
+      "also": "Leah Naor",
+      "birthDate": "",
+      "deathDate": ""
+    }
+  ]
+}

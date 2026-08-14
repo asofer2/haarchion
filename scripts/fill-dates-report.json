@@ -1,0 +1,132 @@
+{
+  "found": 25,
+  "missing": 458,
+  "newlyAdded": [
+    {
+      "id": "karyn-avpyr",
+      "name": "קארין אופיר",
+      "birthDate": "1972-04-23"
+    },
+    {
+      "id": "yryn-avrvn",
+      "name": "ירין אורון",
+      "birthDate": "2012-11-01"
+    },
+    {
+      "id": "aby-avryh",
+      "name": "אבי אוריה",
+      "birthDate": "1949-05-01"
+    },
+    {
+      "id": "dvrvn-avrn",
+      "name": "דורון אורן",
+      "birthDate": "1969-03-20"
+    },
+    {
+      "id": "tly-avrn",
+      "name": "טלי אורן",
+      "birthDate": "1977-05-08"
+    },
+    {
+      "id": "yvbl-byndr",
+      "name": "יובל בינדר",
+      "birthDate": "1986-09-06"
+    },
+    {
+      "id": "rvny-blyts",
+      "name": "רוני בליץ",
+      "birthDate": "1959-01-01"
+    },
+    {
+      "id": "tl-blkrvbyts",
+      "name": "טל בלכרוביץ'",
+      "birthDate": "1975-11-06"
+    },
+    {
+      "id": "shmyl-bn-ary",
+      "name": "שמיל בן ארי",
+      "birthDate": "1952-02-07"
+    },
+    {
+      "id": "ayln-gnny",
+      "name": "אילן גנני",
+      "birthDate": "1971-06-07"
+    },
+    {
+      "id": "yvsy-grbr",
+      "name": "יוסי גרבר",
+      "birthDate": "1933-11-02",
+      "deathDate": "2016-02-19"
+    },
+    {
+      "id": "aytn-grynbrg",
+      "name": "איטן גרינברג",
+      "birthDate": "1994-01-21"
+    },
+    {
+      "id": "aylnyt-grshvn",
+      "name": "אילנית גרשון",
+      "birthDate": "1982-01-10"
+    },
+    {
+      "id": "rvay-vyynbrg",
+      "name": "רועי ויינברג",
+      "birthDate": "1990-05-28"
+    },
+    {
+      "id": "shrh-vynv-alad",
+      "name": "שרה וינו-אלעד",
+      "birthDate": "1971-08-26"
+    },
+    {
+      "id": "aby-mayr-vanvnv",
+      "name": "אבי מאיר וענונו",
+      "birthDate": "1964-07-29"
+    },
+    {
+      "id": "ant-vksmn",
+      "name": "ענת וקסמן",
+      "birthDate": "1961-06-26"
+    },
+    {
+      "id": "gayh-travb",
+      "name": "גאיה טראוב",
+      "birthDate": "1988-05-01"
+    },
+    {
+      "id": "amy-travb",
+      "name": "עמי טראוב",
+      "birthDate": "1948-08-30"
+    },
+    {
+      "id": "yshral-tryystmn",
+      "name": "ישראל טרייסטמן",
+      "birthDate": "1950-07-01"
+    },
+    {
+      "id": "abyb-trnr",
+      "name": "אביב טרנר",
+      "birthDate": "1988-05-12"
+    },
+    {
+      "id": "avhd-shchr",
+      "name": "אוהד שחר",
+      "birthDate": "1957-10-30"
+    },
+    {
+      "id": "dny-shtg",
+      "name": "דני שטג",
+      "birthDate": "1966-11-12"
+    },
+    {
+      "id": "abyshy-shtryt",
+      "name": "אבישי שטרית",
+      "birthDate": "1978-05-02"
+    },
+    {
+      "id": "namh-shtryt",
+      "name": "נעמה שטרית",
+      "birthDate": "1985-01-15"
+    }
+  ]
+}

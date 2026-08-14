@@ -1,0 +1,328 @@
+{
+  "at": "2026-07-29T16:04:41.815Z",
+  "summary": {
+    "peopleTotal": 628,
+    "peopleAlreadyLocal": 4,
+    "peopleResolved": 476,
+    "peopleStillMissing": 148,
+    "peopleWithWorkingImage": 480,
+    "peopleRecoveredThisPass": 278,
+    "productionsTotal": 784,
+    "productionsAlreadyLocal": 3,
+    "productionsResolved": 345,
+    "productionsStillMissing": 6,
+    "productionsWithWorkingImage": 348,
+    "productionsRecoveredThisPass": 29,
+    "productionsLackedImageUrl": 0
+  },
+  "stillMissingPeople": [
+    "ברק בריקמן",
+    "מאיה בר שלום",
+    "שרון בלס",
+    "אורלי קטן",
+    "שי זנזורי",
+    "אלדד פריבס",
+    "גלעד מאלך",
+    "עדי קוזלובסקי",
+    "יונתן פטישי",
+    "אורטל זמיר",
+    "ענת ושלץ",
+    "רועי שטיינברג",
+    "מאיה מזרחי",
+    "עומרי רוזנקרנץ",
+    "ליהי ברבור",
+    "שירה נאור",
+    "עמית יוסוביץ׳",
+    "יהל שרמן",
+    "איתי שינמן",
+    "מאיה גולדשטיין",
+    "מרים אביגל־סגל",
+    "ליאם ג׳יני",
+    "נועם בן גור",
+    "שירה לוי",
+    "עידו רוזנבלום",
+    "עדן חסון",
+    "בן אל תבורי",
+    "יון תומרקין",
+    "נינט טייב",
+    "הראל סקעת",
+    "שירי מימון",
+    "עוזי פוקס",
+    "יחזקאל לזרוב",
+    "אניה בוקשטיין",
+    "שלום אסייג",
+    "מתי כספי",
+    "אהוד בנאי",
+    "שאנן סטריט",
+    "מיכה רבינוביץ׳",
+    "רומי פרחומובסקי",
+    "עמית פרקש",
+    "יונתן בס",
+    "מעין תורג׳מן",
+    "אופק פטי",
+    "הללי אבי",
+    "יואב חיון",
+    "סיון שרון",
+    "דליק ווליניץ",
+    "ספי ריבלין",
+    "יוני חן",
+    "תמירוש",
+    "טליה ברקאי",
+    "הילה פריאל",
+    "עומרי דרזנין",
+    "שקד לוי",
+    "מאיה שואף",
+    "גל לוין",
+    "נופר כהן",
+    "יונתן השילוני",
+    "עדי ביאנקו",
+    "רועי ממן",
+    "שירה גבריאלוב",
+    "איתי זיידמן",
+    "יעל בן אריה",
+    "חסיה ורטהיים",
+    "אורנה לביא פלינט",
+    "כנרת טריפון רשף",
+    "תמי אשל",
+    "נורית בנאי קורן",
+    "שמעון כהן",
+    "שחר צרפתי",
+    "ירון דגן",
+    "אסף כחולי",
+    "איריס זינגר",
+    "נטע ריסקין",
+    "איציק כהן",
+    "נטע גרטי",
+    "בועז קונפורטי",
+    "הישאם סלימאן",
+    "גאיה שליטא-כץ",
+    "לי בירן",
+    "דניאל ליטמן",
+    "דר זוזובסקי",
+    "ידין גולדמן",
+    "ג'וי ריגר",
+    "שיר מורנו",
+    "ליאור שבתאי",
+    "סמדר חייט",
+    "אלי קרן-אסף",
+    "ליאור כלפון",
+    "נירו לוי",
+    "יעל שרוני",
+    "יובל וין",
+    "תחיה דנון",
+    "אמה רובין",
+    "רינה פדווה",
+    "אוהד פרח",
+    "יגיל מריסין",
+    "שפרה ציפרין",
+    "שלום כורם",
+    "אסתי קוסוביצקי",
+    "רן שריג",
+    "רני סער",
+    "משה דץ",
+    "עליזה רוזן",
+    "שלמה ניצן",
+    "ציפי מור",
+    "איילת לוין",
+    "עירית שילה",
+    "איציק גייר",
+    "ז'יל בן דוד",
+    "אבי יקיר",
+    "צלילה ינאי",
+    "עמי ויינברג",
+    "שרי צוריאל",
+    "נתן דטנר",
+    "חנה רוט",
+    "שוש מרציאנו",
+    "אביטל אברג'יל",
+    "אביתר אדיר",
+    "רעיה אדמוני",
+    "מיכה אוזין סליאן",
+    "ירין אורון",
+    "עפרון אטקין",
+    "אפרת גוש",
+    "אלי אילדיס",
+    "אניטל אלבחר",
+    "חן אלון",
+    "ענת אלימלך",
+    "אלה פטר",
+    "מיכאלה אלקין",
+    "שירי ארצי",
+    "חרות אשכנזי",
+    "עדי אשכנזי",
+    "קובי אשל",
+    "אסף אשתר",
+    "ליאור דטאוקר",
+    "דורי טפר",
+    "עמי טראוב",
+    "ישראל טרייסטמן",
+    "רוית יעקב",
+    "יואב יפת",
+    "ירון לוי סבג",
+    "שחר ישי",
+    "אלון ליטבק",
+    "גל סרי",
+    "מיכאל עינב",
+    "עומר עציון"
+  ],
+  "stillMissingProductions": [
+    "ספר הג'ונגל (דיבוב 1988)",
+    "בת הים הקטנה",
+    "סיפורי גדליער",
+    "סיפורי חיות",
+    "המחנה הקסום",
+    "דרגון בול"
+  ],
+  "sampleFound": [
+    {
+      "id": "einat-gliksman",
+      "name": "עינת גליקסמן",
+      "url": "https://upload.wikimedia.org/wikipedia/he/thumb/3/32/%D7%A4%D7%95%D7%A7%D7%94_%D7%9C%D7%95%D7%92%D7%95.png/330px-%D7%A4%D7%95%D7%A7%D7%94_%D7%9C%D7%95%D7%92%D7%95.png"
+    },
+    {
+      "id": "sapir-dermon",
+      "name": "ספיר דרמון",
+      "url": "https://upload.wikimedia.org/wikipedia/he/thumb/a/a8/%D7%98%D7%A8%D7%94_%D7%93%D7%90%D7%A0%D7%A7%D7%9F.jpg/330px-%D7%98%D7%A8%D7%94_%D7%93%D7%90%D7%A0%D7%A7%D7%9F.jpg"
+    },
+    {
+      "id": "yoav-tsarfati",
+      "name": "יואב צרפתי",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Mati_Tzarfati_Harkabi_%28R_H_3413%29.jpg/330px-Mati_Tzarfati_Harkabi_%28R_H_3413%29.jpg"
+    },
+    {
+      "id": "efi-ben-israel",
+      "name": "אפי בן ישראל",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Mosh_ben_ari_efi_e.jpg/960px-Mosh_ben_ari_efi_e.jpg"
+    },
+    {
+      "id": "gilit-shoval",
+      "name": "גיתית שובל",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/The_house_with_the_green_shutters_%28IA_housewithgreensh00brow%29.pdf/page1-500px-The_house_with_the_green_shutters_%28IA_housewithgreensh00brow%29.pdf.jpg"
+    },
+    {
+      "id": "assaf-preenta",
+      "name": "אסף פריינטא",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Kinder_und_Hausm%C3%A4rchen_%28Grimm%29_1812_I_253.jpg/330px-Kinder_und_Hausm%C3%A4rchen_%28Grimm%29_1812_I_253.jpg"
+    },
+    {
+      "id": "michal-reshef",
+      "name": "מיכל רשף",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Michelle_Green.JPG"
+    },
+    {
+      "id": "tamir-ginsburg",
+      "name": "תמיר גינזבורג",
+      "url": "https://upload.wikimedia.org/wikipedia/he/3/34/Chakotay.jpg"
+    },
+    {
+      "id": "yangal-glazer",
+      "name": "ינגל גלזר־ז׳אן",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/The_Glendale_Evening_News_1921-11-01_%28IA_cgl_004523%29.pdf/page1-960px-The_Glendale_Evening_News_1921-11-01_%28IA_cgl_004523%29.pdf.jpg"
+    },
+    {
+      "id": "lihi-kornowski",
+      "name": "ליהי קורנובסקי",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/LIHIKORNO.JPG/330px-LIHIKORNO.JPG"
+    },
+    {
+      "id": "daniel-gad",
+      "name": "דניאל גד",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Daniel_Gad_2.jpg/330px-Daniel_Gad_2.jpg"
+    },
+    {
+      "id": "shira-katzenellenbogen",
+      "name": "שירה קצנלנבוגן",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Shira_katzenelenbogen_three.jpg/330px-Shira_katzenelenbogen_three.jpg"
+    },
+    {
+      "id": "michael-alinor",
+      "name": "מיכאל אלוני",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/%D7%9E%D7%99%D7%9B%D7%90%D7%9C_%D7%90%D7%9C%D7%95%D7%A0%D7%99_%D7%A6%D7%99%D7%9C%D7%95%D7%9D_%D7%93%D7%95%D7%A8_%D7%9E%D7%9C%D7%9B%D7%94.jpg/330px-%D7%9E%D7%99%D7%9B%D7%90%D7%9C_%D7%90%D7%9C%D7%95%D7%A0%D7%99_%D7%A6%D7%99%D7%9C%D7%95%D7%9D_%D7%93%D7%95%D7%A8_%D7%9E%D7%9C%D7%9B%D7%94.jpg"
+    },
+    {
+      "id": "ht-rvty-hvltzmn",
+      "name": "רותי הולצמן",
+      "url": "https://upload.wikimedia.org/wikipedia/he/thumb/3/3b/RUTY.jpg/330px-RUTY.jpg"
+    },
+    {
+      "id": "ht-chny-nchmyas",
+      "name": "חני נחמיאס",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Hanny_Nahmias_1.jpg/330px-Hanny_Nahmias_1.jpg"
+    },
+    {
+      "id": "ramzor",
+      "name": "רמזור",
+      "url": "https://upload.wikimedia.org/wikipedia/he/thumb/d/d3/RamzorLogo.png/330px-RamzorLogo.png"
+    },
+    {
+      "id": "danny-phantom-style-danny",
+      "name": "דני שובבני",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Dennis_2005-07-07_1550Z.jpg/960px-Dennis_2005-07-07_1550Z.jpg"
+    },
+    {
+      "id": "festigal",
+      "name": "הפסטיגל",
+      "url": "https://upload.wikimedia.org/wikipedia/he/thumb/4/42/%D7%9E%D7%99%D7%99_%D7%A4%D7%A1%D7%98%D7%99%D7%92%D7%9C.jpg/330px-%D7%9E%D7%99%D7%99_%D7%A4%D7%A1%D7%98%D7%99%D7%92%D7%9C.jpg"
+    },
+    {
+      "id": "rega-im-dudley",
+      "name": "רגע עם דודלי",
+      "url": "https://upload.wikimedia.org/wikipedia/he/f/fe/Dodlee.jpg"
+    },
+    {
+      "id": "hopa-hey",
+      "name": "הופה היי",
+      "url": "https://upload.wikimedia.org/wikipedia/he/thumb/e/ef/Hopa_Hey.jpg/330px-Hopa_Hey.jpg"
+    },
+    {
+      "id": "itcha",
+      "name": "איצ׳ה",
+      "url": "https://upload.wikimedia.org/wikipedia/he/thumb/4/49/%D7%A4%D7%AA%D7%99%D7%97_%D7%94%D7%A1%D7%93%D7%A8%D7%94_%D7%90%D7%99%D7%A6%27%D7%94.png/330px-%D7%A4%D7%AA%D7%99%D7%97_%D7%94%D7%A1%D7%93%D7%A8%D7%94_%D7%90%D7%99%D7%A6%27%D7%94.png"
+    },
+    {
+      "id": "ha-shigaon-hagadol",
+      "name": "השגעון הגדול",
+      "url": "https://upload.wikimedia.org/wikipedia/he/thumb/e/e4/HaShigaon_HaGadol_-_cover.jpg/330px-HaShigaon_HaGadol_-_cover.jpg"
+    },
+    {
+      "id": "once-upon-a-time-life",
+      "name": "היה היה – החיים",
+      "url": "https://upload.wikimedia.org/wikipedia/en/7/71/Once_Upon_a_Time_Life.jpg"
+    },
+    {
+      "id": "moana-he",
+      "name": "מואנה",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Annual_report_of_the_Director_to_the_Board_of_Trustees_for_the_year_.._%28IA_annualreporto19261928fiel%29.pdf/page1-500px-Annual_report_of_the_Director_to_the_Board_of_Trustees_for_the_year_.._%28IA_annualreporto19261928fiel%29.pdf.jpg"
+    },
+    {
+      "id": "up-he",
+      "name": "למעלה",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/105couple-pic.jpg/960px-105couple-pic.jpg"
+    },
+    {
+      "id": "dragonball-he",
+      "name": "דרגון בול",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Dragon_Ball_manga_1st_Japanese_edition_logo.svg/960px-Dragon_Ball_manga_1st_Japanese_edition_logo.svg.png"
+    },
+    {
+      "id": "parpar-nechmad",
+      "name": "פרפר נחמד (העונות הראשונות)",
+      "url": "https://upload.wikimedia.org/wikipedia/he/thumb/2/20/Parparnechmad2.jpg/330px-Parparnechmad2.jpg"
+    },
+    {
+      "id": "festigal-2020s",
+      "name": "הפסטיגל (שנות ה־2000–2020)",
+      "url": "https://upload.wikimedia.org/wikipedia/he/thumb/4/42/%D7%9E%D7%99%D7%99_%D7%A4%D7%A1%D7%98%D7%99%D7%92%D7%9C.jpg/330px-%D7%9E%D7%99%D7%99_%D7%A4%D7%A1%D7%98%D7%99%D7%92%D7%9C.jpg"
+    },
+    {
+      "id": "festigal-classic",
+      "name": "הפסטיגל הקלאסי",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Maftir.JPG/330px-Maftir.JPG"
+    },
+    {
+      "id": "mamma-mia-il",
+      "name": "מאמה מיה! (מחזמר בישראל)",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Victoria_Daily_Times_%281923-09-14%29_%28IA_victoriadailytimes19230914%29.pdf/page1-960px-Victoria_Daily_Times_%281923-09-14%29_%28IA_victoriadailytimes19230914%29.pdf.jpg"
+    }
+  ]
+}

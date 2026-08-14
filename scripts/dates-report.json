@@ -1,0 +1,339 @@
+{
+  "withDates": 121,
+  "withoutDates": 54,
+  "orphanKeys": [],
+  "missing": [
+    {
+      "id": "kobi-likverman",
+      "name": "קובי ליקורמן",
+      "also": "Kobi Likverman"
+    },
+    {
+      "id": "einat-gliksman",
+      "name": "עינת גליקסמן",
+      "also": "Einat Gliksman"
+    },
+    {
+      "id": "yoav-tsarfati",
+      "name": "יואב צרפתי",
+      "also": "Yoav Tsarfati"
+    },
+    {
+      "id": "yangal-glazer",
+      "name": "ינגל גלזר־ז׳אן",
+      "also": "Inbal Glazer"
+    },
+    {
+      "id": "barak-brinksman",
+      "name": "ברק בריקמן"
+    },
+    {
+      "id": "maya-bar-shalom",
+      "name": "מאיה בר שלום"
+    },
+    {
+      "id": "doron-ben-ami",
+      "name": "דורון בן־עמי"
+    },
+    {
+      "id": "sharon-bles",
+      "name": "שרון בלס"
+    },
+    {
+      "id": "shi-zenzuri",
+      "name": "שי זנזורי"
+    },
+    {
+      "id": "gilad-malek",
+      "name": "גלעד מאלך",
+      "also": "Gilad Malek"
+    },
+    {
+      "id": "avi-grinik",
+      "name": "אבי גריניק"
+    },
+    {
+      "id": "noa-kashpitzky",
+      "name": "נועה קשפיצקי"
+    },
+    {
+      "id": "jonathan-ptishi",
+      "name": "יונתן פטישי"
+    },
+    {
+      "id": "ortal-zamir",
+      "name": "אורטל זמיר"
+    },
+    {
+      "id": "shaul-amos",
+      "name": "שאול עמי"
+    },
+    {
+      "id": "anat-waschitz",
+      "name": "ענת ושלץ"
+    },
+    {
+      "id": "roy-steinberg",
+      "name": "רועי שטיינברג"
+    },
+    {
+      "id": "maya-mizrahi",
+      "name": "מאיה מזרחי"
+    },
+    {
+      "id": "omri-rosenkrantz",
+      "name": "עומרי רוזנקרנץ"
+    },
+    {
+      "id": "lihi-barbour",
+      "name": "ליהי ברבור"
+    },
+    {
+      "id": "amit-yosovich",
+      "name": "עמית יוסוביץ׳"
+    },
+    {
+      "id": "noam-tal",
+      "name": "נועם טל"
+    },
+    {
+      "id": "itay-shinman",
+      "name": "איתי שינמן"
+    },
+    {
+      "id": "maya-goldstein",
+      "name": "מאיה גולדשטיין"
+    },
+    {
+      "id": "uchi",
+      "name": "אוחי",
+      "also": "Ochi"
+    },
+    {
+      "id": "yuval-hamevulbal",
+      "name": "יובל המבולבל",
+      "also": "Yuval HaMebulbal"
+    },
+    {
+      "id": "liam-giini",
+      "name": "ליאם ג׳יני"
+    },
+    {
+      "id": "noam-ben-gur",
+      "name": "נועם בן גור"
+    },
+    {
+      "id": "hadag-nahash-shanan",
+      "name": "מיכה רבינוביץ׳"
+    },
+    {
+      "id": "talya-cohen",
+      "name": "טליה כהן"
+    },
+    {
+      "id": "romi-parkhomovsky",
+      "name": "רומי פרחומובסקי"
+    },
+    {
+      "id": "yonatan-bass",
+      "name": "יונתן בס"
+    },
+    {
+      "id": "maayan-turjeman",
+      "name": "מעין תורג׳מן"
+    },
+    {
+      "id": "ofek-pati",
+      "name": "אופק פטי"
+    },
+    {
+      "id": "halleli-avi",
+      "name": "הללי אבי"
+    },
+    {
+      "id": "yoav-hayun",
+      "name": "יואב חיון"
+    },
+    {
+      "id": "sivan-sharon",
+      "name": "סיון שרון"
+    },
+    {
+      "id": "tamirosh-star",
+      "name": "תמירוש",
+      "also": "Tamirosh"
+    },
+    {
+      "id": "oran-tal",
+      "name": "אורן טל"
+    },
+    {
+      "id": "hilla-priel",
+      "name": "הילה פריאל"
+    },
+    {
+      "id": "omri-dreznin",
+      "name": "עומרי דרזנין"
+    },
+    {
+      "id": "shaked-levy",
+      "name": "שקד לוי"
+    },
+    {
+      "id": "maya-shoef",
+      "name": "מאיה שואף"
+    },
+    {
+      "id": "gal-levin",
+      "name": "גל לוין"
+    },
+    {
+      "id": "nofar-cohen",
+      "name": "נופר כהן"
+    },
+    {
+      "id": "yonatan-hashiloni",
+      "name": "יונתן השילוני"
+    },
+    {
+      "id": "adi-bianko",
+      "name": "עדי ביאנקו"
+    },
+    {
+      "id": "roy-maman",
+      "name": "רועי ממן"
+    },
+    {
+      "id": "itay-zaidman",
+      "name": "איתי זיידמן"
+    },
+    {
+      "id": "yael-ben-aryeh",
+      "name": "יעל בן אריה"
+    },
+    {
+      "id": "ht-chsyh-vrthyym",
+      "name": "חסיה ורטהיים",
+      "also": "Hasia Wertheim"
+    },
+    {
+      "id": "ht-knrt-trypvn-rshp",
+      "name": "כנרת טריפון רשף",
+      "also": "Kinneret Trifon Reshef"
+    },
+    {
+      "id": "ht-tmy-ashl",
+      "name": "תמי אשל"
+    },
+    {
+      "id": "ht-shchr-tzrpty",
+      "name": "שחר צרפתי"
+    }
+  ],
+  "sampleWith": [
+    {
+      "id": "gila-almagor",
+      "name": "גילה אלמגור",
+      "birthDate": "1939-07-21"
+    },
+    {
+      "id": "assi-dayan",
+      "name": "אסי דיין",
+      "birthDate": "1945-11-06",
+      "deathDate": "2014-05-01"
+    },
+    {
+      "id": "lior-ashkenazi",
+      "name": "ליאור אשכנזי",
+      "birthDate": "1968-12-28"
+    },
+    {
+      "id": "yael-abeccassis",
+      "name": "יעל אבקסיס",
+      "birthDate": "1967-07-19"
+    },
+    {
+      "id": "uri-zohar",
+      "name": "אורי זוהר",
+      "birthDate": "1935-11-04",
+      "deathDate": "2022-06-02"
+    },
+    {
+      "id": "maya-dagan",
+      "name": "מיה דגן",
+      "birthDate": "1971-05-01"
+    },
+    {
+      "id": "ronny-kuban",
+      "name": "רוני קובן",
+      "birthDate": "1979-02-17"
+    },
+    {
+      "id": "hana-maron",
+      "name": "חנה מרון",
+      "birthDate": "1923-11-22",
+      "deathDate": "2014-05-30"
+    },
+    {
+      "id": "shafrira-zachai",
+      "name": "שפרירה זכאי",
+      "birthDate": "1932-01-01"
+    },
+    {
+      "id": "yaffa-gabay",
+      "name": "יפה גבאי",
+      "birthDate": "1955-08-04"
+    },
+    {
+      "id": "sharon-cohen",
+      "name": "שרון כהן",
+      "birthDate": "1968-11-01"
+    },
+    {
+      "id": "daniel-magon",
+      "name": "דניאל מגון",
+      "birthDate": "1988-03-15"
+    },
+    {
+      "id": "eliana-magon",
+      "name": "אליענה מגון",
+      "birthDate": "1993-02-23"
+    },
+    {
+      "id": "yonatan-magon",
+      "name": "יהונתן מגון",
+      "birthDate": "1986-04-10"
+    },
+    {
+      "id": "laura-shopov",
+      "name": "לורה שופוב",
+      "birthDate": "2000-01-20"
+    },
+    {
+      "id": "shiri-gadni",
+      "name": "שירי גדני",
+      "birthDate": "1978-10-20"
+    },
+    {
+      "id": "tsvika-furman",
+      "name": "צביקה פורמן",
+      "birthDate": "1969-09-25"
+    },
+    {
+      "id": "ayelet-robinson",
+      "name": "איילת רובינסון",
+      "birthDate": "1975-10-31"
+    },
+    {
+      "id": "rama-messinger",
+      "name": "רמה מסינגר",
+      "birthDate": "1968-01-01",
+      "deathDate": "2015-07-18"
+    },
+    {
+      "id": "avi-hadash",
+      "name": "אבי חדש",
+      "birthDate": "1959-09-23"
+    }
+  ]
+}

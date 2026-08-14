@@ -1,0 +1,218 @@
+[
+  {
+    "id": "itcha",
+    "title": "איצ׳ה",
+    "year": 1994,
+    "kind": "series",
+    "credits": 1,
+    "named": 1
+  },
+  {
+    "id": "danny-phantom-style-danny",
+    "title": "דני שובבני",
+    "year": 1987,
+    "kind": "series",
+    "credits": 1,
+    "named": 1
+  },
+  {
+    "id": "dragonball-he",
+    "title": "דרגון בול",
+    "year": 1986,
+    "kind": "series",
+    "credits": 1,
+    "named": 1
+  },
+  {
+    "id": "hopa-hey",
+    "title": "הופה היי",
+    "year": 1987,
+    "kind": "tv_program",
+    "credits": 1,
+    "named": 0
+  },
+  {
+    "id": "once-upon-a-time-life",
+    "title": "היה היה – החיים",
+    "year": 1987,
+    "kind": "series",
+    "credits": 1,
+    "named": 1
+  },
+  {
+    "id": "the-heart-marco",
+    "title": "הלב",
+    "year": 1979,
+    "kind": "series",
+    "credits": 1,
+    "named": 1
+  },
+  {
+    "id": "winx-he",
+    "title": "מועדון ווינקס",
+    "year": 2004,
+    "kind": "series",
+    "credits": 1,
+    "named": 1
+  },
+  {
+    "id": "sailormoon-he",
+    "title": "סיילור מון",
+    "year": 1992,
+    "kind": "series",
+    "credits": 1,
+    "named": 1
+  },
+  {
+    "id": "sefi-tv",
+    "title": "ספי",
+    "year": 1998,
+    "kind": "series",
+    "credits": 1,
+    "named": 1
+  },
+  {
+    "id": "rega-im-dudley",
+    "title": "רגע עם דודלי",
+    "year": 1975,
+    "kind": "tv_program",
+    "credits": 1,
+    "named": 1
+  },
+  {
+    "id": "totally-spies-he",
+    "title": "שלוש אספנות",
+    "year": 2001,
+    "kind": "series",
+    "credits": 1,
+    "named": 1
+  },
+  {
+    "id": "spongebob-he",
+    "title": "בובספוג",
+    "year": 1999,
+    "kind": "series",
+    "credits": 2,
+    "named": 2
+  },
+  {
+    "id": "miraculous-he",
+    "title": "המשושים",
+    "year": 2015,
+    "kind": "series",
+    "credits": 2,
+    "named": 2
+  },
+  {
+    "id": "naruto-he",
+    "title": "נארוטו",
+    "year": 2002,
+    "kind": "series",
+    "credits": 2,
+    "named": 2
+  },
+  {
+    "id": "pokemon-he",
+    "title": "פוקימון",
+    "year": 1997,
+    "kind": "series",
+    "credits": 2,
+    "named": 2
+  },
+  {
+    "id": "peppa-pig-he",
+    "title": "פפה פיג",
+    "year": 2004,
+    "kind": "series",
+    "credits": 2,
+    "named": 1
+  },
+  {
+    "id": "bluey-he",
+    "title": "בלואי",
+    "year": 2018,
+    "kind": "series",
+    "credits": 3,
+    "named": 2
+  },
+  {
+    "id": "digimon-he",
+    "title": "דיג'ימון",
+    "year": 1999,
+    "kind": "series",
+    "credits": 3,
+    "named": 1
+  },
+  {
+    "id": "hop",
+    "title": "הופ!",
+    "year": 2007,
+    "kind": "series",
+    "credits": 5,
+    "named": 0
+  },
+  {
+    "id": "the-smurfs-he",
+    "title": "הדרדסים",
+    "year": 1981,
+    "kind": "series",
+    "credits": 282,
+    "named": 2
+  },
+  {
+    "id": "care-bears-he",
+    "title": "דובוני אכפת לי",
+    "year": 1985,
+    "kind": "series",
+    "credits": 291,
+    "named": 2
+  },
+  {
+    "id": "shtisel",
+    "title": "שטיסל",
+    "year": 2013,
+    "kind": "series",
+    "credits": 315,
+    "named": 0
+  },
+  {
+    "id": "paw-patrol-he",
+    "title": "מפרץ ההרפתקאות",
+    "year": 2013,
+    "kind": "series",
+    "credits": 316,
+    "named": 2
+  },
+  {
+    "id": "ha-hamama",
+    "title": "החממה",
+    "year": 2012,
+    "kind": "series",
+    "credits": 320,
+    "named": 0
+  },
+  {
+    "id": "fauda",
+    "title": "פאודה",
+    "year": 2015,
+    "kind": "series",
+    "credits": 326,
+    "named": 0
+  },
+  {
+    "id": "parpar-nechmad",
+    "title": "פרפר נחמד",
+    "year": 1982,
+    "kind": "series",
+    "credits": 589,
+    "named": 2
+  },
+  {
+    "id": "sesame-israel",
+    "title": "רחוב סומסום",
+    "year": 1983,
+    "kind": "series",
+    "credits": 595,
+    "named": 0
+  }
+]
