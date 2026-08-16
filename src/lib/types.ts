@@ -98,7 +98,7 @@ export type ProductionKind =
 
 export const PRODUCTION_KIND_LABELS: Record<ProductionKind, string> = {
   website: "אתר אינטרנט",
-  person: "אדם",
+  person: "אישיות",
   ensemble: "הרכב",
   game_israeli: "משחק מחשב ישראלי",
   game_dubbed_foreign: "משחק מחשב מדובב זר",
@@ -128,7 +128,7 @@ export const PRODUCTION_KIND_FORM_OPTIONS: {
   label: string;
 }[] = [
   { value: "website", label: "אתר אינטרנט" },
-  { value: "person", label: "אדם" },
+  { value: "person", label: "אישיות" },
   { value: "ensemble", label: "הרכב" },
   { value: "game_israeli", label: "משחק מחשב ישראלי" },
   { value: "game_dubbed_foreign", label: "משחק מחשב מדובב זר" },

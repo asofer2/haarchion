@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import type { ArchiveData, ActivityCategory } from "@/lib/types";
-import { ACTIVITY_LABELS, primaryActivityForCredit } from "@/lib/types";
+import { ACTIVITY_LABELS, ACTIVITY_LIST, primaryActivityForCredit } from "@/lib/types";
 
 export type CategoryCreditRow = {
   key: string;
@@ -20,20 +20,25 @@ export function emptyRow(): CategoryCreditRow {
   };
 }
 
+export function emptyCategoryRows(): Partial<
+  Record<ActivityCategory, CategoryCreditRow[]>
+> {
+  return Object.fromEntries(ACTIVITY_LIST.map((cat) => [cat, [emptyRow()]]));
+}
+
 export function rowsFromArchive(
   personId: string,
   activities: ActivityCategory[],
   data: ArchiveData
 ): Partial<Record<ActivityCategory, CategoryCreditRow[]>> {
-  const grouped: Partial<Record<ActivityCategory, CategoryCreditRow[]>> = {};
-  for (const activity of activities) grouped[activity] = [];
+  const grouped = emptyCategoryRows();
+  const preferred = activities.length ? activities : ACTIVITY_LIST;
 
   const credits = data.credits.filter((c) => c.personId === personId);
   for (const credit of credits) {
     const production = data.productions.find((p) => p.id === credit.productionId);
     if (!production) continue;
-    const bucket = primaryActivityForCredit(credit.role, production.kind, activities);
-    if (!activities.includes(bucket)) continue;
+    const bucket = primaryActivityForCredit(credit.role, production.kind, preferred);
     const list = grouped[bucket] || [];
     list.push({
       key: `${credit.productionId}-${credit.role}`,
@@ -44,21 +49,19 @@ export function rowsFromArchive(
     grouped[bucket] = list;
   }
 
-  for (const activity of activities) {
+  for (const activity of ACTIVITY_LIST) {
     if (!grouped[activity]?.length) grouped[activity] = [emptyRow()];
   }
   return grouped;
 }
 
 interface Props {
-  activities: ActivityCategory[];
   rows: Partial<Record<ActivityCategory, CategoryCreditRow[]>>;
   onChange: (rows: Partial<Record<ActivityCategory, CategoryCreditRow[]>>) => void;
   productions: ArchiveData["productions"];
 }
 
 export function PersonCategoryCredits({
-  activities,
   rows,
   onChange,
   productions,
@@ -94,15 +97,16 @@ export function PersonCategoryCredits({
     onChange({ ...rows, [activity]: list.length ? list : [emptyRow()] });
   }
 
-  if (activities.length === 0) return null;
+  if (ACTIVITY_LIST.length === 0) return null;
 
   return (
     <fieldset className="person-category-credits">
       <legend>פעילויות לפי קטגוריה</legend>
       <p className="muted">
-        הוסיפו הפקות לכל קטגוריה בנפרד. הן יופיעו בסוף דף האישיות לפי תפקיד וסוג.
+        הוסיפו הפקות לכל קטגוריה בנפרד: שחקן, מדבב, מחזמר, סרטים, סדרות ועוד.
+        הן יופיעו בסוף דף האישיות לפי תפקיד וסוג.
       </p>
-      {activities.map((activity) => (
+      {ACTIVITY_LIST.map((activity) => (
         <div key={activity} className="category-credit-block">
           <h3>
             {ACTIVITY_LABELS[activity]}
@@ -111,7 +115,8 @@ export function PersonCategoryCredits({
               ({(rows[activity] || []).filter((r) => r.title.trim()).length})
             </span>
           </h3>
-          {(rows[activity] || []).map((row, index) => (
+          {(rows[activity]?.length ? rows[activity]! : [emptyRow()]).map(
+            (row, index) => (
             <div className="category-credit-row" key={row.key}>
               <label>
                 שם ההפקה

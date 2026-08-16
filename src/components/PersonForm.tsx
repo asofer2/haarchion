@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
 import { ImageDropzone } from "@/components/ImageDropzone";
 import {
+  emptyCategoryRows,
   emptyRow,
   PersonCategoryCredits,
   rowsFromArchive,
@@ -35,10 +36,7 @@ export function PersonForm({ initial }: Props) {
   );
   const [categoryRows, setCategoryRows] = useState<
     Partial<Record<ActivityCategory, CategoryCreditRow[]>>
-  >(() => {
-    const seed = initial?.activities?.length ? initial.activities : (["dubbing"] as ActivityCategory[]);
-    return Object.fromEntries(seed.map((cat) => [cat, [emptyRow()]]));
-  });
+  >(emptyCategoryRows);
   const [creditsHydrated, setCreditsHydrated] = useState(!initial);
 
   useEffect(() => {
@@ -77,8 +75,12 @@ export function PersonForm({ initial }: Props) {
       setSaving(false);
       return;
     }
-    if (activities.length === 0) {
-      setError("בחרו לפחות קטגוריית פעילות אחת");
+    const filledActivities = ACTIVITY_LIST.filter((activity) =>
+      (categoryRows[activity] || []).some((row) => row.title.trim())
+    );
+    const activitiesToSave = [...new Set([...activities, ...filledActivities])];
+    if (activitiesToSave.length === 0) {
+      setError("בחרו לפחות קטגוריית פעילות אחת, או הוסיפו הפקה באחת הקטגוריות");
       setSaving(false);
       return;
     }
@@ -102,7 +104,7 @@ export function PersonForm({ initial }: Props) {
         .split(",")
         .map((s) => s.trim())
         .filter(Boolean),
-      activities,
+      activities: activitiesToSave,
       createdAt: initial?.createdAt || now,
       updatedAt: now,
       createdBy: initial?.createdBy || user!.uid,
@@ -115,7 +117,7 @@ export function PersonForm({ initial }: Props) {
         userName: user!.displayName || undefined,
         isNew: !initial,
       });
-      const creditInputs = activities.flatMap((activity) =>
+      const creditInputs = ACTIVITY_LIST.flatMap((activity) =>
         (categoryRows[activity] || [])
           .filter((row) => row.title.trim())
           .map((row) => ({
@@ -125,7 +127,7 @@ export function PersonForm({ initial }: Props) {
             characterName: row.characterName.trim() || undefined,
           }))
       );
-      await savePersonCategoryCredits(person.id, creditInputs, activities, {
+      await savePersonCategoryCredits(person.id, creditInputs, ACTIVITY_LIST, {
         userId: user!.uid,
         userName: user!.displayName || undefined,
       });
@@ -204,7 +206,6 @@ export function PersonForm({ initial }: Props) {
       </label>
 
       <PersonCategoryCredits
-        activities={activities}
         rows={categoryRows}
         onChange={setCategoryRows}
         productions={data?.productions || []}
