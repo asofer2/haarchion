@@ -50,7 +50,7 @@ export default function HomePage() {
       <section className="hero">
         <p className="meta">מאגר ישראלי · דיבוב · מחזמר · קלטות · במה</p>
         <h1>אישים</h1>
-        <p>ברוכים הבאים לאתר אישים</p>
+        <p className="hero-welcome">ברוכים הבאים לאתר אישים</p>
         <div className="hero-actions">
           <Link href="/people" className="btn btn-primary">
             אישים

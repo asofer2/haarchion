@@ -283,3 +283,65 @@ export function kindToActivity(kind: ProductionKind): ActivityCategory {
       return "film";
   }
 }
+
+/** תפקיד ברירת מחדל כשמוסיפים הפקה תחת קטגוריה בטופס אישיות */
+export function defaultCreditRole(activity: ActivityCategory): CreditRole {
+  switch (activity) {
+    case "dubbing":
+      return "dubber";
+    case "musical":
+      return "musical_performer";
+    case "hosting":
+      return "host";
+    case "cassette":
+      return "dubber";
+    case "festival":
+    case "performance":
+      return "musical_performer";
+    case "radio":
+      return "singer";
+    default:
+      return "actor";
+  }
+}
+
+/** סוג הפקה ברירת מחדל לפי קטגוריית האישיות */
+export function defaultProductionKind(activity: ActivityCategory): ProductionKind {
+  switch (activity) {
+    case "film":
+      return "film_cinema";
+    case "series":
+    case "acting":
+    case "dubbing":
+      return "tv_series";
+    case "musical":
+      return "musical";
+    case "stage":
+      return "stage";
+    case "cassette":
+      return "cassette_kids";
+    case "performance":
+      return "performance";
+    case "festival":
+      return "festival";
+    case "radio":
+      return "radio_program";
+    case "hosting":
+      return "tv_program";
+    default:
+      return "tv_series";
+  }
+}
+
+/** קטגוריה ראשית לשיוך קרדיט קיים לטופס עריכה */
+export function primaryActivityForCredit(
+  role: CreditRole,
+  kind: ProductionKind,
+  preferred: ActivityCategory[] = []
+): ActivityCategory {
+  const roleAct = roleToActivity(role);
+  if (!preferred.length || preferred.includes(roleAct)) return roleAct;
+  const kindAct = kindToActivity(kind);
+  if (preferred.includes(kindAct)) return kindAct;
+  return roleAct;
+}

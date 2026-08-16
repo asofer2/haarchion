@@ -1,11 +1,17 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
 import { ImageDropzone } from "@/components/ImageDropzone";
+import {
+  emptyRow,
+  PersonCategoryCredits,
+  rowsFromArchive,
+  type CategoryCreditRow,
+} from "@/components/PersonCategoryCredits";
 import { useArchive } from "@/hooks/useArchive";
-import { savePerson, slugify } from "@/lib/data";
+import { savePerson, savePersonCategoryCredits, slugify } from "@/lib/data";
 import {
   ACTIVITY_LABELS,
   ACTIVITY_LIST,
@@ -20,22 +26,44 @@ interface Props {
 export function PersonForm({ initial }: Props) {
   const router = useRouter();
   const { user } = useAuth();
-  const { refresh } = useArchive();
+  const { data, refresh } = useArchive();
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | undefined>(initial?.imageUrl);
   const [activities, setActivities] = useState<ActivityCategory[]>(
     initial?.activities?.length ? initial.activities : ["dubbing"]
   );
+  const [categoryRows, setCategoryRows] = useState<
+    Partial<Record<ActivityCategory, CategoryCreditRow[]>>
+  >(() => {
+    const seed = initial?.activities?.length ? initial.activities : (["dubbing"] as ActivityCategory[]);
+    return Object.fromEntries(seed.map((cat) => [cat, [emptyRow()]]));
+  });
+  const [creditsHydrated, setCreditsHydrated] = useState(!initial);
+
+  useEffect(() => {
+    if (creditsHydrated || !data || !initial) return;
+    setCategoryRows(rowsFromArchive(initial.id, activities, data));
+    setCreditsHydrated(true);
+  }, [activities, creditsHydrated, data, initial]);
 
   if (!user) {
     return <p className="notice">יש להתחבר כדי להוסיף או לערוך אישים.</p>;
   }
 
   function toggleActivity(cat: ActivityCategory) {
-    setActivities((prev) =>
-      prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat]
-    );
+    setActivities((prev) => {
+      const next = prev.includes(cat)
+        ? prev.filter((c) => c !== cat)
+        : [...prev, cat];
+      setCategoryRows((rows) => {
+        if (next.includes(cat) && !rows[cat]?.length) {
+          return { ...rows, [cat]: [emptyRow()] };
+        }
+        return rows;
+      });
+      return next;
+    });
   }
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -86,6 +114,20 @@ export function PersonForm({ initial }: Props) {
         userId: user!.uid,
         userName: user!.displayName || undefined,
         isNew: !initial,
+      });
+      const creditInputs = activities.flatMap((activity) =>
+        (categoryRows[activity] || [])
+          .filter((row) => row.title.trim())
+          .map((row) => ({
+            activity,
+            title: row.title.trim(),
+            year: Number(row.year) || undefined,
+            characterName: row.characterName.trim() || undefined,
+          }))
+      );
+      await savePersonCategoryCredits(person.id, creditInputs, activities, {
+        userId: user!.uid,
+        userName: user!.displayName || undefined,
       });
       // Cache already updated — don't force a Firestore reload
       await refresh(false);
@@ -160,6 +202,14 @@ export function PersonForm({ initial }: Props) {
         ביוגרפיה
         <textarea name="bio" rows={8} defaultValue={initial?.bio} />
       </label>
+
+      <PersonCategoryCredits
+        activities={activities}
+        rows={categoryRows}
+        onChange={setCategoryRows}
+        productions={data?.productions || []}
+      />
+
       {error && <p className="form-error">{error}</p>}
       <button className="btn btn-primary" type="submit" disabled={saving}>
         {saving ? "שומר…" : initial ? "עדכון אישיות" : "הוספת אישיות לארכיון"}

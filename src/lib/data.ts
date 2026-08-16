@@ -22,12 +22,16 @@ import { ensureDiscographyProductions } from "./discography-productions";
 import { applyPeopleEnrichment } from "./person-dates";
 import { applyDubbingStudios } from "./seed-dubbing-studios";
 import { formatProductionTitle } from "./production-title";
-import type {
-  ArchiveData,
-  Contribution,
-  Credit,
-  Person,
-  Production,
+import {
+  defaultCreditRole,
+  defaultProductionKind,
+  primaryActivityForCredit,
+  type ActivityCategory,
+  type ArchiveData,
+  type Contribution,
+  type Credit,
+  type Person,
+  type Production,
 } from "./types";
 
 export { slugify, findById, resolveRouteId } from "./ids";
@@ -1093,6 +1097,150 @@ export async function saveCreditsForProduction(
   ];
   writeLocal(data);
   memoryCache = { data, at: Date.now() };
+}
+
+export type PersonCategoryCreditInput = {
+  activity: ActivityCategory;
+  title: string;
+  year?: number;
+  characterName?: string;
+};
+
+function currentArchive(): ArchiveData {
+  if (memoryCache?.data) return structuredClone(memoryCache.data);
+  if (typeof window !== "undefined") return readLocal();
+  return normalize(cloneSeed());
+}
+
+function findProductionByTitle(
+  productions: Production[],
+  title: string,
+  year?: number
+): Production | undefined {
+  const needle = normalizePersonName(title);
+  const slug = makeSlug(title);
+  const matches = productions.filter((p) => {
+    if (p.id === slug || makeSlug(p.title) === slug) return true;
+    return normalizePersonName(p.title) === needle;
+  });
+  if (year) {
+    const byYear = matches.find((p) => p.year === year);
+    if (byYear) return byYear;
+  }
+  return matches[0];
+}
+
+export async function saveCreditsForPerson(
+  personId: string,
+  credits: Credit[]
+): Promise<void> {
+  if (isFirebaseConfigured()) {
+    await requireCloudAuth();
+    const db = getFirebaseDb();
+    if (!db) throw new Error("Firebase is not available");
+    const existing = await getDocs(collection(db, "credits"));
+    const toDelete = existing.docs.filter(
+      (d) => (d.data() as Credit).personId === personId
+    );
+    for (let i = 0; i < toDelete.length; i += 400) {
+      const batch = writeBatch(db);
+      for (const d of toDelete.slice(i, i + 400)) batch.delete(d.ref);
+      await batch.commit();
+    }
+    for (let i = 0; i < credits.length; i += 400) {
+      const batch = writeBatch(db);
+      for (const credit of credits.slice(i, i + 400)) {
+        const id = `${credit.productionId}_${credit.personId}_${credit.role}`;
+        batch.set(doc(db, "credits", id), asFirestoreDoc(credit));
+      }
+      await batch.commit();
+    }
+  }
+
+  const data = currentArchive();
+  data.credits = [
+    ...data.credits.filter((c) => c.personId !== personId),
+    ...credits,
+  ];
+  writeLocal(data);
+  memoryCache = { data, at: Date.now() };
+}
+
+/** יוצר הפקות חסרות ושומר קרדיטים לפי קטגוריה בדף האישיות */
+export async function savePersonCategoryCredits(
+  personId: string,
+  rows: PersonCategoryCreditInput[],
+  editedActivities: ActivityCategory[],
+  meta?: { userId?: string; userName?: string }
+): Promise<void> {
+  const data = currentArchive();
+  const now = new Date().toISOString();
+  const edited = new Set(editedActivities);
+  const nextCredits: Credit[] = [];
+  const seen = new Set<string>();
+
+  for (const row of rows) {
+    const title = row.title.trim();
+    if (!title) continue;
+    const year = row.year && row.year > 0 ? row.year : undefined;
+    let production = findProductionByTitle(data.productions, title, year);
+    if (!production) {
+      let id = makeSlug(title);
+      if (data.productions.some((p) => p.id === id)) {
+        id = year ? `${id}-${year}` : `${id}-${Date.now().toString(36)}`;
+      }
+      production = {
+        id,
+        title,
+        year: year || new Date().getFullYear(),
+        kind: defaultProductionKind(row.activity),
+        summary: "",
+        genres: [],
+        createdAt: now,
+        updatedAt: now,
+        createdBy: meta?.userId,
+        updatedBy: meta?.userId,
+      };
+      await saveProduction(production, {
+        userId: meta?.userId,
+        userName: meta?.userName,
+        isNew: true,
+      });
+      data.productions.push(production);
+    }
+
+    const credit: Credit = {
+      personId,
+      productionId: production.id,
+      role: defaultCreditRole(row.activity),
+      characterName: row.characterName?.trim() || undefined,
+    };
+    const key = `${credit.productionId}_${credit.personId}_${credit.role}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    nextCredits.push(credit);
+  }
+
+  const kept = data.credits.filter((c) => {
+    if (c.personId !== personId) return false;
+    const production = data.productions.find((p) => p.id === c.productionId);
+    if (!production) return true;
+    const bucket = primaryActivityForCredit(
+      c.role,
+      production.kind,
+      editedActivities
+    );
+    return !edited.has(bucket);
+  });
+
+  for (const credit of kept) {
+    const key = `${credit.productionId}_${credit.personId}_${credit.role}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    nextCredits.push(credit);
+  }
+
+  await saveCreditsForPerson(personId, nextCredits);
 }
 
 export async function deletePerson(id: string): Promise<void> {

@@ -7,7 +7,8 @@ export default function NewPersonPage() {
     <>
       <h1 className="page-title">הוספת אישיות</h1>
       <p className="notice" style={{ marginBottom: "1rem" }}>
-        ערך חדש יקושר להפקות דרך קרדיטים בדף ההפקה.
+        בסוף הטופס אפשר להוסיף הפקות לכל קטגוריה בנפרד — הן יופיעו בביוגרפיה תחת
+        „פעילויות לפי קטגוריה”.
       </p>
       <PersonForm />
     </>

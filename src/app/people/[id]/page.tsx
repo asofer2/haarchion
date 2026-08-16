@@ -228,7 +228,7 @@ export default function PersonDetailPage() {
           <p className="muted" style={{ marginTop: 0 }}>
             {totalLinked > 0
               ? `${totalLinked} קישורי הפקות לפי תפקיד וסוג`
-              : "עדיין אין הפקות מקושרות — ערכו את ההפקה והוסיפו קרדיט לאישיות זו"}
+              : "עדיין אין הפקות מקושרות — ערכו את האישיות והוסיפו הפקות לכל קטגוריה"}
           </p>
           {byActivity.map((group) => (
             <div key={group.activity} className="credit-group activity-block">
@@ -251,7 +251,8 @@ export default function PersonDetailPage() {
                       </Link>
                       <span className="meta">
                         {" "}
-                        {!showsActivityYearsInTitle(item.production.kind)
+                        {!showsActivityYearsInTitle(item.production.kind) &&
+                        item.production.year
                           ? `· ${item.production.year} `
                           : ""}
                         · {CREDIT_ROLE_LABELS[item.role]}
