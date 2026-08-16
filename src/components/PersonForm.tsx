@@ -202,7 +202,12 @@ export function PersonForm({ initial }: Props) {
 
       <label>
         ביוגרפיה
-        <textarea name="bio" rows={8} defaultValue={initial?.bio} />
+        <textarea
+          name="bio"
+          rows={14}
+          defaultValue={initial?.bio}
+          style={{ whiteSpace: "pre-wrap" }}
+        />
       </label>
 
       <PersonCategoryCredits

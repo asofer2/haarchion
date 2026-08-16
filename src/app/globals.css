@@ -697,6 +697,7 @@ img {
   line-height: 1.8;
   color: var(--ink-soft);
   max-width: 60ch;
+  white-space: pre-wrap;
 }
 
 .credit-groups {

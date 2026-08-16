@@ -188,7 +188,7 @@ export default function PersonDetailPage() {
           ))}
         </div>
 
-        <p className="prose">{person.bio || "אין ביוגרפיה עדיין."}</p>
+        <div className="prose">{person.bio || "אין ביוגרפיה עדיין."}</div>
 
         {person.wikipediaUrl && (
           <p className="notice" style={{ marginTop: "0.75rem" }}>
