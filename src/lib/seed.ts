@@ -27,6 +27,7 @@ import { ensureDiscographyProductions } from "./discography-productions";
 import { applyDerivedProfessionActivities } from "./derive-activities";
 import { ensureFilmographies } from "./filmography";
 import { applyPeopleEnrichment } from "./person-dates";
+import { applyIshimYoniChen } from "./seed-ishim-yoni-chen";
 import { portrait } from "./portrait";
 
 const now = "2026-07-23T00:00:00.000Z";
@@ -885,7 +886,8 @@ const credits: Credit[] = [
   { personId: "tamir-ginsburg", productionId: "little-mermaid-he", role: "dubber" },
 ];
 
-export const SEED: ArchiveData = applyDerivedProfessionActivities(
+export const SEED: ArchiveData = applyIshimYoniChen(
+  applyDerivedProfessionActivities(
   ensureDiscographyProductions(
   ensureFilmographies(
   dedupeArchive({
@@ -963,6 +965,7 @@ export const SEED: ArchiveData = applyDerivedProfessionActivities(
   })(),
   contributions: [],
   })
+  )
   )
   )
 );

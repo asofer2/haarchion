@@ -42,6 +42,7 @@ export default function PersonDetailPage() {
           production: Production;
           role: CreditRole;
           characterName?: string;
+          year?: number;
         }[];
       }[];
     }
@@ -55,7 +56,7 @@ export default function PersonDetailPage() {
 
     const map = new Map<
       string,
-      { production: Production; role: CreditRole; characterName?: string }[]
+      { production: Production; role: CreditRole; characterName?: string; year?: number }[]
     >();
 
     for (const credit of credits) {
@@ -65,13 +66,18 @@ export default function PersonDetailPage() {
       const list = map.get(heading) || [];
       if (
         !list.some(
-          (x) => x.production.id === production.id && x.role === credit.role
+          (x) =>
+            x.production.id === production.id &&
+            x.role === credit.role &&
+            (x.year || production.year) === (credit.year || production.year) &&
+            (x.characterName || "") === (credit.characterName || "")
         )
       ) {
         list.push({
           production,
           role: credit.role,
           characterName: credit.characterName,
+          year: credit.year || production.year,
         });
       }
       map.set(heading, list);
@@ -80,7 +86,9 @@ export default function PersonDetailPage() {
     return [...map.entries()]
       .map(([heading, items]) => ({
         heading,
-        items: items.sort((a, b) => b.production.year - a.production.year),
+        items: items.sort(
+          (a, b) => (b.year || b.production.year) - (a.year || a.production.year)
+        ),
       }))
       .sort((a, b) => {
         const ia = ISHIM_HEADING_ORDER.indexOf(a.heading);
@@ -210,9 +218,11 @@ export default function PersonDetailPage() {
             <h3>{group.heading}</h3>
             <ul className="ishim-credits">
               {group.items.map((item) => (
-                <li key={`${item.production.id}-${item.role}`}>
+                <li
+                  key={`${item.production.id}-${item.role}-${item.year || ""}-${item.characterName || ""}`}
+                >
                   <span className="ishim-year">
-                    {item.production.year || ""}
+                    {item.year || item.production.year || ""}
                   </span>
                   <div className="ishim-credit-body">
                     <Link

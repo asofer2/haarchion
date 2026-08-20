@@ -20,6 +20,7 @@ import { dedupeArchive, normalizePersonName } from "./dedupe";
 import { ensureFilmographies } from "./filmography";
 import { ensureDiscographyProductions } from "./discography-productions";
 import { applyPeopleEnrichment } from "./person-dates";
+import { applyIshimYoniChen } from "./seed-ishim-yoni-chen";
 import { applyDubbingStudios } from "./seed-dubbing-studios";
 import { formatProductionTitle } from "./production-title";
 import {
@@ -353,7 +354,8 @@ function mergeWithSeed(data: ArchiveData): ArchiveData {
 }
 
 function normalize(data: ArchiveData): ArchiveData {
-  return ensureDiscographyProductions(
+  return applyIshimYoniChen(
+    ensureDiscographyProductions(
     ensureFilmographies(
       dedupeArchive(
         (() => {
@@ -395,6 +397,7 @@ function normalize(data: ArchiveData): ArchiveData {
           };
         })()
       )
+    )
     )
   );
 }

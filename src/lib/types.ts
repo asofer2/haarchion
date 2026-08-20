@@ -157,6 +157,8 @@ export interface Credit {
   role: CreditRole;
   characterName?: string;
   billingOrder?: number;
+  /** שנת הקרדיט בדף אישים (אם שונה משנת ההפקה) */
+  year?: number;
 }
 
 export interface DiscographyItem {

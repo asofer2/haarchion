@@ -436,13 +436,13 @@ export const EXTRA_PEOPLE: Person[] = [
     wikipediaUrl: "https://he.wikipedia.org/wiki/ספי_ריבלין",
     imageUrl: wikiImage("ספי ריבלין"),
   }),
-  p("yoni-chen", "יוני חן", ["dubbing", "film", "series", "stage"], {
+  p("yoni-chen", "יוני חן", ["dubbing", "film", "series", "stage", "acting"], {
     nameOriginal: "Yoni Chen",
-    nicknames: ["יוסי חן", "יונתן חנונו", "בץ"],
+    nicknames: ["יונתן חנונו"],
     birthDate: "1953-08-10",
     deathDate: "1995-06-27",
-    bio: "יוני חן (נולד יונתן חנונו; 1953–1995) היה שחקן, במאי, בובנאי ומדבב ישראלי. דיבב והפעיל את בץ ב„פרפר נחמד” (1982–1993), הקים את אולפן הדיבוב אולפנטו, ושיחק ב„הלהקה”, „דיזנגוף 99” ו„חמש חמש”. מקור: ויקיפדיה.",
-    tags: ["דיבוב", "בובנאות", "ילדים", "קולנוע"],
+    bio: "הקים את אולפני הדיבוב אולפנטו ב-1991. לאחר מותו האולפנים נקנו על ידי אולפני אלרום.",
+    tags: ["בובות", "במאים", "גאים/גאות", "מדבבים"],
     wikipediaUrl: "https://he.wikipedia.org/wiki/יוני_חן",
     imageUrl: wikiImage("יוני חן"),
   }),

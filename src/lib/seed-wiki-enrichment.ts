@@ -164,7 +164,7 @@ export const PERSON_WIKI_ENRICHMENT: Record<
   "yigal-adika": { bio: "יגאל עדיקא (נולד ב-29 באוגוסט 1959) הוא שחקן ישראלי.", wikipediaUrl: "https://he.wikipedia.org/wiki/%D7%99%D7%92%D7%90%D7%9C_%D7%A2%D7%93%D7%99%D7%A7%D7%90" },
   "yhvdh-aprvny": { bio: "יהודה אפרוני (18 בינואר 1931 – 11 באפריל 2017) היה שחקן תיאטרון וקולנוע ומדבב ישראלי.", wikipediaUrl: "https://he.wikipedia.org/wiki/יהודה_אפרוני" },
   "yon-tumarkin": { bio: "יון תומרקין (נולד ב-22 ביולי 1989) הוא שחקן ודוגמן ישראלי.", wikipediaUrl: "https://he.wikipedia.org/wiki/%D7%99%D7%95%D7%9F_%D7%AA%D7%95%D7%9E%D7%A8%D7%A7%D7%99%D7%9F" },
-  "yoni-chen": { bio: "יוני חן (נולד יונתן חנונו; 1953–1995) היה שחקן, במאי, בובנאי ומדבב ישראלי. דיבב והפעיל את בץ ב„פרפר נחמד” (1982–1993), הקים את אולפן הדיבוב אולפנטו, ושיחק ב„הלהקה”, „דיזנגוף 99” ו„חמש חמש”. מקור: ויקיפדיה.", wikipediaUrl: "https://he.wikipedia.org/wiki/יוני_חן" },
+  "yoni-chen": { wikipediaUrl: "https://he.wikipedia.org/wiki/יוני_חן" },
   "yrvn-lvy-sbg": { bio: "ירון לוי סבג (נולד ב-22 באפריל 1969) הוא שחקן, מנחה, מדובב, תסריטאי, ובמאי ישראלי.", wikipediaUrl: "https://he.wikipedia.org/wiki/%D7%99%D7%A8%D7%95%D7%9F_%D7%9C%D7%95%D7%99_%D7%A1%D7%91%D7%92" },
   "ysmyn-ayvn": { bio: "יסמין עיון (נולדה ב-23 במאי 1990) היא שחקנית, מדבבת וזמרת ישראלית.", wikipediaUrl: "https://he.wikipedia.org/wiki/%D7%99%D7%A1%D7%9E%D7%99%D7%9F_%D7%A2%D7%99%D7%95%D7%9F" },
   "ysmyn-gmlyal": { bio: "יסמין גמליאל (נולדה ב-20 בפברואר 1965) היא זמרת, מדבבת ומורה לפיתוח קול ישראלית.", wikipediaUrl: "https://he.wikipedia.org/wiki/%D7%99%D7%A1%D7%9E%D7%99%D7%9F_%D7%92%D7%9E%D7%9C%D7%99%D7%90%D7%9C" },
