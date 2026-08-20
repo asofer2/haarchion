@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo } from "react";
+import { PersonCard } from "@/components/PersonCard";
 import { useArchive } from "@/hooks/useArchive";
 import { bornToday, formatDateHe, recentUpdates } from "@/lib/data";
 import { directoryCount, ISHIM_DIRECTORY } from "@/lib/ishim-directory";
@@ -44,19 +45,15 @@ export default function HomePage() {
 
       <section className="section">
         <div className="section-head">
-          <h2>לוח שנה</h2>
-          <Link href="/y">כל התאריכים</Link>
+          <h2>נולדו היום</h2>
+          <Link href="/y">לוח שנה</Link>
         </div>
         {todayPeople.length === 0 ? (
           <p className="muted">אין ימי הולדת היום בארכיון.</p>
         ) : (
-          <div className="link-list">
+          <div className="grid-cards">
             {todayPeople.map((person) => (
-              <div key={person.id} className="link-list-row">
-                <Link href={`/people/${encodeURIComponent(person.id)}`}>
-                  {person.name}
-                </Link>
-              </div>
+              <PersonCard key={person.id} person={person} />
             ))}
           </div>
         )}
