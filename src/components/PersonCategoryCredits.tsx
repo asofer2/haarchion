@@ -1,63 +1,70 @@
 "use client";
 
 import { useMemo } from "react";
-import type { ArchiveData, ActivityCategory } from "@/lib/types";
-import { ACTIVITY_LABELS, ACTIVITY_LIST, primaryActivityForCredit } from "@/lib/types";
+import { ISHIM_CREDIT_SECTIONS, ishimRoleHeading } from "@/lib/ishim-person";
+import type { ArchiveData, CreditRole } from "@/lib/types";
 
 export type CategoryCreditRow = {
   key: string;
   title: string;
   year: string;
   characterName: string;
+  role: CreditRole;
 };
 
-export function emptyRow(): CategoryCreditRow {
+export function emptyRow(role: CreditRole): CategoryCreditRow {
   return {
     key: `row-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
     title: "",
     year: "",
     characterName: "",
+    role,
   };
 }
 
-export function emptyCategoryRows(): Partial<
-  Record<ActivityCategory, CategoryCreditRow[]>
-> {
-  return Object.fromEntries(ACTIVITY_LIST.map((cat) => [cat, [emptyRow()]]));
+export function emptyIshimRows(): Record<string, CategoryCreditRow[]> {
+  return Object.fromEntries(
+    ISHIM_CREDIT_SECTIONS.map((section) => [
+      section.heading,
+      [emptyRow(section.roles[0])],
+    ])
+  );
 }
 
 export function rowsFromArchive(
   personId: string,
-  activities: ActivityCategory[],
   data: ArchiveData
-): Partial<Record<ActivityCategory, CategoryCreditRow[]>> {
-  const grouped = emptyCategoryRows();
-  const preferred = activities.length ? activities : ACTIVITY_LIST;
+): Record<string, CategoryCreditRow[]> {
+  const grouped = emptyIshimRows();
 
   const credits = data.credits.filter((c) => c.personId === personId);
   for (const credit of credits) {
     const production = data.productions.find((p) => p.id === credit.productionId);
     if (!production) continue;
-    const bucket = primaryActivityForCredit(credit.role, production.kind, preferred);
-    const list = grouped[bucket] || [];
-    list.push({
+    const heading = ishimRoleHeading(credit.role);
+    const list = grouped[heading] || [];
+    const filled = list.filter((row) => row.title.trim());
+    filled.push({
       key: `${credit.productionId}-${credit.role}`,
       title: production.title,
       year: production.year ? String(production.year) : "",
       characterName: credit.characterName || "",
+      role: credit.role,
     });
-    grouped[bucket] = list;
+    grouped[heading] = filled.length ? filled : [emptyRow(credit.role)];
   }
 
-  for (const activity of ACTIVITY_LIST) {
-    if (!grouped[activity]?.length) grouped[activity] = [emptyRow()];
+  for (const section of ISHIM_CREDIT_SECTIONS) {
+    if (!grouped[section.heading]?.length) {
+      grouped[section.heading] = [emptyRow(section.roles[0])];
+    }
   }
   return grouped;
 }
 
 interface Props {
-  rows: Partial<Record<ActivityCategory, CategoryCreditRow[]>>;
-  onChange: (rows: Partial<Record<ActivityCategory, CategoryCreditRow[]>>) => void;
+  rows: Record<string, CategoryCreditRow[]>;
+  onChange: (rows: Record<string, CategoryCreditRow[]>) => void;
   productions: ArchiveData["productions"];
 }
 
@@ -79,44 +86,47 @@ export function PersonCategoryCredits({
   }, [productions]);
 
   function updateRow(
-    activity: ActivityCategory,
+    heading: string,
     index: number,
     patch: Partial<CategoryCreditRow>
   ) {
-    const list = [...(rows[activity] || [])];
+    const list = [...(rows[heading] || [])];
     list[index] = { ...list[index]!, ...patch };
-    onChange({ ...rows, [activity]: list });
+    onChange({ ...rows, [heading]: list });
   }
 
-  function addRow(activity: ActivityCategory) {
-    onChange({ ...rows, [activity]: [...(rows[activity] || []), emptyRow()] });
+  function addRow(heading: string, role: CreditRole) {
+    onChange({ ...rows, [heading]: [...(rows[heading] || []), emptyRow(role)] });
   }
 
-  function removeRow(activity: ActivityCategory, index: number) {
-    const list = (rows[activity] || []).filter((_, i) => i !== index);
-    onChange({ ...rows, [activity]: list.length ? list : [emptyRow()] });
+  function removeRow(heading: string, index: number, fallbackRole: CreditRole) {
+    const list = (rows[heading] || []).filter((_, i) => i !== index);
+    onChange({
+      ...rows,
+      [heading]: list.length ? list : [emptyRow(fallbackRole)],
+    });
   }
-
-  if (ACTIVITY_LIST.length === 0) return null;
 
   return (
     <fieldset className="person-category-credits">
-      <legend>פעילויות לפי קטגוריה</legend>
+      <legend>קרדיטים לפי תפקיד</legend>
       <p className="muted">
-        הוסיפו הפקות לכל קטגוריה בנפרד: שחקן, מדבב, מחזמר, סרטים, סדרות ועוד.
-        הן יופיעו בסוף דף האישיות לפי תפקיד וסוג.
+        כמו באתר אישים: שנה, שם הפקה עם קישור, ושם דמות בשורה אחת — לפי תפקיד
+        (תסריטאי, שחקן, במאי דיבוב, מדבב…).
       </p>
-      {ACTIVITY_LIST.map((activity) => (
-        <div key={activity} className="category-credit-block">
+      {ISHIM_CREDIT_SECTIONS.map((section) => (
+        <div key={section.heading} className="category-credit-block">
           <h3>
-            {ACTIVITY_LABELS[activity]}
+            {section.heading}
             <span className="meta">
               {" "}
-              ({(rows[activity] || []).filter((r) => r.title.trim()).length})
+              ({(rows[section.heading] || []).filter((r) => r.title.trim()).length})
             </span>
           </h3>
-          {(rows[activity]?.length ? rows[activity]! : [emptyRow()]).map(
-            (row, index) => (
+          {(rows[section.heading]?.length
+            ? rows[section.heading]!
+            : [emptyRow(section.roles[0])]
+          ).map((row, index) => (
             <div className="category-credit-row" key={row.key}>
               <label>
                 שם ההפקה
@@ -124,9 +134,9 @@ export function PersonCategoryCredits({
                   list="archive-production-titles"
                   value={row.title}
                   onChange={(e) =>
-                    updateRow(activity, index, { title: e.target.value })
+                    updateRow(section.heading, index, { title: e.target.value })
                   }
-                  placeholder="למשל פאודה"
+                  placeholder="למשל פרפר נחמד"
                 />
               </label>
               <label>
@@ -135,9 +145,9 @@ export function PersonCategoryCredits({
                   type="number"
                   value={row.year}
                   onChange={(e) =>
-                    updateRow(activity, index, { year: e.target.value })
+                    updateRow(section.heading, index, { year: e.target.value })
                   }
-                  placeholder="2015"
+                  placeholder="1989"
                 />
               </label>
               <label>
@@ -145,7 +155,7 @@ export function PersonCategoryCredits({
                 <input
                   value={row.characterName}
                   onChange={(e) =>
-                    updateRow(activity, index, {
+                    updateRow(section.heading, index, {
                       characterName: e.target.value,
                     })
                   }
@@ -155,7 +165,9 @@ export function PersonCategoryCredits({
               <button
                 type="button"
                 className="btn btn-ghost"
-                onClick={() => removeRow(activity, index)}
+                onClick={() =>
+                  removeRow(section.heading, index, section.roles[0])
+                }
               >
                 הסרה
               </button>
@@ -164,9 +176,9 @@ export function PersonCategoryCredits({
           <button
             type="button"
             className="btn btn-ghost"
-            onClick={() => addRow(activity)}
+            onClick={() => addRow(section.heading, section.roles[0])}
           >
-            + הוספה ל{ACTIVITY_LABELS[activity]}
+            + הוספה ל{section.heading}
           </button>
         </div>
       ))}

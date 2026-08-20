@@ -30,6 +30,7 @@ import {
   type ArchiveData,
   type Contribution,
   type Credit,
+  type CreditRole,
   type Person,
   type Production,
 } from "./types";
@@ -1101,6 +1102,7 @@ export async function saveCreditsForProduction(
 
 export type PersonCategoryCreditInput = {
   activity: ActivityCategory;
+  role?: CreditRole;
   title: string;
   year?: number;
   characterName?: string;
@@ -1212,7 +1214,7 @@ export async function savePersonCategoryCredits(
     const credit: Credit = {
       personId,
       productionId: production.id,
-      role: defaultCreditRole(row.activity),
+      role: row.role || defaultCreditRole(row.activity),
       characterName: row.characterName?.trim() || undefined,
     };
     const key = `${credit.productionId}_${credit.personId}_${credit.role}`;
@@ -1376,6 +1378,18 @@ export function formatDateHe(iso?: string): string {
     month: "long",
     day: "numeric",
   });
+}
+
+/** Compact ishim.co.il style: 10/8/1953 */
+export function formatDateNumeric(iso?: string): string {
+  if (!iso) return "";
+  const [y, m, d] = iso.split("-");
+  if (!y) return iso;
+  const day = d ? String(Number(d)) : "";
+  const month = m ? String(Number(m)) : "";
+  if (day && month) return `${day}/${month}/${y}`;
+  if (month) return `${month}/${y}`;
+  return y;
 }
 
 /** Age in full years from birthDate; if deathDate exists — age at death */

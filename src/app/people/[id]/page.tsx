@@ -7,37 +7,24 @@ import { useAuth } from "@/components/AuthProvider";
 import { EntityImage } from "@/components/EntityImage";
 import { OwnerActions } from "@/components/OwnerActions";
 import { useArchive } from "@/hooks/useArchive";
-import { formatDateHe, findById, canEditArchive, ageLabel } from "@/lib/data";
 import {
-  formatProductionTitle,
-  showsActivityYearsInTitle,
-} from "@/lib/production-title";
+  calcAge,
+  findById,
+  canEditArchive,
+  formatDateNumeric,
+} from "@/lib/data";
+import {
+  ishimRoleHeading,
+  ISHIM_HEADING_ORDER,
+} from "@/lib/ishim-person";
 import {
   ACTIVITY_LABELS,
-  CREDIT_ROLE_LABELS,
-  kindToActivity,
-  roleToActivity,
-  type ActivityCategory,
   type CreditRole,
   type Production,
 } from "@/lib/types";
 
-/** A credit can belong to more than one activity bucket (e.g. dubbing + film). */
-function activitiesForCredit(
-  role: CreditRole,
-  kind: Production["kind"]
-): ActivityCategory[] {
-  const set = new Set<ActivityCategory>();
-  set.add(kindToActivity(kind));
-  set.add(roleToActivity(role));
-  if (role === "dubber" || role === "dub_director") set.add("dubbing");
-  if (role === "actor") set.add("acting");
-  if (role === "musical_performer" || role === "singer") {
-    set.add("musical");
-    set.add("performance");
-  }
-  if (role === "host") set.add("hosting");
-  return [...set];
+function hasHebrew(value: string): boolean {
+  return /[\u0590-\u05FF]/.test(value);
 }
 
 export default function PersonDetailPage() {
@@ -47,11 +34,15 @@ export default function PersonDetailPage() {
 
   const person = data ? findById(data.people, params.id) : undefined;
 
-  const byActivity = useMemo(() => {
+  const byRole = useMemo(() => {
     if (!data || !person) {
       return [] as {
-        activity: ActivityCategory;
-        items: { production: Production; role: CreditRole; characterName?: string }[];
+        heading: string;
+        items: {
+          production: Production;
+          role: CreditRole;
+          characterName?: string;
+        }[];
       }[];
     }
 
@@ -63,51 +54,38 @@ export default function PersonDetailPage() {
     );
 
     const map = new Map<
-      ActivityCategory,
+      string,
       { production: Production; role: CreditRole; characterName?: string }[]
     >();
-
-    for (const activity of person.activities || []) {
-      if (!map.has(activity)) map.set(activity, []);
-    }
 
     for (const credit of credits) {
       const production = data.productions.find((p) => p.id === credit.productionId);
       if (!production) continue;
-      const buckets = activitiesForCredit(credit.role, production.kind);
-      for (const activity of buckets) {
-        const list = map.get(activity) || [];
-        if (
-          !list.some(
-            (x) => x.production.id === production.id && x.role === credit.role
-          )
-        ) {
-          list.push({
-            production,
-            role: credit.role,
-            characterName: credit.characterName,
-          });
-        }
-        map.set(activity, list);
+      const heading = ishimRoleHeading(credit.role);
+      const list = map.get(heading) || [];
+      if (
+        !list.some(
+          (x) => x.production.id === production.id && x.role === credit.role
+        )
+      ) {
+        list.push({
+          production,
+          role: credit.role,
+          characterName: credit.characterName,
+        });
       }
+      map.set(heading, list);
     }
 
-    // Only show categories that are on the person OR have linked items
     return [...map.entries()]
-      .filter(
-        ([activity, items]) =>
-          items.length > 0 || (person.activities || []).includes(activity)
-      )
-      .map(([activity, items]) => ({
-        activity,
+      .map(([heading, items]) => ({
+        heading,
         items: items.sort((a, b) => b.production.year - a.production.year),
       }))
       .sort((a, b) => {
-        if (b.items.length !== a.items.length) return b.items.length - a.items.length;
-        return ACTIVITY_LABELS[a.activity].localeCompare(
-          ACTIVITY_LABELS[b.activity],
-          "he"
-        );
+        const ia = ISHIM_HEADING_ORDER.indexOf(a.heading);
+        const ib = ISHIM_HEADING_ORDER.indexOf(b.heading);
+        return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
       });
   }, [data, person]);
 
@@ -129,20 +107,26 @@ export default function PersonDetailPage() {
     );
   }
 
-  const totalLinked = byActivity.reduce((n, g) => n + g.items.length, 0);
-  const ageText = ageLabel(person.birthDate, person.deathDate);
+  const age = calcAge(person.birthDate, person.deathDate);
+  const bornName =
+    person.nicknames.filter(Boolean).join(" / ") ||
+    (person.nameOriginal && hasHebrew(person.nameOriginal)
+      ? person.nameOriginal
+      : "");
+  const activityLabels = [...new Set(person.activities || [])];
+  const tagKeys = person.tags.filter(
+    (tag) => !activityLabels.some((a) => ACTIVITY_LABELS[a] === tag)
+  );
+  const hasKeys = activityLabels.length > 0 || tagKeys.length > 0;
 
   return (
-    <article className="detail-layout">
+    <article className="detail-layout ishim-person">
       <div className="detail-poster">
         <EntityImage src={person.imageUrl} alt={person.name} />
       </div>
       <div className="detail-content">
-        <div style={{ display: "flex", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
-          <div>
-            <h1>{person.name}</h1>
-            {person.nameOriginal && <p className="meta">{person.nameOriginal}</p>}
-          </div>
+        <div className="ishim-person-head">
+          <h1>{person.name}</h1>
           {canEditArchive(user) && (
             <OwnerActions
               kind="person"
@@ -154,117 +138,125 @@ export default function PersonDetailPage() {
           )}
         </div>
 
-        <div className="chip-row">
-          {(person.activities || []).map((activity) => {
-            const count =
-              byActivity.find((g) => g.activity === activity)?.items.length || 0;
-            return (
-              <Link
-                key={activity}
-                href={`/categories/${activity}`}
-                className="chip chip-link"
-              >
-                {ACTIVITY_LABELS[activity]}
-                {count > 0 ? ` (${count})` : ""}
-              </Link>
-            );
-          })}
+        <dl className="ishim-facts">
+          {age !== undefined && (
+            <div>
+              <dt>גיל:</dt>
+              <dd>
+                {age}
+                {person.deathDate
+                  ? ` (נפטר/ה ב-${formatDateNumeric(person.deathDate)})`
+                  : ""}
+              </dd>
+            </div>
+          )}
           {person.birthDate && (
-            <span className="chip">נולד/ה {formatDateHe(person.birthDate)}</span>
+            <div>
+              <dt>נולד ב:</dt>
+              <dd>{formatDateNumeric(person.birthDate)}</dd>
+            </div>
           )}
-          {ageText && <span className="chip">{ageText}</span>}
-          {person.deathDate && (
-            <span className="chip">נפטר/ה {formatDateHe(person.deathDate)}</span>
+          {bornName && (
+            <div>
+              <dt>נולד בשם:</dt>
+              <dd>{bornName}</dd>
+            </div>
           )}
-          {person.nicknames.map((n) => (
-            <span key={n} className="chip">
-              כינוי: {n}
-            </span>
-          ))}
-          {person.tags.map((tag) => (
-            <span key={tag} className="chip">
-              {tag}
-            </span>
-          ))}
-        </div>
+          {person.nameOriginal && !hasHebrew(person.nameOriginal) && (
+            <div>
+              <dt>שם באנגלית:</dt>
+              <dd>{person.nameOriginal}</dd>
+            </div>
+          )}
+          {hasKeys && (
+            <div className="ishim-keys">
+              <dt>מפתחות:</dt>
+              <dd>
+                {activityLabels.map((activity) => (
+                  <Link
+                    key={activity}
+                    href={`/categories/${activity}`}
+                    className="ishim-key"
+                  >
+                    {ACTIVITY_LABELS[activity]}
+                  </Link>
+                ))}
+                {tagKeys.map((tag) => (
+                  <Link
+                    key={tag}
+                    href={`/search?q=${encodeURIComponent(tag)}`}
+                    className="ishim-key"
+                  >
+                    {tag}
+                  </Link>
+                ))}
+              </dd>
+            </div>
+          )}
+          {person.wikipediaUrl && (
+            <div>
+              <dt>קישורים:</dt>
+              <dd>
+                <a href={person.wikipediaUrl} target="_blank" rel="noreferrer">
+                  ויקיפדיה
+                </a>
+              </dd>
+            </div>
+          )}
+        </dl>
 
-        <div className="prose">{person.bio || "אין ביוגרפיה עדיין."}</div>
-
-        {person.wikipediaUrl && (
-          <p className="notice" style={{ marginTop: "0.75rem" }}>
-            <a href={person.wikipediaUrl} target="_blank" rel="noreferrer">
-              ויקיפדיה
-            </a>
-          </p>
-        )}
+        {byRole.map((group) => (
+          <section key={group.heading} className="ishim-role">
+            <h3>{group.heading}</h3>
+            <ul className="ishim-credits">
+              {group.items.map((item) => (
+                <li key={`${item.production.id}-${item.role}`}>
+                  <span className="ishim-year">
+                    {item.production.year || ""}
+                  </span>
+                  <div className="ishim-credit-body">
+                    <Link
+                      href={`/productions/${encodeURIComponent(item.production.id)}`}
+                    >
+                      {item.production.title}
+                    </Link>
+                    {item.characterName ? (
+                      <span className="ishim-chars">{item.characterName}</span>
+                    ) : null}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
 
         {(person.discography?.length || 0) > 0 && (
-          <section className="credit-groups" style={{ marginTop: "1.5rem" }}>
-            <h2 className="page-title" style={{ fontSize: "1.4rem" }}>
-              דיסקוגרפיה
-            </h2>
-            <p className="muted" style={{ marginTop: 0 }}>
-              {person.discography!.length} ערכים מוויקיפדיה / ויקידאטה
-            </p>
-            <ul className="activity-list">
+          <section className="ishim-role">
+            <h3>דיסקוגרפיה</h3>
+            <ul className="ishim-credits">
               {person.discography!.map((item) => (
                 <li key={`${item.title}-${item.year || ""}`}>
-                  <strong>{item.title}</strong>
-                  <span className="meta">
-                    {item.year ? ` · ${item.year}` : ""}
-                    {item.kind ? ` · ${item.kind}` : ""}
-                    {item.note ? ` · ${item.note}` : ""}
-                  </span>
+                  <span className="ishim-year">{item.year || ""}</span>
+                  <div className="ishim-credit-body">
+                    <strong>{item.title}</strong>
+                    {item.kind || item.note ? (
+                      <span className="ishim-chars">
+                        {[item.kind, item.note].filter(Boolean).join(" · ")}
+                      </span>
+                    ) : null}
+                  </div>
                 </li>
               ))}
             </ul>
           </section>
         )}
 
-        <section className="credit-groups">
-          <h2 className="page-title" style={{ fontSize: "1.4rem" }}>
-            פעילויות לפי קטגוריה
-          </h2>
-          <p className="muted" style={{ marginTop: 0 }}>
-            {totalLinked > 0
-              ? `${totalLinked} קישורי הפקות לפי תפקיד וסוג`
-              : "עדיין אין הפקות מקושרות — ערכו את האישיות והוסיפו הפקות לכל קטגוריה"}
-          </p>
-          {byActivity.map((group) => (
-            <div key={group.activity} className="credit-group activity-block">
-              <h3>
-                <Link href={`/categories/${group.activity}`}>
-                  {ACTIVITY_LABELS[group.activity]}
-                </Link>
-                <span className="meta"> ({group.items.length})</span>
-              </h3>
-              {group.items.length === 0 ? (
-                <p className="muted">אין הפקות מקושרות בקטגוריה זו עדיין.</p>
-              ) : (
-                <ul className="activity-list">
-                  {group.items.map((item) => (
-                    <li key={`${item.production.id}-${item.role}`}>
-                      <Link
-                        href={`/productions/${encodeURIComponent(item.production.id)}`}
-                      >
-                        {formatProductionTitle(item.production)}
-                      </Link>
-                      <span className="meta">
-                        {" "}
-                        {!showsActivityYearsInTitle(item.production.kind) &&
-                        item.production.year
-                          ? `· ${item.production.year} `
-                          : ""}
-                        · {CREDIT_ROLE_LABELS[item.role]}
-                        {item.characterName ? ` · ${item.characterName}` : ""}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </section>
+        {person.bio?.trim() && (
+          <section className="ishim-role">
+            <h3>כללי</h3>
+            <div className="prose ishim-notes">{person.bio}</div>
+          </section>
+        )}
       </div>
     </article>
   );

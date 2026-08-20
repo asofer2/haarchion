@@ -417,6 +417,104 @@ img {
   line-height: 1.1;
 }
 
+.ishim-person-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.ishim-facts {
+  margin: 0.35rem 0 1.35rem;
+  display: grid;
+  gap: 0.28rem;
+}
+
+.ishim-facts > div {
+  line-height: 1.45;
+}
+
+.ishim-facts dt {
+  display: inline;
+  font-weight: 800;
+  margin-inline-end: 0.35rem;
+}
+
+.ishim-facts dd {
+  display: inline;
+  margin: 0;
+}
+
+.ishim-keys dd {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.7rem;
+  vertical-align: top;
+}
+
+.ishim-key {
+  color: var(--accent);
+  font-weight: 700;
+  border-bottom: 1px solid rgba(139, 46, 59, 0.35);
+}
+
+.ishim-role {
+  margin: 0.85rem 0 0;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--line);
+}
+
+.ishim-role h2,
+.ishim-role h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-rubik), sans-serif;
+  font-size: 1.15rem;
+  color: var(--accent);
+}
+
+.ishim-credits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.18rem;
+}
+
+.ishim-credits li {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: 0.2rem 0.7rem;
+  align-items: baseline;
+}
+
+.ishim-year {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.ishim-credit-body a,
+.ishim-credit-body strong {
+  color: var(--accent);
+  font-weight: 700;
+  border-bottom: 1px solid rgba(139, 46, 59, 0.35);
+}
+
+.ishim-chars {
+  margin: 0;
+  margin-inline-start: 0.45rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.ishim-notes {
+  margin: 0.15rem 0 0;
+  color: var(--ink);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
 .chip-row {
   display: flex;
   flex-wrap: wrap;

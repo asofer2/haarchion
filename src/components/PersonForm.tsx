@@ -5,17 +5,18 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
 import { ImageDropzone } from "@/components/ImageDropzone";
 import {
-  emptyCategoryRows,
-  emptyRow,
+  emptyIshimRows,
   PersonCategoryCredits,
   rowsFromArchive,
   type CategoryCreditRow,
 } from "@/components/PersonCategoryCredits";
 import { useArchive } from "@/hooks/useArchive";
 import { savePerson, savePersonCategoryCredits, slugify } from "@/lib/data";
+import { ISHIM_CREDIT_SECTIONS } from "@/lib/ishim-person";
 import {
   ACTIVITY_LABELS,
   ACTIVITY_LIST,
+  roleToActivity,
   type ActivityCategory,
   type Person,
 } from "@/lib/types";
@@ -34,34 +35,24 @@ export function PersonForm({ initial }: Props) {
   const [activities, setActivities] = useState<ActivityCategory[]>(
     initial?.activities?.length ? initial.activities : ["dubbing"]
   );
-  const [categoryRows, setCategoryRows] = useState<
-    Partial<Record<ActivityCategory, CategoryCreditRow[]>>
-  >(emptyCategoryRows);
+  const [categoryRows, setCategoryRows] =
+    useState<Record<string, CategoryCreditRow[]>>(emptyIshimRows);
   const [creditsHydrated, setCreditsHydrated] = useState(!initial);
 
   useEffect(() => {
     if (creditsHydrated || !data || !initial) return;
-    setCategoryRows(rowsFromArchive(initial.id, activities, data));
+    setCategoryRows(rowsFromArchive(initial.id, data));
     setCreditsHydrated(true);
-  }, [activities, creditsHydrated, data, initial]);
+  }, [creditsHydrated, data, initial]);
 
   if (!user) {
     return <p className="notice">יש להתחבר כדי להוסיף או לערוך אישים.</p>;
   }
 
   function toggleActivity(cat: ActivityCategory) {
-    setActivities((prev) => {
-      const next = prev.includes(cat)
-        ? prev.filter((c) => c !== cat)
-        : [...prev, cat];
-      setCategoryRows((rows) => {
-        if (next.includes(cat) && !rows[cat]?.length) {
-          return { ...rows, [cat]: [emptyRow()] };
-        }
-        return rows;
-      });
-      return next;
-    });
+    setActivities((prev) =>
+      prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat]
+    );
   }
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -75,9 +66,9 @@ export function PersonForm({ initial }: Props) {
       setSaving(false);
       return;
     }
-    const filledActivities = ACTIVITY_LIST.filter((activity) =>
-      (categoryRows[activity] || []).some((row) => row.title.trim())
-    );
+    const filledActivities = ISHIM_CREDIT_SECTIONS.filter((section) =>
+      (categoryRows[section.heading] || []).some((row) => row.title.trim())
+    ).map((section) => roleToActivity(section.roles[0]));
     const activitiesToSave = [...new Set([...activities, ...filledActivities])];
     if (activitiesToSave.length === 0) {
       setError("בחרו לפחות קטגוריית פעילות אחת, או הוסיפו הפקה באחת הקטגוריות");
@@ -105,6 +96,8 @@ export function PersonForm({ initial }: Props) {
         .map((s) => s.trim())
         .filter(Boolean),
       activities: activitiesToSave,
+      wikipediaUrl: initial?.wikipediaUrl,
+      discography: initial?.discography,
       createdAt: initial?.createdAt || now,
       updatedAt: now,
       createdBy: initial?.createdBy || user!.uid,
@@ -117,11 +110,12 @@ export function PersonForm({ initial }: Props) {
         userName: user!.displayName || undefined,
         isNew: !initial,
       });
-      const creditInputs = ACTIVITY_LIST.flatMap((activity) =>
-        (categoryRows[activity] || [])
+      const creditInputs = ISHIM_CREDIT_SECTIONS.flatMap((section) =>
+        (categoryRows[section.heading] || [])
           .filter((row) => row.title.trim())
           .map((row) => ({
-            activity,
+            activity: roleToActivity(row.role || section.roles[0]),
+            role: row.role || section.roles[0],
             title: row.title.trim(),
             year: Number(row.year) || undefined,
             characterName: row.characterName.trim() || undefined,
@@ -154,11 +148,11 @@ export function PersonForm({ initial }: Props) {
         </label>
       )}
       <label>
-        שם מקורי
+        שם באנגלית / שם מקורי
         <input name="nameOriginal" defaultValue={initial?.nameOriginal} />
       </label>
       <label>
-        כינויים (מופרדים בפסיק)
+        נולד בשם (מופרד בפסיק אם יש כמה)
         <input name="nicknames" defaultValue={initial?.nicknames.join(", ")} />
       </label>
       <div className="form-row">
@@ -173,8 +167,8 @@ export function PersonForm({ initial }: Props) {
       </div>
 
       <fieldset className="activity-fieldset">
-        <legend>קטגוריות פעילות</legend>
-        <p className="muted">סרטים, דיבוב, מחזמר, קלטות, הופעות ועוד</p>
+        <legend>מפתחות פעילות</legend>
+        <p className="muted">יופיעו כקישורים בראש דף האישיות</p>
         <div className="chip-row">
           {ACTIVITY_LIST.map((cat) => (
             <label key={cat} className={`chip-check ${activities.includes(cat) ? "on" : ""}`}>
@@ -190,8 +184,12 @@ export function PersonForm({ initial }: Props) {
       </fieldset>
 
       <label>
-        תגיות (מופרדות בפסיק)
-        <input name="tags" defaultValue={initial?.tags.join(", ")} />
+        מפתחות (מופרדים בפסיק)
+        <input
+          name="tags"
+          defaultValue={initial?.tags.join(", ")}
+          placeholder="למשל בובות, במאים, מדבבים"
+        />
       </label>
 
       <ImageDropzone
@@ -201,11 +199,12 @@ export function PersonForm({ initial }: Props) {
       />
 
       <label>
-        ביוגרפיה
+        כללי (קצר — הערה אחת או שתיים, כמו באתר אישים)
         <textarea
           name="bio"
-          rows={14}
+          rows={4}
           defaultValue={initial?.bio}
+          placeholder="למשל: הקים את אולפני הדיבוב אולפנטו ב-1991."
           style={{ whiteSpace: "pre-wrap" }}
         />
       </label>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { PersonCard } from "@/components/PersonCard";
 import { ProductionCard } from "@/components/ProductionCard";
 import { useArchive } from "@/hooks/useArchive";
@@ -44,8 +45,17 @@ function scopedResults(
 }
 
 export default function SearchPage() {
+  return (
+    <Suspense fallback={<p className="notice">טוען…</p>}>
+      <SearchPageInner />
+    </Suspense>
+  );
+}
+
+function SearchPageInner() {
   const { data, loading, error } = useArchive();
-  const [q, setQ] = useState("");
+  const searchParams = useSearchParams();
+  const [q, setQ] = useState(searchParams.get("q") || "");
   const [scope, setScope] = useState<SearchScope>("all");
 
   const allResults = useMemo(() => {
