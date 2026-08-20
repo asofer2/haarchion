@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
@@ -35,13 +36,12 @@ export function Header({ a11ySlot }: { a11ySlot?: ReactNode }) {
   const { user, loading, logout, localMode } = useAuth();
   const { data } = useArchive();
 
-  const listsValue = LIST_OPTIONS.some(
-    (opt) => pathname === opt.href || pathname.startsWith(`${opt.href}/`)
-  )
-    ? LIST_OPTIONS.find(
-        (opt) => pathname === opt.href || pathname.startsWith(`${opt.href}/`)
-      )?.href || ""
-    : "";
+  const listsValue = useMemo(() => {
+    const match = LIST_OPTIONS.find(
+      (opt) => pathname === opt.href || pathname.startsWith(`${opt.href}/`)
+    );
+    return match?.href || "";
+  }, [pathname]);
 
   function onListsChange(href: string) {
     if (href) router.push(href);

@@ -436,13 +436,54 @@ function getSeedBaseline(): ArchiveData {
   return seedBaseline;
 }
 
-function sameJson(a: unknown, b: unknown): boolean {
-  return JSON.stringify(a) === JSON.stringify(b);
+/** Classic ishim scrape — applied after first paint, never during module init. */
+let ishimCatalog: ArchiveData | null = null;
+
+function overlayBaseline(): ArchiveData {
+  return ishimCatalog || getSeedBaseline();
+}
+
+function samePerson(a: Person | undefined, b: Person): boolean {
+  if (!a) return false;
+  if (a === b) return true;
+  return (
+    a.name === b.name &&
+    a.bio === b.bio &&
+    a.birthDate === b.birthDate &&
+    a.deathDate === b.deathDate &&
+    a.imageUrl === b.imageUrl &&
+    a.updatedAt === b.updatedAt
+  );
+}
+
+function sameProduction(a: Production | undefined, b: Production): boolean {
+  if (!a) return false;
+  if (a === b) return true;
+  return (
+    a.title === b.title &&
+    a.year === b.year &&
+    a.kind === b.kind &&
+    a.summary === b.summary &&
+    a.imageUrl === b.imageUrl &&
+    a.updatedAt === b.updatedAt
+  );
+}
+
+function sameCredit(a: Credit | undefined, b: Credit): boolean {
+  if (!a) return false;
+  if (a === b) return true;
+  return (
+    a.personId === b.personId &&
+    a.productionId === b.productionId &&
+    a.role === b.role &&
+    (a.year || undefined) === (b.year || undefined) &&
+    (a.characterName || "") === (b.characterName || "")
+  );
 }
 
 /** Diff full archive against normalized seed — only mutations / extras. */
 function extractOverlay(data: ArchiveData): LocalOverlay {
-  const baseline = getSeedBaseline();
+  const baseline = overlayBaseline();
   const seedPeople = new Map(baseline.people.map((p) => [p.id, p]));
   const seedProds = new Map(baseline.productions.map((p) => [p.id, p]));
   const seedCredits = new Map(baseline.credits.map((c) => [creditKeyOf(c), c]));
@@ -452,12 +493,12 @@ function extractOverlay(data: ArchiveData): LocalOverlay {
 
   return {
     v: 1,
-    people: data.people.filter((p) => !sameJson(seedPeople.get(p.id), p)),
+    people: data.people.filter((p) => !samePerson(seedPeople.get(p.id), p)),
     productions: data.productions.filter(
-      (p) => !sameJson(seedProds.get(p.id), p)
+      (p) => !sameProduction(seedProds.get(p.id), p)
     ),
     credits: data.credits.filter(
-      (c) => !sameJson(seedCredits.get(creditKeyOf(c)), c)
+      (c) => !sameCredit(seedCredits.get(creditKeyOf(c)), c)
     ),
     contributions: data.contributions || [],
     removedPersonIds: [...seedPeople.keys()].filter((id) => !dataPeople.has(id)),
@@ -775,6 +816,45 @@ function fallbackArchive(): ArchiveData {
   return structuredClone(getSeedBaseline());
 }
 
+let ishimApplyPromise: Promise<(data: ArchiveData) => ArchiveData> | null =
+  null;
+
+function getIshimApply(): Promise<(data: ArchiveData) => ArchiveData> {
+  if (!ishimApplyPromise) {
+    ishimApplyPromise = import("./seed-ishim-archive").then(
+      (mod) => mod.applyIshimArchive
+    );
+  }
+  return ishimApplyPromise;
+}
+
+function yieldToMain(): Promise<void> {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 0);
+  });
+}
+
+/** Merge the classic ishim scrape after first paint so Chromium does not hang. */
+async function enrichWithIshimCatalog(
+  base: ArchiveData,
+  onRemote?: (data: ArchiveData) => void
+): Promise<void> {
+  if (typeof window === "undefined") return;
+  try {
+    await yieldToMain();
+    const apply = await getIshimApply();
+    await yieldToMain();
+    if (!ishimCatalog) {
+      ishimCatalog = apply(getSeedBaseline());
+    }
+    const display = apply(base);
+    memoryCache = { data: display, at: Date.now() };
+    onRemote?.(display);
+  } catch (error) {
+    console.warn("Ishim catalog enrich failed — using seed", error);
+  }
+}
+
 export async function loadArchive(
   force = false,
   opts?: { onRemote?: (data: ArchiveData) => void }
@@ -789,6 +869,7 @@ export async function loadArchive(
 
   const local = fallbackArchive();
   cacheLocally(local);
+  void enrichWithIshimCatalog(local, opts?.onRemote);
 
   if (!isFirebaseConfigured()) {
     return local;
@@ -804,8 +885,8 @@ export async function loadArchive(
           "Firestore load"
         );
         const merged = mergeArchives(local, remote);
-        cacheLocally(merged);
-        opts?.onRemote?.(merged);
+        if (!ishimCatalog) cacheLocally(merged);
+        await enrichWithIshimCatalog(merged, opts?.onRemote);
       } catch (error) {
         console.warn("Firestore sync failed — using local/seed data", error);
       } finally {

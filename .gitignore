@@ -41,3 +41,9 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# ishim scrape resume cache (compiled catalog is src/data/ishim-archive.json)
+scripts/ishim-archive/cache/
+scripts/ishim-archive/parsed/
+scripts/ishim-archive/progress.json
+scripts/ishim-archive/*.html
