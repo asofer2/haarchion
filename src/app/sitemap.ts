@@ -12,6 +12,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/productions`, lastModified: now },
     { url: `${base}/categories`, lastModified: now },
     { url: `${base}/search`, lastModified: now },
+    { url: `${base}/y`, lastModified: now },
+    { url: `${base}/channels`, lastModified: now },
+    { url: `${base}/genres`, lastModified: now },
+    { url: `${base}/keys`, lastModified: now },
+    { url: `${base}/questions`, lastModified: now },
     { url: `${base}/me`, lastModified: now },
     ...ACTIVITY_LIST.map((slug) => ({
       url: `${base}/categories/${slug}`,

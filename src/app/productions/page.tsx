@@ -1,11 +1,13 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { ProductionCard } from "@/components/ProductionCard";
 import { useArchive } from "@/hooks/useArchive";
 import { useAuth } from "@/components/AuthProvider";
 import { productionMatchesCategory } from "@/lib/category-filter";
+import { ISHIM_DIRECTORY, productionsForKindParam } from "@/lib/ishim-directory";
 import {
   ACTIVITY_LABELS,
   ACTIVITY_LIST,
@@ -14,69 +16,89 @@ import {
 
 const PAGE_SIZE = 24;
 
-export default function ProductionsPage() {
+function ProductionsInner() {
   const { data, loading, error } = useArchive();
   const { user } = useAuth();
+  const searchParams = useSearchParams();
+  const kindParam = searchParams.get("kind");
   const [filter, setFilter] = useState<ActivityCategory | "all">("all");
   const [visible, setVisible] = useState(PAGE_SIZE);
 
+  const kindItem = ISHIM_DIRECTORY.find((item) =>
+    item.addHref.includes(`kind=${kindParam}`)
+  );
+
   const productions = useMemo(() => {
     if (!data) return [];
+    const byKind = productionsForKindParam(data.productions, kindParam);
     const list =
-      filter === "all"
+      byKind ??
+      (filter === "all"
         ? data.productions
-        : data.productions.filter((p) => productionMatchesCategory(p, filter));
+        : data.productions.filter((p) => productionMatchesCategory(p, filter)));
     return [...list].sort((a, b) => b.year - a.year);
-  }, [data, filter]);
+  }, [data, filter, kindParam]);
 
   const shown = productions.slice(0, visible);
 
   if (loading && !data) return <p className="notice">טוען הפקות…</p>;
   if (error || !data) return <p className="form-error">{error || "שגיאה"}</p>;
 
+  const title = kindItem?.label || "הפקות";
+
   return (
     <>
       <div className="section-head" style={{ border: "none", marginBottom: "0.5rem" }}>
         <div>
-          <h1 className="page-title">הפקות</h1>
+          <h1 className="page-title">{title}</h1>
           <p className="notice">
             {productions.length} הפקות
-            {filter !== "all" ? ` ב«${ACTIVITY_LABELS[filter]}»` : ""} — סרטים,
-            סדרות, מחזמרים ועוד.
+            {!kindItem && filter !== "all" ? ` ב«${ACTIVITY_LABELS[filter]}»` : ""}
           </p>
         </div>
         {user && (
-          <Link href="/productions/new" className="btn btn-primary">
+          <Link
+            href={kindItem?.addHref || "/productions/new"}
+            className="btn btn-primary"
+          >
             + הוספת הפקה
           </Link>
         )}
       </div>
 
-      <div className="chip-row" style={{ marginBottom: "1.25rem" }}>
-        <button
-          type="button"
-          className={`chip chip-btn ${filter === "all" ? "on" : ""}`}
-          onClick={() => {
-            setFilter("all");
-            setVisible(PAGE_SIZE);
-          }}
-        >
-          הכול
-        </button>
-        {ACTIVITY_LIST.map((cat) => (
+      {!kindItem && (
+        <div className="chip-row" style={{ marginBottom: "1.25rem" }}>
           <button
-            key={cat}
             type="button"
-            className={`chip chip-btn ${filter === cat ? "on" : ""}`}
+            className={`chip chip-btn ${filter === "all" ? "on" : ""}`}
             onClick={() => {
-              setFilter(cat);
+              setFilter("all");
               setVisible(PAGE_SIZE);
             }}
           >
-            {ACTIVITY_LABELS[cat]}
+            הכול
           </button>
-        ))}
-      </div>
+          {ACTIVITY_LIST.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              className={`chip chip-btn ${filter === cat ? "on" : ""}`}
+              onClick={() => {
+                setFilter(cat);
+                setVisible(PAGE_SIZE);
+              }}
+            >
+              {ACTIVITY_LABELS[cat]}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {kindItem && (
+        <p className="meta" style={{ marginBottom: "1rem" }}>
+          <Link href="/productions">← כל ההפקות</Link>
+        </p>
+      )}
 
       {productions.length === 0 ? (
         <p className="muted">אין הפקות במסנן זה.</p>
@@ -101,5 +123,13 @@ export default function ProductionsPage() {
         </>
       )}
     </>
+  );
+}
+
+export default function ProductionsPage() {
+  return (
+    <Suspense fallback={<p className="notice">טוען הפקות…</p>}>
+      <ProductionsInner />
+    </Suspense>
   );
 }

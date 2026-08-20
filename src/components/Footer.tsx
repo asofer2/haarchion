@@ -21,6 +21,7 @@ export function Footer() {
         <div className="footer-links">
           <Link href="/people">אישים</Link>
           <Link href="/productions">הפקות</Link>
+          <Link href="/y">לוח שנה</Link>
           <Link href="/search">חיפוש</Link>
           <FooterA11yLink />
         </div>

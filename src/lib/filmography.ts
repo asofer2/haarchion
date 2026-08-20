@@ -218,12 +218,14 @@ export function kindMatchesActivity(
         kind === "film" ||
         kind === "documentary" ||
         kind === "film_cinema" ||
+        kind === "film_tv" ||
         kind === "film_dubbed_foreign" ||
         kind === "film_student" ||
         kind === "series" ||
         kind === "miniseries" ||
         kind === "tv_series" ||
         kind === "series_israeli_foreign_dubbed" ||
+        kind === "series_dubbed_foreign" ||
         kind === "tv_program" ||
         kind === "stage" ||
         kind === "musical"
@@ -233,6 +235,7 @@ export function kindMatchesActivity(
         kind === "film" ||
         kind === "documentary" ||
         kind === "film_cinema" ||
+        kind === "film_tv" ||
         kind === "film_dubbed_foreign" ||
         kind === "film_student" ||
         kind === "game_israeli" ||
@@ -246,6 +249,7 @@ export function kindMatchesActivity(
         kind === "miniseries" ||
         kind === "tv_series" ||
         kind === "series_israeli_foreign_dubbed" ||
+        kind === "series_dubbed_foreign" ||
         kind === "tv_program"
       );
     case "musical":

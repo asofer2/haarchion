@@ -16,15 +16,23 @@ import {
 
 interface Props {
   initial?: Production;
+  presetKind?: string;
 }
 
-export function ProductionForm({ initial }: Props) {
+export function ProductionForm({ initial, presetKind }: Props) {
   const router = useRouter();
   const { user } = useAuth();
   const { refresh } = useArchive();
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | undefined>(initial?.imageUrl);
+
+  const kindDefault =
+    initial?.kind ??
+    (presetKind &&
+    PRODUCTION_KIND_FORM_OPTIONS.some((opt) => opt.value === presetKind)
+      ? (presetKind as ProductionKind)
+      : "film_cinema");
 
   if (!user) {
     return <p className="notice">יש להתחבר כדי לערוך ערכים.</p>;
@@ -116,7 +124,7 @@ export function ProductionForm({ initial }: Props) {
         </label>
         <label>
           סוג
-          <select name="kind" defaultValue={initial?.kind ?? "film_cinema"}>
+          <select name="kind" defaultValue={kindDefault} key={kindDefault}>
             {PRODUCTION_KIND_FORM_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>
                 {opt.label}

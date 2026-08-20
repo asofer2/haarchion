@@ -1,15 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
+import { safeNextPath } from "@/lib/ishim-directory";
 
-export default function AuthPage() {
+function AuthPageInner() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const next = safeNextPath(searchParams.get("next"));
   const { signInWithGoogle, user, logout, configured, loading } = useAuth();
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+
+  useEffect(() => {
+    if (user && next && next !== "/me") {
+      router.replace(next);
+    }
+  }, [user, next, router]);
 
   if (loading) {
     return <p className="notice">טוען…</p>;
@@ -30,7 +39,10 @@ export default function AuthPage() {
           — עריכות נשמרות תחת חשבון Google זה.
         </p>
         <div className="hero-actions">
-          <Link href="/me" className="btn btn-primary">
+          <Link href={next} className="btn btn-primary">
+            המשך
+          </Link>
+          <Link href="/me" className="btn btn-ghost">
             הספרייה שלי
           </Link>
           <button
@@ -50,7 +62,7 @@ export default function AuthPage() {
     setError(null);
     try {
       await signInWithGoogle();
-      router.push("/me");
+      router.push(next);
     } catch (err) {
       setError(err instanceof Error ? err.message : "התחברות נכשלה");
     } finally {
@@ -93,6 +105,14 @@ export default function AuthPage() {
         </p>
       </div>
     </>
+  );
+}
+
+export default function AuthPage() {
+  return (
+    <Suspense fallback={<p className="notice">טוען…</p>}>
+      <AuthPageInner />
+    </Suspense>
   );
 }
 

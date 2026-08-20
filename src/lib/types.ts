@@ -81,6 +81,8 @@ export type ProductionKind =
   | "film_dubbed_foreign"
   | "film_student"
   | "film_cinema"
+  | "film_tv"
+  | "series_dubbed_foreign"
   | "cassette_kids"
   | "tv_program"
   | "radio_program"
@@ -102,13 +104,15 @@ export const PRODUCTION_KIND_LABELS: Record<ProductionKind, string> = {
   ensemble: "הרכב",
   game_israeli: "משחק מחשב ישראלי",
   game_dubbed_foreign: "משחק מחשב מדובב זר",
-  series_israeli_foreign_dubbed: "סידרה ישראלית עם קטעים זרים מדובבים",
-  tv_series: "סידרת TV",
+  series_israeli_foreign_dubbed: "סדרה ישראלית עם קטעים זרים מדובבים",
+  tv_series: "סדרת טלוויזיה",
   film_dubbed_foreign: "סרט זר מדובב",
   film_student: "סרט סטודנטים",
   film_cinema: "סרט קולנוע",
+  film_tv: "סרט טלוויזיה",
+  series_dubbed_foreign: "סדרה זרה מדובבת",
   cassette_kids: "קלטת ילדים",
-  tv_program: "תוכנית טלויזיה",
+  tv_program: "תוכנית טלוויזיה",
   radio_program: "תוכנית רדיו",
   film: "סרט",
   series: "סדרה",
@@ -127,22 +131,24 @@ export const PRODUCTION_KIND_FORM_OPTIONS: {
   value: ProductionKind;
   label: string;
 }[] = [
-  { value: "website", label: "אתר אינטרנט" },
-  { value: "person", label: "אישיות" },
+  { value: "tv_series", label: "סדרת טלוויזיה" },
+  { value: "tv_program", label: "תוכנית טלוויזיה" },
+  { value: "film_tv", label: "סרט טלוויזיה" },
+  { value: "film_cinema", label: "סרט קולנוע" },
+  { value: "radio_program", label: "תוכנית רדיו" },
+  { value: "film_student", label: "סרט סטודנטים" },
+  { value: "cassette_kids", label: "קלטת ילדים" },
   { value: "ensemble", label: "הרכב" },
-  { value: "game_israeli", label: "משחק מחשב ישראלי" },
-  { value: "game_dubbed_foreign", label: "משחק מחשב מדובב זר" },
+  { value: "series_dubbed_foreign", label: "סדרה זרה מדובבת" },
+  { value: "film_dubbed_foreign", label: "סרט זר מדובב" },
   {
     value: "series_israeli_foreign_dubbed",
-    label: "סידרה ישראלית עם קטעים זרים מדובבים",
+    label: "סדרה ישראלית עם קטעים זרים מדובבים",
   },
-  { value: "tv_series", label: "סידרת TV" },
-  { value: "film_dubbed_foreign", label: "סרט זר מדובב" },
-  { value: "film_student", label: "סרט סטודנטים" },
-  { value: "film_cinema", label: "סרט קולנוע" },
-  { value: "cassette_kids", label: "קלטת ילדים" },
-  { value: "tv_program", label: "תוכנית טלויזיה" },
-  { value: "radio_program", label: "תוכנית רדיו" },
+  { value: "website", label: "אתר אינטרנט" },
+  { value: "person", label: "אישיות" },
+  { value: "game_israeli", label: "משחק מחשב ישראלי" },
+  { value: "game_dubbed_foreign", label: "משחק מחשב מדובב זר" },
 ];
 
 export function productionKindLabel(kind: ProductionKind | string): string {
@@ -252,11 +258,13 @@ export function kindToActivity(kind: ProductionKind): ActivityCategory {
   switch (kind) {
     case "tv_series":
     case "series_israeli_foreign_dubbed":
+    case "series_dubbed_foreign":
     case "tv_program":
     case "series":
     case "miniseries":
       return "series";
     case "film_cinema":
+    case "film_tv":
     case "film_dubbed_foreign":
     case "film_student":
     case "game_israeli":
