@@ -136,6 +136,15 @@ export default function ProfilePage() {
           </Link>{" "}
           כדי לראות מה הוספתם, לערוך או למחוק.
         </p>
+        <section id="admin" className="section" style={{ marginTop: "1.5rem" }}>
+          <div className="section-head">
+            <h2>פאנל ניהול — בקשות לאישור</h2>
+          </div>
+          <p className="notice">
+            <Link href="/admin">לפאנל הניהול</Link> — תמיר סופר מתחבר עם
+            tamirsofer@gmail.com.
+          </p>
+        </section>
       </>
     );
   }

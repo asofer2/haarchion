@@ -14,7 +14,6 @@ import {
   randomShowPath,
   randomYearPath,
 } from "@/lib/random-pick";
-import { isSiteAdmin } from "@/lib/admin";
 import { ISHIM_DIRECTORY, loginOr } from "@/lib/ishim-directory";
 
 const links = [
@@ -22,6 +21,7 @@ const links = [
   { href: "/people", label: "אישים" },
   { href: "/productions", label: "הפקות" },
   { href: "/search", label: "חיפוש" },
+  { href: "/admin", label: "ניהול" },
 ];
 
 const LIST_OPTIONS = [
@@ -177,14 +177,12 @@ export function Header({ a11ySlot }: { a11ySlot?: ReactNode }) {
               <Link href="/me" className="btn btn-ghost">
                 הספרייה שלי
               </Link>
-              {isSiteAdmin(user) && (
-                <Link
-                  href="/me#admin"
-                  className={`btn btn-ghost${pathname.startsWith("/me") ? " active" : ""}`}
-                >
-                  ניהול בקשות
-                </Link>
-              )}
+              <Link
+                href="/admin"
+                className={`btn btn-ghost${pathname.startsWith("/admin") ? " active" : ""}`}
+              >
+                ניהול בקשות
+              </Link>
             </>
           )}
           {!loading &&

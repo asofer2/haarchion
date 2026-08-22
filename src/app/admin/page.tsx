@@ -9,41 +9,34 @@ export default function AdminPage() {
   const { user, loading: authLoading } = useAuth();
   const admin = isSiteAdmin(user);
 
-  if (authLoading) return <p className="notice">טוען…</p>;
-  if (!user) {
-    return (
-      <>
-        <h1 className="page-title">פאנל ניהול</h1>
+  return (
+    <>
+      <h1 className="page-title">פאנל ניהול — בקשות לאישור</h1>
+      <p className="notice" style={{ marginBottom: "1rem" }}>
+        כאן {SITE_ADMIN_NAME} מאשר או דוחה הוספות, עדכונים ומחיקות של משתמשים
+        אחרים. השינוי עולה לאתר רק אחרי „כן”.
+      </p>
+
+      {authLoading && <p className="muted">טוען התחברות…</p>}
+
+      {!authLoading && !user && (
         <p className="notice">
           יש{" "}
           <Link href="/auth" className="chip-link">
             להתחבר עם Google
           </Link>{" "}
-          כ{SITE_ADMIN_NAME} ({"tamirsofer@gmail.com"}) כדי לאשר שינויים.
+          כ{SITE_ADMIN_NAME} (tamirsofer@gmail.com).
         </p>
-      </>
-    );
-  }
-  if (!admin) {
-    return (
-      <>
-        <h1 className="page-title">פאנל ניהול</h1>
-        <p className="notice">
-          רק {SITE_ADMIN_NAME} יכול לאשר או לדחות שינויים באתר. התחברו עם{" "}
-          tamirsofer@gmail.com.
-        </p>
-      </>
-    );
-  }
+      )}
 
-  return (
-    <>
-      <h1 className="page-title">פאנל ניהול</h1>
-      <p className="notice" style={{ marginBottom: "1rem" }}>
-        שלום {user.displayName}. כאן מופיעות בקשות של משתמשים אחרים להוספה,
-        עדכון או מחיקה. השינוי יופיע באתר רק אחרי לחיצה על „כן”.
-      </p>
-      <AdminInbox />
+      {!authLoading && user && !admin && (
+        <p className="notice">
+          מחוברים כ־{user.email || user.displayName}. כדי לאשר בקשות יש להתחבר
+          עם tamirsofer@gmail.com.
+        </p>
+      )}
+
+      {admin && <AdminInbox />}
     </>
   );
 }
