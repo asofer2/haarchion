@@ -20,6 +20,11 @@ export const RANDOM_SHOW_KINDS = new Set<ProductionKind>([
   "series_israeli_foreign_dubbed",
 ]);
 
+export const RANDOM_GAME_KINDS = new Set<ProductionKind>([
+  "game_israeli",
+  "game_dubbed_foreign",
+]);
+
 export function pickRandom<T>(items: T[]): T | undefined {
   if (items.length === 0) return undefined;
   return items[Math.floor(Math.random() * items.length)];
@@ -35,6 +40,12 @@ export function randomShowPath(productions: Production[]): string | undefined {
   const shows = productions.filter((p) => RANDOM_SHOW_KINDS.has(p.kind));
   const show = pickRandom(shows);
   return show ? `/productions/${encodeURIComponent(show.id)}` : undefined;
+}
+
+export function randomGamePath(productions: Production[]): string | undefined {
+  const games = productions.filter((p) => RANDOM_GAME_KINDS.has(p.kind));
+  const game = pickRandom(games);
+  return game ? `/productions/${encodeURIComponent(game.id)}` : undefined;
 }
 
 export function randomPersonPath(people: Person[]): string | undefined {

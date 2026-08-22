@@ -1,12 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
 import { useArchive } from "@/hooks/useArchive";
+import { AdminInbox } from "@/components/AdminInbox";
+import { isSiteAdmin, SITE_ADMIN_NAME } from "@/lib/admin";
 import {
-  deletePerson,
-  deleteProduction,
+  PENDING_NOTICE,
+  requestOrApplyDelete,
+  subscribeChangeRequests,
+  type ChangeRequest,
+} from "@/lib/change-requests";
+import {
   formatDateHe,
   isCreatedByUser,
   syncMyCreationsToCloud,
@@ -21,6 +27,26 @@ export default function ProfilePage() {
   const [actionError, setActionError] = useState<string | null>(null);
   const [syncMsg, setSyncMsg] = useState<string | null>(null);
   const [syncing, setSyncing] = useState(false);
+  const [myRequests, setMyRequests] = useState<ChangeRequest[]>([]);
+  const [sent, setSent] = useState(false);
+  const admin = isSiteAdmin(user);
+
+  useEffect(() => {
+    setSent(new URLSearchParams(window.location.search).get("sent") === "1");
+  }, []);
+
+  useEffect(() => {
+    if (!user) return;
+    return subscribeChangeRequests((list) => {
+      setMyRequests(
+        list.filter(
+          (item) =>
+            item.requestedBy === user.uid ||
+            item.requestedByEmail === user.email
+        )
+      );
+    });
+  }, [user]);
 
   const mine = useMemo(() => {
     if (!data || !user) {
@@ -44,7 +70,7 @@ export default function ProfilePage() {
   }, [data, user]);
 
   async function syncToCloud() {
-    if (!user) return;
+    if (!user || !admin) return;
     setSyncing(true);
     setActionError(null);
     setSyncMsg(null);
@@ -66,15 +92,30 @@ export default function ProfilePage() {
     id: string,
     title: string
   ) {
+    if (!user) return;
     const ok = window.confirm(
-      `למחוק את „${title}” לצמיתות?\nפעולה זו אינה ניתנת לביטול.`
+      admin
+        ? `למחוק את „${title}” לצמיתות?\nפעולה זו אינה ניתנת לביטול.`
+        : `לשלוח בקשת מחיקה של „${title}” לאישור ${SITE_ADMIN_NAME}?`
     );
     if (!ok) return;
     setBusyId(id);
     setActionError(null);
     try {
-      if (kind === "person") await deletePerson(id);
-      else await deleteProduction(id);
+      const result = await requestOrApplyDelete(
+        {
+          uid: user.uid,
+          displayName: user.displayName || undefined,
+          email: user.email,
+        },
+        kind,
+        id,
+        title
+      );
+      if (result.pending) {
+        setSyncMsg(PENDING_NOTICE);
+        return;
+      }
       await refresh(true);
     } catch (err) {
       setActionError(err instanceof Error ? err.message : "המחיקה נכשלה");
@@ -111,11 +152,45 @@ export default function ProfilePage() {
             (<span className="meta">{user.email}</span>)
           </>
         ) : null}{" "}
-        — כאן אפשר לערוך או למחוק ערכים שהוספתם. כדי שיופיעו גם במחשב אחר —
-        לחצו „העלה לענן”.
+        — כאן אפשר לערוך או לבקש מחיקה של ערכים.{" "}
+        {admin
+          ? "כדי שיופיעו גם במחשב אחר — לחצו „העלה לענן”."
+          : `הוספות ועריכות נשלחות לאישור ${SITE_ADMIN_NAME} ויופיעו באתר רק אחרי שיאשר.`}
       </p>
+      {sent && <p className="notice">{PENDING_NOTICE}</p>}
       {actionError && <p className="form-error">{actionError}</p>}
       {syncMsg && <p className="notice">{syncMsg}</p>}
+
+      {admin && (
+        <section id="admin" className="section" style={{ marginBottom: "1.5rem" }}>
+          <div className="section-head">
+            <h2>פאנל ניהול — בקשות לאישור</h2>
+          </div>
+          <AdminInbox />
+        </section>
+      )}
+
+      {myRequests.some((r) => r.status === "pending") && (
+        <section className="section" style={{ marginBottom: "1.5rem" }}>
+          <div className="section-head">
+            <h2>בקשות ממתינות לאישור {SITE_ADMIN_NAME}</h2>
+            <p>{myRequests.filter((r) => r.status === "pending").length}</p>
+          </div>
+          <ul className="activity-list">
+            {myRequests
+              .filter((r) => r.status === "pending")
+              .map((r) => (
+                <li key={r.id}>
+                  <span className="chip">ממתין</span> {r.entityTitle}
+                  <span className="meta">
+                    {" "}
+                    · {r.action === "create" ? "הוספה" : r.action === "delete" ? "מחיקה" : "עדכון"}
+                  </span>
+                </li>
+              ))}
+          </ul>
+        </section>
+      )}
 
       <div className="hero-actions" style={{ marginBottom: "1.5rem" }}>
         <Link href="/people/new" className="btn btn-primary">
@@ -124,7 +199,7 @@ export default function ProfilePage() {
         <Link href="/productions/new" className="btn btn-ghost">
           + הוספת הפקה
         </Link>
-        {isFirebaseConfigured() && (
+        {admin && isFirebaseConfigured() && (
           <button
             type="button"
             className="btn btn-ghost"
@@ -133,6 +208,11 @@ export default function ProfilePage() {
           >
             {syncing ? "מעלה לענן…" : "העלה לענן"}
           </button>
+        )}
+        {admin && (
+          <Link href="/admin" className="btn btn-primary">
+            פאנל ניהול
+          </Link>
         )}
       </div>
 
@@ -197,7 +277,13 @@ export default function ProfilePage() {
                     disabled={busyId === p.id}
                     onClick={() => void remove("person", p.id, p.name)}
                   >
-                    {busyId === p.id ? "מוחק…" : "מחיקה"}
+                    {busyId === p.id
+                      ? admin
+                        ? "מוחק…"
+                        : "שולח…"
+                      : admin
+                        ? "מחיקה"
+                        : "בקשת מחיקה"}
                   </button>
                 </span>
               </li>
@@ -233,7 +319,13 @@ export default function ProfilePage() {
                     disabled={busyId === p.id}
                     onClick={() => void remove("production", p.id, p.title)}
                   >
-                    {busyId === p.id ? "מוחק…" : "מחיקה"}
+                    {busyId === p.id
+                      ? admin
+                        ? "מוחק…"
+                        : "שולח…"
+                      : admin
+                        ? "מחיקה"
+                        : "בקשת מחיקה"}
                   </button>
                 </span>
               </li>

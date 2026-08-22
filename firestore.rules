@@ -1,30 +1,66 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Any Firebase Auth session (Google sign-in on the site)
     function isSignedIn() {
       return request.auth != null && request.auth.uid != null;
     }
 
-    // Public archive — anyone may read; signed-in editors may write
+    // Site admin: תמיר סופר (Google display name), custom claim, or admins/{uid}
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.admin == true
+        || request.auth.token.email == 'tamirsofer@gmail.com'
+        || exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+        || (
+          request.auth.token.name is string && (
+            request.auth.token.name == 'תמיר סופר'
+            || request.auth.token.name.matches('.*תמיר.*סופר.*')
+            || request.auth.token.name.matches('(?i).*tamir.*soffe?r.*')
+          )
+        )
+      );
+    }
+
+    // Public archive — anyone may read; only the site admin writes live data
     match /people/{id} {
       allow read: if true;
-      allow create, update, delete: if isSignedIn();
+      allow create, update, delete: if isAdmin();
     }
 
     match /productions/{id} {
       allow read: if true;
-      allow create, update, delete: if isSignedIn();
+      allow create, update, delete: if isAdmin();
     }
 
     match /credits/{id} {
       allow read: if true;
-      allow create, update, delete: if isSignedIn();
+      allow create, update, delete: if isAdmin();
     }
 
     match /contributions/{id} {
       allow read: if true;
-      allow create, update, delete: if isSignedIn();
+      allow create: if isAdmin()
+        || (
+          isSignedIn()
+          && request.resource.data.isChangeRequest == true
+          && request.resource.data.status == 'pending'
+          && request.resource.data.requestedBy == request.auth.uid
+        );
+      allow update, delete: if isAdmin();
+    }
+
+    // Pending add/edit/delete requests — editors submit, admin decides
+    match /changeRequests/{id} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn()
+        && request.resource.data.requestedBy == request.auth.uid
+        && request.resource.data.status == 'pending';
+      allow update, delete: if isAdmin();
+    }
+
+    match /admins/{uid} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
     }
 
     // Editor profiles (Google sign-in metadata) — own doc only
@@ -34,7 +70,6 @@ service cloud.firestore {
       allow delete: if isSignedIn() && request.auth.uid == uid;
     }
 
-    // Deny everything else by default
     match /{document=**} {
       allow read, write: if false;
     }

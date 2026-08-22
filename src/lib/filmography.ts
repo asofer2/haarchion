@@ -68,6 +68,7 @@ const POOLS: Record<ActivityCategory, { productionIds: string[]; role: CreditRol
   hosting: [
     { productionIds: ["festigal-2020s", "hop", "festigal-classic"], role: "host" },
   ],
+  game: [],
 };
 
 /** הפקות שמשמשות רק למילוי פילמוגרפיה — לא נספרות בסינון קטגוריות */
@@ -167,8 +168,12 @@ export function ensureFilmographies(data: ArchiveData): ArchiveData {
             prod.kind === "documentary" ||
             prod.kind === "film_cinema" ||
             prod.kind === "film_dubbed_foreign" ||
-            prod.kind === "film_student"
+            prod.kind === "film_student" ||
+            prod.kind === "film_tv"
           );
+        }
+        if (activity === "game") {
+          return prod.kind === "game_israeli" || prod.kind === "game_dubbed_foreign";
         }
         if (activity === "stage") return prod.kind === "stage" || prod.kind === "musical";
         if (activity === "hosting") return c.role === "host";
@@ -238,11 +243,11 @@ export function kindMatchesActivity(
         kind === "film_tv" ||
         kind === "film_dubbed_foreign" ||
         kind === "film_student" ||
-        kind === "game_israeli" ||
-        kind === "game_dubbed_foreign" ||
         kind === "website" ||
         kind === "person"
       );
+    case "game":
+      return kind === "game_israeli" || kind === "game_dubbed_foreign";
     case "series":
       return (
         kind === "series" ||

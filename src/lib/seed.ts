@@ -18,6 +18,10 @@ import {
   HOP_TAMIR_PRODUCTIONS,
 } from "./seed-hop-tamir";
 import {
+  HOP_TAMIR_GAME_CREDITS,
+  HOP_TAMIR_GAMES,
+} from "./seed-hop-tamir-games";
+import {
   PPTX_DUBBERS_CREDITS,
   PPTX_DUBBERS_PEOPLE,
   PPTX_DUBBERS_PRODUCTIONS,
@@ -933,6 +937,7 @@ export const SEED: ArchiveData = applyIshimYoniChen(
       ...productions,
       ...WAVE2_PRODUCTIONS,
       ...HOP_TAMIR_PRODUCTIONS,
+      ...HOP_TAMIR_GAMES,
       ...WIKI_DUBBED_FILMS,
       ...PPTX_DUBBERS_PRODUCTIONS,
     ]) {
@@ -947,6 +952,7 @@ export const SEED: ArchiveData = applyIshimYoniChen(
       ...credits,
       ...WAVE2_CREDITS,
       ...HOP_TAMIR_CREDITS,
+      ...HOP_TAMIR_GAME_CREDITS,
       ...DUB_CAST_CREDITS,
       ...SERIES_CAST_CREDITS,
       ...PPTX_DUBBERS_CREDITS,

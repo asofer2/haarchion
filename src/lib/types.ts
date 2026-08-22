@@ -37,7 +37,8 @@ export type ActivityCategory =
   | "performance"
   | "festival"
   | "radio"
-  | "hosting";
+  | "hosting"
+  | "game";
 
 export const ACTIVITY_LABELS: Record<ActivityCategory, string> = {
   acting: "שחקן",
@@ -51,6 +52,7 @@ export const ACTIVITY_LABELS: Record<ActivityCategory, string> = {
   festival: "פסטיגל / מופעי ילדים",
   radio: "רדיו",
   hosting: "הנחיה",
+  game: "משחק מחשב",
 };
 
 /** מילות חיפוש נוספות לכל קטגוריה (למשל דיבוב ↔ מדבב) */
@@ -66,6 +68,7 @@ export const ACTIVITY_SEARCH_ALIASES: Record<ActivityCategory, string[]> = {
   festival: ["פסטיגל", "מופעי ילדים"],
   radio: ["רדיו"],
   hosting: ["הנחיה", "מנחה", "מנחים"],
+  game: ["משחק מחשב", "משחקי מחשב", "משחקים"],
 };
 
 export const ACTIVITY_LIST = Object.keys(ACTIVITY_LABELS) as ActivityCategory[];
@@ -191,6 +194,11 @@ export interface Person {
   discography?: DiscographyItem[];
   /** קישור לעמוד ויקיפדיה בעברית */
   wikipediaUrl?: string;
+  /** כותבי הערך (ממאגר ישן / ייבוא) */
+  entryAuthors?: string[];
+  /** מקור המידע — למשל «ויקיפדיה», «ערוץ הופ תמיר» */
+  sourceNote?: string;
+  sourceUrl?: string;
   createdAt: string;
   updatedAt: string;
   createdBy?: string;
@@ -212,6 +220,11 @@ export interface Production {
   /** אולפן הדיבוב העברי (לסרטים/סדרות מדובבים) */
   dubbingStudio?: string;
   imageUrl?: string;
+  /** כותבי הערך (ממאגר ישן / ייבוא) */
+  entryAuthors?: string[];
+  /** מקור המידע — למשל «ויקיפדיה», «ערוץ הופ תמיר» */
+  sourceNote?: string;
+  sourceUrl?: string;
   createdAt: string;
   updatedAt: string;
   createdBy?: string;
@@ -227,6 +240,8 @@ export interface Contribution {
   entityTitle: string;
   action: "create" | "update";
   at: string;
+  /** מקור שצוין בעת העריכה */
+  sourceNote?: string;
 }
 
 export interface ArchiveData {
@@ -269,6 +284,7 @@ export function kindToActivity(kind: ProductionKind): ActivityCategory {
     case "film_student":
     case "game_israeli":
     case "game_dubbed_foreign":
+      return "game";
     case "website":
     case "person":
     case "film":
@@ -305,6 +321,8 @@ export function defaultCreditRole(activity: ActivityCategory): CreditRole {
       return "host";
     case "cassette":
       return "dubber";
+    case "game":
+      return "dubber";
     case "festival":
     case "performance":
       return "musical_performer";
@@ -338,6 +356,8 @@ export function defaultProductionKind(activity: ActivityCategory): ProductionKin
       return "radio_program";
     case "hosting":
       return "tv_program";
+    case "game":
+      return "game_israeli";
     default:
       return "tv_series";
   }

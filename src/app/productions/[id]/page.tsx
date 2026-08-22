@@ -6,6 +6,7 @@ import { useMemo } from "react";
 import { useAuth } from "@/components/AuthProvider";
 import { EntityImage } from "@/components/EntityImage";
 import { OwnerActions } from "@/components/OwnerActions";
+import { EntityProvenance } from "@/components/EntityProvenance";
 import { useArchive } from "@/hooks/useArchive";
 import { findById, canEditArchive } from "@/lib/data";
 import {
@@ -163,6 +164,13 @@ export default function ProductionDetailPage() {
             </div>
           ))}
         </section>
+
+        <EntityProvenance
+          entityType="production"
+          entityId={production.id}
+          entity={production}
+          contributions={data?.contributions || []}
+        />
       </div>
     </article>
   );

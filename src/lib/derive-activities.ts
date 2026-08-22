@@ -1,4 +1,5 @@
 import type { ActivityCategory, ArchiveData, CreditRole } from "./types";
+import { kindMatchesActivity } from "./filmography";
 
 /**
  * מוסיף לכל אישיות את קטגוריות המקצוע:
@@ -8,6 +9,7 @@ import type { ActivityCategory, ArchiveData, CreditRole } from "./types";
 export function applyDerivedProfessionActivities(
   data: ArchiveData
 ): ArchiveData {
+  const productionById = new Map(data.productions.map((p) => [p.id, p]));
   const extras = new Map<string, Set<ActivityCategory>>();
 
   const bump = (personId: string, cat: ActivityCategory) => {
@@ -24,6 +26,10 @@ export function applyDerivedProfessionActivities(
     if (role === "actor") bump(credit.personId, "acting");
     if (role === "dubber" || role === "dub_director") {
       bump(credit.personId, "dubbing");
+    }
+    const prod = productionById.get(credit.productionId);
+    if (prod && kindMatchesActivity(prod.kind, "game")) {
+      bump(credit.personId, "game");
     }
   }
 

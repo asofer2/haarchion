@@ -1,17 +1,30 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
-import { saveCreditsForProduction } from "@/lib/data";
+import { useAuth } from "@/components/AuthProvider";
+import { isSiteAdmin, SITE_ADMIN_NAME } from "@/lib/admin";
+import {
+  PENDING_NOTICE,
+  requestOrApplyProductionCredits,
+} from "@/lib/change-requests";
 import type { ArchiveData, Credit, CreditRole } from "@/lib/types";
 import { CREDIT_ROLE_LABELS } from "@/lib/types";
 
 interface Props {
   productionId: string;
+  productionTitle: string;
   data: ArchiveData;
   onSaved?: () => void;
 }
 
-export function CreditsEditor({ productionId, data, onSaved }: Props) {
+export function CreditsEditor({
+  productionId,
+  productionTitle,
+  data,
+  onSaved,
+}: Props) {
+  const { user } = useAuth();
+  const admin = isSiteAdmin(user);
   const initial = useMemo(
     () => data.credits.filter((c) => c.productionId === productionId),
     [data.credits, productionId]
@@ -33,10 +46,23 @@ export function CreditsEditor({ productionId, data, onSaved }: Props) {
     setSaving(true);
     setMessage(null);
     try {
+      if (!user) {
+        setMessage("יש להתחבר כדי לשמור קרדיטים");
+        return;
+      }
       const cleaned = rows.filter((r) => r.personId && r.role);
-      await saveCreditsForProduction(productionId, cleaned);
-      setMessage("הקרדיטים נשמרו");
-      onSaved?.();
+      const result = await requestOrApplyProductionCredits(
+        {
+          uid: user.uid,
+          displayName: user.displayName || undefined,
+          email: user.email,
+        },
+        productionId,
+        productionTitle,
+        cleaned
+      );
+      setMessage(result.pending ? PENDING_NOTICE : "הקרדיטים נשמרו");
+      if (!result.pending) onSaved?.();
     } catch (err) {
       setMessage(err instanceof Error ? err.message : "שמירה נכשלה");
     } finally {
@@ -47,7 +73,10 @@ export function CreditsEditor({ productionId, data, onSaved }: Props) {
   return (
     <form className="edit-form" onSubmit={onSubmit} style={{ marginTop: "1.5rem" }}>
       <h2 style={{ margin: 0, fontFamily: "var(--font-rubik)" }}>קרדיטים</h2>
-      <p className="muted">קישור דו־כיווני לאישים בהפקה.</p>
+      <p className="muted">
+        קישור דו־כיווני לאישים בהפקה.
+        {!admin && ` השינוי יישלח לאישור ${SITE_ADMIN_NAME}.`}
+      </p>
       {rows.map((row, index) => (
         <div className="form-row" key={`${row.personId}-${index}`}>
           <label>
@@ -112,7 +141,7 @@ export function CreditsEditor({ productionId, data, onSaved }: Props) {
           + קרדיט
         </button>
         <button type="submit" className="btn btn-primary" disabled={saving}>
-          {saving ? "שומר…" : "שמירת קרדיטים"}
+          {saving ? "שומר…" : admin ? "שמירת קרדיטים" : "שליחת בקשה לאישור"}
         </button>
       </div>
       {message && <p className="muted">{message}</p>}

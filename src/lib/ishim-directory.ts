@@ -53,6 +53,12 @@ export const ISHIM_DIRECTORY: IshimDirectoryItem[] = [
     kinds: ["cassette_kids", "cassette"],
   },
   {
+    label: "משחק מחשב",
+    addHref: "/productions/new?kind=game_israeli",
+    listHref: "/productions?kind=game_israeli",
+    kinds: ["game_israeli", "game_dubbed_foreign"],
+  },
+  {
     label: "הרכב",
     addHref: "/productions/new?kind=ensemble",
     listHref: "/productions?kind=ensemble",

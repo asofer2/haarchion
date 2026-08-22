@@ -52,7 +52,8 @@ export function productionMatchesCategory(
       kindMatchesActivity(p.kind, "film") ||
       kindMatchesActivity(p.kind, "series") ||
       kindMatchesActivity(p.kind, "stage") ||
-      kindMatchesActivity(p.kind, "musical")
+      kindMatchesActivity(p.kind, "musical") ||
+      kindMatchesActivity(p.kind, "game")
     );
   }
   if (cat === "hosting") {
@@ -121,6 +122,11 @@ function isMeaningfulCredit(
     }
   }
 
+  if (cat === "game") {
+    if (credit.role !== "dubber" && credit.role !== "actor") return false;
+    return productionMatchesCategory(prod, "game");
+  }
+
   if (!productionMatchesCategory(prod, cat)) return false;
   if (credit.characterName) return true;
   if (GENERIC_FILLER_IDS.has(prod.id)) return false;
@@ -152,6 +158,15 @@ export function personMatchesCategory(
 
   // מקצועות: כל מי שמסומן שחקן/מדבב מופיע בקטגוריה ובחיפוש
   if (cat === "acting" || cat === "dubbing") return true;
+
+  if (cat === "game") {
+    for (const c of credits) {
+      if (c.personId !== person.id) continue;
+      const prod = productionById.get(c.productionId);
+      if (prod && kindMatchesActivity(prod.kind, "game")) return true;
+    }
+    return false;
+  }
 
   for (const c of credits) {
     if (c.personId !== person.id) continue;
@@ -203,6 +218,7 @@ export function categoryCounts(data: ArchiveData): Record<
     "festival",
     "radio",
     "hosting",
+    "game",
   ];
 
   const result = {} as Record<

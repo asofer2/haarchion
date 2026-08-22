@@ -715,6 +715,13 @@ function writeLocal(data: ArchiveData) {
   );
 }
 
+/** Change-request docs are stored in `contributions` so they sync to the admin. */
+function isModerationContribution(
+  c: Contribution & { isChangeRequest?: boolean }
+): boolean {
+  return Boolean(c.isChangeRequest) || (typeof c.id === "string" && c.id.startsWith("cr-"));
+}
+
 function pushContribution(
   data: ArchiveData,
   entry: Omit<Contribution, "id">
@@ -746,7 +753,9 @@ async function readFirestoreArchive(): Promise<ArchiveData> {
     people: peopleSnap.docs.map((d) => d.data() as Person),
     productions: productionsSnap.docs.map((d) => d.data() as Production),
     credits: creditsSnap.docs.map((d) => d.data() as Credit),
-    contributions: contributionsSnap.docs.map((d) => d.data() as Contribution),
+    contributions: contributionsSnap.docs
+      .map((d) => d.data() as Contribution)
+      .filter((c) => !isModerationContribution(c)),
   });
 }
 
@@ -788,9 +797,13 @@ function mergeArchives(local: ArchiveData, remote: ArchiveData): ArchiveData {
   }
 
   const contributions = new Map(
-    (local.contributions || []).map((c) => [c.id, c])
+    (local.contributions || [])
+      .filter((c) => !isModerationContribution(c))
+      .map((c) => [c.id, c])
   );
-  for (const c of remote.contributions || []) contributions.set(c.id, c);
+  for (const c of remote.contributions || []) {
+    if (!isModerationContribution(c)) contributions.set(c.id, c);
+  }
 
   return normalize({
     people: [...people.values()],
@@ -932,7 +945,12 @@ export async function getProduction(
 
 export async function savePerson(
   person: Person,
-  meta?: { userId?: string; userName?: string; isNew?: boolean }
+  meta?: {
+    userId?: string;
+    userName?: string;
+    isNew?: boolean;
+    sourceNote?: string;
+  }
 ): Promise<void> {
   const archive = memoryCache?.data ?? (typeof window !== "undefined" ? readLocal() : normalize(cloneSeed()));
   if (meta?.isNew) {
@@ -966,6 +984,7 @@ export async function savePerson(
       entityTitle: toSave.name,
       action: (meta.isNew ?? isNew) ? "create" : "update",
       at: toSave.updatedAt,
+      sourceNote: meta.sourceNote || person.sourceNote,
     });
   }
   writeLocal(data);
@@ -1031,6 +1050,7 @@ export async function savePerson(
         entityTitle: toSave.name,
         action: meta.isNew ? "create" : "update",
         at: toSave.updatedAt,
+        sourceNote: meta.sourceNote || toSave.sourceNote,
       };
       await withTimeout(
         setDoc(
@@ -1048,7 +1068,12 @@ export async function savePerson(
 
 export async function saveProduction(
   production: Production,
-  meta?: { userId?: string; userName?: string; isNew?: boolean }
+  meta?: {
+    userId?: string;
+    userName?: string;
+    isNew?: boolean;
+    sourceNote?: string;
+  }
 ): Promise<void> {
   let toSave = production;
 
@@ -1068,6 +1093,7 @@ export async function saveProduction(
       entityTitle: toSave.title,
       action: (meta.isNew ?? isNew) ? "create" : "update",
       at: toSave.updatedAt,
+      sourceNote: meta.sourceNote || production.sourceNote,
     });
   }
   writeLocal(data);
@@ -1137,6 +1163,7 @@ export async function saveProduction(
         entityTitle: toSave.title,
         action: meta.isNew ? "create" : "update",
         at: toSave.updatedAt,
+        sourceNote: meta.sourceNote || toSave.sourceNote,
       };
       await withTimeout(
         setDoc(

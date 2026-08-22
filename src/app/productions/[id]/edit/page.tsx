@@ -36,6 +36,7 @@ export default function EditProductionPage() {
       <ProductionForm initial={production} />
       <CreditsEditor
         productionId={production.id}
+        productionTitle={production.title}
         data={data}
         onSaved={() => void refresh()}
       />

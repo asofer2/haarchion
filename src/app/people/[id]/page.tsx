@@ -4,8 +4,11 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useMemo } from "react";
 import { useAuth } from "@/components/AuthProvider";
+import { AdminInbox } from "@/components/AdminInbox";
 import { EntityImage } from "@/components/EntityImage";
+import { EntityProvenance } from "@/components/EntityProvenance";
 import { OwnerActions } from "@/components/OwnerActions";
+import { isAdminPerson, isSiteAdmin } from "@/lib/admin";
 import { useArchive } from "@/hooks/useArchive";
 import {
   calcAge,
@@ -145,6 +148,15 @@ export default function PersonDetailPage() {
             />
           )}
         </div>
+        {isAdminPerson(person) && isSiteAdmin(user) && (
+          <div className="admin-inbox-embed">
+            <p className="notice">
+              בקשות שינוי של משתמשים אחרים — לחצו כן כדי לפרסם באתר, או לא כדי
+              לדחות.
+            </p>
+            <AdminInbox compact />
+          </div>
+        )}
 
         <dl className="ishim-facts">
           {age !== undefined && (
@@ -267,6 +279,13 @@ export default function PersonDetailPage() {
             <div className="prose ishim-notes">{person.bio}</div>
           </section>
         )}
+
+        <EntityProvenance
+          entityType="person"
+          entityId={person.id}
+          entity={person}
+          contributions={data?.contributions || []}
+        />
       </div>
     </article>
   );

@@ -5,7 +5,12 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
 import { ImageDropzone } from "@/components/ImageDropzone";
 import { useArchive } from "@/hooks/useArchive";
-import { saveProduction, slugify } from "@/lib/data";
+import { isSiteAdmin, SITE_ADMIN_NAME } from "@/lib/admin";
+import {
+  PENDING_NOTICE,
+  requestOrApplyProductionSave,
+} from "@/lib/change-requests";
+import { slugify } from "@/lib/data";
 import { DUBBING_STUDIOS } from "@/lib/dubbing-studios";
 import {
   PRODUCTION_KIND_FORM_OPTIONS,
@@ -26,6 +31,8 @@ export function ProductionForm({ initial, presetKind }: Props) {
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | undefined>(initial?.imageUrl);
+  const [pendingNotice, setPendingNotice] = useState<string | null>(null);
+  const admin = isSiteAdmin(user);
 
   const kindDefault =
     initial?.kind ??
@@ -71,6 +78,9 @@ export function ProductionForm({ initial, presetKind }: Props) {
       studio: String(form.get("studio") || "").trim() || undefined,
       dubbingStudio: String(form.get("dubbingStudio") || "").trim() || undefined,
       imageUrl,
+      entryAuthors: initial?.entryAuthors,
+      sourceNote: String(form.get("sourceNote") || "").trim() || undefined,
+      sourceUrl: String(form.get("sourceUrl") || "").trim() || undefined,
       createdAt: initial?.createdAt || now,
       updatedAt: now,
       createdBy: initial?.createdBy || user!.uid,
@@ -78,11 +88,20 @@ export function ProductionForm({ initial, presetKind }: Props) {
     };
 
     try {
-      await saveProduction(production, {
-        userId: user!.uid,
-        userName: user!.displayName || undefined,
-        isNew: !initial,
-      });
+      const result = await requestOrApplyProductionSave(
+        {
+          uid: user!.uid,
+          displayName: user!.displayName || undefined,
+          email: user!.email,
+        },
+        production,
+        !initial
+      );
+      if (result.pending) {
+        setPendingNotice(PENDING_NOTICE);
+        router.push("/me?sent=1");
+        return;
+      }
       await refresh(false);
       router.push(`/productions/${encodeURIComponent(production.id)}`);
     } catch (err) {
@@ -94,6 +113,12 @@ export function ProductionForm({ initial, presetKind }: Props) {
 
   return (
     <form className="edit-form" onSubmit={onSubmit}>
+      {!admin && (
+        <p className="notice">
+          השינוי יישלח לאישור {SITE_ADMIN_NAME} ויופיע באתר רק אחרי שיאשר.
+        </p>
+      )}
+      {pendingNotice && <p className="notice">{pendingNotice}</p>}
       <label>
         כותרת
         <input name="title" defaultValue={initial?.title} required />
@@ -178,9 +203,36 @@ export function ProductionForm({ initial, presetKind }: Props) {
         תקציר
         <textarea name="summary" rows={8} defaultValue={initial?.summary} />
       </label>
+
+      <fieldset className="activity-fieldset">
+        <legend>מקור וייחוס</legend>
+        <p className="muted">
+          על איזה מקור התבסס הערך? יופיע בתחתית דף ההפקה ובהיסטוריית
+          העדכונים.
+        </p>
+        <label>
+          מקור (טקסט)
+          <input
+            name="sourceNote"
+            defaultValue={initial?.sourceNote}
+            placeholder="למשל ויקיפדיה, ערוץ הופ תמיר, DVD"
+          />
+        </label>
+        <label>
+          קישור למקור (אופציונלי)
+          <input
+            name="sourceUrl"
+            type="url"
+            dir="ltr"
+            defaultValue={initial?.sourceUrl}
+            placeholder="https://..."
+          />
+        </label>
+      </fieldset>
+
       {error && <p className="form-error">{error}</p>}
       <button className="btn btn-primary" type="submit" disabled={saving}>
-        {saving ? "שומר…" : "שמירה"}
+        {saving ? "שומר…" : admin ? "שמירה" : "שליחת בקשה לאישור"}
       </button>
     </form>
   );

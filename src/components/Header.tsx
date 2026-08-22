@@ -3,16 +3,18 @@
 import type { ReactNode } from "react";
 import { useMemo } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
 import { useArchive } from "@/hooks/useArchive";
 import {
   randomDayPath,
   randomFilmPath,
+  randomGamePath,
   randomPersonPath,
   randomShowPath,
   randomYearPath,
 } from "@/lib/random-pick";
+import { isSiteAdmin } from "@/lib/admin";
 import { ISHIM_DIRECTORY, loginOr } from "@/lib/ishim-directory";
 
 const links = [
@@ -28,20 +30,32 @@ const LIST_OPTIONS = [
   { href: "/keys", label: "כל המפתחות" },
   { href: "/y", label: "כל התאריכים" },
   { href: "/questions", label: "כל השאלות" },
+  { href: "/productions?kind=game_israeli", label: "משחקי מחשב" },
+  { href: "/categories/game", label: "קטגוריית משחק מחשב" },
 ];
 
 export function Header({ a11ySlot }: { a11ySlot?: ReactNode }) {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const router = useRouter();
   const { user, loading, logout, localMode } = useAuth();
   const { data } = useArchive();
 
   const listsValue = useMemo(() => {
-    const match = LIST_OPTIONS.find(
-      (opt) => pathname === opt.href || pathname.startsWith(`${opt.href}/`)
-    );
+    const match = LIST_OPTIONS.find((opt) => {
+      if (opt.href.includes("?")) {
+        const [path, query] = opt.href.split("?");
+        if (pathname !== path) return false;
+        const expected = new URLSearchParams(query);
+        for (const [key, value] of expected.entries()) {
+          if (searchParams.get(key) !== value) return false;
+        }
+        return true;
+      }
+      return pathname === opt.href || pathname.startsWith(`${opt.href}/`);
+    });
     return match?.href || "";
-  }, [pathname]);
+  }, [pathname, searchParams]);
 
   function onListsChange(href: string) {
     if (href) router.push(href);
@@ -52,6 +66,7 @@ export function Header({ a11ySlot }: { a11ySlot?: ReactNode }) {
     let href: string | undefined;
     if (kind === "film") href = randomFilmPath(data.productions);
     else if (kind === "show") href = randomShowPath(data.productions);
+    else if (kind === "game") href = randomGamePath(data.productions);
     else if (kind === "person") href = randomPersonPath(data.people);
     else if (kind === "day") href = randomDayPath(data.people);
     else if (kind === "year") href = randomYearPath(data.people);
@@ -121,6 +136,7 @@ export function Header({ a11ySlot }: { a11ySlot?: ReactNode }) {
               <option value="">אקראי</option>
               <option value="film">סרט אקראי</option>
               <option value="show">תוכנית אקראית</option>
+              <option value="game">משחק מחשב אקראי</option>
               <option value="person">אדם אקראי</option>
               <option value="day">יום אקראי</option>
               <option value="year">שנה אקראית</option>
@@ -161,6 +177,14 @@ export function Header({ a11ySlot }: { a11ySlot?: ReactNode }) {
               <Link href="/me" className="btn btn-ghost">
                 הספרייה שלי
               </Link>
+              {isSiteAdmin(user) && (
+                <Link
+                  href="/me#admin"
+                  className={`btn btn-ghost${pathname.startsWith("/me") ? " active" : ""}`}
+                >
+                  ניהול בקשות
+                </Link>
+              )}
             </>
           )}
           {!loading &&

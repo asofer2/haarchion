@@ -1,0 +1,6 @@
+.next
+node_modules
+scripts/ishim-archive
+scripts/scrape-ishim.mjs
+.env*
+.vercel

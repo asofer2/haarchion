@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Suspense } from "react";
 import { Heebo, Rubik } from "next/font/google";
 import { AuthProvider } from "@/components/AuthProvider";
 import { ArchiveProvider } from "@/components/ArchiveProvider";
@@ -55,7 +56,15 @@ export default function RootLayout({
           <ArchiveProvider>
             <A11yProvider>
               <div className="site-shell">
-                <Header a11ySlot={<AccessibilityButton />} />
+                <Suspense
+                  fallback={
+                    <header className="site-header" aria-hidden="true">
+                      <div className="header-inner" />
+                    </header>
+                  }
+                >
+                  <Header a11ySlot={<AccessibilityButton />} />
+                </Suspense>
                 <main id="main-content" className="site-main" tabIndex={-1}>
                   {children}
                 </main>

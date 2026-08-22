@@ -11,7 +11,12 @@ import {
   type CategoryCreditRow,
 } from "@/components/PersonCategoryCredits";
 import { useArchive } from "@/hooks/useArchive";
-import { savePerson, savePersonCategoryCredits, slugify } from "@/lib/data";
+import { isSiteAdmin, SITE_ADMIN_NAME } from "@/lib/admin";
+import {
+  PENDING_NOTICE,
+  requestOrApplyPersonSave,
+} from "@/lib/change-requests";
+import { slugify } from "@/lib/data";
 import { ISHIM_CREDIT_SECTIONS } from "@/lib/ishim-person";
 import {
   ACTIVITY_LABELS,
@@ -38,6 +43,8 @@ export function PersonForm({ initial }: Props) {
   const [categoryRows, setCategoryRows] =
     useState<Record<string, CategoryCreditRow[]>>(emptyIshimRows);
   const [creditsHydrated, setCreditsHydrated] = useState(!initial);
+  const [pendingNotice, setPendingNotice] = useState<string | null>(null);
+  const admin = isSiteAdmin(user);
 
   useEffect(() => {
     if (creditsHydrated || !data || !initial) return;
@@ -98,6 +105,15 @@ export function PersonForm({ initial }: Props) {
       activities: activitiesToSave,
       wikipediaUrl: initial?.wikipediaUrl,
       discography: initial?.discography,
+      entryAuthors: initial?.entryAuthors,
+      sourceNote:
+        String(form.get("sourceNote") || "").trim() ||
+        initial?.sourceNote ||
+        undefined,
+      sourceUrl:
+        String(form.get("sourceUrl") || "").trim() ||
+        initial?.sourceUrl ||
+        undefined,
       createdAt: initial?.createdAt || now,
       updatedAt: now,
       createdBy: initial?.createdBy || user!.uid,
@@ -105,11 +121,6 @@ export function PersonForm({ initial }: Props) {
     };
 
     try {
-      await savePerson(person, {
-        userId: user!.uid,
-        userName: user!.displayName || undefined,
-        isNew: !initial,
-      });
       const creditInputs = ISHIM_CREDIT_SECTIONS.flatMap((section) =>
         (categoryRows[section.heading] || [])
           .filter((row) => row.title.trim())
@@ -121,10 +132,21 @@ export function PersonForm({ initial }: Props) {
             characterName: row.characterName.trim() || undefined,
           }))
       );
-      await savePersonCategoryCredits(person.id, creditInputs, ACTIVITY_LIST, {
-        userId: user!.uid,
-        userName: user!.displayName || undefined,
-      });
+      const result = await requestOrApplyPersonSave(
+        {
+          uid: user!.uid,
+          displayName: user!.displayName || undefined,
+          email: user!.email,
+        },
+        person,
+        creditInputs,
+        !initial
+      );
+      if (result.pending) {
+        setPendingNotice(PENDING_NOTICE);
+        router.push("/me?sent=1");
+        return;
+      }
       // Cache already updated — don't force a Firestore reload
       await refresh(false);
       router.push(`/people/${encodeURIComponent(person.id)}`);
@@ -137,6 +159,12 @@ export function PersonForm({ initial }: Props) {
 
   return (
     <form className="edit-form" onSubmit={onSubmit}>
+      {!admin && (
+        <p className="notice">
+          השינוי יישלח לאישור {SITE_ADMIN_NAME} ויופיע באתר רק אחרי שיאשר.
+        </p>
+      )}
+      {pendingNotice && <p className="notice">{pendingNotice}</p>}
       <label>
         שם
         <input name="name" defaultValue={initial?.name} required />
@@ -209,6 +237,32 @@ export function PersonForm({ initial }: Props) {
         />
       </label>
 
+      <fieldset className="activity-fieldset">
+        <legend>מקור וייחוס</legend>
+        <p className="muted">
+          על איזה מקור התבסס הערך? יופיע בתחתית דף האישיות ובהיסטוריית
+          העדכונים.
+        </p>
+        <label>
+          מקור (טקסט)
+          <input
+            name="sourceNote"
+            defaultValue={initial?.sourceNote}
+            placeholder="למשל ויקיפדיה העברית, ערוץ הופ תמיר"
+          />
+        </label>
+        <label>
+          קישור למקור (אופציונלי)
+          <input
+            name="sourceUrl"
+            type="url"
+            dir="ltr"
+            defaultValue={initial?.sourceUrl || initial?.wikipediaUrl}
+            placeholder="https://..."
+          />
+        </label>
+      </fieldset>
+
       <PersonCategoryCredits
         rows={categoryRows}
         onChange={setCategoryRows}
@@ -217,7 +271,13 @@ export function PersonForm({ initial }: Props) {
 
       {error && <p className="form-error">{error}</p>}
       <button className="btn btn-primary" type="submit" disabled={saving}>
-        {saving ? "שומר…" : initial ? "עדכון אישיות" : "הוספת אישיות לארכיון"}
+        {saving
+          ? "שומר…"
+          : admin
+            ? initial
+              ? "עדכון אישיות"
+              : "הוספת אישיות לארכיון"
+            : "שליחת בקשה לאישור"}
       </button>
     </form>
   );

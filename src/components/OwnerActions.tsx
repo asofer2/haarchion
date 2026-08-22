@@ -3,8 +3,13 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useAuth } from "@/components/AuthProvider";
 import { useArchive } from "@/hooks/useArchive";
-import { deletePerson, deleteProduction } from "@/lib/data";
+import { isSiteAdmin, SITE_ADMIN_NAME } from "@/lib/admin";
+import {
+  PENDING_NOTICE,
+  requestOrApplyDelete,
+} from "@/lib/change-requests";
 
 interface Props {
   kind: "person" | "production";
@@ -24,9 +29,12 @@ export function OwnerActions({
   canEdit = true,
 }: Props) {
   const router = useRouter();
+  const { user } = useAuth();
   const { refresh } = useArchive();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
+  const admin = isSiteAdmin(user);
 
   if (!canEdit && !canDelete) return null;
 
@@ -36,15 +44,32 @@ export function OwnerActions({
       : `/productions/${encodeURIComponent(id)}/edit`;
 
   async function onDelete() {
+    if (!user) return;
     const ok = window.confirm(
-      `למחוק את „${title}” לצמיתות?\nפעולה זו אינה ניתנת לביטול.`
+      admin
+        ? `למחוק את „${title}” לצמיתות?\nפעולה זו אינה ניתנת לביטול.`
+        : `לשלוח בקשת מחיקה של „${title}” לאישור ${SITE_ADMIN_NAME}?`
     );
     if (!ok) return;
     setBusy(true);
     setError(null);
+    setNotice(null);
     try {
-      if (kind === "person") await deletePerson(id);
-      else await deleteProduction(id);
+      const result = await requestOrApplyDelete(
+        {
+          uid: user.uid,
+          displayName: user.displayName || undefined,
+          email: user.email,
+        },
+        kind,
+        id,
+        title
+      );
+      if (result.pending) {
+        setNotice(PENDING_NOTICE);
+        router.push("/me?sent=1");
+        return;
+      }
       await refresh(true);
       router.push(kind === "person" ? "/people" : "/productions");
     } catch (err) {
@@ -68,9 +93,10 @@ export function OwnerActions({
           disabled={busy}
           onClick={() => void onDelete()}
         >
-          {busy ? "מוחק…" : "מחיקה"}
+          {busy ? (admin ? "מוחק…" : "שולח…") : admin ? "מחיקה" : "בקשת מחיקה"}
         </button>
       )}
+      {notice && <p className="notice">{notice}</p>}
       {error && <p className="form-error">{error}</p>}
     </div>
   );
