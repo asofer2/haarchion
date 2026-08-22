@@ -92,6 +92,17 @@ export function AdminInbox({ compact = false }: { compact?: boolean }) {
       } else {
         await rejectChangeRequest(request, reviewer);
       }
+      setRequests((prev) =>
+        prev.map((item) =>
+          item.id === request.id
+            ? {
+                ...item,
+                status: approve ? "approved" : "rejected",
+                reviewedAt: new Date().toISOString(),
+              }
+            : item
+        )
+      );
     } catch (err) {
       setError(err instanceof Error ? err.message : "הפעולה נכשלה");
     } finally {

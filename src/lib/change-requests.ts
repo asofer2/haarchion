@@ -207,6 +207,37 @@ async function writeRequestDocs(
   return wroteShared;
 }
 
+function rememberRequest(
+  byId: Map<string, ChangeRequest>,
+  incoming: ChangeRequest
+) {
+  const current = byId.get(incoming.id);
+  if (!current) {
+    byId.set(incoming.id, incoming);
+    return;
+  }
+  const rank = (status: string) =>
+    status === "approved" || status === "rejected" ? 1 : 0;
+  if (rank(incoming.status) < rank(current.status)) {
+    byId.set(incoming.id, {
+      ...incoming,
+      ...current,
+      status: current.status,
+      reviewedAt: current.reviewedAt || incoming.reviewedAt,
+      reviewedBy: current.reviewedBy || incoming.reviewedBy,
+    });
+    return;
+  }
+  byId.set(incoming.id, {
+    ...current,
+    ...incoming,
+    person: incoming.person || current.person,
+    production: incoming.production || current.production,
+    creditInputs: incoming.creditInputs || current.creditInputs,
+    credits: incoming.credits || current.credits,
+  });
+}
+
 function ingestContributionDocs(
   byId: Map<string, ChangeRequest>,
   snap: QuerySnapshot<DocumentData>
@@ -217,13 +248,13 @@ function ingestContributionDocs(
       if (items && typeof items === "object") {
         for (const [id, raw] of Object.entries(items as Record<string, unknown>)) {
           const parsed = parseRequest(raw, id);
-          if (parsed) byId.set(parsed.id, parsed);
+          if (parsed) rememberRequest(byId, parsed);
         }
       }
       continue;
     }
     const parsed = parseRequest(d.data(), d.id);
-    if (parsed) byId.set(parsed.id, parsed);
+    if (parsed) rememberRequest(byId, parsed);
   }
 }
 
@@ -236,7 +267,7 @@ function ingestEditorDocs(
     if (!map || typeof map !== "object") continue;
     for (const [id, raw] of Object.entries(map as Record<string, unknown>)) {
       const parsed = parseRequest(raw, id);
-      if (parsed) byId.set(parsed.id, parsed);
+      if (parsed) rememberRequest(byId, parsed);
     }
   }
 }
@@ -288,7 +319,7 @@ async function persistRequest(request: ChangeRequest): Promise<void> {
 
 export async function listChangeRequests(): Promise<ChangeRequest[]> {
   const byId = new Map<string, ChangeRequest>();
-  for (const item of readLocal()) byId.set(item.id, item);
+  for (const item of readLocal()) rememberRequest(byId, item);
 
   if (!isFirebaseConfigured()) return sortRequests([...byId.values()]);
 
@@ -318,7 +349,7 @@ export async function listChangeRequests(): Promise<ChangeRequest[]> {
       if (items && typeof items === "object") {
         for (const [id, raw] of Object.entries(items as Record<string, unknown>)) {
           const parsed = parseRequest(raw, id);
-          if (parsed) byId.set(parsed.id, parsed);
+          if (parsed) rememberRequest(byId, parsed);
         }
       }
     }
@@ -336,7 +367,7 @@ export async function listChangeRequests(): Promise<ChangeRequest[]> {
     const snap = await getDocs(collection(db, "changeRequests"));
     for (const d of snap.docs) {
       const parsed = parseRequest(d.data(), d.id);
-      if (parsed) byId.set(parsed.id, parsed);
+      if (parsed) rememberRequest(byId, parsed);
     }
   } catch {
     /* collection may be denied until new rules are deployed */
@@ -350,7 +381,7 @@ export function subscribeChangeRequests(
   onError?: (error: Error) => void
 ): () => void {
   const byId = new Map<string, ChangeRequest>();
-  for (const item of readLocal()) byId.set(item.id, item);
+  for (const item of readLocal()) rememberRequest(byId, item);
   let stopped = false;
   const unsubs: Array<() => void> = [];
 
@@ -389,7 +420,7 @@ export function subscribeChangeRequests(
                   items as Record<string, unknown>
                 )) {
                   const parsed = parseRequest(raw, id);
-                  if (parsed) byId.set(parsed.id, parsed);
+                  if (parsed) rememberRequest(byId, parsed);
                 }
               }
               emit();
@@ -404,7 +435,7 @@ export function subscribeChangeRequests(
         if (items && typeof items === "object") {
           for (const [id, raw] of Object.entries(items as Record<string, unknown>)) {
             const parsed = parseRequest(raw, id);
-            if (parsed) byId.set(parsed.id, parsed);
+            if (parsed) rememberRequest(byId, parsed);
           }
         }
         emit();
