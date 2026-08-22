@@ -21,7 +21,7 @@ const links = [
   { href: "/people", label: "אישים" },
   { href: "/productions", label: "הפקות" },
   { href: "/search", label: "חיפוש" },
-  { href: "/admin", label: "ניהול" },
+  { href: "/ishur", label: "ניהול" },
 ];
 
 const LIST_OPTIONS = [
@@ -178,8 +178,8 @@ export function Header({ a11ySlot }: { a11ySlot?: ReactNode }) {
                 הספרייה שלי
               </Link>
               <Link
-                href="/admin"
-                className={`btn btn-ghost${pathname.startsWith("/admin") ? " active" : ""}`}
+                href="/ishur"
+                className={`btn btn-ghost${pathname.startsWith("/ishur") ? " active" : ""}`}
               >
                 ניהול בקשות
               </Link>

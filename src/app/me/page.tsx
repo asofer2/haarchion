@@ -141,7 +141,7 @@ export default function ProfilePage() {
             <h2>פאנל ניהול — בקשות לאישור</h2>
           </div>
           <p className="notice">
-            <Link href="/admin">לפאנל הניהול</Link> — תמיר סופר מתחבר עם
+            <Link href="/ishur">לפאנל הניהול</Link> — תמיר סופר מתחבר עם
             tamirsofer@gmail.com.
           </p>
         </section>
@@ -230,7 +230,7 @@ export default function ProfilePage() {
           </button>
         )}
         {admin && (
-          <Link href="/admin" className="btn btn-primary">
+          <Link href="/ishur" className="btn btn-primary">
             פאנל ניהול
           </Link>
         )}

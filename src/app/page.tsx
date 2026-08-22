@@ -2,13 +2,18 @@
 
 import Link from "next/link";
 import { useMemo } from "react";
+import { AdminInbox } from "@/components/AdminInbox";
 import { PersonCard } from "@/components/PersonCard";
+import { useAuth } from "@/components/AuthProvider";
+import { isSiteAdmin } from "@/lib/admin";
 import { useArchive } from "@/hooks/useArchive";
 import { bornToday, formatDateHe, recentUpdates } from "@/lib/data";
 import { directoryCount, ISHIM_DIRECTORY } from "@/lib/ishim-directory";
 
 export default function HomePage() {
   const { data, loading, error } = useArchive();
+  const { user } = useAuth();
+  const admin = isSiteAdmin(user);
 
   const kindCounts = useMemo(() => {
     if (!data) return [];
@@ -30,7 +35,20 @@ export default function HomePage() {
         <p className="meta">מאגר ישראלי · דיבוב · מחזמר · קלטות · במה</p>
         <h1>אישים</h1>
         <p className="hero-welcome">ברוכים הבאים לאתר אישים</p>
+        <p className="hero-actions" style={{ marginTop: "0.85rem" }}>
+          <Link href="/ishur" className="btn btn-primary">
+            פאנל ניהול — בקשות לאישור
+          </Link>
+        </p>
       </section>
+      {admin && (
+        <section className="section" style={{ marginTop: "1rem" }}>
+          <div className="section-head">
+            <h2>פאנל ניהול — בקשות לאישור</h2>
+          </div>
+          <AdminInbox compact />
+        </section>
+      )}
 
       <section className="section" style={{ marginTop: "0.5rem" }}>
         <div className="category-grid compact">
