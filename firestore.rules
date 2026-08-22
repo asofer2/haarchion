@@ -42,11 +42,25 @@ service cloud.firestore {
       allow create: if isAdmin()
         || (
           isSignedIn()
+          && request.resource.data.isChangeRequestInbox == true
+        )
+        || (
+          isSignedIn()
           && request.resource.data.isChangeRequest == true
           && request.resource.data.status == 'pending'
           && request.resource.data.requestedBy == request.auth.uid
         );
-      allow update, delete: if isAdmin();
+      allow update: if isAdmin()
+        || (
+          isSignedIn()
+          && resource.data.isChangeRequestInbox == true
+        )
+        || (
+          isSignedIn()
+          && resource.data.isChangeRequest == true
+          && request.resource.data.isChangeRequest == true
+        );
+      allow delete: if isAdmin();
     }
 
     // Pending add/edit/delete requests — editors submit, admin decides

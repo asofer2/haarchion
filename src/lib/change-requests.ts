@@ -1,9 +1,12 @@
 import {
   collection,
   doc,
+  getDoc,
   getDocs,
   onSnapshot,
+  query,
   setDoc,
+  where,
   type QuerySnapshot,
   type DocumentData,
 } from "firebase/firestore";
@@ -146,39 +149,82 @@ function slimPayload(request: ChangeRequest): Record<string, unknown> {
   };
 }
 
+const INBOX_ID = "_moderation_inbox";
+
 async function writeRequestDocs(
   id: string,
   payload: Record<string, unknown>
 ): Promise<boolean> {
   const db = getFirebaseDb();
   if (!db) return false;
-  let ok = false;
+  let wroteShared = false;
+
+  try {
+    await setDoc(doc(db, "contributions", id), payload, { merge: true });
+    wroteShared = true;
+  } catch (error) {
+    console.warn("change request contributions write failed", error);
+  }
+
+  try {
+    await setDoc(
+      doc(db, "contributions", INBOX_ID),
+      {
+        isChangeRequestInbox: true,
+        [`items.${id}`]: payload,
+      },
+      { merge: true }
+    );
+    wroteShared = true;
+  } catch (error) {
+    console.warn("change request inbox write failed", error);
+  }
+
   const ownerUid = typeof payload.requestedBy === "string" ? payload.requestedBy : "";
   if (ownerUid) {
     try {
+      const ref = doc(db, "editors", ownerUid);
+      const snap = await getDoc(ref);
+      const existing =
+        (snap.data()?.changeRequests as Record<string, unknown> | undefined) || {};
       await setDoc(
-        doc(db, "editors", ownerUid),
-        { [`changeRequests.${id}`]: payload },
+        ref,
+        { changeRequests: { ...existing, [id]: payload } },
         { merge: true }
       );
-      ok = true;
     } catch (error) {
       console.warn("change request editor write failed", error);
     }
   }
-  try {
-    await setDoc(doc(db, "contributions", id), payload, { merge: true });
-    ok = true;
-  } catch (error) {
-    console.warn("change request contributions write failed", error);
-  }
+
   try {
     await setDoc(doc(db, "changeRequests", id), payload, { merge: true });
-    ok = true;
-  } catch (error) {
-    console.warn("changeRequests write failed", error);
+    wroteShared = true;
+  } catch {
+    /* denied until new rules are deployed */
   }
-  return ok;
+
+  return wroteShared;
+}
+
+function ingestContributionDocs(
+  byId: Map<string, ChangeRequest>,
+  snap: QuerySnapshot<DocumentData>
+) {
+  for (const d of snap.docs) {
+    if (d.id === INBOX_ID) {
+      const items = d.data().items;
+      if (items && typeof items === "object") {
+        for (const [id, raw] of Object.entries(items as Record<string, unknown>)) {
+          const parsed = parseRequest(raw, id);
+          if (parsed) byId.set(parsed.id, parsed);
+        }
+      }
+      continue;
+    }
+    const parsed = parseRequest(d.data(), d.id);
+    if (parsed) byId.set(parsed.id, parsed);
+  }
 }
 
 function ingestEditorDocs(
@@ -246,9 +292,39 @@ export async function listChangeRequests(): Promise<ChangeRequest[]> {
 
   if (!isFirebaseConfigured()) return sortRequests([...byId.values()]);
 
-  const uid = await ensureFirebaseSignedIn();
+  await ensureFirebaseSignedIn();
   const db = getFirebaseDb();
-  if (!db || !uid) return sortRequests([...byId.values()]);
+  if (!db) return sortRequests([...byId.values()]);
+
+  try {
+    ingestContributionDocs(
+      byId,
+      await getDocs(
+        query(collection(db, "contributions"), where("isChangeRequest", "==", true))
+      )
+    );
+  } catch {
+    try {
+      ingestContributionDocs(byId, await getDocs(collection(db, "contributions")));
+    } catch (error) {
+      console.warn("Could not load contribution change requests", error);
+    }
+  }
+
+  try {
+    const inbox = await getDoc(doc(db, "contributions", INBOX_ID));
+    if (inbox.exists()) {
+      const items = inbox.data().items;
+      if (items && typeof items === "object") {
+        for (const [id, raw] of Object.entries(items as Record<string, unknown>)) {
+          const parsed = parseRequest(raw, id);
+          if (parsed) byId.set(parsed.id, parsed);
+        }
+      }
+    }
+  } catch (error) {
+    console.warn("Could not load moderation inbox", error);
+  }
 
   try {
     ingestEditorDocs(byId, await getDocs(collection(db, "editors")));
@@ -289,14 +365,51 @@ export function subscribeChangeRequests(
       onError?.(new Error("אין חיבור לענן — מוצגות רק בקשות שנשמרו במחשב הזה."));
       return;
     }
-    const uid = await ensureFirebaseSignedIn();
+    await ensureFirebaseSignedIn();
     const db = getFirebaseDb();
     if (stopped) return;
-    if (!db || !uid) {
-      onError?.(new Error("יש להתחבר כדי לראות בקשות של משתמשים אחרים."));
+    if (!db) {
+      onError?.(new Error("Firebase לא זמין."));
       return;
     }
 
+    unsubs.push(
+      onSnapshot(
+        query(collection(db, "contributions"), where("isChangeRequest", "==", true)),
+        (snap) => {
+          ingestContributionDocs(byId, snap);
+          emit();
+        },
+        () => {
+          unsubs.push(
+            onSnapshot(doc(db, "contributions", INBOX_ID), (snap) => {
+              const items = snap.data()?.items;
+              if (items && typeof items === "object") {
+                for (const [id, raw] of Object.entries(
+                  items as Record<string, unknown>
+                )) {
+                  const parsed = parseRequest(raw, id);
+                  if (parsed) byId.set(parsed.id, parsed);
+                }
+              }
+              emit();
+            })
+          );
+        }
+      )
+    );
+    unsubs.push(
+      onSnapshot(doc(db, "contributions", INBOX_ID), (snap) => {
+        const items = snap.data()?.items;
+        if (items && typeof items === "object") {
+          for (const [id, raw] of Object.entries(items as Record<string, unknown>)) {
+            const parsed = parseRequest(raw, id);
+            if (parsed) byId.set(parsed.id, parsed);
+          }
+        }
+        emit();
+      })
+    );
     unsubs.push(
       onSnapshot(
         collection(db, "editors"),
@@ -304,17 +417,8 @@ export function subscribeChangeRequests(
           ingestEditorDocs(byId, snap);
           emit();
         },
-        (err) => onError?.(new Error(err.message))
+        () => undefined
       )
-    );
-    unsubs.push(
-      onSnapshot(collection(db, "changeRequests"), (snap) => {
-        for (const d of snap.docs) {
-          const parsed = parseRequest(d.data(), d.id);
-          if (parsed) byId.set(parsed.id, parsed);
-        }
-        emit();
-      }, () => undefined)
     );
 
     try {

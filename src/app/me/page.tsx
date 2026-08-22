@@ -157,18 +157,29 @@ export default function ProfilePage() {
           ? "כדי שיופיעו גם במחשב אחר — לחצו „העלה לענן”."
           : `הוספות ועריכות נשלחות לאישור ${SITE_ADMIN_NAME} ויופיעו באתר רק אחרי שיאשר.`}
       </p>
+      {!admin && (
+        <p className="muted" style={{ marginBottom: "1rem" }}>
+          פאנל האישור מופיע רק אחרי התחברות עם tamirsofer@gmail.com. עכשיו
+          מחוברים כ־{user.email || user.displayName}.
+        </p>
+      )}
       {sent && <p className="notice">{PENDING_NOTICE}</p>}
       {actionError && <p className="form-error">{actionError}</p>}
       {syncMsg && <p className="notice">{syncMsg}</p>}
 
-      {admin && (
-        <section id="admin" className="section" style={{ marginBottom: "1.5rem" }}>
-          <div className="section-head">
-            <h2>פאנל ניהול — בקשות לאישור</h2>
-          </div>
+      <section id="admin" className="section" style={{ marginBottom: "1.5rem" }}>
+        <div className="section-head">
+          <h2>פאנל ניהול — בקשות לאישור</h2>
+        </div>
+        {admin ? (
           <AdminInbox />
-        </section>
-      )}
+        ) : (
+          <p className="notice">
+            התחברו עם החשבון tamirsofer@gmail.com כדי לראות כאן בקשות של
+            משתמשים אחרים ולאשר או לדחות אותן.
+          </p>
+        )}
+      </section>
 
       {myRequests.some((r) => r.status === "pending") && (
         <section className="section" style={{ marginBottom: "1.5rem" }}>
