@@ -6,6 +6,7 @@ import { useArchive } from "@/hooks/useArchive";
 import { isSiteAdmin } from "@/lib/admin";
 import {
   approveChangeRequest,
+  recordedDecisions,
   rejectChangeRequest,
   subscribeChangeRequests,
   type ChangeRequest,
@@ -51,6 +52,9 @@ export function AdminInbox({ compact = false }: { compact?: boolean }) {
   const { user } = useAuth();
   const { refresh } = useArchive();
   const [requests, setRequests] = useState<ChangeRequest[]>([]);
+  const [resolved, setResolved] = useState<
+    Record<string, "approved" | "rejected">
+  >(recordedDecisions);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [busyId, setBusyId] = useState<string | null>(null);
@@ -78,8 +82,10 @@ export function AdminInbox({ compact = false }: { compact?: boolean }) {
 
   async function decide(request: ChangeRequest, approve: boolean) {
     if (!user) return;
+    const nextStatus = approve ? "approved" : "rejected";
     setBusyId(request.id);
     setError(null);
+    setResolved((prev) => ({ ...prev, [request.id]: nextStatus }));
     try {
       const reviewer = {
         uid: user.uid,
@@ -92,26 +98,25 @@ export function AdminInbox({ compact = false }: { compact?: boolean }) {
       } else {
         await rejectChangeRequest(request, reviewer);
       }
-      setRequests((prev) =>
-        prev.map((item) =>
-          item.id === request.id
-            ? {
-                ...item,
-                status: approve ? "approved" : "rejected",
-                reviewedAt: new Date().toISOString(),
-              }
-            : item
-        )
-      );
     } catch (err) {
+      setResolved((prev) => {
+        const next = { ...prev };
+        delete next[request.id];
+        return next;
+      });
       setError(err instanceof Error ? err.message : "הפעולה נכשלה");
     } finally {
       setBusyId(null);
     }
   }
 
-  const pending = requests.filter((r) => r.status === "pending");
-  const history = requests.filter((r) => r.status !== "pending");
+  const visible = requests.map((request) => {
+    const status = resolved[request.id];
+    if (!status) return request;
+    return { ...request, status };
+  });
+  const pending = visible.filter((r) => r.status === "pending");
+  const history = visible.filter((r) => r.status !== "pending");
 
   return (
     <div className="admin-inbox">

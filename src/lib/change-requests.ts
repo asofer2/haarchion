@@ -57,6 +57,62 @@ export type ModerationUser = {
 export type SubmitResult = { pending: boolean };
 
 const LOCAL_KEY = "ishim-change-requests-v1";
+const DECISIONS_KEY = "ishim-moderation-decisions-v1";
+
+type Decision = {
+  status: "approved" | "rejected";
+  reviewedAt?: string;
+  reviewedBy?: string;
+};
+
+const decisionOverlay = new Map<string, Decision>();
+
+function loadDecisionOverlay() {
+  if (typeof window === "undefined") return;
+  try {
+    const raw = localStorage.getItem(DECISIONS_KEY);
+    if (!raw) return;
+    const parsed = JSON.parse(raw) as Record<string, Decision>;
+    for (const [id, decision] of Object.entries(parsed)) {
+      if (decision?.status === "approved" || decision?.status === "rejected") {
+        decisionOverlay.set(id, decision);
+      }
+    }
+  } catch {
+    /* ignore */
+  }
+}
+
+function saveDecisionOverlay() {
+  if (typeof window === "undefined") return;
+  const out: Record<string, Decision> = {};
+  for (const [id, decision] of decisionOverlay) out[id] = decision;
+  localStorage.setItem(DECISIONS_KEY, JSON.stringify(out));
+}
+
+function recordDecision(id: string, decision: Decision) {
+  decisionOverlay.set(id, decision);
+  saveDecisionOverlay();
+}
+
+function applyDecision(request: ChangeRequest): ChangeRequest {
+  const decision = decisionOverlay.get(request.id);
+  if (!decision) return request;
+  return {
+    ...request,
+    status: decision.status,
+    reviewedAt: decision.reviewedAt || request.reviewedAt,
+    reviewedBy: decision.reviewedBy || request.reviewedBy,
+  };
+}
+
+export function recordedDecisions(): Record<string, "approved" | "rejected"> {
+  const out: Record<string, "approved" | "rejected"> = {};
+  for (const [id, decision] of decisionOverlay) out[id] = decision.status;
+  return out;
+}
+
+loadDecisionOverlay();
 
 function stripUndefined(value: unknown): unknown {
   if (value === undefined) return undefined;
@@ -207,10 +263,34 @@ async function writeRequestDocs(
   return wroteShared;
 }
 
+async function writeReviewerDecision(
+  request: ChangeRequest,
+  reviewerUid: string
+): Promise<void> {
+  if (request.status !== "approved" && request.status !== "rejected") return;
+  const db = getFirebaseDb();
+  if (!db) return;
+  const decision: Decision = {
+    status: request.status,
+    reviewedAt: request.reviewedAt || "",
+    reviewedBy: request.reviewedBy || reviewerUid,
+  };
+  try {
+    await setDoc(
+      doc(db, "editors", reviewerUid),
+      { [`moderationDecisions.${request.id}`]: decision },
+      { merge: true }
+    );
+  } catch (error) {
+    console.warn("moderation decision write failed", error);
+  }
+}
+
 function rememberRequest(
   byId: Map<string, ChangeRequest>,
   incoming: ChangeRequest
 ) {
+  incoming = applyDecision(incoming);
   const current = byId.get(incoming.id);
   if (!current) {
     byId.set(incoming.id, incoming);
@@ -219,23 +299,23 @@ function rememberRequest(
   const rank = (status: string) =>
     status === "approved" || status === "rejected" ? 1 : 0;
   if (rank(incoming.status) < rank(current.status)) {
-    byId.set(incoming.id, {
+    byId.set(incoming.id, applyDecision({
       ...incoming,
       ...current,
       status: current.status,
       reviewedAt: current.reviewedAt || incoming.reviewedAt,
       reviewedBy: current.reviewedBy || incoming.reviewedBy,
-    });
+    }));
     return;
   }
-  byId.set(incoming.id, {
+  byId.set(incoming.id, applyDecision({
     ...current,
     ...incoming,
     person: incoming.person || current.person,
     production: incoming.production || current.production,
     creditInputs: incoming.creditInputs || current.creditInputs,
     credits: incoming.credits || current.credits,
-  });
+  }));
 }
 
 function ingestContributionDocs(
@@ -262,6 +342,24 @@ function ingestEditorDocs(
   byId: Map<string, ChangeRequest>,
   snap: QuerySnapshot<DocumentData>
 ) {
+  for (const d of snap.docs) {
+    const decisions = d.data().moderationDecisions;
+    if (!decisions || typeof decisions !== "object") continue;
+    for (const [id, raw] of Object.entries(decisions as Record<string, Decision>)) {
+      if (raw?.status === "approved" || raw?.status === "rejected") {
+        recordDecision(id, raw);
+        const existing = byId.get(id);
+        if (existing) {
+          rememberRequest(byId, {
+            ...existing,
+            status: raw.status,
+            reviewedAt: raw.reviewedAt,
+            reviewedBy: raw.reviewedBy,
+          });
+        }
+      }
+    }
+  }
   for (const d of snap.docs) {
     const map = d.data().changeRequests;
     if (!map || typeof map !== "object") continue;
@@ -295,21 +393,35 @@ function sortRequests(list: ChangeRequest[]): ChangeRequest[] {
 }
 
 async function persistRequest(request: ChangeRequest): Promise<void> {
+  if (request.status === "approved" || request.status === "rejected") {
+    recordDecision(request.id, {
+      status: request.status,
+      reviewedAt: request.reviewedAt,
+      reviewedBy: request.reviewedBy,
+    });
+  }
   upsertLocal(request);
+  const decided =
+    request.status === "approved" || request.status === "rejected";
   if (!isFirebaseConfigured()) {
+    if (decided) return;
     throw new Error("אין חיבור לענן — הבקשה לא תגיע לפאנל של תמיר סופר.");
   }
   const uid = await ensureFirebaseSignedIn();
   if (!uid) {
+    if (decided) return;
     throw new Error("יש להתחבר כדי לשלוח בקשה לאישור.");
   }
   const db = getFirebaseDb();
   if (!db) {
+    if (decided) return;
     throw new Error("Firebase לא זמין — הבקשה לא נשלחה.");
   }
 
+  await writeReviewerDecision(request, uid);
+
   const slimOk = await writeRequestDocs(request.id, slimPayload(request));
-  if (!slimOk) {
+  if (!slimOk && request.status === "pending") {
     throw new Error(
       "לא ניתן לשלוח את הבקשה לענן. התחברו מחדש ונסו שוב."
     );
@@ -321,11 +433,13 @@ export async function listChangeRequests(): Promise<ChangeRequest[]> {
   const byId = new Map<string, ChangeRequest>();
   for (const item of readLocal()) rememberRequest(byId, item);
 
-  if (!isFirebaseConfigured()) return sortRequests([...byId.values()]);
+  if (!isFirebaseConfigured()) {
+    return sortRequests([...byId.values()].map(applyDecision));
+  }
 
   await ensureFirebaseSignedIn();
   const db = getFirebaseDb();
-  if (!db) return sortRequests([...byId.values()]);
+  if (!db) return sortRequests([...byId.values()].map(applyDecision));
 
   try {
     ingestContributionDocs(
@@ -373,7 +487,7 @@ export async function listChangeRequests(): Promise<ChangeRequest[]> {
     /* collection may be denied until new rules are deployed */
   }
 
-  return sortRequests([...byId.values()]);
+  return sortRequests([...byId.values()].map(applyDecision));
 }
 
 export function subscribeChangeRequests(
@@ -386,7 +500,7 @@ export function subscribeChangeRequests(
   const unsubs: Array<() => void> = [];
 
   const emit = () => {
-    if (!stopped) onList(sortRequests([...byId.values()]));
+    if (!stopped) onList(sortRequests([...byId.values()].map(applyDecision)));
   };
 
   emit();
