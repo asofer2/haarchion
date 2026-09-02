@@ -58,6 +58,7 @@ export function AdminInbox({ compact = false }: { compact?: boolean }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [busyId, setBusyId] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const admin = isSiteAdmin(user);
 
   useEffect(() => {
@@ -83,9 +84,23 @@ export function AdminInbox({ compact = false }: { compact?: boolean }) {
   async function decide(request: ChangeRequest, approve: boolean) {
     if (!user) return;
     const nextStatus = approve ? "approved" : "rejected";
+    const reviewedAt = new Date().toISOString();
     setBusyId(request.id);
     setError(null);
+    setNotice(null);
     setResolved((prev) => ({ ...prev, [request.id]: nextStatus }));
+    setRequests((prev) =>
+      prev.map((item) =>
+        item.id === request.id
+          ? {
+              ...item,
+              status: nextStatus,
+              reviewedAt,
+              reviewedBy: user.uid,
+            }
+          : item
+      )
+    );
     try {
       const reviewer = {
         uid: user.uid,
@@ -94,9 +109,11 @@ export function AdminInbox({ compact = false }: { compact?: boolean }) {
       };
       if (approve) {
         await approveChangeRequest(request, reviewer);
-        await refresh(true);
+        void refresh(true);
+        setNotice(`«${request.entityTitle}» אושר ופורסם באתר.`);
       } else {
         await rejectChangeRequest(request, reviewer);
+        setNotice(`«${request.entityTitle}» נדחה.`);
       }
     } catch (err) {
       setResolved((prev) => {
@@ -104,6 +121,11 @@ export function AdminInbox({ compact = false }: { compact?: boolean }) {
         delete next[request.id];
         return next;
       });
+      setRequests((prev) =>
+        prev.map((item) =>
+          item.id === request.id ? { ...item, status: "pending" } : item
+        )
+      );
       setError(err instanceof Error ? err.message : "הפעולה נכשלה");
     } finally {
       setBusyId(null);
@@ -121,6 +143,7 @@ export function AdminInbox({ compact = false }: { compact?: boolean }) {
   return (
     <div className="admin-inbox">
       {error && <p className="form-error">{error}</p>}
+      {notice && !error && <p className="notice">{notice}</p>}
 
       <section className="section">
         <div className="section-head">

@@ -392,6 +392,162 @@ function sortRequests(list: ChangeRequest[]): ChangeRequest[] {
   return [...list].sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }
 
+function mergeRequestData(
+  base: ChangeRequest,
+  overlay: ChangeRequest
+): ChangeRequest {
+  return {
+    ...base,
+    ...overlay,
+    person: overlay.person || base.person,
+    production: overlay.production || base.production,
+    creditInputs: overlay.creditInputs || base.creditInputs,
+    credits: overlay.credits || base.credits,
+  };
+}
+
+function hasEntityPayload(request: ChangeRequest): boolean {
+  if (request.action === "delete") return true;
+  if (request.entityType === "person" && request.person) return true;
+  if (
+    request.entityType === "production" &&
+    (request.production || request.credits)
+  ) {
+    return true;
+  }
+  return false;
+}
+
+async function fetchChangeRequestFromCloud(
+  id: string,
+  requestedBy?: string
+): Promise<ChangeRequest | null> {
+  const db = getFirebaseDb();
+  if (!db) return null;
+  let merged: ChangeRequest | null = null;
+
+  const absorb = (raw: unknown, docId: string) => {
+    const parsed = parseRequest(raw, docId);
+    if (!parsed) return;
+    merged = merged ? mergeRequestData(merged, parsed) : parsed;
+  };
+
+  try {
+    const snap = await getDoc(doc(db, "contributions", id));
+    if (snap.exists()) absorb(snap.data(), id);
+  } catch {
+    /* ignore */
+  }
+
+  try {
+    const inbox = await getDoc(doc(db, "contributions", INBOX_ID));
+    const items = inbox.data()?.items as Record<string, unknown> | undefined;
+    if (items?.[id]) absorb(items[id], id);
+  } catch {
+    /* ignore */
+  }
+
+  if (requestedBy) {
+    try {
+      const editor = await getDoc(doc(db, "editors", requestedBy));
+      const map = editor.data()?.changeRequests as
+        | Record<string, unknown>
+        | undefined;
+      if (map?.[id]) absorb(map[id], id);
+    } catch {
+      /* ignore */
+    }
+  }
+
+  try {
+    const snap = await getDoc(doc(db, "changeRequests", id));
+    if (snap.exists()) absorb(snap.data(), id);
+  } catch {
+    /* ignore */
+  }
+
+  return merged;
+}
+
+/** Cloud copies may be slim — restore full payload from cloud or this browser */
+export async function hydrateChangeRequest(
+  request: ChangeRequest
+): Promise<ChangeRequest> {
+  const local = readLocal().find((item) => item.id === request.id);
+  let merged = local ? mergeRequestData(local, request) : request;
+
+  if (!hasEntityPayload(merged)) {
+    const cloud = await fetchChangeRequestFromCloud(
+      request.id,
+      request.requestedBy || merged.requestedBy
+    );
+    if (cloud) merged = mergeRequestData(cloud, merged);
+  }
+
+  return merged;
+}
+
+async function writeDecisionDocs(request: ChangeRequest): Promise<boolean> {
+  const db = getFirebaseDb();
+  if (!db) return false;
+  let wroteShared = false;
+  const patch = {
+    status: request.status,
+    reviewedAt: request.reviewedAt || "",
+    reviewedBy: request.reviewedBy || "",
+    isChangeRequest: true,
+  };
+
+  try {
+    await setDoc(doc(db, "contributions", request.id), patch, { merge: true });
+    wroteShared = true;
+  } catch (error) {
+    console.warn("change request status write failed", error);
+  }
+
+  try {
+    await setDoc(
+      doc(db, "contributions", INBOX_ID),
+      {
+        [`items.${request.id}.status`]: patch.status,
+        [`items.${request.id}.reviewedAt`]: patch.reviewedAt,
+        [`items.${request.id}.reviewedBy`]: patch.reviewedBy,
+      },
+      { merge: true }
+    );
+    wroteShared = true;
+  } catch (error) {
+    console.warn("change request inbox status write failed", error);
+  }
+
+  const ownerUid = request.requestedBy;
+  if (ownerUid) {
+    try {
+      await setDoc(
+        doc(db, "editors", ownerUid),
+        {
+          [`changeRequests.${request.id}.status`]: patch.status,
+          [`changeRequests.${request.id}.reviewedAt`]: patch.reviewedAt,
+          [`changeRequests.${request.id}.reviewedBy`]: patch.reviewedBy,
+        },
+        { merge: true }
+      );
+      wroteShared = true;
+    } catch (error) {
+      console.warn("change request editor status write failed", error);
+    }
+  }
+
+  try {
+    await setDoc(doc(db, "changeRequests", request.id), patch, { merge: true });
+    wroteShared = true;
+  } catch {
+    /* collection may be denied until new rules are deployed */
+  }
+
+  return wroteShared;
+}
+
 async function persistRequest(request: ChangeRequest): Promise<void> {
   if (request.status === "approved" || request.status === "rejected") {
     recordDecision(request.id, {
@@ -404,29 +560,44 @@ async function persistRequest(request: ChangeRequest): Promise<void> {
   const decided =
     request.status === "approved" || request.status === "rejected";
   if (!isFirebaseConfigured()) {
-    if (decided) return;
+    if (decided) {
+      throw new Error("אין חיבור לענן — לא ניתן לעדכן את סטטוס הבקשה.");
+    }
     throw new Error("אין חיבור לענן — הבקשה לא תגיע לפאנל של תמיר סופר.");
   }
   const uid = await ensureFirebaseSignedIn();
   if (!uid) {
-    if (decided) return;
+    if (decided) {
+      throw new Error("יש להתחבר עם Google כדי לאשר או לדחות בקשות.");
+    }
     throw new Error("יש להתחבר כדי לשלוח בקשה לאישור.");
   }
   const db = getFirebaseDb();
   if (!db) {
-    if (decided) return;
+    if (decided) {
+      throw new Error("Firebase לא זמין — לא ניתן לעדכן את סטטוס הבקשה.");
+    }
     throw new Error("Firebase לא זמין — הבקשה לא נשלחה.");
   }
 
   await writeReviewerDecision(request, uid);
 
-  const slimOk = await writeRequestDocs(request.id, slimPayload(request));
-  if (!slimOk && request.status === "pending") {
+  if (decided) {
+    const wrote = await writeDecisionDocs(request);
+    if (!wrote) {
+      throw new Error(
+        "לא ניתן לעדכן את סטטוס הבקשה בענן. התחברו מחדש עם חשבון המנהל (tamirsofer@gmail.com)."
+      );
+    }
+    return;
+  }
+
+  const wrote = await writeRequestDocs(request.id, requestPayload(request));
+  if (!wrote) {
     throw new Error(
       "לא ניתן לשלוח את הבקשה לענן. התחברו מחדש ונסו שוב."
     );
   }
-  await writeRequestDocs(request.id, requestPayload(request));
 }
 
 export async function listChangeRequests(): Promise<ChangeRequest[]> {
@@ -709,45 +880,53 @@ export async function approveChangeRequest(
   if (!isSiteAdmin(reviewer)) {
     throw new Error(`רק ${SITE_ADMIN_NAME} יכול לאשר בקשות.`);
   }
-  if (request.action === "delete") {
-    if (request.entityType === "person") await deletePerson(request.entityId);
-    else await deleteProduction(request.entityId);
-  } else if (request.entityType === "person" && request.person) {
-    await savePerson(request.person, {
-      userId: request.requestedBy,
-      userName: request.requestedByName,
-      isNew: request.action === "create",
-      sourceNote: request.person.sourceNote,
+  const full = await hydrateChangeRequest(request);
+  if (full.action === "delete") {
+    if (full.entityType === "person") await deletePerson(full.entityId);
+    else await deleteProduction(full.entityId);
+  } else if (full.entityType === "person" && full.person) {
+    await savePerson(full.person, {
+      userId: full.requestedBy,
+      userName: full.requestedByName,
+      isNew: full.action === "create",
+      sourceNote: full.person.sourceNote,
     });
-    if (request.creditInputs) {
+    if (full.creditInputs) {
       await savePersonCategoryCredits(
-        request.person.id,
-        request.creditInputs,
+        full.person.id,
+        full.creditInputs,
         ACTIVITY_LIST,
         {
-          userId: request.requestedBy,
-          userName: request.requestedByName,
+          userId: full.requestedBy,
+          userName: full.requestedByName,
         }
       );
     }
-  } else if (request.entityType === "production") {
-    if (request.production) {
-      await saveProduction(request.production, {
-        userId: request.requestedBy,
-        userName: request.requestedByName,
-        isNew: request.action === "create",
-        sourceNote: request.production.sourceNote,
+  } else if (full.entityType === "production") {
+    if (full.production) {
+      await saveProduction(full.production, {
+        userId: full.requestedBy,
+        userName: full.requestedByName,
+        isNew: full.action === "create",
+        sourceNote: full.production.sourceNote,
       });
     }
-    if (request.credits) {
-      await saveCreditsForProduction(request.entityId, request.credits);
+    if (full.credits) {
+      await saveCreditsForProduction(full.entityId, full.credits);
+    }
+    if (!full.production && !full.credits) {
+      throw new Error(
+        "לא ניתן לאשר בקשה חסרה — חסרים נתוני ההפקה. בקשו מהשולח לשלוח שוב."
+      );
     }
   } else {
-    throw new Error("לא ניתן לאשר בקשה חסרה.");
+    throw new Error(
+      "לא ניתן לאשר בקשה חסרה — חסרים נתוני הערך. בקשו מהשולח לשלוח שוב."
+    );
   }
 
   await persistRequest({
-    ...request,
+    ...full,
     status: "approved",
     reviewedAt: new Date().toISOString(),
     reviewedBy: reviewer.uid,
@@ -761,8 +940,9 @@ export async function rejectChangeRequest(
   if (!isSiteAdmin(reviewer)) {
     throw new Error(`רק ${SITE_ADMIN_NAME} יכול לדחות בקשות.`);
   }
+  const full = await hydrateChangeRequest(request);
   await persistRequest({
-    ...request,
+    ...full,
     status: "rejected",
     reviewedAt: new Date().toISOString(),
     reviewedBy: reviewer.uid,
