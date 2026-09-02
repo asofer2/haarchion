@@ -39,6 +39,9 @@ function isThinBio(bio?: string): boolean {
 }
 
 export function applyPersonEnrichment(person: Person): Person {
+  if (person.ishimClassic) {
+    return applyPersonDates(person);
+  }
   let next = applyPersonDates(person);
   const wiki = PERSON_WIKI_ENRICHMENT[person.id];
   if (wiki) {

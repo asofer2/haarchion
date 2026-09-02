@@ -76,12 +76,16 @@ function personSearchBlob(person: Person): string {
   const aliases = activities.flatMap(
     (a: ActivityCategory) => ACTIVITY_SEARCH_ALIASES[a] || []
   );
+  const noteText = (person.ishimNotes || [])
+    .flatMap((n) => n.items)
+    .join(" ");
   return [
     person.name,
     person.nameOriginal,
     ...(person.nicknames || []),
     ...(person.tags || []),
     person.bio,
+    noteText,
     ...activityLabels,
     ...aliases,
   ]

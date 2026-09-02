@@ -2,6 +2,12 @@ import archiveJson from "@/data/ishim-archive.json";
 import { canonicalPersonName } from "./aliases";
 import { normalizePersonName } from "./dedupe";
 import { slugify } from "./ids";
+import {
+  ISHIM_CLASSIC_SOURCE,
+  ishimCreditHeading,
+  ishimWaybackPersonUrl,
+  parseIshimNotes,
+} from "./ishim-import";
 import type {
   ActivityCategory,
   ArchiveData,
@@ -85,13 +91,21 @@ const KEY_ACTIVITY: Record<string, ActivityCategory> = {
   בובות: "series",
 };
 
-function ishimBio(person: IshimPerson): string {
-  const parts: string[] = [...(person.general || [])];
-  if (person.deathNote) parts.push(`סיבת פטירה: ${person.deathNote}`);
-  if (person.trivia?.length) {
-    parts.push(`טריוויה: ${person.trivia.join(" ")}`);
-  }
-  return parts.join("\n\n").trim();
+function ishimBio(_person: IshimPerson): string {
+  return "";
+}
+
+function classicPersonFields(src: IshimPerson): Partial<Person> {
+  const notes = parseIshimNotes(src.trivia, src.general);
+  return {
+    ishimClassic: true,
+    bio: ishimBio(src),
+    ishimNotes: notes.length ? notes : undefined,
+    entryAuthors: ["ברק חננאל"],
+    sourceNote: ISHIM_CLASSIC_SOURCE,
+    sourceUrl: ishimWaybackPersonUrl(src.name),
+    tags: src.keys || [],
+  };
 }
 
 function activitiesFor(person: IshimPerson, credits: IshimCredit[]): ActivityCategory[] {
@@ -301,22 +315,23 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
 
     const bio = ishimBio(src);
     const credits = src.credits || [];
+    const classic = classicPersonFields(src);
     const patch: Partial<Person> = {
       name: src.name,
       birthDate: src.birthDate,
       deathDate: src.deathDate,
       nameOriginal: src.nameOriginal,
       nicknames: src.birthName ? [src.birthName] : [],
-      tags: src.keys || [],
+      tags: classic.tags,
       activities: activitiesFor(src, credits),
       bio,
+      ...classic,
     };
 
     const existing = peopleById.get(id);
     if (existing) {
       const nicknames = [
         ...new Set([
-          ...(existing.nicknames || []),
           ...(patch.nicknames || []),
         ]),
       ];
@@ -325,11 +340,18 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
         name: patch.name || existing.name,
         birthDate: patch.birthDate || existing.birthDate,
         deathDate: patch.deathDate || existing.deathDate,
-        nameOriginal: existing.nameOriginal || patch.nameOriginal,
-        nicknames,
-        tags: [...new Set([...(patch.tags || []), ...(existing.tags || [])])],
-        activities: [...new Set([...(patch.activities || []), ...(existing.activities || [])])],
-        bio: bio || existing.bio,
+        nameOriginal: patch.nameOriginal || existing.nameOriginal,
+        nicknames: nicknames.length ? nicknames : existing.nicknames,
+        tags: patch.tags || [],
+        activities: activitiesFor(src, credits),
+        bio: classic.bio || "",
+        ishimClassic: true,
+        ishimNotes: classic.ishimNotes,
+        entryAuthors: classic.entryAuthors,
+        sourceNote: classic.sourceNote,
+        sourceUrl: classic.sourceUrl,
+        wikipediaUrl: undefined,
+        discography: undefined,
         updatedAt: NOW,
       };
       const idx = peopleIndex.get(id);
@@ -344,9 +366,14 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
         nicknames: patch.nicknames || [],
         birthDate: src.birthDate,
         deathDate: src.deathDate,
-        bio: bio,
-        tags: src.keys || [],
+        bio: classic.bio || "",
+        tags: patch.tags || [],
         activities: patch.activities || ["acting"],
+        ishimClassic: true,
+        ishimNotes: classic.ishimNotes,
+        entryAuthors: classic.entryAuthors,
+        sourceNote: classic.sourceNote,
+        sourceUrl: classic.sourceUrl,
         createdAt: NOW,
         updatedAt: NOW,
       };
@@ -399,6 +426,7 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
         role: credit.role,
         characterName: credit.character,
         year: credit.year,
+        heading: ishimCreditHeading(credit, src.name),
       });
     }
     titlesByPerson.set(personId, titleSet);

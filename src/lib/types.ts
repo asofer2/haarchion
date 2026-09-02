@@ -168,6 +168,8 @@ export interface Credit {
   billingOrder?: number;
   /** שנת הקרדיט בדף אישים (אם שונה משנת ההפקה) */
   year?: number;
+  /** כותרת מקורית מדף אישים (יוצר / בתפקיד עצמו / הרכבים…) */
+  heading?: string;
 }
 
 export interface DiscographyItem {
@@ -196,6 +198,10 @@ export interface Person {
   wikipediaUrl?: string;
   /** כותבי הערך (ממאגר ישן / ייבוא) */
   entryAuthors?: string[];
+  /** הערות מדף אישים: קשר משפחתי, צבא, פרסים… */
+  ishimNotes?: { heading: string; items: string[] }[];
+  /** נתונים מיובאים מאתר אישים הקלאסי */
+  ishimClassic?: boolean;
   /** מקור המידע — למשל «ויקיפדיה», «ערוץ הופ תמיר» */
   sourceNote?: string;
   sourceUrl?: string;

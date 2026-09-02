@@ -34,7 +34,21 @@ export const ISHIM_CREDIT_SECTIONS: {
   { heading: "צלם", roles: ["cinematographer"] },
 ];
 
-export const ISHIM_HEADING_ORDER = ISHIM_CREDIT_SECTIONS.map((s) => s.heading);
+export const ISHIM_HEADING_ORDER = [
+  "תסריטאי",
+  "יוצר",
+  "שחקן",
+  "בתפקיד עצמו",
+  "במאי",
+  "במאי דיבוב",
+  "מפיק דיבוב",
+  "מדבב",
+  "מנחה",
+  "הרכבים",
+  "מחזמר",
+  "מוזיקה",
+  "צלם",
+];
 
 export function ishimRoleHeading(role: CreditRole): string {
   return ISHIM_ROLE_HEADING[role] || CREDIT_ROLE_LABELS[role];

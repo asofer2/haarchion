@@ -1,0 +1,366 @@
+{
+  "credits": [
+    {
+      "role": "writer",
+      "heading": "תסריטאי",
+      "year": 2005,
+      "title": "משחק מכור"
+    },
+    {
+      "role": "writer",
+      "heading": "תסריטאי",
+      "year": 1988,
+      "title": "עבודה בעיניים",
+      "character": "רעיונות למתיחות"
+    },
+    {
+      "role": "writer",
+      "heading": "יוצר",
+      "year": 1999,
+      "title": "המופע של קושניר"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2025,
+      "title": "זהו זה!",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2024,
+      "title": "מועדון הסטנד-אפ"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2021,
+      "title": "מותק בול באמצע",
+      "character": "אלכס טורצ'ין"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2020,
+      "title": "שאיפה לחיים",
+      "character": "כרמלי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2020,
+      "title": "משיח",
+      "character": "ארמונד"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2017,
+      "title": "אווה",
+      "character": "יואל"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2016,
+      "title": "תיבת נוח",
+      "character": "נוח"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2015,
+      "title": "איביזה",
+      "character": "בני"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2014,
+      "title": "חלונות"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2014,
+      "title": "פנטזיה אלף לילה ולילה",
+      "character": "הסולטן"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2011,
+      "title": "החיים זה לא הכל",
+      "character": "גדי נוימן"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2007,
+      "title": "הישראלים",
+      "character": "רופאים שונים"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2006,
+      "title": "סיפור חצי רוסי",
+      "character": "רמי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2004,
+      "title": "מטאליק בלוז",
+      "character": "שמואל גולדברג"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2003,
+      "title": "ארץ נהדרת",
+      "character": "בנימין נתניהו"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2001,
+      "title": "ראס פינה",
+      "character": "יואב"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2001,
+      "title": "המלך ארתור ואבירי השולחן העגול",
+      "character": "פרסיבל"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1999,
+      "title": "כפות רגלייה",
+      "character": "נפתלי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1999,
+      "title": "המופע של קושניר",
+      "character": "אבי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1998,
+      "title": "זהו זה!",
+      "character": "ז'ניה / ביבי / דמויות שונות"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1991,
+      "title": "מסיבת גן",
+      "character": "מוכר צעצועים"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1990,
+      "title": "ציפי בלי הפסקה",
+      "character": "אבי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1988,
+      "title": "עבודה בעיניים",
+      "character": "מתחן"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1987,
+      "title": "פסטיגל 87 - הצלת הגן מההריסה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1986,
+      "title": "השגעון הגדול",
+      "character": "בר-און"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1986,
+      "title": "האינסטלטור",
+      "character": "מוריס שייבלה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1986,
+      "title": "אלכס חולה אהבה",
+      "character": "מוטק'ה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1986,
+      "title": "הקרב על הוועד",
+      "character": "פציינט"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1985,
+      "title": "פסטיגל 85",
+      "character": "מיקרוב"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1985,
+      "title": "בנות",
+      "character": "רמי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1983,
+      "title": "מועדון החתול שמיל",
+      "character": "החתול שמיל"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1983,
+      "title": "פרפר נחמד",
+      "character": "אבי"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2014,
+      "title": "כלוב הזהב",
+      "character": "מנחה"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2012,
+      "title": "מצב האומה",
+      "character": "בתפקיד עצמו"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2011,
+      "title": "חכמים בריבוע",
+      "character": "מתמודד"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2011,
+      "title": "אחד נגד 100",
+      "character": "מתמודד (יחד עם ענת וקסמן)"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2011,
+      "title": "רוקדים עם כוכבים",
+      "character": "מנחה"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2008,
+      "title": "גריז",
+      "character": "מנחה"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2005,
+      "title": "מסיבת הסיום של טלעד",
+      "character": "אורח"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2005,
+      "title": "משחק מכור",
+      "character": "פאנליסט אורח"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2004,
+      "title": "פספורט",
+      "character": "מטייל בהונגריה"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2004,
+      "title": "במדינת היהודים"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2004,
+      "title": "רצים לדירה",
+      "character": "עונה ראשונה / מנחה"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2003,
+      "title": "מדריך קושניר",
+      "character": "מנחה"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 1996,
+      "title": "שובו של השריף"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 1995,
+      "title": "פסטיגל 95 - חיות"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 1989,
+      "title": "קח סיכון",
+      "character": "מנחה"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 1987,
+      "title": "אירוויזיון",
+      "character": "הבטלנים / מקום 8"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2000,
+      "title": "מרד התרנגולים",
+      "character": "רוקי"
+    },
+    {
+      "role": "musical_performer",
+      "heading": "הרכבים",
+      "year": 1989,
+      "title": "הבטלנים"
+    }
+  ]
+}

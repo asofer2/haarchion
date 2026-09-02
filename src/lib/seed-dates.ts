@@ -4,6 +4,7 @@ export const PERSON_DATES: Record<
   { birthDate?: string; deathDate?: string }
 > = {
   "abrhm-slktr": { birthDate: "1945-05-03" },
+  "aby-kvshnyr": { birthDate: "1960-08-26" },
   "aby-avryh": { birthDate: "1949-05-01" },
   "aby-mayr-vanvnv": { birthDate: "1964-07-29" },
   "aby-pnyny": { birthDate: "1946-10-28" },
@@ -204,6 +205,7 @@ export const PERSON_DATES: Record<
   "gayh-travb": { birthDate: "1988-05-01" },
   "gdavn-shmr": { birthDate: "1928-05-24", deathDate: "2008-02-21" },
   "gdy-altmn": { birthDate: "1978-04-18" },
+  "gdy-pvr": { birthDate: "1962-02-16" },
   "gidi-gov": { birthDate: "1950-08-04" },
   "gila-almagor": { birthDate: "1939-07-22" },
   "gilad-kelter": { birthDate: "1976-04-02" },

@@ -1,0 +1,350 @@
+{
+  "name": "חנן גולדבלט",
+  "birthDate": "1941-10-10",
+  "credits": [
+    {
+      "role": "writer",
+      "heading": "תסריטאי",
+      "year": 1984,
+      "title": "פעם אחת"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2004,
+      "title": "הפיג'מות",
+      "character": "מיכה - דוד של אלונה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2004,
+      "title": "שמש",
+      "character": "בלש"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2003,
+      "title": "סוד השוקולד",
+      "character": "מר שמלו"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2002,
+      "title": "החיים זה לא הכל",
+      "character": "ד\"ר ארבלי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2002,
+      "title": "פרפר נחמד",
+      "character": "גשש בלש"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1999,
+      "title": "כל העולם במה",
+      "character": "ספטיגיו / לאונטו"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1999,
+      "title": "תסתכל לי בעיניים",
+      "character": "אבא של רותם"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1997,
+      "title": "איצ'ה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1996,
+      "title": "כלבים לא נובחים בירוק",
+      "character": "גניקולוג"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1995,
+      "title": "הלו פנינה",
+      "character": "שבתאי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1995,
+      "title": "ייסורי אפרים",
+      "character": "פקיד בבנק"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1992,
+      "title": "גליצ'",
+      "character": "מנחה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1992,
+      "title": "בסוד העניינים"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1991,
+      "title": "חמישייה על הגג"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1990,
+      "title": "ציפי בלי הפסקה",
+      "character": "מנהל ביה\"ס הראשון"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1989,
+      "title": "כוח משיכה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1989,
+      "title": "זהו זה!"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1986,
+      "title": "בלי סודות",
+      "character": "חנן / גשש בלש"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1986,
+      "title": "ניפגש בסיבוב",
+      "character": "נמתח"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1985,
+      "title": "מניו יורק באהבה",
+      "character": "אבי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1985,
+      "title": "התזמורת"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1985,
+      "title": "אירית עירית"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1984,
+      "title": "פעם אחת"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1982,
+      "title": "אהבה ראשונה",
+      "character": "יצחק"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1981,
+      "title": "עם ישראל חי",
+      "character": "ד\"ר חרמוני"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1980,
+      "title": "מלך ליום אחד",
+      "character": "שמשון"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1979,
+      "title": "קרוסלה",
+      "character": "חנן ענן"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1966,
+      "title": "שני קוני למל",
+      "character": "חבר של מקס"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1964,
+      "title": "דליה והמלחים",
+      "character": "סטאניסלאב קוצ'ינסקי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1964,
+      "title": "מר שמחון ובנו",
+      "character": "אורי"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2004,
+      "title": "אדם ומלואו",
+      "character": "מנחה"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 1998,
+      "title": "מאז ועד זאפ",
+      "character": "חנן ענן"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 1991,
+      "title": "דגי דיגיטלי",
+      "character": "מנחה"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 1989,
+      "title": "אחד יותר מדי",
+      "character": "מנחה"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1998,
+      "title": "הברווזון המכוער"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2005,
+      "title": "רובוטס",
+      "character": "רובוט דואר"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2001,
+      "title": "מסביב לעולם עם טוויטי",
+      "character": "קולונל רימפייר"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1998,
+      "title": "ביטלבורגס - קללת הביטלבורג האפל",
+      "character": "הרוזן פאנגולה"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1998,
+      "title": "הברווזון המכוער",
+      "character": "שועל"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1998,
+      "title": "מרוץ החלל של יוגי הדב",
+      "character": "קריין"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1998,
+      "title": "המחשובבים",
+      "character": "ברי / פט"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1998,
+      "title": "גן עדן לכלבים",
+      "character": "איצ'י"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1997,
+      "title": "רובר מלך החווה",
+      "character": "רובר"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1988,
+      "title": "שלום סומסום",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1987,
+      "title": "רחוב סומסום",
+      "character": "שרגא / חבובות אורחות"
+    },
+    {
+      "role": "musical_performer",
+      "heading": "הרכבים",
+      "year": 2005,
+      "title": "להקת הנח\"ל"
+    }
+  ],
+  "ishimNotes": [
+    {
+      "heading": "צבא",
+      "items": [
+        "להקת הנח\"ל"
+      ]
+    },
+    {
+      "heading": "קישורים",
+      "items": [
+        "מעשי האונס ושיטות הפעולה - תחקיר שומר מסך"
+      ]
+    },
+    {
+      "heading": "משפטי",
+      "items": [
+        "נידון לשש שנות מאסר בפועל בעוון אונס של קטינות שבאו ללמוד אצלו משחק (2008)"
+      ]
+    },
+    {
+      "heading": "עירום",
+      "items": [
+        "עם ישראל חי"
+      ]
+    }
+  ]
+}

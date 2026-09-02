@@ -20,8 +20,8 @@ import { dedupeArchive, normalizePersonName } from "./dedupe";
 import { ensureFilmographies } from "./filmography";
 import { ensureDiscographyProductions } from "./discography-productions";
 import { applyPeopleEnrichment } from "./person-dates";
-import { applyIshimYoniChen } from "./seed-ishim-yoni-chen";
 import { applyDubbingStudios } from "./seed-dubbing-studios";
+import { applyIshimPersonPatches } from "./seed-ishim-patches";
 import { formatProductionTitle } from "./production-title";
 import {
   defaultCreditRole,
@@ -222,6 +222,15 @@ function mergeWithSeed(data: ArchiveData): ArchiveData {
       peopleMap.set(seed.id, seed);
       continue;
     }
+    if (seed.ishimClassic) {
+      peopleMap.set(seed.id, {
+        ...existing,
+        ...seed,
+        imageUrl: existing.imageUrl || seed.imageUrl,
+        createdAt: existing.createdAt || seed.createdAt,
+      });
+      continue;
+    }
     // Existing entry: fill gaps / prefer richer seed fields (Wikipedia enrich)
     peopleMap.set(seed.id, {
       ...existing,
@@ -354,8 +363,7 @@ function mergeWithSeed(data: ArchiveData): ArchiveData {
 }
 
 function normalize(data: ArchiveData): ArchiveData {
-  return applyIshimYoniChen(
-    ensureDiscographyProductions(
+  return ensureDiscographyProductions(
     ensureFilmographies(
       dedupeArchive(
         (() => {
@@ -397,7 +405,6 @@ function normalize(data: ArchiveData): ArchiveData {
           };
         })()
       )
-    )
     )
   );
 }
@@ -858,9 +865,9 @@ async function enrichWithIshimCatalog(
     const apply = await getIshimApply();
     await yieldToMain();
     if (!ishimCatalog) {
-      ishimCatalog = apply(getSeedBaseline());
+      ishimCatalog = applyIshimPersonPatches(apply(getSeedBaseline()));
     }
-    const display = apply(base);
+    const display = applyIshimPersonPatches(apply(base));
     memoryCache = { data: display, at: Date.now() };
     onRemote?.(display);
   } catch (error) {

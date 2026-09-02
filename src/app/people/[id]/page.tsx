@@ -20,6 +20,7 @@ import {
   ishimRoleHeading,
   ISHIM_HEADING_ORDER,
 } from "@/lib/ishim-person";
+import { groupIshimCredits } from "@/lib/ishim-credits";
 import {
   ACTIVITY_LABELS,
   type CreditRole,
@@ -41,12 +42,7 @@ export default function PersonDetailPage() {
     if (!data || !person) {
       return [] as {
         heading: string;
-        items: {
-          production: Production;
-          role: CreditRole;
-          characterName?: string;
-          year?: number;
-        }[];
+        items: ReturnType<typeof groupIshimCredits>;
       }[];
     }
 
@@ -59,13 +55,18 @@ export default function PersonDetailPage() {
 
     const map = new Map<
       string,
-      { production: Production; role: CreditRole; characterName?: string; year?: number }[]
+      {
+        production: Production;
+        role: CreditRole;
+        characterName?: string;
+        year?: number;
+      }[]
     >();
 
     for (const credit of credits) {
       const production = data.productions.find((p) => p.id === credit.productionId);
       if (!production) continue;
-      const heading = ishimRoleHeading(credit.role);
+      const heading = credit.heading || ishimRoleHeading(credit.role);
       const list = map.get(heading) || [];
       if (
         !list.some(
@@ -89,8 +90,10 @@ export default function PersonDetailPage() {
     return [...map.entries()]
       .map(([heading, items]) => ({
         heading,
-        items: items.sort(
-          (a, b) => (b.year || b.production.year) - (a.year || a.production.year)
+        items: groupIshimCredits(
+          items.sort(
+            (a, b) => (b.year || b.production.year) - (a.year || a.production.year)
+          )
         ),
       }))
       .sort((a, b) => {
@@ -128,7 +131,9 @@ export default function PersonDetailPage() {
   const tagKeys = person.tags.filter(
     (tag) => !activityLabels.some((a) => ACTIVITY_LABELS[a] === tag)
   );
-  const hasKeys = activityLabels.length > 0 || tagKeys.length > 0;
+  const showActivityKeys = !person.ishimClassic && activityLabels.length > 0;
+  const showTagKeys = tagKeys.length > 0;
+  const hasKeys = showActivityKeys || showTagKeys;
 
   return (
     <article className="detail-layout ishim-person">
@@ -164,13 +169,18 @@ export default function PersonDetailPage() {
               <dt>גיל:</dt>
               <dd>
                 {age}
+                {person.birthDate && person.ishimClassic
+                  ? ` (נולד ב-${formatDateNumeric(person.birthDate)})`
+                  : !person.deathDate && person.birthDate
+                    ? ` (נולד ב-${formatDateNumeric(person.birthDate)})`
+                    : ""}
                 {person.deathDate
                   ? ` (נפטר/ה ב-${formatDateNumeric(person.deathDate)})`
                   : ""}
               </dd>
             </div>
           )}
-          {person.birthDate && (
+          {!person.ishimClassic && person.birthDate && (
             <div>
               <dt>נולד ב:</dt>
               <dd>{formatDateNumeric(person.birthDate)}</dd>
@@ -182,7 +192,9 @@ export default function PersonDetailPage() {
               <dd>{bornName}</dd>
             </div>
           )}
-          {person.nameOriginal && !hasHebrew(person.nameOriginal) && (
+          {person.nameOriginal &&
+            !hasHebrew(person.nameOriginal) &&
+            !person.ishimClassic && (
             <div>
               <dt>שם באנגלית:</dt>
               <dd>{person.nameOriginal}</dd>
@@ -192,28 +204,30 @@ export default function PersonDetailPage() {
             <div className="ishim-keys">
               <dt>מפתחות:</dt>
               <dd>
-                {activityLabels.map((activity) => (
-                  <Link
-                    key={activity}
-                    href={`/categories/${activity}`}
-                    className="ishim-key"
-                  >
-                    {ACTIVITY_LABELS[activity]}
-                  </Link>
-                ))}
-                {tagKeys.map((tag) => (
-                  <Link
-                    key={tag}
-                    href={`/search?q=${encodeURIComponent(tag)}`}
-                    className="ishim-key"
-                  >
-                    {tag}
-                  </Link>
-                ))}
+                {showActivityKeys &&
+                  activityLabels.map((activity) => (
+                    <Link
+                      key={activity}
+                      href={`/categories/${activity}`}
+                      className="ishim-key"
+                    >
+                      {ACTIVITY_LABELS[activity]}
+                    </Link>
+                  ))}
+                {showTagKeys &&
+                  tagKeys.map((tag) => (
+                    <Link
+                      key={tag}
+                      href={`/search?q=${encodeURIComponent(tag)}`}
+                      className="ishim-key"
+                    >
+                      {tag}
+                    </Link>
+                  ))}
               </dd>
             </div>
           )}
-          {person.wikipediaUrl && (
+          {!person.ishimClassic && person.wikipediaUrl && (
             <div>
               <dt>קישורים:</dt>
               <dd>
@@ -231,7 +245,7 @@ export default function PersonDetailPage() {
             <ul className="ishim-credits">
               {group.items.map((item) => (
                 <li
-                  key={`${item.production.id}-${item.role}-${item.year || ""}-${item.characterName || ""}`}
+                  key={`${item.production.id}-${item.role}-${item.year || ""}`}
                 >
                   <span className="ishim-year">
                     {item.year || item.production.year || ""}
@@ -242,9 +256,11 @@ export default function PersonDetailPage() {
                     >
                       {item.production.title}
                     </Link>
-                    {item.characterName ? (
-                      <span className="ishim-chars">{item.characterName}</span>
-                    ) : null}
+                    {item.characters.map((character) => (
+                      <span key={character} className="ishim-chars">
+                        {character}
+                      </span>
+                    ))}
                   </div>
                 </li>
               ))}
@@ -252,7 +268,7 @@ export default function PersonDetailPage() {
           </section>
         ))}
 
-        {(person.discography?.length || 0) > 0 && (
+        {!person.ishimClassic && (person.discography?.length || 0) > 0 && (
           <section className="ishim-role">
             <h3>דיסקוגרפיה</h3>
             <ul className="ishim-credits">
@@ -273,7 +289,18 @@ export default function PersonDetailPage() {
           </section>
         )}
 
-        {person.bio?.trim() && (
+        {person.ishimNotes?.map((note) => (
+          <section key={note.heading} className="ishim-role">
+            <h3>{note.heading}</h3>
+            <ul className="ishim-notes-list">
+              {note.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        ))}
+
+        {person.bio?.trim() && !person.ishimClassic && (
           <section className="ishim-role">
             <h3>כללי</h3>
             <div className="prose ishim-notes">{person.bio}</div>
