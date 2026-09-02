@@ -35,7 +35,7 @@ export default function HomePage() {
         <p className="meta">מאגר ישראלי · דיבוב · מחזמר · קלטות · במה</p>
         <h1>אישים</h1>
         <p className="hero-welcome">ברוכים הבאים לאתר אישים</p>
-        <p className="hero-actions" style={{ marginTop: "0.5rem" }}>
+        <p className="hero-actions">
           <Link href="/ishur" className="btn btn-primary">
             פאנל ניהול — בקשות לאישור
           </Link>
