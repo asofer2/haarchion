@@ -276,9 +276,9 @@ img {
 }
 
 .hero p.hero-welcome {
-  font-size: clamp(2.4rem, 5.4vw, 3.72rem);
-  font-weight: 500;
-  line-height: 1.35;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .hero-actions {
