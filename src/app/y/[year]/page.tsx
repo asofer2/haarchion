@@ -7,22 +7,44 @@ import { useArchive } from "@/hooks/useArchive";
 import type { Person } from "@/lib/types";
 import {
   compactDayMonth,
+  monthDayFromIso,
   parseYearParam,
   peopleBornInYear,
   peopleDiedInYear,
 } from "@/lib/year-calendar";
 
+function dayMonthHref(iso: string | undefined, kind: "birth" | "death") {
+  const md = monthDayFromIso(iso);
+  if (!md) return undefined;
+  return kind === "birth"
+    ? `/d/${md.month}/${md.day}#born`
+    : `/d/${md.month}/${md.day}#died`;
+}
+
 function PersonRow({
   person,
   date,
+  kind,
 }: {
   person: Person;
   date?: string;
+  kind: "birth" | "death";
 }) {
   const when = compactDayMonth(date);
+  const href = dayMonthHref(date, kind);
   return (
     <div className="year-person">
-      {when ? <span className="year-person-date">{when}</span> : null}
+      {when ? (
+        <span className="year-person-date">
+          {href ? (
+            <Link href={href} className="ishim-date-link">
+              {when}
+            </Link>
+          ) : (
+            when
+          )}
+        </span>
+      ) : null}
       <Link href={`/people/${encodeURIComponent(person.id)}`}>
         {person.name}
       </Link>
@@ -81,7 +103,7 @@ export default function YearPage() {
         </Link>
       </h1>
 
-      <section className="year-section">
+      <section id="born" className="year-section">
         <h2>נולדו ב-{year}</h2>
         {born.length === 0 ? (
           <p className="muted">אין אישים במאגר שנולדו בשנה זו.</p>
@@ -92,13 +114,14 @@ export default function YearPage() {
                 key={person.id}
                 person={person}
                 date={person.birthDate}
+                kind="birth"
               />
             ))}
           </div>
         )}
       </section>
 
-      <section className="year-section">
+      <section id="died" className="year-section">
         <h2>נפטרו ב-{year}</h2>
         {died.length === 0 ? (
           <p className="muted">אין אישים במאגר שנפטרו בשנה זו.</p>
@@ -109,6 +132,7 @@ export default function YearPage() {
                 key={person.id}
                 person={person}
                 date={person.deathDate}
+                kind="death"
               />
             ))}
           </div>

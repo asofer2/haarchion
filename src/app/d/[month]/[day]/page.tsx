@@ -17,14 +17,28 @@ import {
 function PersonRow({
   person,
   date,
+  kind,
 }: {
   person: Person;
   date?: string;
+  kind: "birth" | "death";
 }) {
   const year = yearFromIso(date);
+  const yearLink =
+    year && kind === "birth" ? `/y/${year}#born` : year ? `/y/${year}#died` : undefined;
   return (
     <div className="year-person">
-      {year ? <span className="year-person-date">{year}</span> : null}
+      {year ? (
+        <span className="year-person-date">
+          {yearLink ? (
+            <Link href={yearLink} className="ishim-date-link">
+              {year}
+            </Link>
+          ) : (
+            year
+          )}
+        </span>
+      ) : null}
       <Link href={`/people/${encodeURIComponent(person.id)}`}>
         {person.name}
       </Link>
@@ -90,7 +104,7 @@ export default function DayPage() {
         <Link href="/y">לוח שנה לפי שנים</Link>
       </p>
 
-      <section className="year-section">
+      <section id="born" className="year-section">
         <h2>נולדו</h2>
         {born.length === 0 ? (
           <p className="muted">אין אישים במאגר שנולדו ביום זה.</p>
@@ -101,13 +115,14 @@ export default function DayPage() {
                 key={person.id}
                 person={person}
                 date={person.birthDate}
+                kind="birth"
               />
             ))}
           </div>
         )}
       </section>
 
-      <section className="year-section">
+      <section id="died" className="year-section">
         <h2>נפטרו</h2>
         {died.length === 0 ? (
           <p className="muted">אין אישים במאגר שנפטרו ביום זה.</p>
@@ -118,6 +133,7 @@ export default function DayPage() {
                 key={person.id}
                 person={person}
                 date={person.deathDate}
+                kind="death"
               />
             ))}
           </div>

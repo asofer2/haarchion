@@ -34,15 +34,19 @@
 html {
   scroll-behavior: smooth;
   --a11y-font-scale: 1;
-  font-size: calc(100% * var(--a11y-font-scale));
 }
 
-/* Keep chrome and page intro at baseline size when content is scaled */
-.site-header,
-.site-footer,
-.a11y-overlay,
-.hero {
-  font-size: calc(1rem / var(--a11y-font-scale));
+/* Content zoom — header/footer stay outside .site-main */
+.site-main {
+  flex: 1;
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+  zoom: var(--a11y-font-scale);
+}
+
+.site-main > .hero:first-child {
+  zoom: calc(1 / var(--a11y-font-scale));
 }
 
 body {
@@ -201,12 +205,6 @@ img {
   color: #f5f7f6;
 }
 
-.site-main {
-  flex: 1;
-  width: min(1120px, calc(100% - 2rem));
-  margin: 0 auto;
-  padding: 2rem 0 4rem;
-}
 
 .site-footer {
   border-top: 1px solid var(--line);
@@ -528,6 +526,16 @@ img {
 .ishim-facts dd {
   display: inline;
   margin: 0;
+}
+
+.ishim-date-link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ishim-date-link:hover {
+  color: var(--link-hover, var(--accent));
 }
 
 .ishim-keys dd {
@@ -1342,6 +1350,7 @@ html[data-reduce-motion="true"] * {
 }
 
 .year-section {
+  scroll-margin-top: 5rem;
   margin-top: 1.6rem;
 }
 

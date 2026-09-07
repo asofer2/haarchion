@@ -14,8 +14,8 @@ import {
   calcAge,
   findById,
   canEditArchive,
-  formatDateNumeric,
 } from "@/lib/data";
+import { PersonDateLinks } from "@/components/PersonDateLinks";
 import {
   ishimRoleHeading,
   ISHIM_HEADING_ORDER,
@@ -169,21 +169,37 @@ export default function PersonDetailPage() {
               <dt>גיל:</dt>
               <dd>
                 {age}
-                {person.birthDate && person.ishimClassic
-                  ? ` (נולד ב-${formatDateNumeric(person.birthDate)})`
-                  : !person.deathDate && person.birthDate
-                    ? ` (נולד ב-${formatDateNumeric(person.birthDate)})`
-                    : ""}
-                {person.deathDate
-                  ? ` (נפטר/ה ב-${formatDateNumeric(person.deathDate)})`
-                  : ""}
+                {person.birthDate ? (
+                  <>
+                    {" "}
+                    (נולד ב-
+                    <PersonDateLinks iso={person.birthDate} kind="birth" />)
+                  </>
+                ) : null}
+                {person.deathDate ? (
+                  <>
+                    {" "}
+                    (נפטר/ה ב-
+                    <PersonDateLinks iso={person.deathDate} kind="death" />)
+                  </>
+                ) : null}
               </dd>
             </div>
           )}
-          {!person.ishimClassic && person.birthDate && (
+          {age === undefined && person.birthDate && (
             <div>
               <dt>נולד ב:</dt>
-              <dd>{formatDateNumeric(person.birthDate)}</dd>
+              <dd>
+                <PersonDateLinks iso={person.birthDate} kind="birth" />
+              </dd>
+            </div>
+          )}
+          {age === undefined && person.deathDate && (
+            <div>
+              <dt>נפטר/ה ב:</dt>
+              <dd>
+                <PersonDateLinks iso={person.deathDate} kind="death" />
+              </dd>
             </div>
           )}
           {bornName && (
