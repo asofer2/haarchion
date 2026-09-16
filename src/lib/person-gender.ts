@@ -340,6 +340,90 @@ export function personCreditHeading(
   return raw;
 }
 
+/** Classic production-page section titles — keep plurals / group nouns. */
+const PRODUCTION_SECTION_HEADINGS = new Set([
+  "תסריט",
+  "עריכה",
+  "בימוי",
+  "שחקנים",
+  "שחקנים אורחים",
+  "בתפקיד עצמו",
+  "בימוי דיבוב",
+  "הפקה",
+  "הפקת דיבוב",
+  "מפיק דיבוב",
+  "תפקידים שונים",
+  "מדבבים",
+  "מנחה",
+  "הרכבים",
+  "מחזמר",
+  "מוזיקה",
+  "צילום",
+]);
+
+/** Gendered / singular → classic masculine production section heading. */
+const TO_PRODUCTION_SECTION: Record<string, string> = {
+  שחקן: "שחקנים",
+  שחקנית: "שחקנים",
+  מדבב: "מדבבים",
+  מדבבת: "מדבבים",
+  במאי: "בימוי",
+  במאית: "בימוי",
+  תסריטאי: "תסריט",
+  תסריטאית: "תסריט",
+  יוצר: "יוצר",
+  יוצרת: "יוצר",
+  צלם: "צילום",
+  צלמת: "צילום",
+  מפיק: "הפקה",
+  מפיקה: "הפקה",
+  "מפיקת דיבוב": "מפיק דיבוב",
+  "במאית דיבוב": "בימוי דיבוב",
+  "במאי דיבוב": "בימוי דיבוב",
+  זמר: "מוזיקה",
+  זמרת: "מוזיקה",
+  מלחין: "מוזיקה",
+  מלחינה: "מוזיקה",
+};
+
+const PRODUCTION_ROLE_SECTION: Partial<Record<CreditRole, string>> = {
+  actor: "שחקנים",
+  dubber: "מדבבים",
+  director: "בימוי",
+  writer: "תסריט",
+  dub_director: "בימוי דיבוב",
+  producer: "הפקה",
+  cinematographer: "צילום",
+  singer: "מוזיקה",
+  composer: "מוזיקה",
+  musical_performer: "מחזמר",
+  host: "מנחה",
+};
+
+/**
+ * כותרות בדפי סדרה/סרט — לשון זכר בלבד, בלי פיצול מגדרי.
+ * שומר על כותרות קלאסיות (שחקנים, מדבבים, בימוי…) במקום יחיד מגדרי.
+ */
+export function masculineCreditHeading(
+  credit: Pick<Credit, "role" | "heading">
+): string {
+  const raw = creditHeading(credit);
+  if (PRODUCTION_SECTION_HEADINGS.has(raw)) return raw;
+  if (TO_PRODUCTION_SECTION[raw]) return TO_PRODUCTION_SECTION[raw];
+  if (raw.includes("/")) {
+    const male = raw.split("/")[0]!.trim();
+    return TO_PRODUCTION_SECTION[male] || male;
+  }
+  if (!credit.heading?.trim()) {
+    return PRODUCTION_ROLE_SECTION[credit.role] || ishimRoleHeading(credit.role);
+  }
+  return raw;
+}
+
+export function masculineRoleLabel(role: CreditRole): string {
+  return PRODUCTION_ROLE_SECTION[role] || ishimRoleHeading(role);
+}
+
 export function genderedRoleHeading(
   role: CreditRole,
   gender?: PersonGender

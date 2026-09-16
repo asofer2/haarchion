@@ -50,6 +50,27 @@ export function formatProductionYears(
   return String(year);
 }
 
+/**
+ * Classic ishim cast years: `[2009]` or `[1989–1995]`.
+ * Empty when there is no usable year.
+ */
+export function formatCreditYearsBracket(
+  year: number,
+  endYear?: number | null
+): string {
+  const inner = formatProductionYears(year, endYear);
+  return inner ? `[${inner}]` : "";
+}
+
+/** True when the production is a single year (no distinct end year). */
+export function productionHasSingleYear(
+  production: Pick<Production, "year" | "endYear">
+): boolean {
+  const { year, endYear } = production;
+  if (!year || !Number.isFinite(year)) return true;
+  return !endYear || endYear === year;
+}
+
 function titleAlreadyHasYears(title: string): boolean {
   return TITLE_YEAR_SUFFIX.test(title.trim());
 }

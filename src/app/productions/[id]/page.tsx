@@ -14,14 +14,18 @@ import { compareBillingOrder } from "@/lib/credit-order";
 import {
   formatIshimCharacters,
   ISHIM_HEADING_ORDER,
-  ishimRoleHeading,
 } from "@/lib/ishim-person";
 import {
+  formatCreditYearsBracket,
   formatProductionTitle,
   formatProductionYears,
+  productionHasSingleYear,
 } from "@/lib/production-title";
 import {
-  CREDIT_ROLE_LABELS,
+  masculineCreditHeading,
+  masculineRoleLabel,
+} from "@/lib/person-gender";
+import {
   productionKindLabel,
   type Credit,
   type CreditRole,
@@ -38,8 +42,15 @@ type CrewEntry = {
   key: string;
 };
 
-function creditHeading(credit: Credit): string {
-  return credit.heading?.trim() || ishimRoleHeading(credit.role);
+function creditYearLabel(
+  production: Production,
+  creditYear?: number,
+  creditEndYear?: number
+): string | undefined {
+  // Single-year productions: year already on the title — omit beside cast.
+  if (productionHasSingleYear(production)) return undefined;
+  if (!creditYear) return undefined;
+  return formatCreditYearsBracket(creditYear, creditEndYear) || undefined;
 }
 
 function groupCreditsByHeading(
@@ -54,7 +65,7 @@ function groupCreditsByHeading(
     const person = people.find((p) => p.id === credit.personId);
     if (!person) continue;
 
-    const heading = creditHeading(credit);
+    const heading = masculineCreditHeading(credit);
     const key = `${credit.personId}|${credit.role}|${credit.characterName || ""}|${heading}|${credit.year || ""}|${credit.endYear || ""}`;
     const list = byHeading.get(heading) || [];
     if (list.some((item) => item.key === key)) continue;
@@ -239,11 +250,12 @@ function IshimProductionBody({
               <IshimCreditLine
                 key={entry.key}
                 href={`/people/${encodeURIComponent(entry.person.id)}`}
-                year={
-                  entry.creditYear
-                    ? formatProductionYears(entry.creditYear, entry.creditEndYear)
-                    : undefined
-                }
+                year={creditYearLabel(
+                  production,
+                  entry.creditYear,
+                  entry.creditEndYear
+                )}
+                yearAtEnd
                 lead={entry.person.name}
                 characters={formatIshimCharacters(entry.characterName) || undefined}
               />
@@ -386,20 +398,18 @@ export default function ProductionDetailPage() {
               )}
               {crew.map((group) => (
                 <div key={group.role} className="credit-group">
-                  <h3>{CREDIT_ROLE_LABELS[group.role]}</h3>
+                  <h3>{masculineRoleLabel(group.role)}</h3>
                   <ul className="credit-list">
                     {group.entries.map((entry) => (
                       <IshimCreditLine
                         key={entry.key}
                         href={`/people/${encodeURIComponent(entry.person.id)}`}
-                        year={
-                          entry.creditYear
-                            ? formatProductionYears(
-                                entry.creditYear,
-                                entry.creditEndYear
-                              )
-                            : undefined
-                        }
+                        year={creditYearLabel(
+                          production,
+                          entry.creditYear,
+                          entry.creditEndYear
+                        )}
+                        yearAtEnd
                         lead={entry.person.name}
                         characters={
                           formatIshimCharacters(entry.characterName) || undefined
