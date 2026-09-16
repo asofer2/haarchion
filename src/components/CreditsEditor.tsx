@@ -2,6 +2,7 @@
 
 import { FormEvent, useMemo, useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
+import { PersonTypeahead } from "@/components/PersonTypeahead";
 import { isSiteAdmin, SITE_ADMIN_NAME } from "@/lib/admin";
 import {
   PENDING_NOTICE,
@@ -17,6 +18,10 @@ interface Props {
   onSaved?: () => void;
 }
 
+function emptyCredit(productionId: string): Credit {
+  return { personId: "", productionId, role: "actor" };
+}
+
 export function CreditsEditor({
   productionId,
   productionTitle,
@@ -30,12 +35,12 @@ export function CreditsEditor({
     [data.credits, productionId]
   );
   const [rows, setRows] = useState<Credit[]>(
-    initial.length
-      ? initial
-      : [{ personId: data.people[0]?.id || "", productionId, role: "actor" }]
+    initial.length ? initial : [emptyCredit(productionId)]
   );
   const [message, setMessage] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+
+  const people = data.people;
 
   function updateRow(index: number, patch: Partial<Credit>) {
     setRows((prev) => prev.map((row, i) => (i === index ? { ...row, ...patch } : row)));
@@ -74,23 +79,18 @@ export function CreditsEditor({
     <form className="edit-form" onSubmit={onSubmit} style={{ marginTop: "1.5rem" }}>
       <h2 style={{ margin: 0, fontFamily: "var(--font-rubik)" }}>קרדיטים</h2>
       <p className="muted">
-        קישור דו־כיווני לאישים בהפקה.
+        חיפוש אישיות לפי שם — הקלידו לבחירה מהרשימה.
         {!admin && ` השינוי יישלח לאישור ${SITE_ADMIN_NAME}.`}
       </p>
       {rows.map((row, index) => (
-        <div className="form-row" key={`${row.personId}-${index}`}>
+        <div className="form-row" key={`credit-row-${index}`}>
           <label>
             אישיות
-            <select
+            <PersonTypeahead
+              people={people}
               value={row.personId}
-              onChange={(e) => updateRow(index, { personId: e.target.value })}
-            >
-              {data.people.map((person) => (
-                <option key={person.id} value={person.id}>
-                  {person.name}
-                </option>
-              ))}
-            </select>
+              onChange={(personId) => updateRow(index, { personId })}
+            />
           </label>
           <label>
             תפקיד
@@ -128,14 +128,7 @@ export function CreditsEditor({
           type="button"
           className="btn btn-ghost"
           onClick={() =>
-            setRows((prev) => [
-              ...prev,
-              {
-                personId: data.people[0]?.id || "",
-                productionId,
-                role: "actor",
-              },
-            ])
+            setRows((prev) => [...prev, emptyCredit(productionId)])
           }
         >
           + קרדיט
