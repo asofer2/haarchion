@@ -23,11 +23,13 @@ export function Footer() {
           <Link href="/productions">הפקות</Link>
           <Link href="/y">לוח שנה</Link>
           <Link href="/search">חיפוש</Link>
+          <Link href="/terms">תנאי שימוש</Link>
           <FooterA11yLink />
         </div>
         <p className="footer-a11y-note">
-          האתר מותאם לכבדי ראייה — לחצו „נגישות” לשינוי גודל טקסט, ניגודיות
-          ועוד.
+          © אישים — הקוד, העיצוב והתוכן המקורי מוגנים בזכויות יוצרים.{" "}
+          <Link href="/terms">תנאי שימוש</Link>. האתר מותאם לכבדי ראייה — לחצו
+          „נגישות” לשינוי גודל טקסט, ניגודיות ועוד.
         </p>
       </div>
     </footer>

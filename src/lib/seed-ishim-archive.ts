@@ -30,6 +30,7 @@ type IshimCredit = {
   character?: string;
   kind?: ProductionKind | null;
   channel?: string | null;
+  orderIndex?: number;
 };
 
 type IshimPerson = {
@@ -427,6 +428,8 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
         characterName: credit.character,
         year: credit.year,
         heading: ishimCreditHeading(credit, src.name),
+        billingOrder:
+          typeof credit.orderIndex === "number" ? credit.orderIndex : undefined,
       });
     }
     titlesByPerson.set(personId, titleSet);

@@ -5,6 +5,7 @@ import {
   resolvePortraitFast,
 } from "@/lib/portrait-resolve";
 
+/** Server-only image proxy — keep fetch/UA logic here, not in the client bundle. */
 export const runtime = "nodejs";
 export const revalidate = 86400;
 
@@ -50,8 +51,8 @@ function svgAvatar(name: string): NextResponse {
 <svg xmlns="http://www.w3.org/2000/svg" width="640" height="800" viewBox="0 0 640 800">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1f4d4a"/>
-      <stop offset="100%" stop-color="#8b2e3b"/>
+      <stop offset="0%" stop-color="#1a3a6b"/>
+      <stop offset="100%" stop-color="#008000"/>
     </linearGradient>
   </defs>
   <rect width="640" height="800" fill="url(#g)"/>

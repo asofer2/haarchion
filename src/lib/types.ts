@@ -168,6 +168,8 @@ export interface Credit {
   billingOrder?: number;
   /** שנת הקרדיט בדף אישים (אם שונה משנת ההפקה) */
   year?: number;
+  /** סוף טווח שנים לקרדיט (למשל 1989–1990 בדף הפקה קלאסי) */
+  endYear?: number;
   /** כותרת מקורית מדף אישים (יוצר / בתפקיד עצמו / הרכבים…) */
   heading?: string;
 }
@@ -192,6 +194,8 @@ export interface Person {
   tags: string[];
   /** תחומי פעילות — מוצגים כקטגוריות בדף האישיות */
   activities: ActivityCategory[];
+  /** מגדר להצגת כותרות (מדבב/מדבבת, שחקן/שחקנית). אם חסר — מוסק משם/ביו */
+  gender?: "male" | "female";
   /** דיסקוגרפיה מוויקיפדיה / ויקידאטה */
   discography?: DiscographyItem[];
   /** קישור לעמוד ויקיפדיה בעברית */
@@ -225,6 +229,16 @@ export interface Production {
   studio?: string;
   /** אולפן הדיבוב העברי (לסרטים/סדרות מדובבים) */
   dubbingStudio?: string;
+  /** אורך פרק בדקות (מאתר אישים) */
+  runtimeMinutes?: number;
+  /** מספר פרקים (מאתר אישים) */
+  episodeCount?: number;
+  /** מפתחות מאתר אישים (נפרד מז'אנרים) */
+  ishimKeys?: string[];
+  /** טריוויה / קישורים / כללי — מאתר אישים */
+  ishimNotes?: { heading: string; items: string[] }[];
+  /** ערך מיובא מאתר אישים הקלאסי */
+  ishimClassic?: boolean;
   imageUrl?: string;
   /** כותבי הערך (ממאגר ישן / ייבוא) */
   entryAuthors?: string[];

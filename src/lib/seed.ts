@@ -34,6 +34,15 @@ import { applyPeopleEnrichment } from "./person-dates";
 import { applyIshimArchive } from "./seed-ishim-archive";
 import { applyIshimChnnGoldblatt } from "./seed-ishim-chnn-goldblatt";
 import { applyIshimGadiPor } from "./seed-ishim-gadi-por";
+import { applyIshimAzraHs } from "./seed-ishim-azra-hs";
+import { applyIshimAnvrShtgrAzra } from "./seed-ishim-anvr-shtgr-azra";
+import { applyIshimChnhDrvryKshy } from "./seed-ishim-chnh-drvry-kshy";
+import { applyIshimHyhHyhHadm } from "./seed-ishim-hyh-hyh-hadm";
+import { applyIshimNalvlym } from "./seed-ishim-nalvlym";
+import { applyIshimKopyko2009 } from "./seed-ishim-kopyko-2009";
+import { applyIshimPeterPan } from "./seed-ishim-peter-pan";
+import { applyIshimPinocchioAdventures1993 } from "./seed-ishim-pinocchio-adventures";
+import { applyIshimYaakovShemTov } from "./seed-ishim-yaakov-shem-tov";
 import { portrait } from "./portrait";
 
 const now = "2026-07-23T00:00:00.000Z";
@@ -892,8 +901,17 @@ const credits: Credit[] = [
   { personId: "tamir-ginsburg", productionId: "little-mermaid-he", role: "dubber" },
 ];
 
-export const SEED: ArchiveData = applyIshimChnnGoldblatt(
+export const SEED: ArchiveData = applyIshimPinocchioAdventures1993(
+  applyIshimYaakovShemTov(
+  applyIshimKopyko2009(
+  applyIshimPeterPan(
+  applyIshimAnvrShtgrAzra(
+  applyIshimChnhDrvryKshy(
+  applyIshimNalvlym(
+  applyIshimHyhHyhHadm(
+  applyIshimChnnGoldblatt(
   applyIshimGadiPor(
+  applyIshimAzraHs(
   applyIshimArchive(
   applyDerivedProfessionActivities(
   ensureDiscographyProductions(
@@ -975,6 +993,15 @@ export const SEED: ArchiveData = applyIshimChnnGoldblatt(
   })(),
   contributions: [],
   })
+  )
+  )
+  )
+  )
+  )
+  )
+  )
+  )
+  )
   )
   )
   )

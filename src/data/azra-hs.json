@@ -1,0 +1,41 @@
+{
+  "name": "עזרא הס",
+  "birthDate": "1933-11-04",
+  "deathDate": "2010-10-03",
+  "credits": [
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1974,
+      "title": "הצריף של תמרי",
+      "character": "צבי הצב (קול)"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 1968,
+      "title": "פול טמפל"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1989,
+      "title": "לבת ולבן ולכל המתעניין",
+      "character": "מספר"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1982,
+      "title": "פינוקיו",
+      "character": "סבא ג'פטו / יובב החתול"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1980,
+      "title": "היה היה - האדם",
+      "character": "איש חכם"
+    }
+  ]
+}

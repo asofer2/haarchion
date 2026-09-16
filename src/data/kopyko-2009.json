@@ -1,0 +1,1029 @@
+{
+  "title": "קופיקו",
+  "year": 2009,
+  "endYear": 2013,
+  "summary": "עלילות קופיקו הקוף השובב ומשפחת לזר בשכונת עין גנים בפתח תקווה",
+  "runtimeMinutes": 18,
+  "episodeCount": 60,
+  "genres": [
+    "ילדים"
+  ],
+  "channel": "yes / ערוץ ג'וניור",
+  "ishimKeys": [
+    "מבוסס על ספר",
+    "קומדיית מצבים",
+    "שכנים"
+  ],
+  "ishimNotes": [
+    {
+      "heading": "כללי",
+      "items": [
+        "גרסה מחודשת ל קופיקו מ-1993"
+      ]
+    },
+    {
+      "heading": "מאחורי הקלעים",
+      "items": [
+        "הדמות של מיקי הרפז מבוססת על דודו טופז",
+        "הדמות של סיגל דליות מבוססת על מיכל דליות",
+        "ערן בן זאב שיחק גם ב קופיקו בתפקיד אברום",
+        "בדיבוב האנגלי של הסדרה דיבבו בין היתר צחי כהן , גבריאלה לואיס , סיימון שוקט , ג'רי היימן , עמרי דורון , קארין היימן ו אליאור גרינברג . הדיבוב האנגלי בויים בידי גבריאלה לואיס והוקלט באולמן מדיה בישראל. לואיס ביימה גם לדיבוב הספרדי"
+      ]
+    },
+    {
+      "heading": "קישורים",
+      "items": [
+        "ראה גם ספין אוף קופיקו - חוקי הג'ונגל"
+      ]
+    },
+    {
+      "heading": "טריוויה לא מעניינת",
+      "items": [
+        "הבובה של קופיקו נבנתה מחדש לכבוד התוכנית החדשה"
+      ]
+    }
+  ],
+  "entryAuthors": [
+    "רודני פארזבום",
+    "אליק פומבה",
+    "ברק חננאל",
+    "Ben Fraind",
+    "תמיר סופר",
+    "Nir Bassan"
+  ],
+  "kind": "tv_series",
+  "credits": [
+    {
+      "personId": "adi-benyaminov",
+      "role": "director",
+      "heading": "בימוי"
+    },
+    {
+      "personId": "avdy-sgl",
+      "role": "producer",
+      "heading": "הפקה"
+    },
+    {
+      "personId": "rvny-pry",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2009,
+      "endYear": 2012
+    },
+    {
+      "personId": "yhvdh-tlyt",
+      "role": "producer",
+      "heading": "הפקה"
+    },
+    {
+      "personId": "amry-bts",
+      "role": "producer",
+      "heading": "הפקה"
+    },
+    {
+      "personId": "rvn-ayyzyk",
+      "role": "producer",
+      "heading": "הפקה"
+    },
+    {
+      "personId": "dnh-hkhn-navr",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2009
+    },
+    {
+      "personId": "amry-lypmn",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2009
+    },
+    {
+      "personId": "shlvmyt-arbyb",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personId": "amyt-gytlzvn",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personId": "rvn-ayyzyk",
+      "role": "writer",
+      "heading": "עריכה"
+    },
+    {
+      "personId": "lyavr-pavst",
+      "role": "writer",
+      "heading": "עריכה"
+    },
+    {
+      "personId": "gyvra-yhlvm-avpyr",
+      "role": "writer",
+      "heading": "עריכה",
+      "year": 2009
+    },
+    {
+      "personId": "bvaz-rvznpld",
+      "role": "writer",
+      "heading": "עריכה",
+      "year": 2011,
+      "endYear": 2012
+    },
+    {
+      "personId": "namy-alany",
+      "role": "writer",
+      "heading": "עריכה",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personId": "yshral-gvldvvsr",
+      "role": "writer",
+      "heading": "עריכה",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personId": "dgnyt-atyas-gygy",
+      "role": "writer",
+      "heading": "עריכה",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personId": "tamar-bornstein-lazar",
+      "role": "writer",
+      "heading": "תסריט",
+      "character": "(עפ\"י ספריה)"
+    },
+    {
+      "personId": "chanan-peled",
+      "role": "writer",
+      "heading": "תסריט"
+    },
+    {
+      "personId": "yryb-gvtlyb",
+      "role": "writer",
+      "heading": "תסריט",
+      "year": 2013
+    },
+    {
+      "personId": "mykl-mvktr",
+      "role": "actor",
+      "heading": "שחקנים",
+      "year": 2009,
+      "character": "קופיקו (קול)"
+    },
+    {
+      "personId": "lyavr-dtavkr",
+      "role": "actor",
+      "heading": "שחקנים",
+      "year": 2011,
+      "endYear": 2013,
+      "character": "קופיקו (קול)"
+    },
+    {
+      "personId": "idit-neudorfer",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "תמר לזר"
+    },
+    {
+      "personId": "yosi-marshak",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "שלומקה לזר"
+    },
+    {
+      "personId": "maayan-aloni",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "יורם לזר"
+    },
+    {
+      "personId": "hila-luzia",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "אורנה לזר"
+    },
+    {
+      "personId": "br-mynyaly",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "נוגה לזר"
+    },
+    {
+      "personId": "tly-avrn",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "שושנה"
+    },
+    {
+      "personId": "rudi-saada",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "אברום"
+    },
+    {
+      "personId": "daniel-litvin",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "דובי"
+    },
+    {
+      "personId": "avrn-zgmn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "מוכרת בחנות חיות"
+    },
+    {
+      "personId": "ayrys-pn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "טל"
+    },
+    {
+      "personId": "ayty-nchmyas",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2011,
+      "character": "ד\"ר מנדוזה"
+    },
+    {
+      "personId": "ayty-slhvb",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "endYear": 2012,
+      "character": "חיים \"תרנגול\" סלע"
+    },
+    {
+      "personId": "alvn-dhn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "איציק"
+    },
+    {
+      "personId": "aly-glpryn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "מתורגמן למר הירושי"
+    },
+    {
+      "personId": "aly-shmvl",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2012,
+      "character": "חוקר ביטוח"
+    },
+    {
+      "personId": "alyrn-brdvgv",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2012,
+      "character": "שוטר"
+    },
+    {
+      "personId": "gyl-bn-dvd",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "יוסף השף"
+    },
+    {
+      "personId": "glyh-yshy",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "סיגל דליות"
+    },
+    {
+      "personId": "ddy-bn-dyyn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2012,
+      "character": "בתפקיד עצמו"
+    },
+    {
+      "personId": "dvrvn-bn-dvd",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "גנב"
+    },
+    {
+      "personId": "dlyk-vvlynyts",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "שר הפנים"
+    },
+    {
+      "personId": "dny-shtg",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "אריה"
+    },
+    {
+      "personId": "zbvlvn-mvshyashvvyly",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "עוזרו של פטרוזיליה"
+    },
+    {
+      "personId": "chgy-vvynblvm",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "רותם הכבאי"
+    },
+    {
+      "personId": "chyym-pyrr",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "שכן"
+    },
+    {
+      "personId": "tvly-nbvn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2012,
+      "character": "חוקר"
+    },
+    {
+      "personId": "tl-grvshkh",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "אלעד"
+    },
+    {
+      "personId": "yayr-ynyb",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "ראש הממשלה"
+    },
+    {
+      "personId": "ygal-adyka",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2012,
+      "character": "קבצן"
+    },
+    {
+      "personId": "yhvdh-khn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2012,
+      "character": "מיקי"
+    },
+    {
+      "personId": "yhly-myrvn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "רומי"
+    },
+    {
+      "personId": "yvbl-ynay",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2012,
+      "character": "יומנאי"
+    },
+    {
+      "personId": "yvntn-grvpr",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "נחום"
+    },
+    {
+      "personId": "yvrm-shnar",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2012,
+      "endYear": 2013,
+      "character": "גיורא"
+    },
+    {
+      "personId": "ynyb-chyym",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "מר סלחוביץ'"
+    },
+    {
+      "personId": "ynyb-svvysh",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2012,
+      "character": "מומו סלע"
+    },
+    {
+      "personId": "ysmyn-lbya",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "קוף שאמן"
+    },
+    {
+      "personId": "ytschk-bby-namn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2012,
+      "character": "מנשה"
+    },
+    {
+      "personId": "lyryt-blbn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2011,
+      "character": "יוכבד"
+    },
+    {
+      "personId": "mavr-brdh",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "יזהר"
+    },
+    {
+      "personId": "mayr-ashrf",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "גנב"
+    },
+    {
+      "personId": "mvty-kyrshnbavm",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "בתפקיד עצמו"
+    },
+    {
+      "personId": "mtn-ynyb",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2011,
+      "character": "פיראט"
+    },
+    {
+      "personId": "ndb-bvshm",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "מאמן ג'ודו"
+    },
+    {
+      "personId": "nyr-rvn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "פטרוזיליה"
+    },
+    {
+      "personId": "ntn-brgr",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "משחק פינג פונג"
+    },
+    {
+      "personId": "syglyt-pvks",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "נירה"
+    },
+    {
+      "personId": "avdd-tsdvk",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "מישל"
+    },
+    {
+      "personId": "aydn-gyl",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "ג'ומבה"
+    },
+    {
+      "personId": "ayryt-ntn-bndk",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "ברוריה"
+    },
+    {
+      "personId": "alyzh-alkyym",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "אישה בדואר"
+    },
+    {
+      "personId": "amnval-khn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2012,
+      "character": "דוור"
+    },
+    {
+      "personId": "arn-bn-zab",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "עובד בעיירה"
+    },
+    {
+      "personId": "tschy-chnn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "סדרן"
+    },
+    {
+      "personId": "rvn-shchr",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "מיקי הרפז"
+    },
+    {
+      "personId": "rvnn-yprch",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "אגל"
+    },
+    {
+      "personId": "rvt-prchy",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "בז'ז'ינה"
+    },
+    {
+      "personId": "rz-tsby",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2012,
+      "character": "כבאי"
+    },
+    {
+      "personId": "shmvlyk-lvy",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "יו\"ר הכנסת"
+    },
+    {
+      "personId": "shrvn-mlky-shmsh",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "endYear": 2012,
+      "character": "ימימה"
+    },
+    {
+      "personId": "shryt-sry",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "יוסי התוכי"
+    },
+    {
+      "personId": "anbr-gl",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "דבי הבובה"
+    },
+    {
+      "personId": "tvmr-shrvn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2009,
+      "character": "יוסי מונטנגרו"
+    },
+    {
+      "personId": "tchyh-dnvn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2013,
+      "character": "רגינה"
+    },
+    {
+      "personId": "amykm-shylh",
+      "role": "cinematographer",
+      "heading": "צילום"
+    },
+    {
+      "personId": "chgy-mzvr",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personId": "asf-abydr",
+      "role": "singer",
+      "heading": "מוזיקה"
+    },
+    {
+      "personId": "asf-avpk",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "מפעיל קופיקו"
+    },
+    {
+      "personId": "gdy-br-lbya",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ליהוק ניצבים וביטים"
+    },
+    {
+      "personId": "mtn-ynyb",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ליהוק ניצבים וביטים"
+    }
+  ],
+  "people": [
+    {
+      "id": "adi-benyaminov",
+      "name": "עדי בנימינוב"
+    },
+    {
+      "id": "avdy-sgl",
+      "name": "אודי סגל"
+    },
+    {
+      "id": "rvny-pry",
+      "name": "רוני פרי"
+    },
+    {
+      "id": "yhvdh-tlyt",
+      "name": "יהודה טלית"
+    },
+    {
+      "id": "amry-bts",
+      "name": "עמרי בץ"
+    },
+    {
+      "id": "rvn-ayyzyk",
+      "name": "רון אייזיק"
+    },
+    {
+      "id": "dnh-hkhn-navr",
+      "name": "דנה הכהן-נאור"
+    },
+    {
+      "id": "amry-lypmn",
+      "name": "עמרי ליפמן"
+    },
+    {
+      "id": "shlvmyt-arbyb",
+      "name": "שלומית ארביב"
+    },
+    {
+      "id": "amyt-gytlzvn",
+      "name": "עמית גיטלזון"
+    },
+    {
+      "id": "lyavr-pavst",
+      "name": "ליאור פאוסט"
+    },
+    {
+      "id": "gyvra-yhlvm-avpyr",
+      "name": "גיורא יהלום אופיר"
+    },
+    {
+      "id": "bvaz-rvznpld",
+      "name": "בועז רוזנפלד"
+    },
+    {
+      "id": "namy-alany",
+      "name": "נעמי אלעני"
+    },
+    {
+      "id": "yshral-gvldvvsr",
+      "name": "ישראל גולדווסר"
+    },
+    {
+      "id": "dgnyt-atyas-gygy",
+      "name": "דגנית אטיאס גיגי"
+    },
+    {
+      "id": "tamar-bornstein-lazar",
+      "name": "תמר בורנשטיין לזר"
+    },
+    {
+      "id": "chanan-peled",
+      "name": "חנן פלד"
+    },
+    {
+      "id": "yryb-gvtlyb",
+      "name": "יריב גוטליב"
+    },
+    {
+      "id": "mykl-mvktr",
+      "name": "מיכל מוכתר"
+    },
+    {
+      "id": "lyavr-dtavkr",
+      "name": "ליאור דטאוקר"
+    },
+    {
+      "id": "idit-neudorfer",
+      "name": "עידית נוידרפר"
+    },
+    {
+      "id": "yosi-marshak",
+      "name": "יוסי מרשק"
+    },
+    {
+      "id": "maayan-aloni",
+      "name": "מעיין אלוני"
+    },
+    {
+      "id": "hila-luzia",
+      "name": "הילה לוזיה"
+    },
+    {
+      "id": "br-mynyaly",
+      "name": "בר מיניאלי"
+    },
+    {
+      "id": "tly-avrn",
+      "name": "טלי אורן"
+    },
+    {
+      "id": "rudi-saada",
+      "name": "רודי סעדה"
+    },
+    {
+      "id": "daniel-litvin",
+      "name": "דניאל ליטוין"
+    },
+    {
+      "id": "avrn-zgmn",
+      "name": "אורן זגמן"
+    },
+    {
+      "id": "ayrys-pn",
+      "name": "איריס פן"
+    },
+    {
+      "id": "ayty-nchmyas",
+      "name": "איתי נחמיאס"
+    },
+    {
+      "id": "ayty-slhvb",
+      "name": "איתי סלהוב"
+    },
+    {
+      "id": "alvn-dhn",
+      "name": "אלון דהן"
+    },
+    {
+      "id": "aly-glpryn",
+      "name": "אלי גלפרין"
+    },
+    {
+      "id": "aly-shmvl",
+      "name": "אלי שמול"
+    },
+    {
+      "id": "alyrn-brdvgv",
+      "name": "אלירן ברדוגו"
+    },
+    {
+      "id": "gyl-bn-dvd",
+      "name": "ג'יל בן דוד"
+    },
+    {
+      "id": "glyh-yshy",
+      "name": "גליה ישי"
+    },
+    {
+      "id": "ddy-bn-dyyn",
+      "name": "דדי בן דיין"
+    },
+    {
+      "id": "dvrvn-bn-dvd",
+      "name": "דורון בן דוד"
+    },
+    {
+      "id": "dlyk-vvlynyts",
+      "name": "דליק ווליניץ"
+    },
+    {
+      "id": "dny-shtg",
+      "name": "דני שטג"
+    },
+    {
+      "id": "zbvlvn-mvshyashvvyly",
+      "name": "זבולון מושיאשווילי"
+    },
+    {
+      "id": "chgy-vvynblvm",
+      "name": "חגי ווינבלום"
+    },
+    {
+      "id": "chyym-pyrr",
+      "name": "חיים פירר"
+    },
+    {
+      "id": "tvly-nbvn",
+      "name": "טולי נבון"
+    },
+    {
+      "id": "tl-grvshkh",
+      "name": "טל גרושקה"
+    },
+    {
+      "id": "yayr-ynyb",
+      "name": "יאיר יניב"
+    },
+    {
+      "id": "ygal-adyka",
+      "name": "יגאל עדיקא"
+    },
+    {
+      "id": "yhvdh-khn",
+      "name": "יהודה כהן"
+    },
+    {
+      "id": "yhly-myrvn",
+      "name": "יהלי מירון"
+    },
+    {
+      "id": "yvbl-ynay",
+      "name": "יובל ינאי"
+    },
+    {
+      "id": "yvntn-grvpr",
+      "name": "יונתן גרופר"
+    },
+    {
+      "id": "yvrm-shnar",
+      "name": "יורם שנער"
+    },
+    {
+      "id": "ynyb-chyym",
+      "name": "יניב חיים"
+    },
+    {
+      "id": "ynyb-svvysh",
+      "name": "יניב סוויסה"
+    },
+    {
+      "id": "ysmyn-lbya",
+      "name": "יסמין לביא"
+    },
+    {
+      "id": "ytschk-bby-namn",
+      "name": "יצחק (בבי) נאמן"
+    },
+    {
+      "id": "lyryt-blbn",
+      "name": "לירית בלבן"
+    },
+    {
+      "id": "mavr-brdh",
+      "name": "מאור ברדה"
+    },
+    {
+      "id": "mayr-ashrf",
+      "name": "מאיר אשרף"
+    },
+    {
+      "id": "mvty-kyrshnbavm",
+      "name": "מוטי קירשנבאום"
+    },
+    {
+      "id": "mtn-ynyb",
+      "name": "מתן יניב"
+    },
+    {
+      "id": "ndb-bvshm",
+      "name": "נדב בושם"
+    },
+    {
+      "id": "nyr-rvn",
+      "name": "ניר רון"
+    },
+    {
+      "id": "ntn-brgr",
+      "name": "נתן ברגר"
+    },
+    {
+      "id": "syglyt-pvks",
+      "name": "סיגלית פוקס"
+    },
+    {
+      "id": "avdd-tsdvk",
+      "name": "עודד צדוק"
+    },
+    {
+      "id": "aydn-gyl",
+      "name": "עידן גיל"
+    },
+    {
+      "id": "ayryt-ntn-bndk",
+      "name": "עירית נתן בנדק"
+    },
+    {
+      "id": "alyzh-alkyym",
+      "name": "עליזה אלקיים"
+    },
+    {
+      "id": "amnval-khn",
+      "name": "עמנואל כהן"
+    },
+    {
+      "id": "arn-bn-zab",
+      "name": "ערן בן זאב"
+    },
+    {
+      "id": "tschy-chnn",
+      "name": "צחי חנן"
+    },
+    {
+      "id": "rvn-shchr",
+      "name": "רון שחר"
+    },
+    {
+      "id": "rvnn-yprch",
+      "name": "רונן יפרח"
+    },
+    {
+      "id": "rvt-prchy",
+      "name": "רות פרחי"
+    },
+    {
+      "id": "rz-tsby",
+      "name": "רז צבי"
+    },
+    {
+      "id": "shmvlyk-lvy",
+      "name": "שמוליק לוי"
+    },
+    {
+      "id": "shrvn-mlky-shmsh",
+      "name": "שרון מלכי שמש"
+    },
+    {
+      "id": "shryt-sry",
+      "name": "שרית סרי"
+    },
+    {
+      "id": "anbr-gl",
+      "name": "ענבר גל"
+    },
+    {
+      "id": "tvmr-shrvn",
+      "name": "תומר שרון"
+    },
+    {
+      "id": "tchyh-dnvn",
+      "name": "תחיה דנון"
+    },
+    {
+      "id": "amykm-shylh",
+      "name": "עמיקם שילה"
+    },
+    {
+      "id": "chgy-mzvr",
+      "name": "חגי מזור"
+    },
+    {
+      "id": "asf-abydr",
+      "name": "אסף אבידר"
+    },
+    {
+      "id": "asf-avpk",
+      "name": "אסף אופק"
+    },
+    {
+      "id": "gdy-br-lbya",
+      "name": "גדי בר לביא"
+    }
+  ]
+}

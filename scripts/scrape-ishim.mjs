@@ -12,14 +12,17 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
-const SNAPSHOT = "20210205102021";
+const SNAPSHOT = "20221118120839";
 const ORIGIN = "https://www.ishim.co.il/";
 const WAYBACK = `http://web.archive.org/web/${SNAPSHOT}id_/${ORIGIN}`;
-const DELAY_MS = Number(process.env.ISHIM_DELAY_MS || 250);
+const DELAY_MS = Number(process.env.ISHIM_DELAY_MS || 400);
 const CONCURRENCY = Number(process.env.ISHIM_CONCURRENCY || 1);
-const CACHE = path.join(ROOT, "scripts/ishim-archive/cache");
-const PARSED = path.join(ROOT, "scripts/ishim-archive/parsed");
-const PROGRESS_PATH = path.join(ROOT, "scripts/ishim-archive/progress.json");
+const CACHE = path.join(ROOT, "scripts/ishim-archive/cache-20221118");
+const PARSED = path.join(ROOT, "scripts/ishim-archive/parsed-20221118");
+const PROGRESS_PATH = path.join(
+  ROOT,
+  "scripts/ishim-archive/progress-20221118.json"
+);
 const OUT_PATH = path.join(ROOT, "src/data/ishim-archive.json");
 const KS_SAMPLE = path.join(ROOT, "scripts/ishim-archive/ks.php.html");
 const P_SAMPLE = path.join(ROOT, "scripts/ishim-archive/p-sample.html");
@@ -319,26 +322,39 @@ export function parseProductionHtml(html, sParam) {
   const kind = KIND_FROM_LABEL[kindLabel] || fragInfo.kind || "tv_series";
 
   const rolesSrc =
-    (html.split(/id="roles"/)[1] || "").split(/id="trivia"/)[0].split(/class="sidebar"/)[0] || "";
+    (html.split(/id="cast"/)[1] ||
+      html.split(/id="roles"/)[1] ||
+      "")
+      .split(/id="trivia"/)[0]
+      .split(/id="writers"/)[0]
+      .split(/class="sidebar"/)[0] || "";
   const credits = [];
   const sections = rolesSrc.split(/<h3>/).slice(1);
   for (const section of sections) {
     const heading = stripTags((section.match(/^([^<]+)/) || [])[1] || "");
     const role = mapRole(heading);
     if (!role) continue;
-    const re =
-      /<div>(?:<span>(\d{4})<\/span>)?<a href=['"]([^'"]+)['"]>([\s\S]*?)<\/a>(?:<div>([\s\S]*?)<\/div>)?<\/div>/g;
-    let m;
-    while ((m = re.exec(section))) {
-      if (!/p\.php\?s=/.test(m[2])) continue;
-      credits.push({
-        role,
-        heading,
-        year: m[1] ? Number(m[1]) : year,
-        personS: decodeQueryValue((m[2].match(/p\.php\?s=([^"']+)/) || [])[1] || ""),
-        personName: stripTags(m[3]),
-        character: stripTags(m[4] || "") || undefined,
-      });
+    const patterns = [
+      /<div>(?:<span>(\d{4})<\/span>)?<a href=['"]([^'"]+)['"]>([\s\S]*?)<\/a>(?:<div>([\s\S]*?)<\/div>)?<\/div>/g,
+      /<div>(?:<div>)?<a href=['"]([^'"]+)['"]>([\s\S]*?)<\/a>(?:<\/div>)?(?:<span>([\s\S]*?)<\/span>)?(?:<div>([\s\S]*?)<\/div>)?<\/div>/g,
+    ];
+    for (const re of patterns) {
+      let m;
+      while ((m = re.exec(section))) {
+        const href = m[2] || m[1];
+        if (!/p\.php\?s=/.test(href)) continue;
+        const yearSpan = m[1] && /^\d{4}$/.test(String(m[1])) ? Number(m[1]) : undefined;
+        const personName = stripTags(m[3] || m[2]);
+        const character = stripTags(m[4] || m[3] || "") || undefined;
+        credits.push({
+          role,
+          heading,
+          year: yearSpan || year,
+          personS: decodeQueryValue((href.match(/p\.php\?s=([^"']+)/) || [])[1] || ""),
+          personName,
+          character: character || undefined,
+        });
+      }
     }
   }
 
@@ -488,25 +504,29 @@ function collectProductionsFromPerson(person, progress) {
   }
 }
 
-function compactCredit(c) {
+function compactCredit(c, orderIndex) {
   const row = { role: c.role, year: c.year, title: c.title };
   if (c.s && c.s !== c.title) row.s = c.s;
   if (c.character) row.character = c.character;
   if (c.kind) row.kind = c.kind;
   if (c.channel) row.channel = c.channel;
+  if (c.heading) row.heading = c.heading;
+  if (orderIndex !== undefined) row.orderIndex = orderIndex;
   return row;
 }
 
 function compactPerson(p) {
   const row = { s: p.s, name: p.name };
+  if (p.ishimId) row.ishimId = p.ishimId;
   if (p.birthDate) row.birthDate = p.birthDate;
   if (p.deathDate) row.deathDate = p.deathDate;
+  if (p.deathNote) row.deathNote = p.deathNote;
   if (p.birthName) row.birthName = p.birthName;
   if (p.nameOriginal) row.nameOriginal = p.nameOriginal;
   if (p.keys?.length) row.keys = p.keys;
   if (p.general?.length) row.general = p.general;
   if (p.trivia?.length) row.trivia = p.trivia;
-  row.credits = (p.credits || []).map(compactCredit);
+  row.credits = (p.credits || []).map((c, i) => compactCredit(c, i));
   return row;
 }
 
@@ -517,11 +537,12 @@ function compactProduction(p) {
   if (p.keys?.length) row.keys = p.keys;
   if (p.channel) row.channel = p.channel;
   if (p.credits?.length) {
-    row.credits = p.credits.map((c) => {
-      const cr = { role: c.role, personName: c.personName };
+    row.credits = p.credits.map((c, i) => {
+      const cr = { role: c.role, personName: c.personName, orderIndex: i };
       if (c.personS) cr.personS = c.personS;
       if (c.character) cr.character = c.character;
       if (c.year) cr.year = c.year;
+      if (c.heading) cr.heading = c.heading;
       return cr;
     });
   }
@@ -640,24 +661,9 @@ async function scrape() {
   ensureDir(path.join(PARSED, "productions"));
 
   const progress = loadProgress();
-  const seedFiles = [
-    ["k", "מדבבים", path.join(ROOT, "scripts/ishim-archive/k-dubbers.html")],
-    ["k", "במאים", path.join(ROOT, "scripts/ishim-archive/k-directors.html")],
-    ["k", "כוכבי ילדים", path.join(ROOT, "scripts/ishim-archive/k-kids.html")],
-    ["p", "יוני חן", P_SAMPLE],
-  ];
-  for (const [kind, s, src] of seedFiles) {
-    if (!fs.existsSync(src)) continue;
-    const dest = path.join(CACHE, kind, `${fileKey(s)}.html`);
-    if (!fs.existsSync(dest)) {
-      ensureDir(path.dirname(dest));
-      fs.copyFileSync(src, dest);
-    }
-  }
+  // Do not seed old local HTML into the 2022 cache — always fetch from Wayback.
 
-  let ksHtml;
-  if (fs.existsSync(KS_SAMPLE)) ksHtml = fs.readFileSync(KS_SAMPLE, "utf8");
-  else ksHtml = await cachedGet("index", "ks", "ks.php");
+  let ksHtml = await cachedGet("index", "ks", "ks.php");
   const allKeys = parseKeysIndex(ksHtml);
   const keys = [
     ...PRIORITY_KEYS.filter((k) => allKeys.includes(k)),

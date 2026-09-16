@@ -16,13 +16,25 @@ import {
   canEditArchive,
 } from "@/lib/data";
 import { PersonDateLinks } from "@/components/PersonDateLinks";
+import { IshimCreditLine } from "@/components/IshimCreditLine";
 import {
-  ishimRoleHeading,
+  formatIshimCharacters,
   ISHIM_HEADING_ORDER,
 } from "@/lib/ishim-person";
+import {
+  genderedActivityLabel,
+  genderedBornAsLabel,
+  genderedBornInline,
+  genderedBornLabel,
+  genderedDiedInline,
+  genderedDiedLabel,
+  inferPersonGender,
+  personCreditHeading,
+} from "@/lib/person-gender";
 import { groupIshimCredits } from "@/lib/ishim-credits";
 import {
   ACTIVITY_LABELS,
+  type ActivityCategory,
   type CreditRole,
   type Production,
 } from "@/lib/types";
@@ -37,6 +49,7 @@ export default function PersonDetailPage() {
   const { user } = useAuth();
 
   const person = data ? findById(data.people, params.id) : undefined;
+  const gender = person ? inferPersonGender(person) : undefined;
 
   const byRole = useMemo(() => {
     if (!data || !person) {
@@ -60,13 +73,14 @@ export default function PersonDetailPage() {
         role: CreditRole;
         characterName?: string;
         year?: number;
+        billingOrder?: number;
       }[]
     >();
 
     for (const credit of credits) {
       const production = data.productions.find((p) => p.id === credit.productionId);
       if (!production) continue;
-      const heading = credit.heading || ishimRoleHeading(credit.role);
+      const heading = personCreditHeading(credit, gender);
       const list = map.get(heading) || [];
       if (
         !list.some(
@@ -82,6 +96,7 @@ export default function PersonDetailPage() {
           role: credit.role,
           characterName: credit.characterName,
           year: credit.year || production.year,
+          billingOrder: credit.billingOrder,
         });
       }
       map.set(heading, list);
@@ -91,9 +106,14 @@ export default function PersonDetailPage() {
       .map(([heading, items]) => ({
         heading,
         items: groupIshimCredits(
-          items.sort(
-            (a, b) => (b.year || b.production.year) - (a.year || a.production.year)
-          )
+          items.sort((a, b) => {
+            const ba = a.billingOrder;
+            const bb = b.billingOrder;
+            if (ba !== undefined && bb !== undefined && ba !== bb) return ba - bb;
+            if (ba !== undefined && bb === undefined) return -1;
+            if (ba === undefined && bb !== undefined) return 1;
+            return (b.year || b.production.year) - (a.year || a.production.year);
+          })
         ),
       }))
       .sort((a, b) => {
@@ -101,7 +121,7 @@ export default function PersonDetailPage() {
         const ib = ISHIM_HEADING_ORDER.indexOf(b.heading);
         return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
       });
-  }, [data, person]);
+  }, [data, person, gender]);
 
   if (loading && !data) return <p className="notice">טוען…</p>;
   if (error) return <p className="form-error">{error}</p>;
@@ -172,14 +192,14 @@ export default function PersonDetailPage() {
                 {person.birthDate ? (
                   <>
                     {" "}
-                    (נולד ב-
+                    ({genderedBornInline(gender)}
                     <PersonDateLinks iso={person.birthDate} kind="birth" />)
                   </>
                 ) : null}
                 {person.deathDate ? (
                   <>
                     {" "}
-                    (נפטר/ה ב-
+                    ({genderedDiedInline(gender)}
                     <PersonDateLinks iso={person.deathDate} kind="death" />)
                   </>
                 ) : null}
@@ -188,7 +208,7 @@ export default function PersonDetailPage() {
           )}
           {age === undefined && person.birthDate && (
             <div>
-              <dt>נולד ב:</dt>
+              <dt>{genderedBornLabel(gender)}</dt>
               <dd>
                 <PersonDateLinks iso={person.birthDate} kind="birth" />
               </dd>
@@ -196,7 +216,7 @@ export default function PersonDetailPage() {
           )}
           {age === undefined && person.deathDate && (
             <div>
-              <dt>נפטר/ה ב:</dt>
+              <dt>{genderedDiedLabel(gender)}</dt>
               <dd>
                 <PersonDateLinks iso={person.deathDate} kind="death" />
               </dd>
@@ -204,7 +224,7 @@ export default function PersonDetailPage() {
           )}
           {bornName && (
             <div>
-              <dt>נולד בשם:</dt>
+              <dt>{genderedBornAsLabel(gender)}</dt>
               <dd>{bornName}</dd>
             </div>
           )}
@@ -227,7 +247,9 @@ export default function PersonDetailPage() {
                       href={`/categories/${activity}`}
                       className="ishim-key"
                     >
-                      {ACTIVITY_LABELS[activity]}
+                      {activity === "acting" || activity === "dubbing"
+                        ? genderedActivityLabel(activity, gender)
+                        : ACTIVITY_LABELS[activity as ActivityCategory]}
                     </Link>
                   ))}
                 {showTagKeys &&
@@ -259,27 +281,22 @@ export default function PersonDetailPage() {
           <section key={group.heading} className="ishim-role">
             <h3>{group.heading}</h3>
             <ul className="ishim-credits">
-              {group.items.map((item) => (
-                <li
-                  key={`${item.production.id}-${item.role}-${item.year || ""}`}
-                >
-                  <span className="ishim-year">
-                    {item.year || item.production.year || ""}
-                  </span>
-                  <div className="ishim-credit-body">
-                    <Link
-                      href={`/productions/${encodeURIComponent(item.production.id)}`}
-                    >
-                      {item.production.title}
-                    </Link>
-                    {item.characters.map((character) => (
-                      <span key={character} className="ishim-chars">
-                        {character}
-                      </span>
-                    ))}
-                  </div>
-                </li>
-              ))}
+              {group.items.map((item) => {
+                const year = item.year || item.production.year || "";
+                const characters = item.characters
+                  .map((name) => formatIshimCharacters(name))
+                  .filter(Boolean)
+                  .join(" / ");
+                return (
+                  <IshimCreditLine
+                    key={`${item.production.id}-${item.role}-${year}-${characters}`}
+                    href={`/productions/${encodeURIComponent(item.production.id)}`}
+                    year={year}
+                    lead={item.production.title}
+                    characters={characters || undefined}
+                  />
+                );
+              })}
             </ul>
           </section>
         ))}
@@ -289,17 +306,13 @@ export default function PersonDetailPage() {
             <h3>דיסקוגרפיה</h3>
             <ul className="ishim-credits">
               {person.discography!.map((item) => (
-                <li key={`${item.title}-${item.year || ""}`}>
-                  <span className="ishim-year">{item.year || ""}</span>
-                  <div className="ishim-credit-body">
-                    <strong>{item.title}</strong>
-                    {item.kind || item.note ? (
-                      <span className="ishim-chars">
-                        {[item.kind, item.note].filter(Boolean).join(" · ")}
-                      </span>
-                    ) : null}
-                  </div>
-                </li>
+                <IshimCreditLine
+                  key={`${item.title}-${item.year || ""}`}
+                  href={`/search?q=${encodeURIComponent(item.title)}`}
+                  year={item.year || ""}
+                  lead={item.title}
+                  characters={[item.kind, item.note].filter(Boolean).join(" · ")}
+                />
               ))}
             </ul>
           </section>

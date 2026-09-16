@@ -1,0 +1,152 @@
+{
+  "title": "פיטר פן",
+  "originalTitle": "Peter Pan",
+  "year": 2013,
+  "endYear": 2014,
+  "summary": "פיטר פן, הילד הנצחי, לוקח את ילדי משפחת דארלינג להרפתקה קסומה בארץ לעולם לא.",
+  "runtimeMinutes": 23,
+  "episodeCount": 26,
+  "genres": ["אנימציה", "הרפתקאות", "ילדים", "מדובב - זר"],
+  "channel": "ערוץ הילדים",
+  "ishimKeys": ["סדרת טלוויזיה זרה מדובבת"],
+  "entryAuthors": ["ברק חננאל"],
+  "people": [
+    { "id": "ayyl-lyybyn", "name": "אייל לייבין" },
+    { "id": "shkd-prsy", "name": "שקד פרסי" },
+    { "id": "adn-gmlyal", "name": "עדן גמליאל" },
+    { "id": "shchr-kdvsh", "name": "שחר קדוש" },
+    { "id": "lyavr-chkvn", "name": "ליאור חקון" }
+  ],
+  "credits": [
+    {
+      "personId": "efi-ben-israel",
+      "role": "dub_director",
+      "heading": "בימוי דיבוב"
+    },
+    {
+      "personId": "anvr-shtgr-azra",
+      "role": "producer",
+      "heading": "הפקת דיבוב"
+    },
+    {
+      "personId": "dnyal-mvrsht",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "פיטר פן"
+    },
+    {
+      "personId": "shira-naor",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "וונדי דארלינג"
+    },
+    {
+      "personId": "ayyl-lyybyn",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "ג'ון דארלינג"
+    },
+    {
+      "personId": "shkd-prsy",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "מייקל דארלינג"
+    },
+    {
+      "personId": "sapir-dermon",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "טינקרבל"
+    },
+    {
+      "personId": "talya-barkai",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "טייגר לילי / בייבי"
+    },
+    {
+      "personId": "adn-gmlyal",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "סינתיה"
+    },
+    {
+      "personId": "aytn-grynbrg",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "צ'אבס"
+    },
+    {
+      "personId": "gya-rvshynyak",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "סטרינגבין / אסבג'ורן"
+    },
+    {
+      "personId": "myyh-kdvsh",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "מירה"
+    },
+    {
+      "personId": "shchr-kdvsh",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "מאיה"
+    },
+    {
+      "personId": "ant-nyb",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "גברת דארלינג"
+    },
+    {
+      "personId": "tsvika-furman",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "קפטן הוק"
+    },
+    {
+      "personId": "mvly-shvlmn",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "סמי"
+    },
+    {
+      "personId": "lyavr-chkvn",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "ג'ייק"
+    },
+    {
+      "personId": "daniel-magon",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "דאגאן"
+    },
+    {
+      "personId": "sar-bdyshy",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "צ'ולון"
+    },
+    {
+      "personId": "eran-mor",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "ג'ארו"
+    },
+    {
+      "personId": "sapir-dermon",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "שיר פתיחה (ביצוע)"
+    },
+    {
+      "personId": "efi-ben-israel",
+      "role": "composer",
+      "heading": "מוזיקה",
+      "character": "שיר פתיחה (ניהול מוזיקלי)"
+    }
+  ]
+}

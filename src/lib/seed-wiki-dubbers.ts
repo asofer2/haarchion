@@ -9,12 +9,21 @@ function p(
   id: string,
   name: string,
   activities: ActivityCategory[] = ["dubbing", "film", "series"],
-  bio = "מדבב/ת ושחקן/ית ישראלי/ת — לפי קטגוריית מדבבים ישראלים בוויקיפדיה."
+  bio = "מדבב או מדבבת ישראליים — לפי קטגוריית מדבבים ישראלים בוויקיפדיה.",
+  extra?: Partial<Person>
 ): Person {
   return {
-    id, name, nicknames: [], tags: ["דיבוב", "ויקיפדיה"], activities, bio,
+    id,
+    name,
+    nicknames: [],
+    tags: ["דיבוב", "ויקיפדיה"],
+    activities,
+    bio,
     wikipediaUrl: `https://he.wikipedia.org/wiki/${encodeURIComponent(name.replace(/ /g, "_"))}`,
-    imageUrl: wikiImage(name), createdAt: now, updatedAt: now,
+    imageUrl: wikiImage(name),
+    createdAt: now,
+    updatedAt: now,
+    ...extra,
   };
 }
 
@@ -120,7 +129,9 @@ export const WIKI_DUBBERS: Person[] = [
   p("lyavr-dtavkr", "ליאור דטאוקר"),
   p("ntn-dtnr", "נתן דטנר"),
   p("mvty-dyknh", "מוטי דיכנה"),
-  p("rvny-dlvmy", "רוני דלומי"),
+  p("rvny-dlvmy", "רוני דלומי", ["dubbing", "film", "series", "musical"], undefined, {
+    gender: "female",
+  }),
   p("chgyt-dsbrg", "חגית דסברג"),
   p("drvr-tplytsky", "דרור טפליצקי"),
   p("dklh-hdr", "דקלה הדר"),

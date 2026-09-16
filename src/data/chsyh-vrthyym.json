@@ -1,0 +1,623 @@
+{
+  "name": "חסיה ורטהיים",
+  "nameOriginal": "Hasia Wertheim",
+  "birthName": "חסיה שוורץ",
+  "tags": [
+    "מפיקי טלוויזיה"
+  ],
+  "bio": "חסיה ורטהיים (לבית שוורץ) היתה מפיקת דיבוב ואחראית רכש תכניים בטלוויזיה החינוכית. הפריקה דיבובים לעשרות סדרות וסרטי ילדים, ביניהם «היי! בינבה», «המומינים», «נעלולים» ו«היפה והחיה». ידועה ברכישת תכניים ובהענקת שמות עבריים לסדרות (כגון בינבה וטיפטיפון).",
+  "credits": [
+    {
+      "role": "producer",
+      "heading": "מפיקה",
+      "year": 1997,
+      "title": "רכבת ההפתעות"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיקה",
+      "year": 1979,
+      "title": "ציפיטפוט"
+    },
+    {
+      "role": "dub_director",
+      "heading": "בימוי דיבוב",
+      "year": 1990,
+      "title": "היי! בינבה"
+    },
+    {
+      "role": "dub_director",
+      "heading": "בימוי דיבוב",
+      "year": 1986,
+      "title": "הרוח בערבי הנחל"
+    },
+    {
+      "role": "dub_director",
+      "heading": "בימוי דיבוב",
+      "year": 1986,
+      "title": "גברת פלפלת"
+    },
+    {
+      "role": "dub_director",
+      "heading": "בימוי דיבוב",
+      "year": 1986,
+      "title": "טאו טאו"
+    },
+    {
+      "role": "dub_director",
+      "heading": "בימוי דיבוב",
+      "year": 1986,
+      "title": "נילס הולגרסון"
+    },
+    {
+      "role": "dub_director",
+      "heading": "בימוי דיבוב",
+      "year": 1984,
+      "title": "בארץ הקטקטים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1997,
+      "title": "בנימין התנין"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1997,
+      "title": "המסעדה של איילת"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1997,
+      "title": "מיצי מימי ועוד"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1996,
+      "title": "ברק כלב פלא"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1996,
+      "title": "באדג'י"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1996,
+      "title": "צבי צב וחבריו"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1996,
+      "title": "מופע החיות"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1996,
+      "title": "קלימרו"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1996,
+      "title": "חתולי חצר"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1996,
+      "title": "הקוסם מארץ עוץ"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1995,
+      "title": "היפה והחיה"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1995,
+      "title": "חוות האצבעות"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1995,
+      "title": "בממלכת גוואקמוני"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1995,
+      "title": "תינוקות בצמרת"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1995,
+      "title": "החבורה של מולי"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1995,
+      "title": "להציץ ולגלות"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1995,
+      "title": "דר הדוור"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1995,
+      "title": "חתול שטות"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1995,
+      "title": "הזעפן"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1995,
+      "title": "משלים בצורות"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1995,
+      "title": "קיטי קט וחומי"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1995,
+      "title": "מסיפורי אבא בונה"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1995,
+      "title": "נעלולים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1995,
+      "title": "המפחידנים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1994,
+      "title": "ג'ימבו"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1994,
+      "title": "ספר הג'ונגל"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1994,
+      "title": "קופידו"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1994,
+      "title": "הקלברי פין"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1994,
+      "title": "פילוני וחבריו"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1994,
+      "title": "לוחמי הזמן"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1994,
+      "title": "בננות בפיג'מות"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1994,
+      "title": "במצולות הים עם דלפי"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1994,
+      "title": "המומינים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1993,
+      "title": "אצבעונית"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1993,
+      "title": "תניני התנין"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1993,
+      "title": "הרפתקאותיו של פינוקיו"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1993,
+      "title": "הרפתקאות פינפין"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1993,
+      "title": "שלושה דגים אבירים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1993,
+      "title": "מסעות גוליבר"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1993,
+      "title": "עופל בופל"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1993,
+      "title": "אני רוצה לדעת"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1993,
+      "title": "המעופפים הנועזים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1993,
+      "title": "עלילות בבאי"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1993,
+      "title": "קוסמים קטנים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1992,
+      "title": "תפודי וניקי"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1992,
+      "title": "אביגדור לץ וכל השאר"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1992,
+      "title": "ברני הכלב"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1992,
+      "title": "תל אפונים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1992,
+      "title": "פינוקי"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1992,
+      "title": "לכלוכית"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1992,
+      "title": "פשוט אמרו לא"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1992,
+      "title": "פשוש"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1992,
+      "title": "שלום סומסום"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1992,
+      "title": "בת הים הקטנה"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1992,
+      "title": "אלף ואחת אמריקות"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1991,
+      "title": "ד\"ר עזרא"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1991,
+      "title": "אמא אווזה"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1991,
+      "title": "הקטר הקטן"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1991,
+      "title": "בממלכת כיעורוניה"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1991,
+      "title": "שאלתיאל קוואק"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1991,
+      "title": "המלך בבר"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1991,
+      "title": "פיטר פן"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1990,
+      "title": "רובימא"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1990,
+      "title": "עמיקו וחבריו"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1990,
+      "title": "סיפורי מוש"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1990,
+      "title": "היי! בינבה"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1989,
+      "title": "הבית של ויקי"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1989,
+      "title": "גברת קטינה"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1989,
+      "title": "דובי דב"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1989,
+      "title": "השלוליתים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1989,
+      "title": "הזחלילים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1989,
+      "title": "אליחדק וחברים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1989,
+      "title": "ניצנוצים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1989,
+      "title": "פיקניק הארנבים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1989,
+      "title": "היה היה - החיים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1989,
+      "title": "הקוסם מארץ עוץ"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1988,
+      "title": "דן-דין השופט"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1987,
+      "title": "נילס הולגרסון"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1986,
+      "title": "בול וביל"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1986,
+      "title": "הרוח בערבי הנחל"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1986,
+      "title": "גברת פלפלת"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1986,
+      "title": "טאו טאו"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1986,
+      "title": "טוב טוב הגמד"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1986,
+      "title": "נילס הולגרסון"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1986,
+      "title": "נחשון"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1984,
+      "title": "טום וטים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1984,
+      "title": "בארץ הקטקטים"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1984,
+      "title": "הלב"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1982,
+      "title": "בזיק ויויו"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1982,
+      "title": "קוטי הקטר"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1982,
+      "title": "פינוקיו"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1981,
+      "title": "סיפורימפו"
+    },
+    {
+      "role": "producer",
+      "heading": "הפקת דיבוב",
+      "year": 1972,
+      "title": "מסיפורי שפת הנחל"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1972,
+      "title": "מסיפורי שפת הנחל"
+    }
+  ]
+}

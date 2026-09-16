@@ -1,0 +1,142 @@
+{
+  "title": "הרפתקאותיו של פינוקיו",
+  "originalTitle": "The Adventures of Pinocchio / 樫の木モック",
+  "year": 1993,
+  "summary": "עלילותיו של פינוקיו בובת העץ המנסה להתגבר על תכונות האופי השליליות שניתנות לו במטרה להפוך לילד אמיתי",
+  "runtimeMinutes": 100,
+  "genres": [
+    "אנימציה",
+    "הרפתקאות",
+    "ילדים",
+    "מדובב - זר",
+    "פנטזיה"
+  ],
+  "channel": "ערוץ 2 / חינוכית",
+  "ishimKeys": [
+    "סרט זר מדובב"
+  ],
+  "ishimNotes": [
+    {
+      "heading": "כללי",
+      "items": [
+        "תמצית הסדרה פינוקיו בגרסת ג'ים טרי הפקות"
+      ]
+    }
+  ],
+  "entryAuthors": [
+    "ברק חננאל"
+  ],
+  "kind": "film_dubbed_foreign",
+  "people": [
+    { "id": "nchmn-ashknzy", "name": "נחמן אשכנזי" },
+    { "id": "alh-ard", "name": "אלה ארד" },
+    { "id": "yal-rvrbrg", "name": "יעל רורברג" },
+    { "id": "mvrn-ryngl", "name": "מורן רינגל" },
+    { "id": "amvs-bn-dvd", "name": "עמוס בן דוד" },
+    { "id": "astr-vvlsh", "name": "אסתר וולש" }
+  ],
+  "credits": [
+    {
+      "personId": "yqkv-shm-tvb",
+      "role": "dub_director",
+      "heading": "בימוי דיבוב"
+    },
+    {
+      "personId": "ht-chsyh-vrthyym",
+      "role": "producer",
+      "heading": "הפקת דיבוב"
+    },
+    {
+      "personId": "avr-azvlay",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "פינוקיו / אמא של מירל"
+    },
+    {
+      "personId": "mykal-hngby",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "ג'ימיני"
+    },
+    {
+      "personId": "dov-reiber",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "ג'פטו / זיק הסמור / תוכי / אבא של מירל / דמויות שונות"
+    },
+    {
+      "personId": "orna-katz",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "פיית האלון / אלבירה / איימי / דמויות שונות"
+    },
+    {
+      "personId": "yhvykyn-prydlndr",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "רודי העכבר / בילי / דמויות שונות"
+    },
+    {
+      "personId": "amy-travb",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "טריק השועל / חוטב עצים"
+    },
+    {
+      "personId": "nchmn-ashknzy",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "זומפינו"
+    },
+    {
+      "personId": "ht-shmavn-khn",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "קולונל רשע / מיליונר / דמויות שונות"
+    },
+    {
+      "personId": "ami-mandelman",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "דומינוס / קפטן רושי / דמויות שונות"
+    },
+    {
+      "personId": "orly-katan",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "כלבת ים / סבתא של אלבירה / מירל / דמויות שונות"
+    },
+    {
+      "personId": "alh-ard",
+      "role": "singer",
+      "heading": "מוזיקה"
+    },
+    {
+      "personId": "yal-rvrbrg",
+      "role": "singer",
+      "heading": "מוזיקה"
+    },
+    {
+      "personId": "mvrn-ryngl",
+      "role": "singer",
+      "heading": "מוזיקה"
+    },
+    {
+      "personId": "amvs-bn-dvd",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "נגינה וייעוץ מוזיקלי"
+    },
+    {
+      "personId": "astr-vvlsh",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "תרגום שירים"
+    },
+    {
+      "personId": "yvryk-bn-dvd",
+      "role": "singer",
+      "heading": "מוזיקה"
+    }
+  ]
+}

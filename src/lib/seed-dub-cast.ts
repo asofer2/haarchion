@@ -1,19 +1,21 @@
+import { assignBillingOrders } from "./credit-order";
 import type { Credit } from "./types";
 
 function c(
   personId: string,
   productionId: string,
   role: Credit["role"],
-  characterName?: string
+  characterName?: string,
+  heading?: string
 ): Credit {
-  return { personId, productionId, role, characterName };
+  return { personId, productionId, role, characterName, heading };
 }
 
 /**
  * Cast lists for Hebrew-dubbed films/series — dubbers + characters.
  * personId must exist in seed ( -w2 suffix is stripped on merge ).
  */
-export const DUB_CAST_CREDITS: Credit[] = [
+const DUB_CAST_RAW: Credit[] = [
   // —— קלאסיקות דיסני / סרטי אז ——
   // שלושת החזירונים (Three Little Pigs; HT 2005 / מקור דיסני 1933) — צוות דיבוב מוויקיפדיה העברית
   c("shafrira-zachai", "three-little-pigs-he", "dub_director", "בימוי דיבוב"),
@@ -172,3 +174,6 @@ export const DUB_CAST_CREDITS: Credit[] = [
   c("yonatan-magon", "naruto-he", "dubber", "נארוטו / דמויות"),
   c("tsvika-furman", "naruto-he", "dubber", "דמויות"),
 ];
+
+/** סדר לפי רשימת הדיבוב (לא אלפביתי) */
+export const DUB_CAST_CREDITS: Credit[] = assignBillingOrders(DUB_CAST_RAW);

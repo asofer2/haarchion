@@ -2,6 +2,26 @@ export const A11Y_STORAGE_KEY = "ishim-a11y-v1";
 
 export type FontScale = "100" | "125" | "150" | "175" | "200";
 
+export const FONT_SCALE_STEPS: FontScale[] = [
+  "100",
+  "125",
+  "150",
+  "175",
+  "200",
+];
+
+export function stepFontScale(
+  current: FontScale,
+  direction: 1 | -1
+): FontScale {
+  const index = FONT_SCALE_STEPS.indexOf(current);
+  const next = Math.max(
+    0,
+    Math.min(FONT_SCALE_STEPS.length - 1, index + direction)
+  );
+  return FONT_SCALE_STEPS[next] ?? current;
+}
+
 export interface A11yPrefs {
   /** Root font scale percent */
   fontScale: FontScale;

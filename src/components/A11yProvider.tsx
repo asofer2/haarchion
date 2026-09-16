@@ -13,6 +13,7 @@ import {
   DEFAULT_A11Y,
   applyA11yPrefs,
   readA11yPrefs,
+  stepFontScale,
   writeA11yPrefs,
   type A11yPrefs,
 } from "@/lib/a11y";
@@ -44,6 +45,25 @@ export function A11yProvider({ children }: { children: ReactNode }) {
       applyA11yPrefs(next);
       writeA11yPrefs(next);
     }
+  }, []);
+
+  useEffect(() => {
+    const onWheel = (event: WheelEvent) => {
+      if (!event.ctrlKey && !event.metaKey) return;
+      event.preventDefault();
+      const direction = event.deltaY > 0 ? -1 : 1;
+      setPrefsState((prev) => {
+        const fontScale = stepFontScale(prev.fontScale, direction);
+        if (fontScale === prev.fontScale) return prev;
+        const next = { ...prev, fontScale };
+        applyA11yPrefs(next);
+        writeA11yPrefs(next);
+        return next;
+      });
+    };
+
+    window.addEventListener("wheel", onWheel, { passive: false });
+    return () => window.removeEventListener("wheel", onWheel);
   }, []);
 
   const setPrefs = useCallback((patch: Partial<A11yPrefs>) => {

@@ -53,16 +53,23 @@ export function EntityProvenance({
               source.note
             )}
           </>
-        ) : null}
-        {source ? (
-          <span className="entity-provenance-sep" aria-hidden="true">
-            ·
-          </span>
-        ) : null}
+        ) : (
+          <>
+            <span className="entity-provenance-label">מקור:</span> אישים
+          </>
+        )}
+        <span className="entity-provenance-sep" aria-hidden="true">
+          ·
+        </span>
         <Link href={historyHref}>היסטוריית עדכונים</Link>
         {history.length > 0 && (
           <span className="meta"> ({history.length})</span>
         )}
+      </p>
+      <p className="entity-provenance-copy">
+        © אישים —{" "}
+        <Link href="/terms">תנאי שימוש וזכויות יוצרים</Link>
+        . אין להעתיק או לשכפל את האתר ללא אישור.
       </p>
     </footer>
   );

@@ -3,6 +3,11 @@ import type { CreditRole } from "./types";
 
 export const ISHIM_CLASSIC_SOURCE = "אישים";
 
+/** Wayback snapshot of ishim.co.il used as the classic archive reference */
+export const ISHIM_WAYBACK_SNAPSHOT = "20221118120839";
+
+const ISHIM_WAYBACK_BASE = `https://web.archive.org/web/${ISHIM_WAYBACK_SNAPSHOT}/https://www.ishim.co.il`;
+
 export type IshimNote = { heading: string; items: string[] };
 
 type HeadingCredit = {
@@ -96,5 +101,9 @@ export function parseIshimNotes(
 }
 
 export function ishimWaybackPersonUrl(name: string): string {
-  return `https://web.archive.org/web/20210417021416/https://www.ishim.co.il/p.php?s=${encodeURIComponent(name)}`;
+  return `${ISHIM_WAYBACK_BASE}/p.php?s=${encodeURIComponent(name)}`;
+}
+
+export function ishimWaybackProductionUrl(title: string): string {
+  return `${ISHIM_WAYBACK_BASE}/m.php?s=${encodeURIComponent(title)}`;
 }

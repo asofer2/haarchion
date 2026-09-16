@@ -2,15 +2,23 @@
 
 import { useEffect, useId, useRef } from "react";
 import { useA11y } from "@/components/A11yProvider";
-import type { FontScale } from "@/lib/a11y";
+import { FONT_SCALE_STEPS, type FontScale } from "@/lib/a11y";
 
-const FONT_OPTIONS: { value: FontScale; label: string }[] = [
-  { value: "100", label: "רגיל" },
-  { value: "125", label: "גדול" },
-  { value: "150", label: "גדול מאוד" },
-  { value: "175", label: "ענק" },
-  { value: "200", label: "ענק+" },
-];
+const FONT_OPTIONS: { value: FontScale; label: string }[] = FONT_SCALE_STEPS.map(
+  (value) => ({
+    value,
+    label:
+      value === "100"
+        ? "רגיל"
+        : value === "125"
+          ? "גדול"
+          : value === "150"
+            ? "גדול מאוד"
+            : value === "175"
+              ? "ענק"
+              : "ענק+",
+  })
+);
 
 export function AccessibilityButton() {
   const { panelOpen, setPanelOpen } = useA11y();
@@ -75,6 +83,7 @@ export function AccessibilityPanel() {
 
         <p className="a11y-intro">
           אפשרויות לכבדי ראייה ולנוחות קריאה. ההגדרות נשמרות במכשיר זה.
+          Ctrl+גלגלת מגדילה רק את התוכן (לא את כותרת האתר).
         </p>
 
         <fieldset className="a11y-fieldset">

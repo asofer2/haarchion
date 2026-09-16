@@ -413,29 +413,8 @@ export const HOP_TAMIR_PRODUCTIONS: Production[] = [
   prod("ht-ampybyh", "אמפיביה", 2020, "הפקה מארכיון ערוץ הופ תמיר (2020–2022).", { kind: "series", endYear: 2022 }),
 ];
 
-/** Detailed credits for פיטר פן from hop tamir page */
+/** Hop Tamir credits — פיטר פן מנוהל ב-seed-ishim-peter-pan.ts */
 export const HOP_TAMIR_CREDITS: Credit[] = [
-  { personId: "ht-chnh-drvry-kshy", productionId: "ht-peter-pan-adventures", role: "dub_director", characterName: "בימוי דיבוב" },
-  { personId: "ht-avrnh-lbya-plynt", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "טינקרבל" },
-  { personId: "ht-chny-nchmyas", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "וונדי דרלינג / ג'יין דרלינג" },
-  { personId: "ht-knrt-trypvn-rshp", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "ג'ון דרלינג" },
-  { personId: "ht-pzyt-nvny", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "מייקל דרלינג" },
-  { personId: "ht-tmy-ashl", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "קפיצי / טובי" },
-  { personId: "ht-nvryt-bnay-kvrn", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "דמויות שונות" },
-  { personId: "ht-lylyan-brtv", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "ליליאן ברטובולי / לונה / פנדורה" },
-  { personId: "efi-ben-israel", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "לילי נמר / אליזבת דרלינג / בתולת ים" },
-  { personId: "ht-shmavn-khn", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "קפטן הוק" },
-  { personId: "ht-aly-gvrnshtyyn", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "סמי / דון בלבוש" },
-  { personId: "ht-avdd-mnshh", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "ביל / משרת של פנדורה" },
-  { personId: "ht-shchr-tzrpty", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "אלף / משרת של פנדורה" },
-  { personId: "ht-shmvlyk-yprch", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "שארקי / רובר / ג'ורג' דארלינג" },
-  { personId: "ht-yvrm-gl", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "שארקי / רובר / צ'יקו" },
-  { personId: "ht-chnh-drvry-kshy", productionId: "ht-peter-pan-adventures", role: "dubber", characterName: "מלכת הפיות [אורחת]" },
-  { personId: "ht-rvny-vyys", productionId: "ht-peter-pan-adventures", role: "composer", characterName: "ניהול מוזיקלי" },
-  { personId: "ht-lah-navr", productionId: "ht-peter-pan-adventures", role: "writer", characterName: "תרגום שירים" },
-  { personId: "ht-chsyh-vrthyym", productionId: "ht-peter-pan-adventures", role: "producer", characterName: "הפקת דיבוב" },
-  { personId: "ht-rvty-hvltzmn", productionId: "ht-peter-pan-adventures", role: "producer", characterName: "הפקת דיבוב" },
-
   // —— טימון ופומבה (אישים / הופ תמיר + ויקיפדיה) ——
   // Prefer existing main / wiki / ht person ids — no new people invented.
   { personId: "shafrira-zachai", productionId: "ht-tymvn-vpvmbh", role: "dub_director", characterName: "בימוי דיבוב" },

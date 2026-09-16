@@ -21,6 +21,7 @@ import { ensureFilmographies } from "./filmography";
 import { ensureDiscographyProductions } from "./discography-productions";
 import { applyPeopleEnrichment } from "./person-dates";
 import { applyDubbingStudios } from "./seed-dubbing-studios";
+import { creditDedupeKey, stampBillingOrders } from "./credit-order";
 import { applyIshimPersonPatches } from "./seed-ishim-patches";
 import { formatProductionTitle } from "./production-title";
 import {
@@ -323,6 +324,15 @@ function mergeWithSeed(data: ArchiveData): ArchiveData {
       prodMap.set(seed.id, seed);
       continue;
     }
+    if (seed.ishimClassic) {
+      prodMap.set(seed.id, {
+        ...existing,
+        ...seed,
+        imageUrl: existing.imageUrl || seed.imageUrl,
+        createdAt: existing.createdAt || seed.createdAt,
+      });
+      continue;
+    }
     prodMap.set(seed.id, {
       ...existing,
       originalTitle: existing.originalTitle || seed.originalTitle,
@@ -344,31 +354,78 @@ function mergeWithSeed(data: ArchiveData): ArchiveData {
     });
   }
 
-  const creditKey = (c: Credit) =>
-    `${c.productionId}_${c.personId}_${c.role}`;
+  const creditKey = creditDedupeKey;
   const creditMap = new Map(data.credits.map((c) => [creditKey(c), c]));
+
+  const classicProductionIds = new Set(
+    SEED.productions.filter((p) => p.ishimClassic).map((p) => p.id)
+  );
+  for (const prodId of classicProductionIds) {
+    for (const [k, c] of [...creditMap.entries()]) {
+      if (c.productionId === prodId) creditMap.delete(k);
+    }
+    for (const c of SEED.credits.filter((item) => item.productionId === prodId)) {
+      creditMap.set(creditKey(c), c);
+    }
+  }
+
   for (const c of SEED.credits) {
+    if (classicProductionIds.has(c.productionId)) continue;
     const k = creditKey(c);
     const existing = creditMap.get(k);
     if (!existing) creditMap.set(k, c);
     else if (!existing.characterName && c.characterName) creditMap.set(k, c);
+    else if (c.heading || c.year || c.endYear) {
+      creditMap.set(k, {
+        ...existing,
+        characterName: existing.characterName || c.characterName,
+        heading: existing.heading || c.heading,
+        year: existing.year ?? c.year,
+        endYear: existing.endYear ?? c.endYear,
+      });
+    }
+  }
+
+  const orderedCredits: Credit[] = [];
+  const seenCreditKeys = new Set<string>();
+  for (const seedCredit of SEED.credits) {
+    const k = creditKey(seedCredit);
+    const merged = creditMap.get(k);
+    if (!merged || seenCreditKeys.has(k)) continue;
+    seenCreditKeys.add(k);
+    orderedCredits.push(merged);
+  }
+  for (const credit of creditMap.values()) {
+    const k = creditKey(credit);
+    if (seenCreditKeys.has(k)) continue;
+    seenCreditKeys.add(k);
+    orderedCredits.push(credit);
   }
 
   return {
     people: [...peopleMap.values()],
     productions: [...prodMap.values()],
-    credits: [...creditMap.values()],
+    credits: orderedCredits,
     contributions: data.contributions || [],
   };
 }
 
+function stampArchiveCredits(data: ArchiveData): ArchiveData {
+  return {
+    ...data,
+    credits: stampBillingOrders(data.credits, SEED.credits),
+  };
+}
+
 function normalize(data: ArchiveData): ArchiveData {
-  return ensureDiscographyProductions(
-    ensureFilmographies(
-      dedupeArchive(
-        (() => {
-          const merged = mergeWithSeed(
-            migrateIds({
+  return applyIshimPersonPatches(
+    ensureDiscographyProductions(
+      ensureFilmographies(
+        stampArchiveCredits(
+        dedupeArchive(
+          (() => {
+            const merged = mergeWithSeed(
+              migrateIds({
               people: applyPeopleEnrichment(
                 (data.people || []).map((p) => ({
                   ...p,
@@ -404,7 +461,9 @@ function normalize(data: ArchiveData): ArchiveData {
             productions: applyDubbingStudios(merged.productions),
           };
         })()
+        )
       )
+    )
     )
   );
 }
@@ -529,20 +588,38 @@ function archiveFromOverlay(overlay: LocalOverlay | null): ArchiveData {
 
   if (!overlay || isEmptyOverlay(overlay)) return data;
 
+  const classicProductionIds = new Set(
+    SEED.productions.filter((p) => p.ishimClassic).map((p) => p.id)
+  );
+  const classicPersonIds = new Set(
+    SEED.people.filter((p) => p.ishimClassic).map((p) => p.id)
+  );
+
   // User / remote overrides must win over mergeWithSeed gap-filling
   if (overlay.people.length) {
     const map = new Map(data.people.map((p) => [p.id, p]));
-    for (const p of overlay.people) map.set(p.id, p);
+    for (const p of overlay.people) {
+      if (classicPersonIds.has(p.id)) continue;
+      map.set(p.id, p);
+    }
     data = { ...data, people: [...map.values()] };
   }
+
   if (overlay.productions.length) {
     const map = new Map(data.productions.map((p) => [p.id, p]));
-    for (const p of overlay.productions) map.set(p.id, p);
+    for (const p of overlay.productions) {
+      if (classicProductionIds.has(p.id)) continue;
+      map.set(p.id, p);
+    }
     data = { ...data, productions: [...map.values()] };
   }
   if (overlay.credits.length) {
     const map = new Map(data.credits.map((c) => [creditKeyOf(c), c]));
-    for (const c of overlay.credits) map.set(creditKeyOf(c), c);
+    for (const c of overlay.credits) {
+      if (classicProductionIds.has(c.productionId)) continue;
+      if (classicPersonIds.has(c.personId)) continue;
+      map.set(creditKeyOf(c), c);
+    }
     data = { ...data, credits: [...map.values()] };
   }
 
@@ -550,12 +627,12 @@ function archiveFromOverlay(overlay: LocalOverlay | null): ArchiveData {
   const removedProds = new Set(overlay.removedProductionIds);
   const removedCredits = new Set(overlay.removedCreditKeys);
 
-  return {
+  return applyIshimPersonPatches({
     people: data.people.filter((p) => !removedPeople.has(p.id)),
     productions: data.productions.filter((p) => !removedProds.has(p.id)),
     credits: data.credits.filter((c) => !removedCredits.has(creditKeyOf(c))),
     contributions: overlay.contributions || [],
-  };
+  });
 }
 
 function isLegacyArchiveKey(key: string): boolean {

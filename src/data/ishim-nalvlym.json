@@ -1,0 +1,114 @@
+{
+  "title": "נעלולים",
+  "year": 1989,
+  "endYear": 1995,
+  "summary": "נעליים בחנות נעליים מתעוררות לחיים וחיות בעיר הנעלולים",
+  "runtimeMinutes": 10,
+  "episodeCount": 39,
+  "genres": ["אנימציה", "ילדים", "מדובב - זר"],
+  "channel": "חינוכית",
+  "credits": [
+    {
+      "personId": "ht-chnh-drvry-kshy",
+      "role": "dub_director",
+      "heading": "בימוי דיבוב"
+    },
+    {
+      "personId": "ht-chsyh-vrthyym",
+      "role": "producer",
+      "heading": "הפקת דיבוב"
+    },
+    {
+      "personId": "dov-reiber",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "מספר / נעל בית / נעל בור"
+    },
+    {
+      "personId": "shmavn-khn-mdbb",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "נעלכת / נעלוף / גלגלון"
+    },
+    {
+      "personId": "yhvykyn-prydlndr",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "רב מגף / נעל פס / נעליז"
+    },
+    {
+      "personId": "yoni-chen",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "נעליז / נעל חרש / נעלוף",
+      "year": 1989,
+      "endYear": 1990
+    },
+    {
+      "personId": "zyl-bn-dvd",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "נעלץ",
+      "year": 1989,
+      "endYear": 1990
+    },
+    {
+      "personId": "lymvr-rvznr-mvgh",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "נעלילית / קבקבית",
+      "year": 1989,
+      "endYear": 1990
+    },
+    {
+      "personId": "avryt-amyr",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "נעלילית / קבקבית / נעולל / מגפית / נעל-ים",
+      "year": 1995
+    },
+    {
+      "personId": "mvty-brkan",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "נערדל / נעל חרש / גלגלך",
+      "year": 1995
+    },
+    {
+      "personId": "avhd-shchr",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "נעלץ / נעל חם / ד\"ר נעל",
+      "year": 1995
+    },
+    {
+      "personId": "shmvlyk-tna",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "סגן מגף / נעלסו / גלגלוף",
+      "year": 1995
+    },
+    {
+      "personId": "ami-mandelman",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "שיר פתיחה (ביצוע)"
+    },
+    {
+      "personId": "dphnh-armvny",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "שיר פתיחה (ביצוע)"
+    }
+  ],
+  "people": [
+    {
+      "id": "lymvr-rvznr-mvgh",
+      "name": "לימור רוזנר מוג'ה"
+    },
+    {
+      "id": "dphnh-armvny",
+      "name": "דפנה ארמוני"
+    }
+  ]
+}

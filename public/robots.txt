@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /auth
+Disallow: /me
+Disallow: /ishur
+Disallow: /admin
+
+# Prefer indexing content pages; APIs and account areas stay out of crawls.
+Sitemap: https://haarchion.vercel.app/sitemap.xml

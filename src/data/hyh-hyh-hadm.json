@@ -1,0 +1,91 @@
+{
+  "title": "היה היה - האדם",
+  "originalTitle": "Il était une fois… l'Homme",
+  "year": 1979,
+  "endYear": 1980,
+  "summary": "סקירה חיננית והומוריסטית של ההיסטוריה האנושית מתחילתה ועד ימינו אנו",
+  "runtimeMinutes": 26,
+  "episodeCount": 26,
+  "ishimKeys": ["מבוסס על אירוע אמיתי"],
+  "genres": ["אנימציה", "חינוכי", "ילדים", "מדובב - זר", "תקופתי"],
+  "channel": "חינוכית",
+  "ishimNotes": [
+    {
+      "heading": "טריוויה לא מעניינת",
+      "items": [
+        "התוכנית הראשונה בטלוויזיה הלימודית ששודרה בצבע"
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "personId": "mvty-brkan",
+      "role": "dub_director",
+      "heading": "בימוי דיבוב"
+    },
+    {
+      "personId": "symvn-dvvyk",
+      "role": "dub_director",
+      "heading": "בימוי דיבוב"
+    },
+    {
+      "personId": "azra-hs",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "איש חכם"
+    },
+    {
+      "personId": "bny-hndl",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "קריינות / שעון / פייר"
+    },
+    {
+      "personId": "ytschk-nvy",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "\"השמן\" / \"הגמד\" (קול ראשון)"
+    },
+    {
+      "personId": "yakb-bvk",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "\"הבריון\""
+    },
+    {
+      "personId": "blh-gvldbrg",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "פיירט / פסי / דמויות נשיות / דודו / ילדים"
+    },
+    {
+      "personId": "mvty-brkan",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "\"הגמד\" (קול שני) / דמויות שונות"
+    },
+    {
+      "personId": "mayr-shtyyn",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "דמויות שונות"
+    }
+  ],
+  "people": [
+    {
+      "id": "symvn-dvvyk",
+      "name": "סימון דוויק",
+      "nameOriginal": "Simon Dweck"
+    },
+    {
+      "id": "blh-gvldbrg",
+      "name": "בלה גולדברג",
+      "nameOriginal": "Bella Goldberg"
+    },
+    {
+      "id": "mayr-shtyyn",
+      "name": "מאיר שטיין",
+      "nameOriginal": "Meir Stein"
+    }
+  ]
+}

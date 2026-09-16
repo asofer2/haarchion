@@ -1,0 +1,565 @@
+{
+  "name": "יעקב שם טוב",
+  "nameOriginal": "Jacob Shem-Tov",
+  "nicknames": ["יענקל'ה"],
+  "tags": ["מדבבים", "במאים", "מפיקי דיבוב"],
+  "bio": "יעקב שם טוב (יענקל'ה) הוא במאי דיבוב, מפיק ומדבב ישראלי, הבעלים של אולפני זינקו.",
+  "entryAuthors": [],
+  "ishimNotes": [
+    {
+      "heading": "כללי",
+      "items": [
+        "הבעלים של אולפני זינקו"
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "role": "director",
+      "heading": "במאי",
+      "year": 1995,
+      "title": "העולם על פי אנטיוכוס",
+      "character": "בימוי קולות ל\"קטעים מצוירים\""
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק",
+      "year": 2009,
+      "title": "נולד לטוס"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1994,
+      "title": "ילדי החירות"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1994,
+      "title": "ד\"ר עזרא"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1993,
+      "title": "הרפתקאותיו של פינוקיו"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1992,
+      "title": "פינוקי"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1992,
+      "title": "הענק הירוק"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1992,
+      "title": "ספיידרוומן"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1992,
+      "title": "סוד הגן הנעלם"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1992,
+      "title": "פיף ותלתול"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1992,
+      "title": "הרפתקאות ביער המשאלות"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1992,
+      "title": "אגדות האחים גרים"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1992,
+      "title": "סיפורים קלאסיים מצוירים"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1992,
+      "title": "בוב השד מהבקבוק"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1992,
+      "title": "הלו ספנסר"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1991,
+      "title": "ברבי הזמרת - רוק מעולם אחר"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1991,
+      "title": "אגדות ילדים"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1991,
+      "title": "חוות החיות"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1990,
+      "title": "פופו"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1990,
+      "title": "ספיידרמן וחבריו המופלאים"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1988,
+      "title": "הזרבובים"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1987,
+      "title": "קיד וידאו"
+    },
+    {
+      "role": "dub_director",
+      "heading": "במאי דיבוב",
+      "year": 1987,
+      "title": "נילס הולגרסון"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 2018,
+      "title": "מקס המדען!"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1992,
+      "title": "הענק הירוק"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1992,
+      "title": "ספיידרוומן"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1992,
+      "title": "סוד הגן הנעלם"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1992,
+      "title": "פיף ותלתול"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1992,
+      "title": "הרפתקאות ביער המשאלות"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1992,
+      "title": "אגדות האחים גרים"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1992,
+      "title": "סיפורים קלאסיים מצוירים"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1992,
+      "title": "בוב השד מהבקבוק"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1992,
+      "title": "הלו ספנסר"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1991,
+      "title": "ברבי הזמרת - רוק מעולם אחר"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1991,
+      "title": "אגדות ילדים"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1991,
+      "title": "חוות החיות"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1990,
+      "title": "פופו"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1990,
+      "title": "ספיידרמן וחבריו המופלאים"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1988,
+      "title": "הזרבובים"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1987,
+      "title": "קיד וידאו"
+    },
+    {
+      "role": "producer",
+      "heading": "מפיק דיבוב",
+      "year": 1987,
+      "title": "נילס הולגרסון"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2018,
+      "title": "מקס המדען!"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2019,
+      "title": "רילוקיישן",
+      "character": "פוסט סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2018,
+      "title": "ספורט טי. וי",
+      "character": "עריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2018,
+      "title": "70 שנה עם קישקשתא",
+      "character": "עריכת סאונד ומיקס"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2018,
+      "title": "המנצח",
+      "character": "מנכ\"ל סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2018,
+      "title": "פילו וסופי",
+      "character": "מנכ\"ל סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2018,
+      "title": "זן נדיר",
+      "character": "עריכת קול"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2018,
+      "title": "ויקי ואני",
+      "character": "מנכ\"ל סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2018,
+      "title": "כיפת ברזל",
+      "character": "מנכ\"ל סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2018,
+      "title": "ליידי טיטי",
+      "character": "ארט מדיה פוסט פרודקשיין"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2017,
+      "title": "צמר ויעלי",
+      "character": "עיצוב פסקול"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2017,
+      "title": "אזימוט",
+      "character": "פוסט סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2017,
+      "title": "רוח חדשה",
+      "character": "עריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2017,
+      "title": "האיש שניסה למנוע מלחמה",
+      "character": "עריכת סאונד / עיצוב פסקול"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2017,
+      "title": "והארץ היתה תוהו ובוהו",
+      "character": "פוסט סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2016,
+      "title": "רוח החופש",
+      "character": "עריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2016,
+      "title": "בדרך לנהר",
+      "character": "עיצוב פסקול"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2015,
+      "title": "אמא שלי ואני",
+      "character": "עריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2015,
+      "title": "הכל שפיט",
+      "character": "עריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2014,
+      "title": "מסע בקוסטה ריקה",
+      "character": "עיצוב פסקול"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2012,
+      "title": "ניקה",
+      "character": "פוסט סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2011,
+      "title": "המכולת של דוד חיים",
+      "character": "פוסט ועריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2011,
+      "title": "המכולת של דוד חיים",
+      "character": "עריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2011,
+      "title": "כוח הקצב",
+      "character": "עריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2006,
+      "title": "דיג דיג דוג - שלוש, ארבע, לעבודה!",
+      "character": "עריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2005,
+      "title": "ימים של אהבה",
+      "character": "עריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2004,
+      "title": "בין כרכור לסינגפור",
+      "character": "עריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2002,
+      "title": "החבר'ה הטובים",
+      "character": "מיקס"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2002,
+      "title": "כנפיים",
+      "character": "עריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2001,
+      "title": "ספי",
+      "character": "עריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2000,
+      "title": "חיים שכאלה",
+      "character": "מיקס"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2000,
+      "title": "שמש",
+      "character": "עריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 2000,
+      "title": "רמת אביב גימל",
+      "character": "עריכת פסקול"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 1999,
+      "title": "זמן אוויר",
+      "character": "מיקס"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 1999,
+      "title": "תסתכל לי בעיניים",
+      "character": "עריכת קול"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 1998,
+      "title": "הכל אנשים",
+      "character": "ערבול צליל"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 1996,
+      "title": "ימי",
+      "character": "עריכת פסקול"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 1996,
+      "title": "הקומדי סטור",
+      "character": "עריכת סאונד"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 1996,
+      "title": "מי האבא?",
+      "character": "עריכת פסקול"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 1993,
+      "title": "ילד בא מאהבה",
+      "character": "עיצוב פסקול"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 1990,
+      "title": "שורו",
+      "character": "הקלטת קולות"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 1987,
+      "title": "תל אביב - ברלין",
+      "character": "הקלטת אולפן"
+    },
+    {
+      "role": "actor",
+      "heading": "תפקידים שונים",
+      "year": 1982,
+      "title": "לנה",
+      "character": "מקליט"
+    }
+  ]
+}

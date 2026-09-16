@@ -44,6 +44,9 @@ next-env.d.ts
 
 # ishim scrape resume cache (compiled catalog is src/data/ishim-archive.json)
 scripts/ishim-archive/cache/
+scripts/ishim-archive/cache-*/
 scripts/ishim-archive/parsed/
+scripts/ishim-archive/parsed-*/
 scripts/ishim-archive/progress.json
+scripts/ishim-archive/progress-*.json
 scripts/ishim-archive/*.html

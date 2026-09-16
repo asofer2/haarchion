@@ -140,15 +140,32 @@ export function dedupeArchive(data: ArchiveData): ArchiveData {
     return cur;
   };
 
-  const creditKey = (c: Credit) => `${c.productionId}_${c.personId}_${c.role}`;
-  const creditMap = new Map<string, Credit>();
+  const creditKey = (c: Credit) =>
+    `${c.productionId}|${c.personId}|${c.role}|${c.characterName || ""}|${c.year || ""}|${c.endYear || ""}|${c.heading || ""}`;
+  const credits: Credit[] = [];
+  const creditIndex = new Map<string, number>();
   for (const c of data.credits) {
     const next: Credit = {
       ...c,
       personId: mapId(c.personId),
       productionId: c.productionId,
     };
-    creditMap.set(creditKey(next), next);
+    const k = creditKey(next);
+    const existingIdx = creditIndex.get(k);
+    if (existingIdx !== undefined) {
+      const existing = credits[existingIdx]!;
+      credits[existingIdx] = {
+        ...existing,
+        characterName: existing.characterName || next.characterName,
+        heading: existing.heading || next.heading,
+        year: existing.year ?? next.year,
+        endYear: existing.endYear ?? next.endYear,
+        billingOrder: existing.billingOrder ?? next.billingOrder,
+      };
+      continue;
+    }
+    creditIndex.set(k, credits.length);
+    credits.push(next);
   }
 
   const prodMap = new Map<string, Production>();
@@ -159,7 +176,7 @@ export function dedupeArchive(data: ArchiveData): ArchiveData {
   return {
     people: [...byId.values()],
     productions: [...prodMap.values()],
-    credits: [...creditMap.values()],
+    credits,
     contributions: (data.contributions || []).map((c) => ({
       ...c,
       entityId: c.entityType === "person" ? mapId(c.entityId) : c.entityId,
