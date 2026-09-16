@@ -37,6 +37,8 @@
 html {
   scroll-behavior: smooth;
   --a11y-font-scale: 1;
+  /* +10% site-wide base so rem-sized UI scales together */
+  font-size: 110%;
 }
 
 /* Content zoom — header/footer stay outside .site-main */
@@ -58,7 +60,8 @@ body {
   color: var(--ink);
   background: var(--paper);
   font-family: var(--font-heebo), "Segoe UI", sans-serif;
-  font-size: 18px;
+  /* 1.125rem ≈ former 18px at 16px root; with html 110% this is +10% overall */
+  font-size: 1.125rem;
   line-height: 1.55;
 }
 
@@ -1295,6 +1298,66 @@ html[data-line-height="true"] .prose,
 html[data-line-height="true"] .hero p,
 html[data-line-height="true"] .notice {
   line-height: 2;
+}
+
+/* Reading magnifier — glass cursor over content text */
+html[data-text-magnifier="true"] .site-main {
+  cursor: zoom-in;
+}
+
+html[data-text-magnifier="true"] .site-main :is(
+  p,
+  li,
+  td,
+  th,
+  label,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .prose,
+  .meta,
+  .tags,
+  .notice,
+  .ishim-credit-row,
+  .ishim-notes,
+  .ishim-chars,
+  .credit-list,
+  .entity-body,
+  .page-title,
+  .muted,
+  a
+) {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Ccircle cx='11' cy='11' r='7.5' fill='%23fff' fill-opacity='0.92' stroke='%231a3a6b' stroke-width='2.2'/%3E%3Cline x1='16.8' y1='16.8' x2='24' y2='24' stroke='%231a3a6b' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E")
+      6 6,
+    zoom-in;
+}
+
+.a11y-text-lens {
+  position: fixed;
+  z-index: 12000;
+  max-width: min(28rem, calc(100vw - 1.5rem));
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  border: 2px solid var(--header-bg, #1a3a6b);
+  background: #fffef8;
+  color: #111;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.55;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+  pointer-events: none;
+  transform: translate(-50%, 0);
+  direction: rtl;
+  white-space: pre-wrap;
+}
+
+html[data-high-contrast="true"] .a11y-text-lens {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
 }
 
 html[data-large-targets="true"] .site-main .btn,

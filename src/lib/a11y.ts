@@ -38,6 +38,8 @@ export interface A11yPrefs {
   reduceMotion: boolean;
   /** Simpler flat background (less visual noise) */
   plainBackground: boolean;
+  /** Magnifying-glass cursor + reading lens over text */
+  textMagnifier: boolean;
 }
 
 export const DEFAULT_A11Y: A11yPrefs = {
@@ -49,6 +51,7 @@ export const DEFAULT_A11Y: A11yPrefs = {
   largeTargets: false,
   reduceMotion: false,
   plainBackground: false,
+  textMagnifier: false,
 };
 
 export function readA11yPrefs(): A11yPrefs {
@@ -79,7 +82,8 @@ export function applyA11yPrefs(prefs: A11yPrefs, root: HTMLElement = document.do
   root.setAttribute("data-large-targets", prefs.largeTargets ? "true" : "false");
   root.setAttribute("data-reduce-motion", prefs.reduceMotion ? "true" : "false");
   root.setAttribute("data-plain-bg", prefs.plainBackground ? "true" : "false");
+  root.setAttribute("data-text-magnifier", prefs.textMagnifier ? "true" : "false");
 }
 
 /** Inline script — runs before paint to avoid flash */
-export const A11Y_BOOT_SCRIPT = `(function(){try{var k=${JSON.stringify(A11Y_STORAGE_KEY)};var r=localStorage.getItem(k);if(!r)return;var p=JSON.parse(r);var h=document.documentElement;var s=p.fontScale||"100";h.style.setProperty("--a11y-font-scale",String(Number(s)/100));h.setAttribute("data-font-scale",s);h.setAttribute("data-high-contrast",p.highContrast?"true":"false");h.setAttribute("data-letter-spacing",p.letterSpacing?"true":"false");h.setAttribute("data-line-height",p.lineHeight?"true":"false");h.setAttribute("data-underline-links",p.underlineLinks?"true":"false");h.setAttribute("data-large-targets",p.largeTargets?"true":"false");h.setAttribute("data-reduce-motion",p.reduceMotion?"true":"false");h.setAttribute("data-plain-bg",p.plainBackground?"true":"false");}catch(e){}})();`;
+export const A11Y_BOOT_SCRIPT = `(function(){try{var k=${JSON.stringify(A11Y_STORAGE_KEY)};var r=localStorage.getItem(k);if(!r)return;var p=JSON.parse(r);var h=document.documentElement;var s=p.fontScale||"100";h.style.setProperty("--a11y-font-scale",String(Number(s)/100));h.setAttribute("data-font-scale",s);h.setAttribute("data-high-contrast",p.highContrast?"true":"false");h.setAttribute("data-letter-spacing",p.letterSpacing?"true":"false");h.setAttribute("data-line-height",p.lineHeight?"true":"false");h.setAttribute("data-underline-links",p.underlineLinks?"true":"false");h.setAttribute("data-large-targets",p.largeTargets?"true":"false");h.setAttribute("data-reduce-motion",p.reduceMotion?"true":"false");h.setAttribute("data-plain-bg",p.plainBackground?"true":"false");h.setAttribute("data-text-magnifier",p.textMagnifier?"true":"false");}catch(e){}})();`;

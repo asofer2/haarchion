@@ -9,6 +9,7 @@ import {
   AccessibilityButton,
   AccessibilityPanel,
 } from "@/components/AccessibilityPanel";
+import { TextMagnifier } from "@/components/TextMagnifier";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { A11Y_BOOT_SCRIPT } from "@/lib/a11y";
@@ -71,6 +72,7 @@ export default function RootLayout({
                 <Footer />
               </div>
               <AccessibilityPanel />
+              <TextMagnifier />
             </A11yProvider>
           </ArchiveProvider>
         </AuthProvider>

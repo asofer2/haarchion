@@ -156,6 +156,13 @@ export function AccessibilityPanel() {
             onChange={(v) => setPrefs({ lineHeight: v })}
           />
           <Toggle
+            id="a11y-magnifier"
+            label="מגדלת קריאה"
+            hint="סמן מגדלת מעל טקסט, עם עדשה מוגדלת ליד העכבר"
+            checked={prefs.textMagnifier}
+            onChange={(v) => setPrefs({ textMagnifier: v })}
+          />
+          <Toggle
             id="a11y-motion"
             label="הפחתת תנועה"
             hint="ביטול אנימציות ומעברים"
