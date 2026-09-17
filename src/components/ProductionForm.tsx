@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
+import { CitationField } from "@/components/CitationField";
 import { ImageDropzone } from "@/components/ImageDropzone";
 import { useArchive } from "@/hooks/useArchive";
 import { isSiteAdmin, SITE_ADMIN_NAME } from "@/lib/admin";
@@ -13,8 +14,11 @@ import {
 import { slugify } from "@/lib/data";
 import { DUBBING_STUDIOS } from "@/lib/dubbing-studios";
 import {
+  AIR_STATUS_OPTIONS,
   PRODUCTION_KIND_FORM_OPTIONS,
   PRODUCTION_KIND_LABELS,
+  resolveAirStatus,
+  type AirStatus,
   type Production,
   type ProductionKind,
 } from "@/lib/types";
@@ -41,6 +45,10 @@ export function ProductionForm({ initial, presetKind }: Props) {
       ? (presetKind as ProductionKind)
       : "film_cinema");
 
+  const airStatusDefault: AirStatus = initial
+    ? resolveAirStatus(initial)
+    : "ended";
+
   if (!user) {
     return <p className="notice">יש להתחבר כדי לערוך ערכים.</p>;
   }
@@ -62,12 +70,21 @@ export function ProductionForm({ initial, presetKind }: Props) {
     const id = initial?.id || slugify(customId || title);
     const now = new Date().toISOString();
     const endYearRaw = String(form.get("endYear") || "");
+    const endYear = endYearRaw ? Number(endYearRaw) : undefined;
+    const airStatusRaw = String(form.get("airStatus") || "").trim();
+    const airStatus: AirStatus =
+      airStatusRaw === "ended" ||
+      airStatusRaw === "airing" ||
+      airStatusRaw === "upcoming"
+        ? airStatusRaw
+        : resolveAirStatus({ year, endYear });
     const production: Production = {
       id,
       title,
       originalTitle: String(form.get("originalTitle") || "").trim() || undefined,
       year,
-      endYear: endYearRaw ? Number(endYearRaw) : undefined,
+      endYear,
+      airStatus,
       kind: String(form.get("kind") || "film_cinema") as ProductionKind,
       summary: String(form.get("summary") || "").trim(),
       genres: String(form.get("genres") || "")
@@ -88,6 +105,12 @@ export function ProductionForm({ initial, presetKind }: Props) {
     };
 
     try {
+      const citation = String(form.get("citation") || "").trim();
+      if (!citation) {
+        setError("יש למלא סימוכין — מקור העדכון");
+        setSaving(false);
+        return;
+      }
       const result = await requestOrApplyProductionSave(
         {
           uid: user!.uid,
@@ -95,7 +118,8 @@ export function ProductionForm({ initial, presetKind }: Props) {
           email: user!.email,
         },
         production,
-        !initial
+        !initial,
+        citation
       );
       if (result.pending) {
         setPendingNotice(PENDING_NOTICE);
@@ -163,6 +187,16 @@ export function ProductionForm({ initial, presetKind }: Props) {
               )}
           </select>
         </label>
+        <label>
+          סטטוס
+          <select name="airStatus" defaultValue={airStatusDefault}>
+            {AIR_STATUS_OPTIONS.map((opt) => (
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
+          </select>
+        </label>
       </div>
       <label>
         ז׳אנרים (מופרדים בפסיק)
@@ -207,8 +241,8 @@ export function ProductionForm({ initial, presetKind }: Props) {
       <fieldset className="activity-fieldset">
         <legend>מקור וייחוס</legend>
         <p className="muted">
-          על איזה מקור התבסס הערך? יופיע בתחתית דף ההפקה ובהיסטוריית
-          העדכונים.
+          מקור קבוע של הערך (יופיע בתחתית הדף). נפרד מסימוכין של העדכון
+          הנוכחי.
         </p>
         <label>
           מקור (טקסט)
@@ -229,6 +263,8 @@ export function ProductionForm({ initial, presetKind }: Props) {
           />
         </label>
       </fieldset>
+
+      <CitationField />
 
       {error && <p className="form-error">{error}</p>}
       <button className="btn btn-primary" type="submit" disabled={saving}>

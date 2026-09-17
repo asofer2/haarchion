@@ -17,6 +17,7 @@ import {
   isCreatedByUser,
   syncMyCreationsToCloud,
 } from "@/lib/data";
+import { contributionCitation } from "@/lib/entity-provenance";
 import { isFirebaseConfigured } from "@/lib/firebase";
 import { formatProductionTitle } from "@/lib/production-title";
 
@@ -205,6 +206,7 @@ export default function ProfilePage() {
                   <span className="meta">
                     {" "}
                     · {r.action === "create" ? "הוספה" : r.action === "delete" ? "מחיקה" : "עדכון"}
+                    {r.citation?.trim() ? ` · סימוכין: ${r.citation.trim()}` : ""}
                   </span>
                 </li>
               ))}
@@ -265,6 +267,9 @@ export default function ProfilePage() {
                   {" "}
                   · {c.entityType === "person" ? "אישיות" : "הפקה"} ·{" "}
                   {formatDateHe(c.at)}
+                  {contributionCitation(c)
+                    ? ` · סימוכין: ${contributionCitation(c)}`
+                    : ""}
                 </span>
               </li>
             ))}

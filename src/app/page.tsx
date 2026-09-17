@@ -8,6 +8,8 @@ import { useAuth } from "@/components/AuthProvider";
 import { isSiteAdmin } from "@/lib/admin";
 import { useArchive } from "@/hooks/useArchive";
 import { bornToday, formatDateHe, recentUpdates } from "@/lib/data";
+import { formatProductionTitle } from "@/lib/production-title";
+import { upcomingProductions } from "@/lib/types";
 import { directoryCount, ISHIM_DIRECTORY } from "@/lib/ishim-directory";
 
 export default function HomePage() {
@@ -28,6 +30,7 @@ export default function HomePage() {
 
   const todayPeople = bornToday(data.people);
   const latest = recentUpdates(data, 3);
+  const upcoming = upcomingProductions(data.productions, 8);
 
   return (
     <>
@@ -90,6 +93,25 @@ export default function HomePage() {
                 </span>{" "}
                 <Link href={item.href}>{item.title}</Link>
                 <span className="meta"> · {formatDateHe(item.at)}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {upcoming.length > 0 && (
+        <section className="section">
+          <div className="section-head">
+            <h2>עתידי</h2>
+          </div>
+          <ul className="activity-list">
+            {upcoming.map((production) => (
+              <li key={production.id}>
+                <span className="chip">עתידי</span>{" "}
+                <Link href={`/productions/${encodeURIComponent(production.id)}`}>
+                  {formatProductionTitle(production)}
+                </Link>
+                <span className="meta"> · {production.year}</span>
               </li>
             ))}
           </ul>

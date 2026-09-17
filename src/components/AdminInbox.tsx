@@ -181,6 +181,22 @@ export function AdminInbox({ compact = false }: { compact?: boolean }) {
                       : ""}{" "}
                     · {formatDateHe(request.createdAt)}
                   </p>
+                  {request.citation?.trim() ? (
+                    <p className="meta">
+                      סימוכין:{" "}
+                      {/^https?:\/\//i.test(request.citation.trim()) ? (
+                        <a
+                          href={request.citation.trim()}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {request.citation.trim()}
+                        </a>
+                      ) : (
+                        request.citation.trim()
+                      )}
+                    </p>
+                  ) : null}
                 </div>
                 <div className="admin-request-actions">
                   <button

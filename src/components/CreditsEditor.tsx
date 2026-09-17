@@ -2,6 +2,7 @@
 
 import { FormEvent, useMemo, useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
+import { CitationField } from "@/components/CitationField";
 import { PersonTypeahead } from "@/components/PersonTypeahead";
 import { isSiteAdmin, SITE_ADMIN_NAME } from "@/lib/admin";
 import {
@@ -43,7 +44,9 @@ export function CreditsEditor({
   const people = data.people;
 
   function updateRow(index: number, patch: Partial<Credit>) {
-    setRows((prev) => prev.map((row, i) => (i === index ? { ...row, ...patch } : row)));
+    setRows((prev) =>
+      prev.map((row, i) => (i === index ? { ...row, ...patch } : row))
+    );
   }
 
   async function onSubmit(e: FormEvent) {
@@ -55,6 +58,12 @@ export function CreditsEditor({
         setMessage("יש להתחבר כדי לשמור קרדיטים");
         return;
       }
+      const form = e.currentTarget as HTMLFormElement;
+      const citation = String(new FormData(form).get("citation") || "").trim();
+      if (!citation) {
+        setMessage("יש למלא סימוכין — מקור העדכון");
+        return;
+      }
       const cleaned = rows.filter((r) => r.personId && r.role);
       const result = await requestOrApplyProductionCredits(
         {
@@ -64,7 +73,8 @@ export function CreditsEditor({
         },
         productionId,
         productionTitle,
-        cleaned
+        cleaned,
+        citation
       );
       setMessage(result.pending ? PENDING_NOTICE : "הקרדיטים נשמרו");
       if (!result.pending) onSaved?.();
@@ -76,7 +86,11 @@ export function CreditsEditor({
   }
 
   return (
-    <form className="edit-form" onSubmit={onSubmit} style={{ marginTop: "1.5rem" }}>
+    <form
+      className="edit-form"
+      onSubmit={onSubmit}
+      style={{ marginTop: "1.5rem" }}
+    >
       <h2 style={{ margin: 0, fontFamily: "var(--font-rubik)" }}>קרדיטים</h2>
       <p className="muted">
         חיפוש אישיות לפי שם — הקלידו לבחירה מהרשימה.
@@ -111,18 +125,23 @@ export function CreditsEditor({
             דמות (אופציונלי)
             <input
               value={row.characterName || ""}
-              onChange={(e) => updateRow(index, { characterName: e.target.value })}
+              onChange={(e) =>
+                updateRow(index, { characterName: e.target.value })
+              }
             />
           </label>
           <button
             type="button"
             className="btn btn-ghost"
-            onClick={() => setRows((prev) => prev.filter((_, i) => i !== index))}
+            onClick={() =>
+              setRows((prev) => prev.filter((_, i) => i !== index))
+            }
           >
             הסרה
           </button>
         </div>
       ))}
+      <CitationField />
       <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
         <button
           type="button"

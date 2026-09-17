@@ -9,6 +9,11 @@ export function contributorDisplayName(c: Contribution): string {
   return "עורך/ת רשום/ה";
 }
 
+/** סימוכין של עדכון — citation חדש, או sourceNote ישן לתאימות */
+export function contributionCitation(c: Contribution): string {
+  return c.citation?.trim() || c.sourceNote?.trim() || "";
+}
+
 export function contributionsForEntity(
   contributions: Contribution[],
   entityType: "person" | "production",

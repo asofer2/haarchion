@@ -337,6 +337,7 @@ function mergeWithSeed(data: ArchiveData): ArchiveData {
       ...existing,
       originalTitle: existing.originalTitle || seed.originalTitle,
       endYear: existing.endYear ?? seed.endYear,
+      airStatus: existing.airStatus ?? seed.airStatus,
       channel: existing.channel || seed.channel,
       studio: existing.studio || seed.studio,
       dubbingStudio: existing.dubbingStudio || seed.dubbingStudio,
@@ -531,6 +532,7 @@ function sameProduction(a: Production | undefined, b: Production): boolean {
     a.kind === b.kind &&
     a.summary === b.summary &&
     a.imageUrl === b.imageUrl &&
+    (a.airStatus || undefined) === (b.airStatus || undefined) &&
     a.updatedAt === b.updatedAt
   );
 }
@@ -1033,6 +1035,8 @@ export async function savePerson(
     userId?: string;
     userName?: string;
     isNew?: boolean;
+    /** סימוכין — מקור העדכון */
+    citation?: string;
     sourceNote?: string;
   }
 ): Promise<void> {
@@ -1059,6 +1063,11 @@ export async function savePerson(
   const isNew = idx < 0;
   if (idx >= 0) data.people[idx] = toSave;
   else data.people.push(toSave);
+  const personCitation =
+    meta?.citation?.trim() ||
+    meta?.sourceNote?.trim() ||
+    person.sourceNote?.trim() ||
+    undefined;
   if (meta?.userId) {
     data = pushContribution(data, {
       userId: meta.userId,
@@ -1068,7 +1077,8 @@ export async function savePerson(
       entityTitle: toSave.name,
       action: (meta.isNew ?? isNew) ? "create" : "update",
       at: toSave.updatedAt,
-      sourceNote: meta.sourceNote || person.sourceNote,
+      citation: personCitation,
+      sourceNote: personCitation,
     });
   }
   writeLocal(data);
@@ -1134,7 +1144,8 @@ export async function savePerson(
         entityTitle: toSave.name,
         action: meta.isNew ? "create" : "update",
         at: toSave.updatedAt,
-        sourceNote: meta.sourceNote || toSave.sourceNote,
+        citation: personCitation,
+        sourceNote: personCitation,
       };
       await withTimeout(
         setDoc(
@@ -1156,6 +1167,8 @@ export async function saveProduction(
     userId?: string;
     userName?: string;
     isNew?: boolean;
+    /** סימוכין — מקור העדכון */
+    citation?: string;
     sourceNote?: string;
   }
 ): Promise<void> {
@@ -1168,6 +1181,11 @@ export async function saveProduction(
   const isNew = idx < 0;
   if (idx >= 0) data.productions[idx] = toSave;
   else data.productions.push(toSave);
+  const productionCitation =
+    meta?.citation?.trim() ||
+    meta?.sourceNote?.trim() ||
+    production.sourceNote?.trim() ||
+    undefined;
   if (meta?.userId) {
     data = pushContribution(data, {
       userId: meta.userId,
@@ -1177,7 +1195,8 @@ export async function saveProduction(
       entityTitle: toSave.title,
       action: (meta.isNew ?? isNew) ? "create" : "update",
       at: toSave.updatedAt,
-      sourceNote: meta.sourceNote || production.sourceNote,
+      citation: productionCitation,
+      sourceNote: productionCitation,
     });
   }
   writeLocal(data);
@@ -1247,7 +1266,8 @@ export async function saveProduction(
         entityTitle: toSave.title,
         action: meta.isNew ? "create" : "update",
         at: toSave.updatedAt,
-        sourceNote: meta.sourceNote || toSave.sourceNote,
+        citation: productionCitation,
+        sourceNote: productionCitation,
       };
       await withTimeout(
         setDoc(
@@ -1265,7 +1285,13 @@ export async function saveProduction(
 
 export async function saveCreditsForProduction(
   productionId: string,
-  credits: Credit[]
+  credits: Credit[],
+  meta?: {
+    userId?: string;
+    userName?: string;
+    entityTitle?: string;
+    citation?: string;
+  }
 ): Promise<void> {
   if (isFirebaseConfigured()) {
     await requireCloudAuth();
@@ -1291,6 +1317,46 @@ export async function saveCreditsForProduction(
     ...data.credits.filter((c) => c.productionId !== productionId),
     ...credits,
   ];
+  const creditCitation = meta?.citation?.trim() || undefined;
+  const now = new Date().toISOString();
+  if (meta?.userId) {
+    const title =
+      meta.entityTitle ||
+      data.productions.find((p) => p.id === productionId)?.title ||
+      productionId;
+    data = pushContribution(data, {
+      userId: meta.userId,
+      userName: meta.userName,
+      entityType: "production",
+      entityId: productionId,
+      entityTitle: `${title} — קרדיטים`,
+      action: "update",
+      at: now,
+      citation: creditCitation,
+      sourceNote: creditCitation,
+    });
+    if (isFirebaseConfigured()) {
+      const db = getFirebaseDb();
+      if (db) {
+        const contribution: Contribution = {
+          id: `${meta.userId}-production-${productionId}-${now}`,
+          userId: meta.userId,
+          userName: meta.userName,
+          entityType: "production",
+          entityId: productionId,
+          entityTitle: `${title} — קרדיטים`,
+          action: "update",
+          at: now,
+          citation: creditCitation,
+          sourceNote: creditCitation,
+        };
+        await setDoc(
+          doc(db, "contributions", contribution.id),
+          asFirestoreDoc(contribution as unknown as Record<string, unknown>)
+        );
+      }
+    }
+  }
   writeLocal(data);
   memoryCache = { data, at: Date.now() };
 }

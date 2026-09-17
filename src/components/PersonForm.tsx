@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { CitationField } from "@/components/CitationField";
 import { useAuth } from "@/components/AuthProvider";
 import { ImageDropzone } from "@/components/ImageDropzone";
 import {
@@ -121,6 +122,12 @@ export function PersonForm({ initial }: Props) {
     };
 
     try {
+      const citation = String(form.get("citation") || "").trim();
+      if (!citation) {
+        setError("יש למלא סימוכין — מקור העדכון");
+        setSaving(false);
+        return;
+      }
       const creditInputs = ISHIM_CREDIT_SECTIONS.flatMap((section) =>
         (categoryRows[section.heading] || [])
           .filter((row) => row.title.trim())
@@ -140,7 +147,8 @@ export function PersonForm({ initial }: Props) {
         },
         person,
         creditInputs,
-        !initial
+        !initial,
+        citation
       );
       if (result.pending) {
         setPendingNotice(PENDING_NOTICE);
@@ -240,8 +248,8 @@ export function PersonForm({ initial }: Props) {
       <fieldset className="activity-fieldset">
         <legend>מקור וייחוס</legend>
         <p className="muted">
-          על איזה מקור התבסס הערך? יופיע בתחתית דף האישיות ובהיסטוריית
-          העדכונים.
+          מקור קבוע של הערך (יופיע בתחתית הדף). נפרד מסימוכין של העדכון
+          הנוכחי.
         </p>
         <label>
           מקור (טקסט)
@@ -262,6 +270,8 @@ export function PersonForm({ initial }: Props) {
           />
         </label>
       </fieldset>
+
+      <CitationField />
 
       <PersonCategoryCredits
         rows={categoryRows}

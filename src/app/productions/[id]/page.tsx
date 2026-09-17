@@ -26,7 +26,9 @@ import {
   masculineRoleLabel,
 } from "@/lib/person-gender";
 import {
+  airStatusLabel,
   productionKindLabel,
+  resolveAirStatus,
   type Credit,
   type CreditRole,
   type Person,
@@ -189,6 +191,10 @@ function IshimProductionBody({
         <div>
           <dt>סוג:</dt>
           <dd>{productionKindLabel(production.kind)}</dd>
+        </div>
+        <div>
+          <dt>סטטוס:</dt>
+          <dd>{airStatusLabel(resolveAirStatus(production))}</dd>
         </div>
         {production.originalTitle ? (
           <div>

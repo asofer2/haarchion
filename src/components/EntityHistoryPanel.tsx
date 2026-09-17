@@ -3,6 +3,7 @@
 import Link from "next/link";
 import {
   contributorDisplayName,
+  contributionCitation,
   contributionsForEntity,
   resolveEntitySource,
   type ArchiveEntity,
@@ -66,7 +67,7 @@ export function EntityHistoryPanel({
         {history.length === 0 ? (
           <p className="muted">
             אין עדיין רישום עריכות לערך זה. עריכות שיבוצעו לאחר התחברות יופיעו
-            כאן — מי ערך/ה, מתי, ועל איזה מקור התבסס/ה.
+            כאן — מי ערך/ה, מתי, ומה הסימוכין לעדכון.
           </p>
         ) : (
           <table className="history-table">
@@ -75,18 +76,34 @@ export function EntityHistoryPanel({
                 <th>תאריך</th>
                 <th>עורך/ת</th>
                 <th>פעולה</th>
-                <th>מקור בעריכה</th>
+                <th>סימוכין</th>
               </tr>
             </thead>
             <tbody>
-              {history.map((c) => (
-                <tr key={c.id}>
-                  <td>{formatDateHe(c.at)}</td>
-                  <td>{contributorDisplayName(c)}</td>
-                  <td>{c.action === "create" ? "יצירת הערך" : "עדכון"}</td>
-                  <td>{c.sourceNote?.trim() || "—"}</td>
-                </tr>
-              ))}
+              {history.map((c) => {
+                const citation = contributionCitation(c);
+                const looksLikeUrl = /^https?:\/\//i.test(citation);
+                return (
+                  <tr key={c.id}>
+                    <td>{formatDateHe(c.at)}</td>
+                    <td>{contributorDisplayName(c)}</td>
+                    <td>{c.action === "create" ? "יצירת הערך" : "עדכון"}</td>
+                    <td>
+                      {citation ? (
+                        looksLikeUrl ? (
+                          <a href={citation} target="_blank" rel="noreferrer">
+                            {citation}
+                          </a>
+                        ) : (
+                          citation
+                        )
+                      ) : (
+                        "—"
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         )}
@@ -94,3 +111,4 @@ export function EntityHistoryPanel({
     </>
   );
 }
+

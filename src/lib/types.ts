@@ -160,6 +160,81 @@ export function productionKindLabel(kind: ProductionKind | string): string {
   );
 }
 
+/** סטטוס שידור / הפקה: הסתיים | משודר כעת | עתידי */
+export type AirStatus = "ended" | "airing" | "upcoming";
+
+export const AIR_STATUS_LABELS: Record<AirStatus, string> = {
+  ended: "הסתיים",
+  airing: "משודר כעת",
+  upcoming: "עתידי",
+};
+
+export const AIR_STATUS_OPTIONS: { value: AirStatus; label: string }[] = [
+  { value: "ended", label: AIR_STATUS_LABELS.ended },
+  { value: "airing", label: AIR_STATUS_LABELS.airing },
+  { value: "upcoming", label: AIR_STATUS_LABELS.upcoming },
+];
+
+/**
+ * היוריסטיקה כשאין airStatus מפורש:
+ * - year > השנה הנוכחית → upcoming
+ * - endYear מוגדר ו־endYear < השנה הנוכחית → ended
+ * - endYear מוגדר ו־endYear ≥ השנה הנוכחית → airing
+ * - בלי endYear ו־year < השנה הנוכחית → ended
+ * - בלי endYear ו־year === השנה הנוכחית → airing
+ * ערך מפורש ב־airStatus תמיד גובר.
+ */
+export function inferAirStatus(
+  production: { year: number; endYear?: number },
+  nowYear = new Date().getFullYear()
+): AirStatus {
+  const { year, endYear } = production;
+  if (year > nowYear) return "upcoming";
+  if (endYear != null) {
+    if (endYear < nowYear) return "ended";
+    return "airing";
+  }
+  if (year < nowYear) return "ended";
+  return "airing";
+}
+
+export function resolveAirStatus(
+  production: {
+    year: number;
+    endYear?: number;
+    airStatus?: AirStatus;
+  },
+  nowYear = new Date().getFullYear()
+): AirStatus {
+  const explicit = production.airStatus;
+  if (
+    explicit === "ended" ||
+    explicit === "airing" ||
+    explicit === "upcoming"
+  ) {
+    return explicit;
+  }
+  return inferAirStatus(production, nowYear);
+}
+
+export function airStatusLabel(status: AirStatus | string): string {
+  return AIR_STATUS_LABELS[status as AirStatus] || String(status);
+}
+
+/** הפקות עתידיות (airStatus / היוריסטיקת שנים), ממוינות לפי שנה. */
+export function upcomingProductions<T extends { year: number; endYear?: number; airStatus?: AirStatus; title: string }>(
+  productions: T[],
+  limit = 12
+): T[] {
+  return productions
+    .filter((p) => resolveAirStatus(p) === "upcoming")
+    .sort(
+      (a, b) =>
+        a.year - b.year || a.title.localeCompare(b.title, "he")
+    )
+    .slice(0, limit);
+}
+
 export interface Credit {
   personId: string;
   productionId: string;
@@ -221,6 +296,10 @@ export interface Production {
   originalTitle?: string;
   year: number;
   endYear?: number;
+  /**
+   * סטטוס שידור מפורש. אם חסר — נקבע לפי year/endYear (ראו resolveAirStatus).
+   */
+  airStatus?: AirStatus;
   kind: ProductionKind;
   summary: string;
   genres: string[];
@@ -260,7 +339,9 @@ export interface Contribution {
   entityTitle: string;
   action: "create" | "update";
   at: string;
-  /** מקור שצוין בעת העריכה */
+  /** סימוכין — מקור העדכון (URL, ספר, Wayback וכו׳) */
+  citation?: string;
+  /** @deprecated השתמשו ב־citation; נשמר לתאימות לרשומות ישנות */
   sourceNote?: string;
 }
 

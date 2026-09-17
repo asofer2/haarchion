@@ -42,6 +42,8 @@ export interface ChangeRequest {
   createdAt: string;
   reviewedAt?: string;
   reviewedBy?: string;
+  /** סימוכין — מקור העדכון שצוין בשליחה */
+  citation?: string;
   person?: Person;
   production?: Production;
   creditInputs?: PersonCategoryCreditInput[];
@@ -787,14 +789,17 @@ export async function requestOrApplyPersonSave(
   user: ModerationUser,
   person: Person,
   creditInputs: PersonCategoryCreditInput[],
-  isNew: boolean
+  isNew: boolean,
+  citation?: string
 ): Promise<SubmitResult> {
+  const citationTrimmed = citation?.trim() || undefined;
   if (isSiteAdmin(user)) {
     await savePerson(person, {
       userId: user.uid,
       userName: user.displayName,
       isNew,
-      sourceNote: person.sourceNote,
+      citation: citationTrimmed,
+      sourceNote: citationTrimmed || person.sourceNote,
     });
     await savePersonCategoryCredits(person.id, creditInputs, ACTIVITY_LIST, {
       userId: user.uid,
@@ -807,6 +812,7 @@ export async function requestOrApplyPersonSave(
     entityType: "person",
     entityId: person.id,
     entityTitle: person.name,
+    citation: citationTrimmed,
     person,
     creditInputs,
   });
@@ -815,14 +821,17 @@ export async function requestOrApplyPersonSave(
 export async function requestOrApplyProductionSave(
   user: ModerationUser,
   production: Production,
-  isNew: boolean
+  isNew: boolean,
+  citation?: string
 ): Promise<SubmitResult> {
+  const citationTrimmed = citation?.trim() || undefined;
   if (isSiteAdmin(user)) {
     await saveProduction(production, {
       userId: user.uid,
       userName: user.displayName,
       isNew,
-      sourceNote: production.sourceNote,
+      citation: citationTrimmed,
+      sourceNote: citationTrimmed || production.sourceNote,
     });
     return { pending: false };
   }
@@ -831,6 +840,7 @@ export async function requestOrApplyProductionSave(
     entityType: "production",
     entityId: production.id,
     entityTitle: production.title,
+    citation: citationTrimmed,
     production,
   });
 }
@@ -858,10 +868,17 @@ export async function requestOrApplyProductionCredits(
   user: ModerationUser,
   productionId: string,
   productionTitle: string,
-  credits: Credit[]
+  credits: Credit[],
+  citation?: string
 ): Promise<SubmitResult> {
+  const citationTrimmed = citation?.trim() || undefined;
   if (isSiteAdmin(user)) {
-    await saveCreditsForProduction(productionId, credits);
+    await saveCreditsForProduction(productionId, credits, {
+      userId: user.uid,
+      userName: user.displayName,
+      entityTitle: productionTitle,
+      citation: citationTrimmed,
+    });
     return { pending: false };
   }
   return queueRequest(user, {
@@ -869,6 +886,7 @@ export async function requestOrApplyProductionCredits(
     entityType: "production",
     entityId: productionId,
     entityTitle: `${productionTitle} — קרדיטים`,
+    citation: citationTrimmed,
     credits,
   });
 }
@@ -889,7 +907,8 @@ export async function approveChangeRequest(
       userId: full.requestedBy,
       userName: full.requestedByName,
       isNew: full.action === "create",
-      sourceNote: full.person.sourceNote,
+      citation: full.citation,
+      sourceNote: full.citation || full.person.sourceNote,
     });
     if (full.creditInputs) {
       await savePersonCategoryCredits(
@@ -908,11 +927,17 @@ export async function approveChangeRequest(
         userId: full.requestedBy,
         userName: full.requestedByName,
         isNew: full.action === "create",
-        sourceNote: full.production.sourceNote,
+        citation: full.citation,
+        sourceNote: full.citation || full.production.sourceNote,
       });
     }
     if (full.credits) {
-      await saveCreditsForProduction(full.entityId, full.credits);
+      await saveCreditsForProduction(full.entityId, full.credits, {
+        userId: full.requestedBy,
+        userName: full.requestedByName,
+        entityTitle: full.entityTitle.replace(/ — קרדיטים$/, ""),
+        citation: full.citation,
+      });
     }
     if (!full.production && !full.credits) {
       throw new Error(
