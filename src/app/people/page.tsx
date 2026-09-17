@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { ArchiveSkeleton } from "@/components/ArchiveSkeleton";
 import { PersonCard } from "@/components/PersonCard";
 import { useArchive } from "@/hooks/useArchive";
 import { useAuth } from "@/components/AuthProvider";
@@ -38,7 +39,7 @@ export default function PeoplePage() {
 
   const shown = people.slice(0, visible);
 
-  if (loading && !data) return <p className="notice">טוען אישים…</p>;
+  if (loading && !data) return <ArchiveSkeleton label="טוען אישים…" cards={8} />;
   if (error || !data) return <p className="form-error">{error || "שגיאה"}</p>;
 
   return (

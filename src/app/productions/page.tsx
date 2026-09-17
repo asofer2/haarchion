@@ -3,6 +3,7 @@
 import { Suspense, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { ArchiveSkeleton } from "@/components/ArchiveSkeleton";
 import { ProductionCard } from "@/components/ProductionCard";
 import { useArchive } from "@/hooks/useArchive";
 import { useAuth } from "@/components/AuthProvider";
@@ -41,7 +42,9 @@ function ProductionsInner() {
 
   const shown = productions.slice(0, visible);
 
-  if (loading && !data) return <p className="notice">טוען הפקות…</p>;
+  if (loading && !data) {
+    return <ArchiveSkeleton label="טוען הפקות…" cards={8} />;
+  }
   if (error || !data) return <p className="form-error">{error || "שגיאה"}</p>;
 
   const title = kindItem?.label || "הפקות";
@@ -128,7 +131,7 @@ function ProductionsInner() {
 
 export default function ProductionsPage() {
   return (
-    <Suspense fallback={<p className="notice">טוען הפקות…</p>}>
+    <Suspense fallback={<ArchiveSkeleton label="טוען הפקות…" cards={8} />}>
       <ProductionsInner />
     </Suspense>
   );

@@ -188,7 +188,7 @@ export function ProductionForm({ initial, presetKind }: Props) {
           </select>
         </label>
         <label>
-          סטטוס
+          סטטוס שידור
           <select name="airStatus" defaultValue={airStatusDefault}>
             {AIR_STATUS_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>

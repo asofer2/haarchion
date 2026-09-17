@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useMemo } from "react";
 import { useAuth } from "@/components/AuthProvider";
+import { ArchiveSkeleton } from "@/components/ArchiveSkeleton";
 import { EntityImage } from "@/components/EntityImage";
 import { OwnerActions } from "@/components/OwnerActions";
 import { EntityProvenance } from "@/components/EntityProvenance";
@@ -307,7 +308,7 @@ export default function ProductionDetailPage() {
     [data, production]
   );
 
-  if (loading && !data) return <p className="notice">טוען…</p>;
+  if (loading && !data) return <ArchiveSkeleton label="טוען…" cards={4} />;
   if (error) return <p className="form-error">{error}</p>;
   if (!production) return <p className="form-error">ההפקה לא נמצאה</p>;
 

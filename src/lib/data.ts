@@ -418,6 +418,16 @@ function stampArchiveCredits(data: ArchiveData): ArchiveData {
   };
 }
 
+/** Shared by server cache loaders (`archive-server`) and client `loadArchive`. */
+export function normalizeArchiveData(data: ArchiveData): ArchiveData {
+  return normalize(data);
+}
+
+/** Normalized seed baseline (no localStorage) — safe on server. */
+export function seedArchiveBaseline(): ArchiveData {
+  return normalize(cloneSeed());
+}
+
 function normalize(data: ArchiveData): ArchiveData {
   return applyIshimPersonPatches(
     ensureDiscographyProductions(
@@ -954,6 +964,35 @@ async function enrichWithIshimCatalog(
   }
 }
 
+/**
+ * Prefer CDN-cached `/api/archive` (server `unstable_cache`) over four browser
+ * Firestore getDocs. Falls back to direct client reads if the API is unavailable.
+ */
+async function fetchCachedArchiveFromApi(
+  force: boolean
+): Promise<ArchiveData | null> {
+  if (typeof window === "undefined") return null;
+  try {
+    const url = force ? "/api/archive?fresh=1" : "/api/archive";
+    const res = await withTimeout(
+      fetch(url, {
+        cache: force ? "no-store" : "default",
+        headers: { Accept: "application/json" },
+      }),
+      FIRESTORE_LOAD_MS,
+      "Archive API"
+    );
+    if (!res.ok) return null;
+    const json = (await res.json()) as ArchiveData;
+    if (!json || !Array.isArray(json.people) || !Array.isArray(json.productions)) {
+      return null;
+    }
+    return normalize(json);
+  } catch {
+    return null;
+  }
+}
+
 export async function loadArchive(
   force = false,
   opts?: { onRemote?: (data: ArchiveData) => void }
@@ -978,11 +1017,13 @@ export async function loadArchive(
     firestoreSyncInFlight = true;
     void (async () => {
       try {
-        const remote = await withTimeout(
-          readFirestoreArchive(),
-          FIRESTORE_LOAD_MS,
-          "Firestore load"
-        );
+        const remote =
+          (await fetchCachedArchiveFromApi(force)) ??
+          (await withTimeout(
+            readFirestoreArchive(),
+            FIRESTORE_LOAD_MS,
+            "Firestore load"
+          ));
         const merged = mergeArchives(local, remote);
         if (!ishimCatalog) cacheLocally(merged);
         await enrichWithIshimCatalog(merged, opts?.onRemote);

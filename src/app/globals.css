@@ -435,6 +435,69 @@ img {
   color: var(--ink-soft);
 }
 
+.archive-loading {
+  padding: 0.25rem 0 1.5rem;
+}
+
+.archive-skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.archive-skeleton-card {
+  border: 1px solid var(--line);
+  background: var(--card);
+  overflow: hidden;
+}
+
+.archive-skeleton-media {
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(
+    90deg,
+    var(--paper-2) 0%,
+    #e8e8e8 50%,
+    var(--paper-2) 100%
+  );
+  background-size: 200% 100%;
+  animation: archive-skeleton-pulse 1.2s ease-in-out infinite;
+}
+
+.archive-skeleton-line {
+  height: 0.85rem;
+  margin: 0.75rem 0.75rem 0.45rem;
+  border-radius: 2px;
+  background: var(--paper-2);
+  animation: archive-skeleton-pulse 1.2s ease-in-out infinite;
+}
+
+.archive-skeleton-line.short {
+  width: 55%;
+  margin-bottom: 0.85rem;
+}
+
+@keyframes archive-skeleton-pulse {
+  0% {
+    background-position: 100% 0;
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    background-position: -100% 0;
+    opacity: 0.7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .archive-skeleton-media,
+  .archive-skeleton-line {
+    animation: none;
+  }
+}
+
 .grid-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));

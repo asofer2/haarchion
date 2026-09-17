@@ -67,8 +67,8 @@ export function middleware(req: NextRequest) {
     );
   }
 
-  // Rate-limit public image/proxy APIs
-  if (pathname.startsWith("/api/")) {
+  // Rate-limit public image/proxy APIs (skip cold-start warmer)
+  if (pathname.startsWith("/api/") && pathname !== "/api/ping") {
     const key = `api:${ip}:${pathname.split("/", 3).slice(0, 3).join("/")}`;
     if (rateLimited(key, API_MAX_HITS, API_WINDOW_MS)) {
       return withSecurityHeaders(

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo } from "react";
 import { AdminInbox } from "@/components/AdminInbox";
+import { ArchiveSkeleton } from "@/components/ArchiveSkeleton";
 import { PersonCard } from "@/components/PersonCard";
 import { useAuth } from "@/components/AuthProvider";
 import { isSiteAdmin } from "@/lib/admin";
@@ -25,7 +26,7 @@ export default function HomePage() {
     }));
   }, [data]);
 
-  if (loading && !data) return <p className="notice">טוען את אישים…</p>;
+  if (loading && !data) return <ArchiveSkeleton label="טוען את אישים…" />;
   if (error || !data) return <p className="form-error">{error || "שגיאה"}</p>;
 
   const todayPeople = bornToday(data.people);
@@ -99,11 +100,16 @@ export default function HomePage() {
         </section>
       )}
 
-      {upcoming.length > 0 && (
-        <section className="section">
-          <div className="section-head">
-            <h2>עתידי</h2>
-          </div>
+      <section className="section">
+        <div className="section-head">
+          <h2>עתידי</h2>
+        </div>
+        {upcoming.length === 0 ? (
+          <p className="muted">
+            אין הפקות עתידיות בארכיון. בעריכת סדרה או סרט אפשר לבחור סטטוס
+            «עתידי» (או «משודר כעת» / «הסתיים»).
+          </p>
+        ) : (
           <ul className="activity-list">
             {upcoming.map((production) => (
               <li key={production.id}>
@@ -115,8 +121,8 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-        </section>
-      )}
+        )}
+      </section>
     </>
   );
 }

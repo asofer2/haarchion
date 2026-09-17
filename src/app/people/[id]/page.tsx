@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { useMemo } from "react";
 import { useAuth } from "@/components/AuthProvider";
 import { AdminInbox } from "@/components/AdminInbox";
+import { ArchiveSkeleton } from "@/components/ArchiveSkeleton";
 import { EntityImage } from "@/components/EntityImage";
 import { EntityProvenance } from "@/components/EntityProvenance";
 import { OwnerActions } from "@/components/OwnerActions";
@@ -123,7 +124,7 @@ export default function PersonDetailPage() {
       });
   }, [data, person, gender]);
 
-  if (loading && !data) return <p className="notice">טוען…</p>;
+  if (loading && !data) return <ArchiveSkeleton label="טוען…" cards={4} />;
   if (error) return <p className="form-error">{error}</p>;
   if (!person) {
     return (

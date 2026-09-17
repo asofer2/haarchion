@@ -6,12 +6,17 @@ import {
   showsActivityYearsInTitle,
 } from "@/lib/production-title";
 import type { Production } from "@/lib/types";
-import { productionKindLabel } from "@/lib/types";
+import {
+  airStatusLabel,
+  productionKindLabel,
+  resolveAirStatus,
+} from "@/lib/types";
 
 export function ProductionCard({ production }: { production: Production }) {
   const displayTitle = formatProductionTitle(production);
   const years = formatProductionYears(production.year, production.endYear);
   const yearsInTitle = showsActivityYearsInTitle(production.kind);
+  const airStatus = resolveAirStatus(production);
 
   return (
     <Link href={`/productions/${encodeURIComponent(production.id)}`} className="entity-card">
@@ -24,6 +29,7 @@ export function ProductionCard({ production }: { production: Production }) {
           {productionKindLabel(production.kind)}
           {!yearsInTitle && years ? ` · ${years}` : ""}
           {production.dubbingStudio ? ` · ${production.dubbingStudio}` : ""}
+          {airStatus !== "ended" ? ` · ${airStatusLabel(airStatus)}` : ""}
         </p>
         {production.genres.length > 0 && (
           <p className="tags">{production.genres.slice(0, 3).join(" · ")}</p>
