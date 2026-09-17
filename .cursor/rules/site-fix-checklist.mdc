@@ -1,0 +1,24 @@
+---
+description: Before any haarchion/אישים site fix or improvement, rewrite the request into a numbered sequential checklist, then execute in order.
+alwaysApply: true
+---
+
+# Site fix checklist (Anemoneae)
+
+For **every** user request that fixes, improves, or changes the site (haarchion / אישים):
+
+1. **Transcribe first** — Before any tool use or code change, rewrite the ask into a short numbered checklist of concrete sequential steps.
+2. **Make steps actionable** — Each item: what to change, where (file/area if known), and how to know it's done. Prefer engineering actions over vague restatements.
+3. **Split multi-asks** — If one message has several requests, list them as ordered items (dependencies first).
+4. **Show the list** — Keep the checklist visible and brief for the user. Hebrew OK when the user writes Hebrew.
+5. **Then execute** — Follow the list in order. Do not skip the transcription step, even for small requests.
+
+## Example shape
+
+```
+1. … (change + location + acceptance)
+2. …
+3. …
+```
+
+Then run step 1, then 2, then 3.

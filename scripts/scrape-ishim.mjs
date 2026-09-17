@@ -4,6 +4,8 @@
  *
  *   node scripts/scrape-ishim.mjs --test
  *   node scripts/scrape-ishim.mjs
+ *   node scripts/scrape-ishim.mjs --people-only
+ *   node scripts/scrape-ishim.mjs --productions-only
  *   node scripts/scrape-ishim.mjs --limit 50
  */
 import fs from "fs";
@@ -87,6 +89,12 @@ const LIMIT = (() => {
   return i >= 0 ? Number(args[i + 1]) : 0;
 })();
 const SKIP_PRODS = args.includes("--people-only");
+const SKIP_PEOPLE = args.includes("--productions-only");
+
+if (SKIP_PRODS && SKIP_PEOPLE) {
+  console.error("Use only one of --people-only / --productions-only");
+  process.exit(1);
+}
 
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
@@ -663,27 +671,29 @@ async function scrape() {
   const progress = loadProgress();
   // Do not seed old local HTML into the 2022 cache — always fetch from Wayback.
 
-  let ksHtml = await cachedGet("index", "ks", "ks.php");
-  const allKeys = parseKeysIndex(ksHtml);
-  const keys = [
-    ...PRIORITY_KEYS.filter((k) => allKeys.includes(k)),
-    ...allKeys.filter((k) => !PRIORITY_KEYS.includes(k)),
-  ];
-  console.log("keys", keys.length);
+  if (!SKIP_PEOPLE) {
+    let ksHtml = await cachedGet("index", "ks", "ks.php");
+    const allKeys = parseKeysIndex(ksHtml);
+    const keys = [
+      ...PRIORITY_KEYS.filter((k) => allKeys.includes(k)),
+      ...allKeys.filter((k) => !PRIORITY_KEYS.includes(k)),
+    ];
+    console.log("keys", keys.length);
 
-  for (const key of keys) {
-    if (progress.keysDone.includes(key)) continue;
-    process.stdout.write(`key ${key} `);
-    const html = await cachedGet("k", key, `k.php?k=${encodeS(key)}`);
-    const people = parseKeyPagePeople(html);
-    console.log(people.length);
-    for (const s of people) {
-      if (!progress.peopleQueue.includes(s) && !progress.peopleDone.includes(s)) {
-        progress.peopleQueue.push(s);
+    for (const key of keys) {
+      if (progress.keysDone.includes(key)) continue;
+      process.stdout.write(`key ${key} `);
+      const html = await cachedGet("k", key, `k.php?k=${encodeS(key)}`);
+      const people = parseKeyPagePeople(html);
+      console.log(people.length);
+      for (const s of people) {
+        if (!progress.peopleQueue.includes(s) && !progress.peopleDone.includes(s)) {
+          progress.peopleQueue.push(s);
+        }
       }
+      progress.keysDone.push(key);
+      saveProgress(progress);
     }
-    progress.keysDone.push(key);
-    saveProgress(progress);
   }
 
   const peopleDir = path.join(PARSED, "people");
@@ -698,7 +708,16 @@ async function scrape() {
     }
   }
 
-  console.log("people queued", progress.peopleQueue.length, "done", progress.peopleDone.length);
+  console.log(
+    "people queued",
+    progress.peopleQueue.length,
+    "done",
+    progress.peopleDone.length,
+    "productionsQ",
+    progress.productionsQueue.length,
+    "productionsDone",
+    progress.productionsDone.length
+  );
 
   async function scrapePersonQueue() {
     let n = 0;
@@ -757,18 +776,23 @@ async function scrape() {
     return n;
   }
 
-  await scrapePersonQueue();
-  saveProgress(progress);
-  const peopleBatch = compileArchive();
-  console.log(
-    "people batch",
-    peopleBatch.peopleCount,
-    "people",
-    peopleBatch.productionsCount,
-    "productions from credits",
-    peopleBatch.creditCount,
-    "credits"
-  );
+  if (!SKIP_PEOPLE) {
+    await scrapePersonQueue();
+    saveProgress(progress);
+    const peopleBatch = compileArchive();
+    console.log(
+      "people batch",
+      peopleBatch.peopleCount,
+      "people",
+      peopleBatch.productionsCount,
+      "productions from credits",
+      peopleBatch.creditCount,
+      "credits"
+    );
+  } else {
+    console.log("productions-only: skipping people scrape");
+    saveProgress(progress);
+  }
 
   if (!SKIP_PRODS) {
     let pn = 0;
@@ -807,6 +831,8 @@ async function scrape() {
           console.log(
             `productions ${progress.productionsDone.length} queue ${progress.productionsQueue.length}`
           );
+        } else {
+          process.stdout.write(".");
         }
       } catch (err) {
         progress.productionsFailed.push(s);
@@ -815,9 +841,15 @@ async function scrape() {
       }
     }
     saveProgress(progress);
-    if (progress.peopleQueue.length && !LIMIT) {
+    if (progress.peopleQueue.length && !LIMIT && !SKIP_PEOPLE) {
       console.log("follow-up people", progress.peopleQueue.length);
       await scrapePersonQueue();
+    } else if (progress.peopleQueue.length && SKIP_PEOPLE) {
+      console.log(
+        "note: productions discovered",
+        progress.peopleQueue.length,
+        "new people (run without --productions-only later)"
+      );
     }
   }
 
