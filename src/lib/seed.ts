@@ -31,7 +31,6 @@ import { ensureDiscographyProductions } from "./discography-productions";
 import { applyDerivedProfessionActivities } from "./derive-activities";
 import { ensureFilmographies } from "./filmography";
 import { applyPeopleEnrichment } from "./person-dates";
-import { applyIshimArchive } from "./seed-ishim-archive";
 import { applyIshimChnnGoldblatt } from "./seed-ishim-chnn-goldblatt";
 import { applyIshimGadiPor } from "./seed-ishim-gadi-por";
 import { applyIshimAzraHs } from "./seed-ishim-azra-hs";
@@ -912,7 +911,6 @@ export const SEED: ArchiveData = applyIshimPinocchioAdventures1993(
   applyIshimChnnGoldblatt(
   applyIshimGadiPor(
   applyIshimAzraHs(
-  applyIshimArchive(
   applyDerivedProfessionActivities(
   ensureDiscographyProductions(
   ensureFilmographies(
@@ -993,7 +991,6 @@ export const SEED: ArchiveData = applyIshimPinocchioAdventures1993(
   })(),
   contributions: [],
   })
-  )
   )
   )
   )

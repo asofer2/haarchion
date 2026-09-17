@@ -6,8 +6,8 @@ import { getFirebaseDb, isFirebaseConfigured } from "@/lib/firebase";
 import { getFirebaseAdminDb } from "@/lib/firebase-admin";
 import {
   normalizeArchiveData,
-  seedArchiveBaseline,
 } from "@/lib/data";
+import { fullSeedArchive } from "@/lib/seed-full-server";
 import type { ArchiveData, Contribution, Credit, Person, Production } from "@/lib/types";
 
 export const ARCHIVE_CACHE_TAG = "archive";
@@ -43,7 +43,7 @@ async function readArchiveViaAdmin(): Promise<ArchiveData | null> {
 
 async function readArchiveViaClientSdk(): Promise<ArchiveData> {
   const db = getFirebaseDb();
-  if (!db) return seedArchiveBaseline();
+  if (!db) return fullSeedArchive();
 
   const [peopleSnap, productionsSnap, creditsSnap, contributionsSnap] =
     await Promise.all([
@@ -66,7 +66,7 @@ async function readArchiveViaClientSdk(): Promise<ArchiveData> {
 /** Uncached Firestore archive read (Admin SDK preferred, public client SDK fallback). */
 export async function readFirestoreArchiveServer(): Promise<ArchiveData> {
   if (!isFirebaseConfigured()) {
-    return seedArchiveBaseline();
+    return fullSeedArchive();
   }
 
   try {
@@ -79,8 +79,8 @@ export async function readFirestoreArchiveServer(): Promise<ArchiveData> {
   try {
     return await readArchiveViaClientSdk();
   } catch (error) {
-    console.warn("Client SDK archive read failed — using seed", error);
-    return seedArchiveBaseline();
+    console.warn("Client SDK archive read failed — using full seed", error);
+    return fullSeedArchive();
   }
 }
 

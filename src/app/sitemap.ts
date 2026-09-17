@@ -2,8 +2,12 @@ import type { MetadataRoute } from "next";
 import { SEED } from "@/lib/seed";
 import { ACTIVITY_LIST } from "@/lib/types";
 
+/**
+ * Sitemap uses the lean curated seed only.
+ * The full ishim catalog (~7k people) is too large for Next's data cache.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://haarchion.example";
+  const base = "https://haarchion.vercel.app";
   const now = new Date();
 
   return [

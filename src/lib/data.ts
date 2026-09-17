@@ -98,7 +98,7 @@ let storageBootstrapped = false;
 let memoryCache: { data: ArchiveData; at: number } | null = null;
 /** Normalized seed baseline for overlay diffing (lazy) */
 let seedBaseline: ArchiveData | null = null;
-const MEMORY_TTL_MS = 60_000;
+const MEMORY_TTL_MS = 5 * 60_000;
 
 type LocalOverlay = {
   v: 1;
@@ -513,11 +513,9 @@ function getSeedBaseline(): ArchiveData {
   return seedBaseline;
 }
 
-/** Classic ishim scrape — applied after first paint, never during module init. */
-let ishimCatalog: ArchiveData | null = null;
-
+/** Classic ishim scrape lives on the server only — client uses lean seed + /api/archive. */
 function overlayBaseline(): ArchiveData {
-  return ishimCatalog || getSeedBaseline();
+  return getSeedBaseline();
 }
 
 function samePerson(a: Person | undefined, b: Person): boolean {
@@ -925,45 +923,6 @@ function fallbackArchive(): ArchiveData {
   return structuredClone(getSeedBaseline());
 }
 
-let ishimApplyPromise: Promise<(data: ArchiveData) => ArchiveData> | null =
-  null;
-
-function getIshimApply(): Promise<(data: ArchiveData) => ArchiveData> {
-  if (!ishimApplyPromise) {
-    ishimApplyPromise = import("./seed-ishim-archive").then(
-      (mod) => mod.applyIshimArchive
-    );
-  }
-  return ishimApplyPromise;
-}
-
-function yieldToMain(): Promise<void> {
-  return new Promise((resolve) => {
-    setTimeout(resolve, 0);
-  });
-}
-
-/** Merge the classic ishim scrape after first paint so Chromium does not hang. */
-async function enrichWithIshimCatalog(
-  base: ArchiveData,
-  onRemote?: (data: ArchiveData) => void
-): Promise<void> {
-  if (typeof window === "undefined") return;
-  try {
-    await yieldToMain();
-    const apply = await getIshimApply();
-    await yieldToMain();
-    if (!ishimCatalog) {
-      ishimCatalog = applyIshimPersonPatches(apply(getSeedBaseline()));
-    }
-    const display = applyIshimPersonPatches(apply(base));
-    memoryCache = { data: display, at: Date.now() };
-    onRemote?.(display);
-  } catch (error) {
-    console.warn("Ishim catalog enrich failed — using seed", error);
-  }
-}
-
 /**
  * Prefer CDN-cached `/api/archive` (server `unstable_cache`) over four browser
  * Firestore getDocs. Falls back to direct client reads if the API is unavailable.
@@ -1005,11 +964,29 @@ export async function loadArchive(
     return memoryCache.data;
   }
 
+  // Lean seed / local overlay first — never pull the ~35MB ishim JSON on the client.
   const local = fallbackArchive();
   cacheLocally(local);
-  void enrichWithIshimCatalog(local, opts?.onRemote);
 
   if (!isFirebaseConfigured()) {
+    // Still try CDN archive when Firebase env is unset but API is available.
+    if (typeof window !== "undefined" && !firestoreSyncInFlight) {
+      firestoreSyncInFlight = true;
+      void (async () => {
+        try {
+          const remote = await fetchCachedArchiveFromApi(force);
+          if (remote) {
+            const merged = mergeArchives(local, remote);
+            cacheLocally(merged);
+            opts?.onRemote?.(merged);
+          }
+        } catch (error) {
+          console.warn("Archive API sync failed — using lean seed", error);
+        } finally {
+          firestoreSyncInFlight = false;
+        }
+      })();
+    }
     return local;
   }
 
@@ -1025,8 +1002,8 @@ export async function loadArchive(
             "Firestore load"
           ));
         const merged = mergeArchives(local, remote);
-        if (!ishimCatalog) cacheLocally(merged);
-        await enrichWithIshimCatalog(merged, opts?.onRemote);
+        cacheLocally(merged);
+        opts?.onRemote?.(merged);
       } catch (error) {
         console.warn("Firestore sync failed — using local/seed data", error);
       } finally {

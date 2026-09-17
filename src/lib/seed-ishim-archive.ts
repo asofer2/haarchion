@@ -1,3 +1,5 @@
+import "server-only";
+
 import archiveJson from "@/data/ishim-archive.json";
 import { canonicalPersonName } from "./aliases";
 import { normalizePersonName } from "./dedupe";

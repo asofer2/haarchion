@@ -47,6 +47,7 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl" className={`${heebo.variable} ${rubik.variable}`}>
       <body>
+        <link rel="preload" href="/api/archive" as="fetch" crossOrigin="anonymous" />
         <Script id="a11y-boot" strategy="beforeInteractive">
           {A11Y_BOOT_SCRIPT}
         </Script>
