@@ -88,6 +88,11 @@ export const HOP_TAMIR_PEOPLE: Person[] = [
   // נחשון / קופיקו בספרייה
   p("sharon-bar-ezer", "שרון בר עזר", "מדבבת ישראלית — דיבוב חבובה ב«נחשון כל יכול».", "Sharon Bar Ezer"),
   p("hila-shlagel", "הילה שלגל", "שחקנית ומדבבת — גילמה את מיפו ב«קופיקו בספרייה».", "Hila Shlagel"),
+  // כלב חשאי (T.U.F.F. Puppy) — מדבבים/צוות חסרים מארכיון הופ תמיר
+  p("amychy-br-tvb", "עמיחי בר טוב", "במאי דיבוב ישראלי — בימוי דיבוב «כלב חשאי» (2011–2012).", "Amihai Bar Tov"),
+  p("asnt-sdn", "אסנת סדן", "מפיקת דיבוב ישראלית — הפקת דיבוב «כלב חשאי» (2013).", "Osnat Sadan"),
+  p("gly-nshr", "גלי נשר", "מדבבת ישראלית — דיבוב דאדלי פאפי ב«כלב חשאי».", "Gali Nesher"),
+  p("ant-arlyk", "ענת ארליך", "מדבבת ישראלית — דיבוב פרופסור קזוויק ועוד ב«כלב חשאי».", "Anat Erlich"),
 ];
 
 export const HOP_TAMIR_PRODUCTIONS: Production[] = [
@@ -159,6 +164,36 @@ export const HOP_TAMIR_PRODUCTIONS: Production[] = [
   prod("ht-hyv-hyh-stvdyv", "היו היה סטודיו", 2023, "הפקה מארכיון ערוץ הופ תמיר (2023).", { kind: "series" }),
   prod("ht-vyvtypvl-g-v", "ויוטיפול ג'ו", 2007, "הפקה מארכיון ערוץ הופ תמיר (2007).", { kind: "series" }),
   prod("ht-skrdy-hsnay", "סקרדי הסנאי", 2011, "הפקה מארכיון ערוץ הופ תמיר (2011–2013).", { kind: "series", endYear: 2013 }),
+  // Featured: כלב חשאי (2011–2013) — cast from https://sites.google.com/view/hoptamir/כלב-חשאי-2011-2013-אישים
+  prod(
+    "ht-klb-chshay",
+    "כלב חשאי",
+    2011,
+    "דאדלי הכלבלב והשותפה שלו קיטי החתולה הם סוכנים חשאיים בארגון ט.א.ף במלחמה בפשע. סדרת אנימציה אמריקאית מדובבת (60 פרקים, כ־23 דקות). ערך מתוך ערוץ הופ תמיר.",
+    {
+      kind: "tv_series",
+      originalTitle: "T.U.F.F. Puppy",
+      endYear: 2013,
+      channel: "ניקלודיאון",
+      genres: [
+        "אנימציה",
+        "ילדים",
+        "דיבוב",
+        "מדובב - זר",
+        "הרפתקאות",
+        "נוער",
+        "פעולה",
+        "פשע",
+        "קומדיה",
+      ],
+      imageUrl: portrait("כלב חשאי", "T.U.F.F. Puppy"),
+      runtimeMinutes: 23,
+      episodeCount: 60,
+      sourceUrl:
+        "https://sites.google.com/view/hoptamir/%D7%9B%D7%9C%D7%91-%D7%97%D7%A9%D7%90%D7%99-2011-2013-%D7%90%D7%99%D7%A9%D7%99%D7%9D",
+      sourceNote: "ערוץ הופ תמיר",
+    }
+  ),
   prod("ht-lynks-abvd", "לינקס אבוד", 2026, "הפקה מארכיון ערוץ הופ תמיר (2026).", { kind: "series" }),
   // Featured: French Cupido (1991–92); Hebrew cast from ויקיפדיה / אישים. HT archive year was a placeholder.
   prod(
@@ -520,4 +555,123 @@ export const HOP_TAMIR_CREDITS: Credit[] = [
   { personId: "mona-mor", productionId: "ht-chbvbvtp", role: "dubber", characterName: "נני" },
   { personId: "eran-mor", productionId: "ht-chbvbvtp", role: "dubber", characterName: "סטטלר" },
   { personId: "gadi-levi", productionId: "ht-chbvbvtp", role: "dubber", characterName: "וולדורף" },
+
+  // —— כלב חשאי (הופ תמיר / אישים) ——
+  {
+    personId: "amychy-br-tvb",
+    productionId: "ht-klb-chshay",
+    role: "dub_director",
+    characterName: "בימוי דיבוב",
+    billingOrder: 1,
+    year: 2011,
+    endYear: 2012,
+  },
+  {
+    personId: "mati-atlas",
+    productionId: "ht-klb-chshay",
+    role: "dub_director",
+    characterName: "בימוי דיבוב",
+    billingOrder: 2,
+    year: 2013,
+  },
+  {
+    personId: "tami-barak",
+    productionId: "ht-klb-chshay",
+    role: "producer",
+    characterName: "הפקת דיבוב",
+    billingOrder: 3,
+  },
+  {
+    personId: "asnt-sdn",
+    productionId: "ht-klb-chshay",
+    role: "producer",
+    characterName: "הפקת דיבוב",
+    billingOrder: 4,
+    year: 2013,
+  },
+  {
+    personId: "gly-nshr",
+    productionId: "ht-klb-chshay",
+    role: "dubber",
+    characterName: 'דאגלס "דאדלי" פאפי',
+    billingOrder: 5,
+  },
+  {
+    personId: "mykal-hngby",
+    productionId: "ht-klb-chshay",
+    role: "dubber",
+    characterName: "קיטי קאטסוול",
+    billingOrder: 6,
+  },
+  {
+    personId: "ant-arlyk",
+    productionId: "ht-klb-chshay",
+    role: "dubber",
+    characterName: "פרופסור קזוויק / לארי / קוואקי הברווז / דג הנסיכה / בלופלו / דמויות שונות",
+    billingOrder: 7,
+  },
+  {
+    personId: "eran-mor",
+    productionId: "ht-klb-chshay",
+    role: "dubber",
+    characterName: "הצ'יף / סנטה קלאוס / בוב בארקי / דג הנסיכה / הצבי החולק / דמויות שונות",
+    billingOrder: 8,
+  },
+  {
+    personId: "yoram-yosefsberg",
+    productionId: "ht-klb-chshay",
+    role: "dubber",
+    characterName: "ורמיניוס סנטרפ / וולף ספיצר / הצבי החולק / ג'ק ראביט / דמויות שונות",
+    billingOrder: 9,
+  },
+  {
+    personId: "yuval-segal",
+    productionId: "ht-klb-chshay",
+    role: "dubber",
+    characterName: "פגי פאפי / ציפי / דמויות שונות",
+    billingOrder: 10,
+  },
+  {
+    personId: "hadar-shahaf-maayan",
+    productionId: "ht-klb-chshay",
+    role: "dubber",
+    characterName: "אולי / דמויות שונות",
+    billingOrder: 11,
+  },
+  {
+    personId: "dny-lshmn",
+    productionId: "ht-klb-chshay",
+    role: "dubber",
+    characterName: "הזיקית / פרנסיסקו / ראש העיר דובי דב / וולף ספיצר / דמויות שונות",
+    billingOrder: 12,
+  },
+  {
+    personId: "mvly-shvlmn",
+    productionId: "ht-klb-chshay",
+    role: "dubber",
+    characterName: 'מוח ציפור / כלב מנהיג "קישלון" / דמויות שונות',
+    billingOrder: 13,
+  },
+  {
+    personId: "dn-kyzlr",
+    productionId: "ht-klb-chshay",
+    role: "dubber",
+    characterName: 'העז מ"קישלון" / סנאית קטנה / דמויות שונות',
+    billingOrder: 14,
+  },
+  {
+    personId: "talya-barkai",
+    productionId: "ht-klb-chshay",
+    role: "dubber",
+    characterName: "דמויות שונות",
+    billingOrder: 15,
+    year: 2013,
+  },
+  {
+    personId: "tami-barak",
+    productionId: "ht-klb-chshay",
+    role: "singer",
+    characterName: "ביצוע שיר הפתיחה",
+    billingOrder: 16,
+  },
 ];
