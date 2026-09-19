@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useMemo, useRef, useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
 import { CitationField } from "@/components/CitationField";
 import { PersonTypeahead } from "@/components/PersonTypeahead";
@@ -9,6 +9,10 @@ import {
   PENDING_NOTICE,
   requestOrApplyProductionCredits,
 } from "@/lib/change-requests";
+import {
+  assignBillingOrders,
+  compareBillingOrder,
+} from "@/lib/credit-order";
 import type { ArchiveData, Credit, CreditRole } from "@/lib/types";
 import { CREDIT_ROLE_LABELS } from "@/lib/types";
 
@@ -19,8 +23,21 @@ interface Props {
   onSaved?: () => void;
 }
 
-function emptyCredit(productionId: string): Credit {
-  return { personId: "", productionId, role: "actor" };
+type CreditRow = Credit & { rowKey: string };
+
+function newRowKey() {
+  return `cr-${Math.random().toString(36).slice(2, 10)}`;
+}
+
+function emptyCredit(productionId: string): CreditRow {
+  return { personId: "", productionId, role: "actor", rowKey: newRowKey() };
+}
+
+function toRows(credits: Credit[], productionId: string): CreditRow[] {
+  if (!credits.length) return [emptyCredit(productionId)];
+  return [...credits]
+    .sort(compareBillingOrder)
+    .map((c) => ({ ...c, rowKey: newRowKey() }));
 }
 
 export function CreditsEditor({
@@ -35,11 +52,14 @@ export function CreditsEditor({
     () => data.credits.filter((c) => c.productionId === productionId),
     [data.credits, productionId]
   );
-  const [rows, setRows] = useState<Credit[]>(
-    initial.length ? initial : [emptyCredit(productionId)]
+  const [rows, setRows] = useState<CreditRow[]>(() =>
+    toRows(initial, productionId)
   );
   const [message, setMessage] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const [dragIndex, setDragIndex] = useState<number | null>(null);
+  const [overIndex, setOverIndex] = useState<number | null>(null);
+  const dragFrom = useRef<number | null>(null);
 
   const people = data.people;
 
@@ -47,6 +67,17 @@ export function CreditsEditor({
     setRows((prev) =>
       prev.map((row, i) => (i === index ? { ...row, ...patch } : row))
     );
+  }
+
+  function moveRow(from: number, to: number) {
+    if (from === to || from < 0 || to < 0) return;
+    setRows((prev) => {
+      if (from >= prev.length || to >= prev.length) return prev;
+      const next = [...prev];
+      const [item] = next.splice(from, 1);
+      next.splice(to, 0, item);
+      return next;
+    });
   }
 
   async function onSubmit(e: FormEvent) {
@@ -64,7 +95,11 @@ export function CreditsEditor({
         setMessage("יש למלא סימוכין — מקור העדכון");
         return;
       }
-      const cleaned = rows.filter((r) => r.personId && r.role);
+      const cleaned = assignBillingOrders(
+        rows
+          .filter((r) => r.personId && r.role)
+          .map(({ rowKey: _rowKey, ...credit }) => credit)
+      );
       const result = await requestOrApplyProductionCredits(
         {
           uid: user.uid,
@@ -93,11 +128,62 @@ export function CreditsEditor({
     >
       <h2 style={{ margin: 0, fontFamily: "var(--font-rubik)" }}>קרדיטים</h2>
       <p className="muted">
-        חיפוש אישיות לפי שם — הקלידו לבחירה מהרשימה.
+        חיפוש אישיות לפי שם — הקלידו לבחירה מהרשימה. אפשר לגרור שורות (ידית ⋮⋮)
+        כדי לשנות סדר שחקנים/מדבבים בלי מחיקה והוספה מחדש.
         {!admin && ` השינוי יישלח לאישור ${SITE_ADMIN_NAME}.`}
       </p>
       {rows.map((row, index) => (
-        <div className="form-row" key={`credit-row-${index}`}>
+        <div
+          className={[
+            "form-row",
+            "credit-row",
+            dragIndex === index ? "credit-row-dragging" : "",
+            overIndex === index && dragIndex !== index
+              ? "credit-row-drop-target"
+              : "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+          key={row.rowKey}
+          onDragOver={(e) => {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = "move";
+            if (overIndex !== index) setOverIndex(index);
+          }}
+          onDrop={(e) => {
+            e.preventDefault();
+            const from =
+              dragFrom.current ??
+              Number(e.dataTransfer.getData("text/plain"));
+            if (Number.isFinite(from)) moveRow(from, index);
+            dragFrom.current = null;
+            setDragIndex(null);
+            setOverIndex(null);
+          }}
+          onDragLeave={() => {
+            if (overIndex === index) setOverIndex(null);
+          }}
+        >
+          <button
+            type="button"
+            className="credit-drag-handle"
+            draggable
+            aria-label={`גרירת שורה ${index + 1} לשינוי סדר`}
+            title="גררו לשינוי סדר"
+            onDragStart={(e) => {
+              dragFrom.current = index;
+              setDragIndex(index);
+              e.dataTransfer.effectAllowed = "move";
+              e.dataTransfer.setData("text/plain", String(index));
+            }}
+            onDragEnd={() => {
+              dragFrom.current = null;
+              setDragIndex(null);
+              setOverIndex(null);
+            }}
+          >
+            ⋮⋮
+          </button>
           <label>
             אישיות
             <PersonTypeahead
@@ -130,15 +216,35 @@ export function CreditsEditor({
               }
             />
           </label>
-          <button
-            type="button"
-            className="btn btn-ghost"
-            onClick={() =>
-              setRows((prev) => prev.filter((_, i) => i !== index))
-            }
-          >
-            הסרה
-          </button>
+          <div className="credit-row-actions">
+            <button
+              type="button"
+              className="btn btn-ghost credit-move-btn"
+              aria-label="הזזה למעלה"
+              disabled={index === 0}
+              onClick={() => moveRow(index, index - 1)}
+            >
+              ↑
+            </button>
+            <button
+              type="button"
+              className="btn btn-ghost credit-move-btn"
+              aria-label="הזזה למטה"
+              disabled={index === rows.length - 1}
+              onClick={() => moveRow(index, index + 1)}
+            >
+              ↓
+            </button>
+            <button
+              type="button"
+              className="btn btn-ghost"
+              onClick={() =>
+                setRows((prev) => prev.filter((_, i) => i !== index))
+              }
+            >
+              הסרה
+            </button>
+          </div>
         </div>
       ))}
       <CitationField />

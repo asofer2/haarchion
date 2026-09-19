@@ -1,24 +1,21 @@
 import { NextResponse } from "next/server";
-import {
-  getCachedFirestoreArchive,
-  warmFirebaseConnection,
-} from "@/lib/archive-server";
+import { warmFirebaseConnection } from "@/lib/archive-server";
+import { getCachedHomeSummary } from "@/lib/home-summary";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 /**
  * Cold-start warmer for Vercel cron — touches Admin/Firestore (or no-op when unset)
- * and keeps the archive cache entry warm.
+ * and keeps the lightweight home summary warm. Does not pull the full archive.
  */
 export async function GET() {
   const started = Date.now();
 
   try {
     const warm = await warmFirebaseConnection();
-    // Best-effort: populate unstable_cache for subsequent /api/archive hits
     if (warm.mode !== "unset") {
-      void getCachedFirestoreArchive().catch(() => undefined);
+      void getCachedHomeSummary().catch(() => undefined);
     }
 
     return NextResponse.json({

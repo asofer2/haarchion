@@ -47,7 +47,9 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl" className={`${heebo.variable} ${rubik.variable}`}>
       <body>
-        <link rel="preload" href="/api/archive" as="fetch" crossOrigin="anonymous" />
+        <link rel="preload" href="/api/home" as="fetch" crossOrigin="anonymous" />
+        <link rel="preload" href="/catalog/people-index.json" as="fetch" crossOrigin="anonymous" />
+        <link rel="preload" href="/catalog/productions-index.json" as="fetch" crossOrigin="anonymous" />
         <Script id="a11y-boot" strategy="beforeInteractive">
           {A11Y_BOOT_SCRIPT}
         </Script>
@@ -68,7 +70,7 @@ export default function RootLayout({
                   <Header a11ySlot={<AccessibilityButton />} />
                 </Suspense>
                 <main id="main-content" className="site-main" tabIndex={-1}>
-                  {children}
+                  <Suspense fallback={null}>{children}</Suspense>
                 </main>
                 <Footer />
               </div>
