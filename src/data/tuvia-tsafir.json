@@ -1,0 +1,796 @@
+{
+  "name": "טוביה צפיר",
+  "birthDate": "1945-12-31",
+  "birthName": "טוביה קוזלובסקי",
+  "keys": [
+    "בן מפורסם",
+    "כוכבי ילדים",
+    "להקה צבאית"
+  ],
+  "credits": [
+    {
+      "role": "writer",
+      "heading": "תסריטאי",
+      "year": 1984,
+      "title": "פעם אחת"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2024,
+      "title": "סברי מרנן",
+      "character": "פנחס רוזן"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2020,
+      "title": "השכונה של הופ!",
+      "character": "סבא טוביה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2019,
+      "title": "סבא דוליטל",
+      "character": "סבא דוליטל"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2018,
+      "title": "דאנסטורי",
+      "character": "דוד בן נר"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2017,
+      "title": "טל והחברים - הקסם הגדול",
+      "character": "סבא טוביה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2017,
+      "title": "אלאדין והנסיכה יסמין",
+      "character": "ג'יני"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2017,
+      "title": "שירים מבית סבא",
+      "character": "סבא טוביה / סבא של טוביה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2017,
+      "title": "המועדון לספרות יפה של גברת ינקלובה",
+      "character": "משכונאי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2017,
+      "title": "מסע הטבעת",
+      "character": "פיני מערבי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2017,
+      "title": "החברים של נאור",
+      "character": "יוסי מנכ\"ל ערוץ 10"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2016,
+      "title": "האולימפיאדה של הופ!",
+      "character": "סבא טוביה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2016,
+      "title": "מותק של פסטיבל - יוצאים לדרך!",
+      "character": "סבא טוביה / סבא בן גוריון"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2016,
+      "title": "בנות הזהב",
+      "character": "נסראללה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2015,
+      "title": "חיבוק של שבת",
+      "character": "סבא טוביה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2015,
+      "title": "הקוסם",
+      "character": "הקוסם"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2015,
+      "title": "איפה אתה חי?",
+      "character": "אפרים אלוני"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2015,
+      "title": "הפיג'מות",
+      "character": "פישמן מנדלבאום / בתפקיד עצמו"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2014,
+      "title": "מותק בממלכת הקרח",
+      "character": "סבא ג'פטו"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2014,
+      "title": "משפחה שולטת",
+      "character": "בתפקיד עצמו"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2013,
+      "title": "פנטזיה",
+      "character": "המלך"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2013,
+      "title": "ממלכת טוביהו",
+      "character": "סבא טוביה / המלך טוביהו"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2012,
+      "title": "דץ מארח חברים לחגים",
+      "character": "סבא טוביה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2012,
+      "title": "מותק של פסטיבל 5",
+      "character": "סבא טוביה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2012,
+      "title": "יום האם",
+      "character": "בתפקיד עצמו"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2011,
+      "title": "סימבה מלך הספארי",
+      "character": "סבא טוביה / טובי דובי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2011,
+      "title": "ספיישל 110 שנים להולדת וולט דיסני",
+      "character": "הג'יני"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2011,
+      "title": "מותק של פסטיבל 4",
+      "character": "סבא טוביה / פיקולינו"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2011,
+      "title": "עם סגולה",
+      "character": "שר החוץ"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2010,
+      "title": "השירים המשחקים",
+      "character": "סבא טוביה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2010,
+      "title": "טובי דובי",
+      "character": "טובי דובי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2010,
+      "title": "מותק של פסטיבל 3",
+      "character": "סבא טוביה / טובי דובי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2009,
+      "title": "מותק של פסטיבל 2",
+      "character": "סבא טוביה / טובי דובי"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2009,
+      "title": "דני הוליווד",
+      "character": "שוקה קוזלובסקי / אריק שרון / בתפקיד עצמו"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2008,
+      "title": "מותק של פסטיבל",
+      "character": "סבא טוביה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2008,
+      "title": "החיים האמיתיים",
+      "character": "בתפקיד עצמו"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2007,
+      "title": "הנפילים",
+      "character": "משה דיין"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2006,
+      "title": "יובל המבולבל - המסע אל הכוכב",
+      "character": "סבא טוביה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2006,
+      "title": "סיפורה של מדינה עם סבא טוביה",
+      "character": "סבא טוביה / דמויות שונות"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2006,
+      "title": "השיר שלנו",
+      "character": "רובי (מנחם) רוברט אביב / פול אביב"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2005,
+      "title": "סיפורי התנ\"ך עם סבא טוביה",
+      "character": "סבא טוביה / ספרנית / נוח / אברהם אבינו / משה רבינו / יצחק / הנחש / פרעה / מלך בבל / גולית הפלישתי / דמויות שונות"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2005,
+      "title": "טלנובלה בע\"מ",
+      "character": "נפתלי אונגר"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2004,
+      "title": "סבא טוביה - סיפורים כיד המלך",
+      "character": "סבא טוביה / המלך של חלם / המלך מידאס / צפרדע / מלך עם בגדים חדשים / המלך שמנדריק / סולטן / שלמה המלך / קיסר סין / המלך אחשוורוש"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2004,
+      "title": "לא יאומן כי פסטיגל",
+      "character": "הסבא המספר / דמויות שונות"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2004,
+      "title": "החיים זה לא הכל",
+      "character": "יחיאל רינגל"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2003,
+      "title": "מסיבה ביער עם סבא טוביה",
+      "character": "סבא טוביה / צ'רלי הצרצר / צב / חסידה / מוכר כובעים / דבורה / ציפור שוטר / אריה / דוב / איכר"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2003,
+      "title": "רק בישראל",
+      "character": "טומי לפיד"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2001,
+      "title": "החרצופים",
+      "character": "בנימין נתניהו / אריאל שרון / אהוד ברק / שמעון פרס / חיים רמון / יאסר עראפת / דן מרידור / עובדיה יוסף / יוסי שריד ועוד (קול)"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2000,
+      "title": "סיפורים לנימי",
+      "character": "סבא"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1999,
+      "title": "פים פם פה",
+      "character": "פים פם פה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1999,
+      "title": "רחוב סומסום - שארע סימסים",
+      "character": "בתפקיד עצמו"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1998,
+      "title": "פסטיגל 98 - הבחירה של הילדים!",
+      "character": "עצבני"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1998,
+      "title": "שמש",
+      "character": "אהוד ברק (קול)"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1996,
+      "title": "ספר הג'ונגל",
+      "character": "באלו הדוב"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1994,
+      "title": "צפיר הנפש",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1993,
+      "title": "העולם הערב"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1991,
+      "title": "סופשבוע",
+      "character": "משתתף בפינה הסאטירית 'האגף הסגור'"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1991,
+      "title": "סיפורים לשעת לילה מאוחרת",
+      "character": "הפרק: הקוקיה"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1990,
+      "title": "סיבה למסיבה",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1988,
+      "title": "ממני",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1986,
+      "title": "האינסטלטור",
+      "character": "פנחס שיין"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1986,
+      "title": "קרובים קרובים",
+      "character": "ד\"ר פיינשמקר"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1984,
+      "title": "פעם אחת"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1979,
+      "title": "עלי כותרת",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1979,
+      "title": "נישואין נוסח תל אביב",
+      "character": "אביגדור פומרנץ"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1978,
+      "title": "הלהקה",
+      "character": "פול אביב"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1976,
+      "title": "ניקוי ראש",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1976,
+      "title": "איזה יופי של צרות!",
+      "character": "מוסיק פינקלשטיין"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1976,
+      "title": "גבעת חלפון אינה עונה",
+      "character": "סרן שמגר"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1975,
+      "title": "חגיגה בסנוקר",
+      "character": "מושון"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1974,
+      "title": "כנרת כנרת"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1974,
+      "title": "צ'רלי וחצי",
+      "character": "רוברט"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1972,
+      "title": "נחצ'ה והגנרל",
+      "character": "ד\"ר קוקהיימן"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1972,
+      "title": "לא הכל עובר"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1972,
+      "title": "סלומוניקו",
+      "character": "ברמן"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1971,
+      "title": "חדווה ושלומיק",
+      "character": "דותן"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2022,
+      "title": "קירשנבאום"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2022,
+      "title": "מאסטר שף VIP",
+      "character": "ספיישל רביעי / משתתף"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2021,
+      "title": "80 לצדי צרפתי",
+      "character": "מברך"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2021,
+      "title": "המרדף",
+      "character": "מתמודד"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2020,
+      "title": "עד כאן!",
+      "character": "משתתף אורח"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2016,
+      "title": "זה הסוד שלי",
+      "character": "פאנליסט אורח"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2016,
+      "title": "סיבה למסיבה",
+      "character": "אורח"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2015,
+      "title": "חגיגה לעיניים - סיפורו של הקולנוע הישראלי"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2014,
+      "title": "מצב האומה",
+      "character": "בתפקיד עצמו"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2013,
+      "title": "זה לא אמיתי",
+      "character": "שופט"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2012,
+      "title": "המערכון האחרון של פולי"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2011,
+      "title": "סבבבנט",
+      "character": "אורח"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2011,
+      "title": "שחקו אותה בגדול",
+      "character": "בעל סוד"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2010,
+      "title": "עושים כבוד",
+      "character": "עושים כבוד לטוביה צפיר"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2010,
+      "title": "שבת צחוק",
+      "character": "אורח"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2009,
+      "title": "איך זה להיות ילד של מפורסם?"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2004,
+      "title": "במדינת היהודים"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2002,
+      "title": "בראבו",
+      "character": "מנחה"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2000,
+      "title": "יאיר לפיד",
+      "character": "פינה קומית"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 1997,
+      "title": "החרצופים"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 1996,
+      "title": "שובו של השריף"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 1982,
+      "title": "תשע בריבוע"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 1979,
+      "title": "זה הסוד שלי",
+      "character": "מנחה"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2005,
+      "title": "רובוטס",
+      "character": "ביג וולד"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2002,
+      "title": "עידן הקרח",
+      "character": "מנפרד"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1997,
+      "title": "הרפתקאות פינוקיו",
+      "character": "סבא ג'פטו"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1997,
+      "title": "אלאדין",
+      "character": "הג'יני"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1997,
+      "title": "בילבי",
+      "character": "סאנדר קרלסון"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1996,
+      "title": "אלאדין 3 - אלאדין ומלך הגנבים",
+      "character": "הג'יני"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1994,
+      "title": "אלאדין 2 - שובו של ג'אפר",
+      "character": "הג'יני"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1993,
+      "title": "אלאדין",
+      "character": "הג'יני"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2010,
+      "title": "טובי דובי",
+      "character": "שיר פתיחה (ביצוע)"
+    },
+    {
+      "role": "musical_performer",
+      "heading": "הרכבים",
+      "year": 2005,
+      "title": "להקת הנח\"ל"
+    }
+  ],
+  "ishimNotes": [
+    {
+      "heading": "קשר משפחתי",
+      "items": [
+        "אבא של יואב צפיר",
+        "סבא של שירה צפיר ומאיה צפיר",
+        "החם של מיכל צפיר"
+      ]
+    },
+    {
+      "heading": "צבא",
+      "items": [
+        "להקת הנח\"ל"
+      ]
+    },
+    {
+      "heading": "משפטי",
+      "items": [
+        "ריצה עבודות שירות ושילם קנס לאחר שהודה בתקיפה ואיומים על אנשי צוות טלנובלה בע\"מ שהלחיצו אותו (2006)"
+      ]
+    },
+    {
+      "heading": "תחרויות ופרסים",
+      "items": [
+        "פרס מסך הזהב - פרס מפעל חיים (2000)"
+      ]
+    },
+    {
+      "heading": "טריוויה לא מעניינת",
+      "items": [
+        "שיחק פעמיים את אבא של יניב פולישוק: בהפיג'מות ובסברי מרנן",
+        "אוהד את מכבי תל אביב"
+      ]
+    }
+  ]
+}

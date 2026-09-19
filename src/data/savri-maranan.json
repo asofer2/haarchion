@@ -1,0 +1,2027 @@
+{
+  "title": "סברי מרנן",
+  "year": 2011,
+  "airStatus": "airing",
+  "kind": "tv_series",
+  "summary": "זוג נשוי נודד בין ארוחות ערב משפחתיות",
+  "runtimeMinutes": 30,
+  "episodeCount": 242,
+  "genres": [
+    "קומדיה"
+  ],
+  "channel": "ערוץ 2 / קשת",
+  "ishimKeys": [
+    "גידול ילדים",
+    "התנגשות תרבויות",
+    "משפחה מרובת ילדים",
+    "נמכר לחו\"ל",
+    "קומדיית מצבים",
+    "שבת"
+  ],
+  "ishimNotes": [
+    {
+      "heading": "מאחורי הקלעים",
+      "items": [
+        "הפורמט נמכר לרשת ABC האמריקאית תחת השם Tribes (שנת 2012)"
+      ]
+    },
+    {
+      "heading": "ציטוטים",
+      "items": [
+        "\"נעים מאוד, שי\" - שי רוזן"
+      ]
+    },
+    {
+      "heading": "טריוויה לא מעניינת",
+      "items": [
+        "סברי מרנן הוא ביטוי בארמית שמשמעותו \"בידיעתכם וברשותכם מורי ורבותיי\". לפני ברכת הגפן, פונה המקדש אל המסובים במילים: \"סברי מרנן?\", והם עונים \"לחיי!\" (בארמית: כן)",
+        "טוביה צפיר שיחק את אבא של יניב פולישוק גם בהפיג'מות"
+      ]
+    }
+  ],
+  "entryAuthors": [
+    "ברק חננאל",
+    "אליעד חיים",
+    "צבי דובוש",
+    "David Kortua",
+    "תמיר סופר",
+    "סנטה קלאוס"
+  ],
+  "credits": [
+    {
+      "personName": "רובי דואניאס",
+      "personS": "רובי דואניאס",
+      "role": "producer",
+      "heading": "בימוי",
+      "year": 2018
+    },
+    {
+      "personName": "טמירה ירדני",
+      "personS": "טמירה ירדני",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2022
+    },
+    {
+      "personName": "דודו ירדני",
+      "personS": "דודו ירדני",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2014
+    },
+    {
+      "personName": "עינת זילבר",
+      "personS": "עינת זילבר",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2023
+    },
+    {
+      "personName": "תמר זילבר-ענבר",
+      "personS": "תמר זילבר-ענבר",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2023
+    },
+    {
+      "personName": "לירון דניאלי",
+      "personS": "לירון דניאלי",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2018
+    },
+    {
+      "personName": "יעל גולדשטיין",
+      "personS": "יעל גולדשטיין",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2019
+    },
+    {
+      "personName": "ליאת בן הרוש",
+      "personS": "ליאת בן הרוש",
+      "role": "producer",
+      "heading": "הפקה"
+    },
+    {
+      "personName": "מירב פרידמן",
+      "personS": "מירב פרידמן",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2022
+    },
+    {
+      "personName": "צביקה הדר",
+      "personS": "צביקה הדר",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2016
+    },
+    {
+      "personName": "אורטל דהן",
+      "personS": "אורטל דהן",
+      "role": "producer",
+      "heading": "הפקה"
+    },
+    {
+      "personName": "נאוה קולטון",
+      "personS": "נאוה קולטון",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2013
+    },
+    {
+      "personName": "צחי דרור",
+      "personS": "צחי דרור",
+      "role": "writer",
+      "heading": "עריכה"
+    },
+    {
+      "personName": "ליבי בן עמוס",
+      "personS": "ליבי בן עמוס",
+      "role": "writer",
+      "heading": "עריכה"
+    },
+    {
+      "personName": "ברק קמפינסקי",
+      "personS": "ברק קמפינסקי",
+      "role": "writer",
+      "heading": "עריכה"
+    },
+    {
+      "personName": "ניר כהן",
+      "personS": "ניר כהן",
+      "role": "writer",
+      "heading": "עריכה"
+    },
+    {
+      "personName": "עידן ליבר",
+      "personS": "עידן ליבר",
+      "role": "writer",
+      "heading": "עריכה"
+    },
+    {
+      "personName": "רובי דואניאס",
+      "personS": "רובי דואניאס",
+      "role": "writer",
+      "heading": "תסריט",
+      "year": 2018
+    },
+    {
+      "personName": "אלי דראי",
+      "personS": "אלי דראי",
+      "role": "writer",
+      "heading": "תסריט"
+    },
+    {
+      "personName": "יניב פולישוק",
+      "personS": "יניב פולישוק",
+      "role": "writer",
+      "heading": "תסריט",
+      "year": 2023
+    },
+    {
+      "personName": "ימית סול",
+      "personS": "ימית סול",
+      "role": "writer",
+      "heading": "תסריט",
+      "year": 2023
+    },
+    {
+      "personName": "חן קלימן",
+      "personS": "חן קלימן",
+      "role": "writer",
+      "heading": "תסריט"
+    },
+    {
+      "personName": "רותם אבוהב",
+      "personS": "רותם אבוהב",
+      "role": "writer",
+      "heading": "תסריט",
+      "year": 2022
+    },
+    {
+      "personName": "יובל סגל",
+      "personS": "יובל סגל",
+      "role": "writer",
+      "heading": "תסריט",
+      "year": 2022
+    },
+    {
+      "personName": "רובי דואניאס",
+      "personS": "רובי דואניאס",
+      "role": "writer",
+      "heading": "נוצר ע\"י",
+      "year": 2018
+    },
+    {
+      "personName": "יניב פולישוק",
+      "personS": "יניב פולישוק",
+      "role": "writer",
+      "heading": "נוצר ע\"י",
+      "year": 2023
+    },
+    {
+      "personName": "דביר בנדק",
+      "personS": "דביר בנדק",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "שי רוזן",
+      "year": 2023
+    },
+    {
+      "personName": "רותם אבוהב",
+      "personS": "רותם אבוהב",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "שני רוזן",
+      "year": 2022
+    },
+    {
+      "personName": "יהורם גאון",
+      "personS": "יהורם גאון",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "סילבן חסון",
+      "year": 2023
+    },
+    {
+      "personName": "יונה אליאן",
+      "personS": "יונה אליאן",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "רחל חסון",
+      "year": 2023
+    },
+    {
+      "personName": "טוביה צפיר",
+      "personS": "טוביה צפיר",
+      "role": "actor",
+      "heading": "שחקנים"
+    },
+    {
+      "personName": "סנדרה שדה",
+      "personS": "סנדרה שדה",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "רבקה רוזן",
+      "year": 2022
+    },
+    {
+      "personName": "תום אבני",
+      "personS": "תום אבני",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "אדם רוזן",
+      "year": 2022
+    },
+    {
+      "personName": "ימית סול",
+      "personS": "ימית סול",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "אורנה כץ-חסון / אפרת חסון",
+      "year": 2023
+    },
+    {
+      "personName": "עמי סמולרצ'יק",
+      "personS": "עמי סמולרצ'יק",
+      "role": "actor",
+      "heading": "שחקנים"
+    },
+    {
+      "personName": "יניב פולישוק",
+      "personS": "יניב פולישוק",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "איתמר רוזן",
+      "year": 2023
+    },
+    {
+      "personName": "ליאת הר לב",
+      "personS": "ליאת הר לב",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "מיכל רוזן",
+      "year": 2016
+    },
+    {
+      "personName": "עדנה בליליוס",
+      "personS": "עדנה בליליוס",
+      "role": "actor",
+      "heading": "שחקנים"
+    },
+    {
+      "personName": "קובי מאור",
+      "personS": "קובי מאור",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "מני חסון",
+      "year": 2023
+    },
+    {
+      "personName": "תמרה קליינגון",
+      "personS": "תמרה קליינגון",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "אלין חסון",
+      "year": 2023
+    },
+    {
+      "personName": "ניב שטיינגרט",
+      "personS": "ניב שטיינגרט",
+      "role": "actor",
+      "heading": "שחקנים"
+    },
+    {
+      "personName": "אופיר נדבוני",
+      "personS": "אופיר נדבוני",
+      "role": "actor",
+      "heading": "שחקנים"
+    },
+    {
+      "personName": "ירדן ברכה",
+      "personS": "ירדן ברכה",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "ספיר",
+      "year": 2023
+    },
+    {
+      "personName": "קובי פרג'",
+      "personS": "קובי פרג'",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "אהרון כץ",
+      "year": 2022
+    },
+    {
+      "personName": "גלית גיאת",
+      "personS": "גלית גיאת",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "לירי גבריאל",
+      "year": 2023
+    },
+    {
+      "personName": "לירון וייסמן",
+      "personS": "לירון וייסמן",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "רעות",
+      "year": 2023
+    },
+    {
+      "personName": "נינה קוטלר",
+      "personS": "נינה קוטלר",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "סמדר",
+      "year": 2023
+    },
+    {
+      "personName": "נטע אלחמיסטר",
+      "personS": "נטע אלחמיסטר",
+      "role": "actor",
+      "heading": "שחקנים"
+    },
+    {
+      "personName": "גלי שמיר",
+      "personS": "גלי שמיר",
+      "role": "actor",
+      "heading": "שחקנים"
+    },
+    {
+      "personName": "שיר דויד",
+      "personS": "שיר דויד",
+      "role": "actor",
+      "heading": "שחקנים"
+    },
+    {
+      "personName": "רוני ראובן",
+      "personS": "רוני ראובן",
+      "role": "actor",
+      "heading": "שחקנים"
+    },
+    {
+      "personName": "ניצן צוק",
+      "personS": "ניצן צוק",
+      "role": "actor",
+      "heading": "שחקנים"
+    },
+    {
+      "personName": "ירין פרי",
+      "personS": "ירין פרי",
+      "role": "actor",
+      "heading": "שחקנים"
+    },
+    {
+      "personName": "גאיה גריאני",
+      "personS": "גאיה גריאני",
+      "role": "actor",
+      "heading": "שחקנים"
+    },
+    {
+      "personName": "מיה אלקיים",
+      "personS": "מיה אלקיים",
+      "role": "actor",
+      "heading": "שחקנים"
+    },
+    {
+      "personName": "דריה מוטולה",
+      "personS": "דריה מוטולה",
+      "role": "actor",
+      "heading": "שחקנים"
+    },
+    {
+      "personName": "דריה פורמן",
+      "personS": "דריה פורמן",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "הבת של משה ואורנה",
+      "year": 2014
+    },
+    {
+      "personName": "תהל שהם",
+      "personS": "תהל שהם",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בר",
+      "year": 2011
+    },
+    {
+      "personName": "מולי בכר",
+      "personS": "מולי בכר",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "ויקטוריה שוורץ",
+      "personS": "ויקטוריה שוורץ",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "גולדי",
+      "year": 2011
+    },
+    {
+      "personName": "אסף אשתר",
+      "personS": "אסף אשתר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "גנב",
+      "year": 2011
+    },
+    {
+      "personName": "יורם יוספסברג",
+      "personS": "יורם יוספסברג",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שוטר / קריין חדשות",
+      "year": 2017
+    },
+    {
+      "personName": "אלי דראי",
+      "personS": "אלי דראי",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "עודד מנשה",
+      "personS": "עודד מנשה",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מנחה שעשועון",
+      "year": 2011
+    },
+    {
+      "personName": "שהיר כבהא",
+      "personS": "שהיר כבהא",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ערבי מפורסם",
+      "year": 2011
+    },
+    {
+      "personName": "מיכל כרמי",
+      "personS": "מיכל כרמי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "\"היא\"",
+      "year": 2011
+    },
+    {
+      "personName": "אלון דהן",
+      "personS": "אלון דהן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "דוקטור מנטוס",
+      "year": 2011
+    },
+    {
+      "personName": "סימון רוזנפלד",
+      "personS": "סימון רוזנפלד",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "דוד שמואל",
+      "year": 2011
+    },
+    {
+      "personName": "גאלה קוגן",
+      "personS": "גאלה קוגן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "גבריאלה",
+      "year": 2011
+    },
+    {
+      "personName": "לירון לבו",
+      "personS": "לירון לבו",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "עופר קציר",
+      "year": 2011
+    },
+    {
+      "personName": "מיכל אמדורסקי",
+      "personS": "מיכל אמדורסקי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמה",
+      "year": 2011
+    },
+    {
+      "personName": "יניב שטרייפלר",
+      "personS": "יניב שטרייפלר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שטרויזמן",
+      "year": 2022
+    },
+    {
+      "personName": "שי פלד",
+      "personS": "שי פלד",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "גל",
+      "year": 2011
+    },
+    {
+      "personName": "טל טלמון",
+      "personS": "טל טלמון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "עינב",
+      "year": 2011
+    },
+    {
+      "personName": "רות גלר",
+      "personS": "רות גלר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "סבתא חנה",
+      "year": 2011
+    },
+    {
+      "personName": "אפרת רייטן",
+      "personS": "אפרת רייטן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מלי טננבלט",
+      "year": 2011
+    },
+    {
+      "personName": "לירז צ'רכי",
+      "personS": "לירז צ'רכי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "כנרית",
+      "year": 2018
+    },
+    {
+      "personName": "איימוס איינו",
+      "personS": "איימוס איינו",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "פרמדיק",
+      "year": 2011
+    },
+    {
+      "personName": "דובל'ה גליקמן",
+      "personS": "דובל'ה גליקמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "ליאל דניר",
+      "personS": "ליאל דניר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "סיוון",
+      "year": 2012
+    },
+    {
+      "personName": "שירה קצנלנבוגן",
+      "personS": "שירה קצנלנבוגן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "תום",
+      "year": 2011
+    },
+    {
+      "personName": "רובי דואניאס",
+      "personS": "רובי דואניאס",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "במאי / רב / מנחה מופע / בתפקיד עצמו",
+      "year": 2018
+    },
+    {
+      "personName": "עירית נתן בנדק",
+      "personS": "עירית נתן בנדק",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "יעל",
+      "year": 2011
+    },
+    {
+      "personName": "ישראלה אסגו",
+      "personS": "ישראלה אסגו",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "דנה עדיני",
+      "personS": "דנה עדיני",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "דנה",
+      "year": 2011
+    },
+    {
+      "personName": "תומר שרון",
+      "personS": "תומר שרון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מדריך",
+      "year": 2011
+    },
+    {
+      "personName": "הילי ילון",
+      "personS": "הילי ילון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שיר שטאוס",
+      "year": 2013
+    },
+    {
+      "personName": "יוני האנה",
+      "personS": "יוני האנה",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "אינה בקלמן",
+      "personS": "אינה בקלמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "עודד פז",
+      "personS": "עודד פז",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמו",
+      "year": 2017
+    },
+    {
+      "personName": "דנה נפתלי",
+      "personS": "דנה נפתלי",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "יאנה גור",
+      "personS": "יאנה גור",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "אריה צ'רנר",
+      "personS": "אריה צ'רנר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אללוף",
+      "year": 2013
+    },
+    {
+      "personName": "שמוליק כהן",
+      "personS": "שמוליק כהן",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "נלי תגר",
+      "personS": "נלי תגר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בקי",
+      "year": 2013
+    },
+    {
+      "personName": "יעל גרובגלס",
+      "personS": "יעל גרובגלס",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מטרופקה",
+      "year": 2013
+    },
+    {
+      "personName": "דדי זהר",
+      "personS": "דדי זהר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "פישר",
+      "year": 2020
+    },
+    {
+      "personName": "אייל נחמיאס",
+      "personS": "אייל נחמיאס",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "האלוף",
+      "year": 2013
+    },
+    {
+      "personName": "אלדד פריבס",
+      "personS": "אלדד פריבס",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "ליטל רוזנצוויג",
+      "personS": "ליטל רוזנצוויג",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מפרש",
+      "year": 2013
+    },
+    {
+      "personName": "לירון דניאלי",
+      "personS": "לירון דניאלי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "לבנת / אישה בפרסומת",
+      "year": 2018
+    },
+    {
+      "personName": "יהויכין פרידלנדר",
+      "personS": "יהויכין פרידלנדר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אלכס / מטיס מינוס",
+      "year": 2021
+    },
+    {
+      "personName": "אלי לולאי",
+      "personS": "אלי לולאי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "פרופסור ברנשטיין (קול)",
+      "year": 2013
+    },
+    {
+      "personName": "הילה נחשון",
+      "personS": "הילה נחשון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמה",
+      "year": 2013
+    },
+    {
+      "personName": "רפי רוטשטיין",
+      "personS": "רפי רוטשטיין",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "אירית סוקי",
+      "personS": "אירית סוקי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מגדת עתידות",
+      "year": 2013
+    },
+    {
+      "personName": "מיה רובין",
+      "personS": "מיה רובין",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "בועז קונפורטי",
+      "personS": "בועז קונפורטי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "יואב",
+      "year": 2013
+    },
+    {
+      "personName": "נאוה קולטון",
+      "personS": "נאוה קולטון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אישה בחלום של שי",
+      "year": 2013
+    },
+    {
+      "personName": "משה פרץ",
+      "personS": "משה פרץ",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמו",
+      "year": 2013
+    },
+    {
+      "personName": "ים שמיר",
+      "personS": "ים שמיר",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "אביגיל ערמון",
+      "personS": "אביגיל ערמון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "חנית",
+      "year": 2013
+    },
+    {
+      "personName": "יוסי סגל",
+      "personS": "יוסי סגל",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שטייניץ",
+      "year": 2019
+    },
+    {
+      "personName": "רבקה גור",
+      "personS": "רבקה גור",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "אביבה מרקס",
+      "personS": "אביבה מרקס",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "פאני",
+      "year": 2014
+    },
+    {
+      "personName": "בת חן סבג",
+      "personS": "בת חן סבג",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "יפת",
+      "year": 2013
+    },
+    {
+      "personName": "חיים אוסדון",
+      "personS": "חיים אוסדון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "דוד חיים",
+      "year": 2014
+    },
+    {
+      "personName": "נועה וולמן",
+      "personS": "נועה וולמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ענבל",
+      "year": 2014
+    },
+    {
+      "personName": "מני פאר",
+      "personS": "מני פאר",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "נירה רבינוביץ",
+      "personS": "נירה רבינוביץ",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "חיותה",
+      "year": 2014
+    },
+    {
+      "personName": "צליל סלע",
+      "personS": "צליל סלע",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמה",
+      "year": 2014
+    },
+    {
+      "personName": "איציק דואניאס",
+      "personS": "איציק דואניאס",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2014
+    },
+    {
+      "personName": "ניצן לברטובסקי",
+      "personS": "ניצן לברטובסקי",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "אילנית גרשון",
+      "personS": "אילנית גרשון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "עיוורת",
+      "year": 2014
+    },
+    {
+      "personName": "משה פרסטר",
+      "personS": "משה פרסטר",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "ששי קשת",
+      "personS": "ששי קשת",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "יעקב",
+      "year": 2022
+    },
+    {
+      "personName": "לירית בלבן",
+      "personS": "לירית בלבן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "קרנית",
+      "year": 2016
+    },
+    {
+      "personName": "יפתח אופיר",
+      "personS": "יפתח אופיר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מייק",
+      "year": 2016
+    },
+    {
+      "personName": "טל לוי",
+      "personS": "טל לוי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "רומי",
+      "year": 2016
+    },
+    {
+      "personName": "דור צויגנבום",
+      "personS": "דור צויגנבום",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מנדל",
+      "year": 2020
+    },
+    {
+      "personName": "לירון לוי",
+      "personS": "לירון לוי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "טבח",
+      "year": 2016
+    },
+    {
+      "personName": "יובל סגל",
+      "personS": "יובל סגל",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "יואל",
+      "year": 2022
+    },
+    {
+      "personName": "רמי ורד",
+      "personS": "רמי ורד",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "נהג \"המונה דופק\"",
+      "year": 2016
+    },
+    {
+      "personName": "דודו אהרון",
+      "personS": "דודו אהרון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמו",
+      "year": 2016
+    },
+    {
+      "personName": "דניאל דואניאס",
+      "personS": "דניאל דואניאס",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "הילה לפיד",
+      "personS": "הילה לפיד",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "ניצה שאול",
+      "personS": "ניצה שאול",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מריימ'לה",
+      "year": 2016
+    },
+    {
+      "personName": "ציפי שביט",
+      "personS": "ציפי שביט",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אנה ליזה",
+      "year": 2016
+    },
+    {
+      "personName": "אלי גורנשטיין",
+      "personS": "אלי גורנשטיין",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "פרופסור קליין",
+      "year": 2016
+    },
+    {
+      "personName": "עירית קפלן",
+      "personS": "עירית קפלן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ענת",
+      "year": 2016
+    },
+    {
+      "personName": "צביקה הדר",
+      "personS": "צביקה הדר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמו",
+      "year": 2016
+    },
+    {
+      "personName": "אדווה עדני",
+      "personS": "אדווה עדני",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שמאית ביטוח",
+      "year": 2016
+    },
+    {
+      "personName": "גיא רושיניאק",
+      "personS": "גיא רושיניאק",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מתקין טלוויזיה",
+      "year": 2016
+    },
+    {
+      "personName": "שמעון חאבא",
+      "personS": "שמעון חאבא",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "קבלן",
+      "year": 2017
+    },
+    {
+      "personName": "ערן בן זאב",
+      "personS": "ערן בן זאב",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "כפיר קורנר",
+      "personS": "כפיר קורנר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ליצן",
+      "year": 2017
+    },
+    {
+      "personName": "נעמה שלום",
+      "personS": "נעמה שלום",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "קרן ידובסקי",
+      "personS": "קרן ידובסקי",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "ריקי גל",
+      "personS": "ריקי גל",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמה",
+      "year": 2017
+    },
+    {
+      "personName": "שלומי סרנגה",
+      "personS": "שלומי סרנגה",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמו",
+      "year": 2017
+    },
+    {
+      "personName": "מור פולנוהר",
+      "personS": "מור פולנוהר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "קופאית",
+      "year": 2017
+    },
+    {
+      "personName": "שחר פרץ",
+      "personS": "שחר פרץ",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אופיר",
+      "year": 2017
+    },
+    {
+      "personName": "עדן בן זקן",
+      "personS": "עדן בן זקן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמה",
+      "year": 2017
+    },
+    {
+      "personName": "טל מוסרי",
+      "personS": "טל מוסרי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמו",
+      "year": 2017
+    },
+    {
+      "personName": "קובי מחט",
+      "personS": "קובי מחט",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמו",
+      "year": 2017
+    },
+    {
+      "personName": "תובל שפיר",
+      "personS": "תובל שפיר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שון",
+      "year": 2018
+    },
+    {
+      "personName": "לב קרז'נר",
+      "personS": "לב קרז'נר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "רודולפו רודריגז",
+      "year": 2018
+    },
+    {
+      "personName": "נועם שנהב",
+      "personS": "נועם שנהב",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אחות",
+      "year": 2018
+    },
+    {
+      "personName": "מיקי קם",
+      "personS": "מיקי קם",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ורה",
+      "year": 2019
+    },
+    {
+      "personName": "פולי רשף",
+      "personS": "פולי רשף",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מרצ'ל",
+      "year": 2018
+    },
+    {
+      "personName": "ליא דואניאס",
+      "personS": "ליא דואניאס",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "הבת של מנדל",
+      "year": 2022
+    },
+    {
+      "personName": "יואב כהן",
+      "personS": "יואב כהן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שוטר",
+      "year": 2018
+    },
+    {
+      "personName": "אור מלול",
+      "personS": "אור מלול",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "ישראל אהרוני",
+      "personS": "ישראל אהרוני",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "אורלי זילברשץ",
+      "personS": "אורלי זילברשץ",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "עידית",
+      "year": 2018
+    },
+    {
+      "personName": "שון סופטי",
+      "personS": "שון סופטי",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "שיר בן חמו",
+      "personS": "שיר בן חמו",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "יובל זיו",
+      "personS": "יובל זיו",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "אלון גאווי",
+      "personS": "אלון גאווי",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "רויטל זלצמן",
+      "personS": "רויטל זלצמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ליב",
+      "year": 2018
+    },
+    {
+      "personName": "אברהם שלום לוי",
+      "personS": "אברהם שלום לוי",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "תמרה סטיל כהן",
+      "personS": "תמרה סטיל כהן",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "יואל ברמן",
+      "personS": "יואל ברמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2018
+    },
+    {
+      "personName": "דני לשמן",
+      "personS": "דני לשמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "כתב",
+      "year": 2019
+    },
+    {
+      "personName": "ראידה אדון",
+      "personS": "ראידה אדון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "נהגת מונית",
+      "year": 2019
+    },
+    {
+      "personName": "אדם שפר",
+      "personS": "אדם שפר",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "דינה דורון",
+      "personS": "דינה דורון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "קלייר",
+      "year": 2019
+    },
+    {
+      "personName": "טל קלאי",
+      "personS": "טל קלאי",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "שמיל בן ארי",
+      "personS": "שמיל בן ארי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שופט",
+      "year": 2019
+    },
+    {
+      "personName": "דן כנר",
+      "personS": "דן כנר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמו",
+      "year": 2019
+    },
+    {
+      "personName": "גיל דסיאנו ביטון",
+      "personS": "גיל דסיאנו ביטון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "סוכן",
+      "year": 2019
+    },
+    {
+      "personName": "שולה חן",
+      "personS": "שולה חן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שטיין מלכה",
+      "year": 2019
+    },
+    {
+      "personName": "גיליה שטרן",
+      "personS": "גיליה שטרן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "גברת שולמן",
+      "year": 2022
+    },
+    {
+      "personName": "יולי ליאני",
+      "personS": "יולי ליאני",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "איתי פולישוק",
+      "personS": "איתי פולישוק",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "year": 2019
+    },
+    {
+      "personName": "ליז רביאן",
+      "personS": "ליז רביאן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "גבריאל",
+      "year": 2019
+    },
+    {
+      "personName": "קאדר הריני",
+      "personS": "קאדר הריני",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "גיא לואל",
+      "personS": "גיא לואל",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "פלג",
+      "year": 2022
+    },
+    {
+      "personName": "ענבר דנון",
+      "personS": "ענבר דנון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "הורלי גליידמן",
+      "year": 2019
+    },
+    {
+      "personName": "אורי הוכמן",
+      "personS": "אורי הוכמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שמיל ברג",
+      "year": 2019
+    },
+    {
+      "personName": "אלברט אילוז",
+      "personS": "אלברט אילוז",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "אמנון פישר",
+      "personS": "אמנון פישר",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "סיון מסט",
+      "personS": "סיון מסט",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "דנית",
+      "year": 2019
+    },
+    {
+      "personName": "אביטל אברג'ל",
+      "personS": "אביטל אברג'ל",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "נורית",
+      "year": 2019
+    },
+    {
+      "personName": "זיו קלייר",
+      "personS": "זיו קלייר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "זוסקוביץ'",
+      "year": 2019
+    },
+    {
+      "personName": "שירה וילנסקי",
+      "personS": "שירה וילנסקי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אביבית",
+      "year": 2019
+    },
+    {
+      "personName": "אקי אבני",
+      "personS": "אקי אבני",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "רבקה מיכאלי",
+      "personS": "רבקה מיכאלי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "פסיכיאטרית",
+      "year": 2020
+    },
+    {
+      "personName": "אופירה אסייג",
+      "personS": "אופירה אסייג",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמה",
+      "year": 2020
+    },
+    {
+      "personName": "אייל ברקוביץ'",
+      "personS": "אייל ברקוביץ'",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "אודליה סגל",
+      "personS": "אודליה סגל",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "כרמלה",
+      "year": 2020
+    },
+    {
+      "personName": "יואב דונט",
+      "personS": "יואב דונט",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "ברהנו טגניה",
+      "personS": "ברהנו טגניה",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמו",
+      "year": 2020
+    },
+    {
+      "personName": "רון ביטרמן",
+      "personS": "רון ביטרמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "אבי טנג'י",
+      "personS": "אבי טנג'י",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "הרב שריקי",
+      "year": 2020
+    },
+    {
+      "personName": "יורם ארבל",
+      "personS": "יורם ארבל",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמו",
+      "year": 2020
+    },
+    {
+      "personName": "דב רייזר",
+      "personS": "דב רייזר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "דובה פינקוס",
+      "year": 2020
+    },
+    {
+      "personName": "מני צוקרל",
+      "personS": "מני צוקרל",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מני ממטרה",
+      "year": 2020
+    },
+    {
+      "personName": "מאור בוזגלו",
+      "personS": "מאור בוזגלו",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "איציק שמולי",
+      "personS": "איציק שמולי",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "גיל ססובר",
+      "personS": "גיל ססובר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "עמנואל",
+      "year": 2020
+    },
+    {
+      "personName": "דון לני גבאי",
+      "personS": "דון לני גבאי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "דר שי",
+      "year": 2020
+    },
+    {
+      "personName": "אילן רוזנפלד",
+      "personS": "אילן רוזנפלד",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "גיא ברמס",
+      "year": 2020
+    },
+    {
+      "personName": "פאולה רוזנברג",
+      "personS": "פאולה רוזנברג",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "ליאון רוזנברג",
+      "personS": "ליאון רוזנברג",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "ליאור דובדבני",
+      "personS": "ליאור דובדבני",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמו",
+      "year": 2020
+    },
+    {
+      "personName": "אילן קובץ'",
+      "personS": "אילן קובץ'",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "חיים זנאתי",
+      "personS": "חיים זנאתי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "רב משגיח",
+      "year": 2020
+    },
+    {
+      "personName": "שרה'לה שרון",
+      "personS": "שרה'לה שרון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "דליה",
+      "year": 2020
+    },
+    {
+      "personName": "מאיה צפיר",
+      "personS": "מאיה צפיר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "יפעת",
+      "year": 2022
+    },
+    {
+      "personName": "אדי מוכתר",
+      "personS": "אדי מוכתר",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "עידית טפרסון",
+      "personS": "עידית טפרסון",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "יובל ינאי",
+      "personS": "יובל ינאי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "רופא",
+      "year": 2021
+    },
+    {
+      "personName": "עינת שרוף",
+      "personS": "עינת שרוף",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמה",
+      "year": 2022
+    },
+    {
+      "personName": "לוקץ'",
+      "personS": "לוקץ'",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמו",
+      "year": 2022
+    },
+    {
+      "personName": "ישראל גולדרט",
+      "personS": "ישראל גולדרט",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "גיל",
+      "year": 2022
+    },
+    {
+      "personName": "שיראל בורוכוב",
+      "personS": "שיראל בורוכוב",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "יגאל עדיקא",
+      "personS": "יגאל עדיקא",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "שלום כורם",
+      "personS": "שלום כורם",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "פזית ירון מינקובסקי",
+      "personS": "פזית ירון מינקובסקי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שכנה",
+      "year": 2022
+    },
+    {
+      "personName": "רנן שור",
+      "personS": "רנן שור",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמו",
+      "year": 2022
+    },
+    {
+      "personName": "אירית רחמים בסיס",
+      "personS": "אירית רחמים בסיס",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "יניב הלפגוט",
+      "personS": "יניב הלפגוט",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "רועי אדר",
+      "personS": "רועי אדר",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personName": "איציק חנית",
+      "personS": "איציק חנית",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2023
+    },
+    {
+      "personName": "אייל זהבי",
+      "personS": "אייל זהבי",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2014
+    },
+    {
+      "personName": "איציק ברכה",
+      "personS": "איציק ברכה",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2012
+    },
+    {
+      "personName": "חגי מזור",
+      "personS": "חגי מזור",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2014
+    },
+    {
+      "personName": "אלון צרפתי",
+      "personS": "אלון צרפתי",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2014
+    },
+    {
+      "personName": "יובל דקל",
+      "personS": "יובל דקל",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2023
+    },
+    {
+      "personName": "איתמר מורז",
+      "personS": "איתמר מורז",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2023
+    },
+    {
+      "personName": "דניאל חנית",
+      "personS": "דניאל חנית",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2023
+    },
+    {
+      "personName": "ירון בניסטי",
+      "personS": "ירון בניסטי",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2022
+    },
+    {
+      "personName": "טל ירדני",
+      "personS": "טל ירדני",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2022
+    },
+    {
+      "personName": "מלי יקותיאל",
+      "personS": "מלי יקותיאל",
+      "role": "singer",
+      "heading": "מוזיקה"
+    },
+    {
+      "personName": "מורן מרציאנו",
+      "personS": "מורן מרציאנו",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "מור שלומוביץ",
+      "personS": "מור שלומוביץ",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "דנה מרציאנו",
+      "personS": "דנה מרציאנו",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "דליה היימן",
+      "personS": "דליה היימן",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "שרונה קולטון",
+      "personS": "שרונה קולטון",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "מיכל קרטון",
+      "personS": "מיכל קרטון",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "אהרון שם טוב",
+      "personS": "אהרון שם טוב",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "צחי רב אור",
+      "personS": "צחי רב אור",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "עופר הרשקוביץ",
+      "personS": "עופר הרשקוביץ",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "עידן ליבר",
+      "personS": "עידן ליבר",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "ערד שאואט",
+      "personS": "ערד שאואט",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "גילי פרידמן",
+      "personS": "גילי פרידמן",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "יניב אוחנה",
+      "personS": "יניב אוחנה",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "נטע דרור",
+      "personS": "נטע דרור",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "נטי בטיטו",
+      "personS": "נטי בטיטו",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "רעות בוכניק",
+      "personS": "רעות בוכניק",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "זוהר ירושלמי",
+      "personS": "זוהר ירושלמי",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "גיל פרחי",
+      "personS": "גיל פרחי",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "גלי רוזנבאום",
+      "personS": "גלי רוזנבאום",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "אמיר סגל",
+      "personS": "אמיר סגל",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "טלי כץ",
+      "personS": "טלי כץ",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "דידו אלקיים",
+      "personS": "דידו אלקיים",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "עמי אופיר",
+      "personS": "עמי אופיר",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "טל ירדני",
+      "personS": "טל ירדני",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "year": 2022
+    },
+    {
+      "personName": "ערן שפר",
+      "personS": "ערן שפר",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "מני אסיקנד",
+      "personS": "מני אסיקנד",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "ערן לי ברקט",
+      "personS": "ערן לי ברקט",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "ניב אופיר",
+      "personS": "ניב אופיר",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "עמרי לוי",
+      "personS": "עמרי לוי",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "ניר גביש",
+      "personS": "ניר גביש",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "ענבר שטגר עזרא",
+      "personS": "ענבר שטגר עזרא",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "הגר מור",
+      "personS": "הגר מור",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    },
+    {
+      "personName": "קרני פלזנטל-זיו",
+      "personS": "קרני פלזנטל-זיו",
+      "role": "producer",
+      "heading": "תפקידים שונים"
+    }
+  ]
+}

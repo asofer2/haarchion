@@ -41,6 +41,7 @@ import { applyIshimNalvlym } from "./seed-ishim-nalvlym";
 import { applyIshimKopyko2009 } from "./seed-ishim-kopyko-2009";
 import { applyIshimPeterPan } from "./seed-ishim-peter-pan";
 import { applyIshimPinocchioAdventures1993 } from "./seed-ishim-pinocchio-adventures";
+import { applyIshimTuviaTsafir } from "./seed-ishim-tuvia-tsafir";
 import { applyIshimYaakovShemTov } from "./seed-ishim-yaakov-shem-tov";
 import { portrait } from "./portrait";
 
@@ -909,6 +910,7 @@ export const SEED: ArchiveData = applyIshimPinocchioAdventures1993(
   applyIshimNalvlym(
   applyIshimHyhHyhHadm(
   applyIshimChnnGoldblatt(
+  applyIshimTuviaTsafir(
   applyIshimGadiPor(
   applyIshimAzraHs(
   applyDerivedProfessionActivities(
@@ -991,6 +993,7 @@ export const SEED: ArchiveData = applyIshimPinocchioAdventures1993(
   })(),
   contributions: [],
   })
+  )
   )
   )
   )
