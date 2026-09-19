@@ -1190,6 +1190,15 @@ img {
   gap: 0.8rem;
 }
 
+.credit-list-editor {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.credit-list-editor.is-reordering .credit-row > :not(.credit-drag-handle) {
+  pointer-events: none;
+}
+
 .credit-row {
   align-items: end;
   grid-template-columns: auto repeat(auto-fit, minmax(140px, 1fr));
@@ -1213,8 +1222,13 @@ img {
 }
 
 .credit-drag-handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: grab;
+  touch-action: none;
   user-select: none;
+  -webkit-user-select: none;
   border: 1px solid var(--line, #d0d0d0);
   background: var(--paper-2, #f4f4f4);
   color: var(--ink-soft, #222);
@@ -1229,7 +1243,8 @@ img {
   margin-bottom: 0.05rem;
 }
 
-.credit-drag-handle:active {
+.credit-drag-handle:active,
+.credit-list-editor.is-reordering .credit-drag-handle {
   cursor: grabbing;
 }
 
