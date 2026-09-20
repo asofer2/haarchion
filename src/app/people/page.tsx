@@ -39,17 +39,18 @@ export default function PeoplePage() {
 
   const shown = people.slice(0, visible);
 
+  if (loading && !data) return <ArchiveSkeleton label="טוען אישים…" cards={8} />;
+  if (error || !data) return <p className="form-error">{error || "שגיאה"}</p>;
+
   return (
     <>
       <div className="section-head" style={{ border: "none", marginBottom: "0.5rem" }}>
         <div>
           <h1 className="page-title">אישים</h1>
           <p className="notice">
-            {loading && !data
-              ? "טוען…"
-              : `${people.length} ערכים${
-                  filter !== "all" ? ` ב«${ACTIVITY_LABELS[filter]}»` : ""
-                } — מדבבים, שחקנים, כוכבי מחזמר והופעות.`}
+            {people.length} ערכים
+            {filter !== "all" ? ` ב«${ACTIVITY_LABELS[filter]}»` : ""} — מדבבים,
+            שחקנים, כוכבי מחזמר והופעות.
           </p>
         </div>
         {user && (
@@ -85,11 +86,7 @@ export default function PeoplePage() {
         ))}
       </div>
 
-      {error && !data ? (
-        <p className="form-error">{error}</p>
-      ) : loading && !data ? (
-        <ArchiveSkeleton label="טוען אישים…" cards={8} />
-      ) : people.length === 0 ? (
+      {people.length === 0 ? (
         <p className="muted">אין אישים במסנן זה.</p>
       ) : (
         <>

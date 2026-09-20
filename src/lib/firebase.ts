@@ -51,13 +51,10 @@ export function getFirebaseDb(): Firestore | null {
   getFirebaseAuth();
   if (!db) {
     try {
-      const forceLongPolling =
-        process.env.NEXT_PUBLIC_FIREBASE_FORCE_LONG_POLLING === "1";
-      db = forceLongPolling
-        ? initializeFirestore(firebaseApp, {
-            experimentalForceLongPolling: true,
-          })
-        : getFirestore(firebaseApp);
+      // More reliable behind some networks / ad blockers
+      db = initializeFirestore(firebaseApp, {
+        experimentalForceLongPolling: true,
+      });
     } catch {
       db = getFirestore(firebaseApp);
     }

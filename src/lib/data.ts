@@ -515,25 +515,6 @@ function getSeedBaseline(): ArchiveData {
   return seedBaseline;
 }
 
-/** Sync lean snapshot for instant first paint (no Firestore / no 35MB JSON). */
-export function getLeanArchiveSync(): ArchiveData {
-  if (memoryCache && Date.now() - memoryCache.at < MEMORY_TTL_MS) {
-    return memoryCache.data;
-  }
-  if (typeof window !== "undefined") {
-    try {
-      const local = readLocal();
-      memoryCache = { data: local, at: Date.now() };
-      return local;
-    } catch {
-      /* fall through */
-    }
-  }
-  const lean = structuredClone(getSeedBaseline());
-  memoryCache = { data: lean, at: Date.now() };
-  return lean;
-}
-
 /** Classic ishim scrape lives on the server only — client uses lean seed + /api/archive. */
 function overlayBaseline(): ArchiveData {
   return getSeedBaseline();
