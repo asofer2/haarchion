@@ -60,6 +60,42 @@ function productionId(title, s, year) {
   return id;
 }
 
+/** Mirrors `resolveAirStatus` / `inferAirStatus` in src/lib/types.ts */
+function resolveAirStatus(p, nowYear = new Date().getFullYear()) {
+  const explicit = p.airStatus;
+  if (explicit === "ended" || explicit === "airing" || explicit === "upcoming") {
+    return explicit;
+  }
+  const year = Number(p.year) || 0;
+  const endYear = p.endYear != null ? Number(p.endYear) : null;
+  if (year > nowYear) return "upcoming";
+  if (endYear != null && Number.isFinite(endYear)) {
+    if (endYear < nowYear) return "ended";
+    return "airing";
+  }
+  if (year < nowYear) return "ended";
+  return "airing";
+}
+
+function pickUpcoming(productions, idByKey, limit = 8) {
+  return productions
+    .filter((p) => resolveAirStatus(p) === "upcoming")
+    .sort(
+      (a, b) =>
+        (Number(a.year) || 0) - (Number(b.year) || 0) ||
+        String(a.title || "").localeCompare(String(b.title || ""), "he")
+    )
+    .slice(0, limit)
+    .map((p) => {
+      const key = `${p.title}\0${p.s || ""}\0${p.year || 0}`;
+      return {
+        id: idByKey.get(key) || productionId(p.title, p.s, p.year),
+        title: p.title,
+        year: Number(p.year) || 0,
+      };
+    });
+}
+
 if (!fs.existsSync(ARCH_PATH)) {
   console.warn(
     "[generate-catalog-indexes] Skipping — missing",
@@ -106,10 +142,12 @@ for (const p of people) {
 
 const prodIndex = [];
 const usedProd = new Set();
+const prodIdByKey = new Map();
 for (const p of prods) {
   let id = productionId(p.title, p.s, p.year);
   if (usedProd.has(id)) id = `${id}-${p.year || "x"}`;
   usedProd.add(id);
+  prodIdByKey.set(`${p.title}\0${p.s || ""}\0${p.year || 0}`, id);
   prodIndex.push({
     id,
     title: p.title,
@@ -142,7 +180,7 @@ const homeSummary = {
   kindCounts,
   todayPeople,
   latest: [],
-  upcoming: [],
+  upcoming: pickUpcoming(prods, prodIdByKey, 8),
 };
 
 const outData = path.join(ROOT, "src/data");

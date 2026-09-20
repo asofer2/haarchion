@@ -266,6 +266,10 @@ export interface Person {
   deathDate?: string;
   bio: string;
   imageUrl?: string;
+  /** מקור התמונה — «wiki-cache» כשנשמרה אוטומטית ל-Firebase Storage */
+  imageSource?: string;
+  /** מתי התמונה נשמרה ל-Storage (ISO) */
+  imageCachedAt?: string;
   tags: string[];
   /** תחומי פעילות — מוצגים כקטגוריות בדף האישיות */
   activities: ActivityCategory[];
@@ -319,6 +323,10 @@ export interface Production {
   /** ערך מיובא מאתר אישים הקלאסי */
   ishimClassic?: boolean;
   imageUrl?: string;
+  /** מקור התמונה — «wiki-cache» כשנשמרה אוטומטית ל-Firebase Storage */
+  imageSource?: string;
+  /** מתי התמונה נשמרה ל-Storage (ISO) */
+  imageCachedAt?: string;
   /** כותבי הערך (ממאגר ישן / ייבוא) */
   entryAuthors?: string[];
   /** מקור המידע — למשל «ויקיפדיה», «ערוץ הופ תמיר» */

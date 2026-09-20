@@ -50,6 +50,14 @@ function asHomeSummary(raw: typeof staticHomeSummary): HomeSummary {
   };
 }
 
+function upcomingRows(productions: ArchiveData["productions"]): HomeSummary["upcoming"] {
+  return upcomingProductions(productions, 8).map((p) => ({
+    id: p.id,
+    title: formatProductionTitle(p),
+    year: p.year,
+  }));
+}
+
 function buildHomeSummary(data: ArchiveData): HomeSummary {
   return {
     kindCounts: ISHIM_DIRECTORY.map((item) => ({
@@ -68,11 +76,7 @@ function buildHomeSummary(data: ArchiveData): HomeSummary {
         activities: (p.activities || []).slice(0, 3),
       })),
     latest: recentUpdates(data, 3),
-    upcoming: upcomingProductions(data.productions, 8).map((p) => ({
-      id: p.id,
-      title: formatProductionTitle(p),
-      year: p.year,
-    })),
+    upcoming: upcomingRows(data.productions),
   };
 }
 
@@ -85,14 +89,38 @@ async function loadArchiveForHome(): Promise<ArchiveData> {
 }
 
 /**
+ * Upcoming list is always resolved from Firestore/full seed so explicit
+ * `airStatus: "upcoming"` (and year heuristics) appear even when the rest of
+ * the homepage uses build-time `home-summary.json`.
+ */
+const getCachedUpcomingRows = unstable_cache(
+  async (): Promise<HomeSummary["upcoming"]> => {
+    const data = await loadArchiveForHome();
+    return upcomingRows(data.productions);
+  },
+  ["home-upcoming-v1"],
+  {
+    tags: [ARCHIVE_CACHE_TAG, "home"],
+    revalidate: ARCHIVE_REVALIDATE_SECONDS,
+  }
+);
+
+/**
  * Homepage widgets — prefer build-time `home-summary.json`.
  * Dynamic Firestore/full-seed path only when HOME_SUMMARY_DYNAMIC=1.
+ * Upcoming is always live-merged (see getCachedUpcomingRows).
  */
 export async function getCachedHomeSummary(): Promise<HomeSummary> {
   if (process.env.HOME_SUMMARY_DYNAMIC === "1") {
     return getDynamicHomeSummary();
   }
-  return asHomeSummary(staticHomeSummary);
+  const base = asHomeSummary(staticHomeSummary);
+  try {
+    const upcoming = await getCachedUpcomingRows();
+    return { ...base, upcoming };
+  } catch {
+    return base;
+  }
 }
 
 const getDynamicHomeSummary = unstable_cache(

@@ -151,10 +151,6 @@ export function CreditsEditor({
       }
       const form = e.currentTarget as HTMLFormElement;
       const citation = String(new FormData(form).get("citation") || "").trim();
-      if (!citation) {
-        setMessage("יש למלא סימוכין — מקור העדכון");
-        return;
-      }
       const cleaned = assignBillingOrders(
         rows
           .filter((r) => r.personId && r.role)

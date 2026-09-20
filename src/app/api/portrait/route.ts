@@ -4,6 +4,12 @@ import {
   resolvePortraitDeep,
   resolvePortraitFast,
 } from "@/lib/portrait-resolve";
+import {
+  cachePortrait,
+  getCachedPortraitUrl,
+  portraitStoragePath,
+  type PortraitTarget,
+} from "@/lib/portrait-cache";
 
 /** Server-only image proxy — keep fetch/UA logic here, not in the client bundle. */
 export const runtime = "nodejs";
@@ -13,7 +19,12 @@ export const revalidate = 86400;
 const memCache = new Map<string, { url: string | null; at: number }>();
 const MEM_TTL_MS = 1000 * 60 * 60 * 12;
 
-async function proxyImage(source: string): Promise<NextResponse> {
+const IMAGE_CACHE_CONTROL =
+  "public, max-age=604800, stale-while-revalidate=2592000";
+
+async function fetchImageBytes(
+  source: string
+): Promise<{ buffer: Buffer; contentType: string } | null> {
   const imageRes = await fetch(source, {
     headers: {
       "User-Agent": PORTRAIT_UA,
@@ -23,15 +34,43 @@ async function proxyImage(source: string): Promise<NextResponse> {
     signal: AbortSignal.timeout(8000),
     next: { revalidate: 86400 },
   });
-  if (!imageRes.ok || !imageRes.body) {
-    return new NextResponse(null, { status: 404 });
+  if (!imageRes.ok) return null;
+  const buffer = Buffer.from(await imageRes.arrayBuffer());
+  if (buffer.length === 0) return null;
+  return {
+    buffer,
+    contentType: imageRes.headers.get("content-type") || "image/jpeg",
+  };
+}
+
+/** Fetch from the resolved source, store it in Firebase Storage, then serve the bytes. */
+async function serveAndCache(
+  source: string,
+  storagePath: string,
+  target: PortraitTarget
+): Promise<NextResponse> {
+  const image = await fetchImageBytes(source);
+  if (!image) return new NextResponse(null, { status: 404 });
+
+  try {
+    await cachePortrait(storagePath, image.buffer, image.contentType, target);
+  } catch (error) {
+    console.warn("[portrait] caching failed — serving directly", error);
   }
-  return new NextResponse(imageRes.body, {
+
+  return new NextResponse(new Uint8Array(image.buffer), {
     status: 200,
     headers: {
-      "Content-Type": imageRes.headers.get("content-type") || "image/jpeg",
-      "Cache-Control": "public, max-age=604800, stale-while-revalidate=2592000",
+      "Content-Type": image.contentType,
+      "Cache-Control": IMAGE_CACHE_CONTROL,
     },
+  });
+}
+
+function redirectToStorage(url: string): NextResponse {
+  return new NextResponse(null, {
+    status: 307,
+    headers: { Location: url, "Cache-Control": IMAGE_CACHE_CONTROL },
   });
 }
 
@@ -78,10 +117,34 @@ export async function GET(request: NextRequest) {
   const kind = request.nextUrl.searchParams.get("kind")?.trim() || null;
   const deep = request.nextUrl.searchParams.get("deep") === "1";
   const meta = request.nextUrl.searchParams.get("meta") === "1";
+  const personId = request.nextUrl.searchParams.get("personId")?.trim() || null;
+  const productionId =
+    request.nextUrl.searchParams.get("productionId")?.trim() || null;
   const query = name || title;
 
   if (!query) {
     return NextResponse.json({ error: "missing name" }, { status: 400 });
+  }
+
+  const target: PortraitTarget = { personId, productionId, query, also, kind };
+  const storagePath = portraitStoragePath(target);
+
+  // Already cached in Firebase Storage — never touch Wikipedia again.
+  try {
+    const storedUrl = await getCachedPortraitUrl(storagePath);
+    if (storedUrl) {
+      if (meta) {
+        return NextResponse.json({
+          found: true,
+          url: storedUrl,
+          cached: true,
+          source: "storage",
+        });
+      }
+      return redirectToStorage(storedUrl);
+    }
+  } catch (error) {
+    console.warn("[portrait] storage lookup failed", error);
   }
 
   const cacheKey = `${query}|${also || ""}|${kind || ""}|${deep ? "d" : "f"}`;
@@ -94,7 +157,7 @@ export async function GET(request: NextRequest) {
         cached: true,
       });
     }
-    if (cached.url) return proxyImage(cached.url);
+    if (cached.url) return serveAndCache(cached.url, storagePath, target);
     return svgAvatar(query);
   }
 
@@ -110,7 +173,7 @@ export async function GET(request: NextRequest) {
         cached: false,
       });
     }
-    if (source) return proxyImage(source);
+    if (source) return serveAndCache(source, storagePath, target);
     return svgAvatar(query);
   } catch {
     memCache.set(cacheKey, { url: null, at: Date.now() });

@@ -106,11 +106,6 @@ export function ProductionForm({ initial, presetKind }: Props) {
 
     try {
       const citation = String(form.get("citation") || "").trim();
-      if (!citation) {
-        setError("יש למלא סימוכין — מקור העדכון");
-        setSaving(false);
-        return;
-      }
       const result = await requestOrApplyProductionSave(
         {
           uid: user!.uid,

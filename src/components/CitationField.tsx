@@ -1,7 +1,7 @@
-/** שדה סימוכין — מקור העדכון הנוכחי (חובה בעריכות). */
+/** שדה סימוכין — מקור העדכון הנוכחי (אופציונלי). */
 export function CitationField({
   defaultValue,
-  required = true,
+  required = false,
 }: {
   defaultValue?: string;
   required?: boolean;
@@ -10,8 +10,8 @@ export function CitationField({
     <fieldset className="activity-fieldset">
       <legend>סימוכין</legend>
       <p className="muted">
-        ציינו את מקור העדכון — קישור, ספר, ארכיון Wayback, כיתוב DVD וכו׳.
-        יופיע בהיסטוריית העדכונים של הערך.
+        אופציונלי — מקור העדכון (קישור, ספר, ארכיון Wayback, כיתוב DVD וכו׳).
+        אם ימולא, יופיע בהיסטוריית העדכונים של הערך.
       </p>
       <label>
         סימוכין

@@ -123,11 +123,6 @@ export function PersonForm({ initial }: Props) {
 
     try {
       const citation = String(form.get("citation") || "").trim();
-      if (!citation) {
-        setError("יש למלא סימוכין — מקור העדכון");
-        setSaving(false);
-        return;
-      }
       const creditInputs = ISHIM_CREDIT_SECTIONS.flatMap((section) =>
         (categoryRows[section.heading] || [])
           .filter((row) => row.title.trim())

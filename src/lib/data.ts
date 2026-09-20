@@ -448,7 +448,8 @@ function normalize(data: ArchiveData): ArchiveData {
                     p.imageUrl,
                     p.name,
                     p.nameOriginal,
-                    "person"
+                    "person",
+                    p.id
                   ),
                 }))
               ),
@@ -460,7 +461,8 @@ function normalize(data: ArchiveData): ArchiveData {
                   p.originalTitle,
                   p.kind === "performance" || p.kind === "cassette"
                     ? "album"
-                    : "film"
+                    : "film",
+                  p.id
                 ),
               })),
               credits: data.credits || [],
