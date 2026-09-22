@@ -2,7 +2,11 @@
  * Compare lean SEED empties vs fullSeedArchive after ishim merge.
  * Run: npx --yes tsx scripts/verify-full-seed-fill.ts
  */
+import archiveJson from "../src/data/ishim-archive.json";
+import { canonicalPersonName } from "../src/lib/aliases";
+import { normalizePersonName } from "../src/lib/dedupe";
 import { SEED } from "../src/lib/seed";
+import { applyIshimArchive } from "../src/lib/seed-ishim-archive";
 import { fullSeedArchive } from "../src/lib/seed-full-server";
 import {
   countEmptyContent,
