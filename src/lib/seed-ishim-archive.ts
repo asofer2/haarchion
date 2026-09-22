@@ -316,7 +316,6 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
     idByS.set(src.s, id);
     ishimPersonIds.add(id);
 
-    const bio = ishimBio(src);
     const credits = src.credits || [];
     const classic = classicPersonFields(src);
     const patch: Partial<Person> = {
@@ -327,7 +326,6 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
       nicknames: src.birthName ? [src.birthName] : [],
       tags: classic.tags,
       activities: activitiesFor(src, credits),
-      bio,
       ...classic,
     };
 

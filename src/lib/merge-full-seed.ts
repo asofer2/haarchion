@@ -1,5 +1,3 @@
-import "server-only";
-
 import { creditDedupeKey } from "./credit-order";
 import type { ArchiveData, Person, Production } from "./types";
 
@@ -16,17 +14,17 @@ function preferText(primary?: string, fallback?: string): string {
 }
 
 /**
- * Keep any existing image. Cloud wins only when it has a real URL;
- * never overwrite a seed/Storage portrait with empty/missing cloud image.
+ * Keep any existing image. Overlay wins only when it has a real URL;
+ * never overwrite a seed/Storage portrait with empty/missing image.
  */
-function preferImage(
-  cloud?: string,
-  seed?: string
+export function preferImageUrl(
+  overlay?: string,
+  base?: string
 ): string | undefined {
-  const c = cloud?.trim();
-  if (c) return cloud;
-  const s = seed?.trim();
-  if (s) return seed;
+  const c = overlay?.trim();
+  if (c) return overlay;
+  const s = base?.trim();
+  if (s) return base;
   return undefined;
 }
 
@@ -38,87 +36,94 @@ function notesWeight(
 }
 
 function preferNotes(
-  cloud?: { heading: string; items: string[] }[],
-  seed?: { heading: string; items: string[] }[]
+  overlay?: { heading: string; items: string[] }[],
+  base?: { heading: string; items: string[] }[]
 ) {
-  return notesWeight(cloud) >= notesWeight(seed) ? cloud || seed : seed || cloud;
+  return notesWeight(overlay) >= notesWeight(base)
+    ? overlay || base
+    : base || overlay;
 }
 
-function mergePerson(seed: Person, cloud: Person): Person {
+/** Merge person records: fill empties from base, never drop imageUrl. */
+export function mergePersonRecords(base: Person, overlay: Person): Person {
   return {
-    ...seed,
-    ...cloud,
-    name: cloud.name?.trim() || seed.name,
-    nameOriginal: cloud.nameOriginal || seed.nameOriginal,
-    birthDate: cloud.birthDate || seed.birthDate,
-    deathDate: cloud.deathDate || seed.deathDate,
+    ...base,
+    ...overlay,
+    name: overlay.name?.trim() || base.name,
+    nameOriginal: overlay.nameOriginal || base.nameOriginal,
+    birthDate: overlay.birthDate || base.birthDate,
+    deathDate: overlay.deathDate || base.deathDate,
     nicknames: [
-      ...new Set([...(seed.nicknames || []), ...(cloud.nicknames || [])]),
+      ...new Set([...(base.nicknames || []), ...(overlay.nicknames || [])]),
     ],
-    tags: [...new Set([...(seed.tags || []), ...(cloud.tags || [])])],
+    tags: [...new Set([...(base.tags || []), ...(overlay.tags || [])])],
     activities: [
-      ...new Set([...(seed.activities || []), ...(cloud.activities || [])]),
+      ...new Set([...(base.activities || []), ...(overlay.activities || [])]),
     ],
-    bio: preferText(cloud.bio, seed.bio),
-    ishimNotes: preferNotes(cloud.ishimNotes, seed.ishimNotes),
-    imageUrl: preferImage(cloud.imageUrl, seed.imageUrl),
-    wikipediaUrl: cloud.wikipediaUrl || seed.wikipediaUrl,
+    bio: preferText(overlay.bio, base.bio),
+    ishimNotes: preferNotes(overlay.ishimNotes, base.ishimNotes),
+    imageUrl: preferImageUrl(overlay.imageUrl, base.imageUrl),
+    wikipediaUrl: overlay.wikipediaUrl || base.wikipediaUrl,
     discography:
-      cloud.discography?.length ? cloud.discography : seed.discography,
-    ishimClassic: Boolean(seed.ishimClassic || cloud.ishimClassic),
-    entryAuthors: cloud.entryAuthors?.length
-      ? cloud.entryAuthors
-      : seed.entryAuthors,
-    sourceNote: cloud.sourceNote || seed.sourceNote,
-    sourceUrl: cloud.sourceUrl || seed.sourceUrl,
-    gender: cloud.gender || seed.gender,
-    imageSource: cloud.imageSource || seed.imageSource,
-    imageCachedAt: cloud.imageCachedAt || seed.imageCachedAt,
-    createdAt: seed.createdAt || cloud.createdAt,
+      overlay.discography?.length ? overlay.discography : base.discography,
+    ishimClassic: Boolean(base.ishimClassic || overlay.ishimClassic),
+    entryAuthors: overlay.entryAuthors?.length
+      ? overlay.entryAuthors
+      : base.entryAuthors,
+    sourceNote: overlay.sourceNote || base.sourceNote,
+    sourceUrl: overlay.sourceUrl || base.sourceUrl,
+    gender: overlay.gender || base.gender,
+    imageSource: overlay.imageSource || base.imageSource,
+    imageCachedAt: overlay.imageCachedAt || base.imageCachedAt,
+    createdAt: base.createdAt || overlay.createdAt,
     updatedAt:
-      (cloud.updatedAt || "") > (seed.updatedAt || "")
-        ? cloud.updatedAt
-        : seed.updatedAt,
-    createdBy: cloud.createdBy || seed.createdBy,
-    updatedBy: cloud.updatedBy || seed.updatedBy,
+      (overlay.updatedAt || "") > (base.updatedAt || "")
+        ? overlay.updatedAt
+        : base.updatedAt,
+    createdBy: overlay.createdBy || base.createdBy,
+    updatedBy: overlay.updatedBy || base.updatedBy,
   };
 }
 
-function mergeProduction(seed: Production, cloud: Production): Production {
+/** Merge production records: fill empties from base, never drop imageUrl. */
+export function mergeProductionRecords(
+  base: Production,
+  overlay: Production
+): Production {
   return {
-    ...seed,
-    ...cloud,
-    title: cloud.title?.trim() || seed.title,
-    originalTitle: cloud.originalTitle || seed.originalTitle,
-    summary: preferText(cloud.summary, seed.summary),
-    genres: [...new Set([...(seed.genres || []), ...(cloud.genres || [])])],
-    channel: cloud.channel || seed.channel,
-    studio: cloud.studio || seed.studio,
-    dubbingStudio: cloud.dubbingStudio || seed.dubbingStudio,
-    imageUrl: preferImage(cloud.imageUrl, seed.imageUrl),
-    ishimNotes: preferNotes(cloud.ishimNotes, seed.ishimNotes),
+    ...base,
+    ...overlay,
+    title: overlay.title?.trim() || base.title,
+    originalTitle: overlay.originalTitle || base.originalTitle,
+    summary: preferText(overlay.summary, base.summary),
+    genres: [...new Set([...(base.genres || []), ...(overlay.genres || [])])],
+    channel: overlay.channel || base.channel,
+    studio: overlay.studio || base.studio,
+    dubbingStudio: overlay.dubbingStudio || base.dubbingStudio,
+    imageUrl: preferImageUrl(overlay.imageUrl, base.imageUrl),
+    ishimNotes: preferNotes(overlay.ishimNotes, base.ishimNotes),
     ishimKeys: [
-      ...new Set([...(seed.ishimKeys || []), ...(cloud.ishimKeys || [])]),
+      ...new Set([...(base.ishimKeys || []), ...(overlay.ishimKeys || [])]),
     ],
-    ishimClassic: Boolean(seed.ishimClassic || cloud.ishimClassic),
-    entryAuthors: cloud.entryAuthors?.length
-      ? cloud.entryAuthors
-      : seed.entryAuthors,
-    sourceNote: cloud.sourceNote || seed.sourceNote,
-    sourceUrl: cloud.sourceUrl || seed.sourceUrl,
-    imageSource: cloud.imageSource || seed.imageSource,
-    imageCachedAt: cloud.imageCachedAt || seed.imageCachedAt,
-    endYear: cloud.endYear ?? seed.endYear,
-    airStatus: cloud.airStatus ?? seed.airStatus,
-    runtimeMinutes: cloud.runtimeMinutes ?? seed.runtimeMinutes,
-    episodeCount: cloud.episodeCount ?? seed.episodeCount,
-    createdAt: seed.createdAt || cloud.createdAt,
+    ishimClassic: Boolean(base.ishimClassic || overlay.ishimClassic),
+    entryAuthors: overlay.entryAuthors?.length
+      ? overlay.entryAuthors
+      : base.entryAuthors,
+    sourceNote: overlay.sourceNote || base.sourceNote,
+    sourceUrl: overlay.sourceUrl || base.sourceUrl,
+    imageSource: overlay.imageSource || base.imageSource,
+    imageCachedAt: overlay.imageCachedAt || base.imageCachedAt,
+    endYear: overlay.endYear ?? base.endYear,
+    airStatus: overlay.airStatus ?? base.airStatus,
+    runtimeMinutes: overlay.runtimeMinutes ?? base.runtimeMinutes,
+    episodeCount: overlay.episodeCount ?? base.episodeCount,
+    createdAt: base.createdAt || overlay.createdAt,
     updatedAt:
-      (cloud.updatedAt || "") > (seed.updatedAt || "")
-        ? cloud.updatedAt
-        : seed.updatedAt,
-    createdBy: cloud.createdBy || seed.createdBy,
-    updatedBy: cloud.updatedBy || seed.updatedBy,
+      (overlay.updatedAt || "") > (base.updatedAt || "")
+        ? overlay.updatedAt
+        : base.updatedAt,
+    createdBy: overlay.createdBy || base.createdBy,
+    updatedBy: overlay.updatedBy || base.updatedBy,
   };
 }
 
@@ -134,7 +139,10 @@ export function mergeCloudOntoFullSeed(
   const people = new Map(fullSeed.people.map((p) => [p.id, p]));
   for (const person of cloud.people || []) {
     const existing = people.get(person.id);
-    people.set(person.id, existing ? mergePerson(existing, person) : person);
+    people.set(
+      person.id,
+      existing ? mergePersonRecords(existing, person) : person
+    );
   }
 
   const productions = new Map(fullSeed.productions.map((p) => [p.id, p]));
@@ -142,7 +150,7 @@ export function mergeCloudOntoFullSeed(
     const existing = productions.get(production.id);
     productions.set(
       production.id,
-      existing ? mergeProduction(existing, production) : production
+      existing ? mergeProductionRecords(existing, production) : production
     );
   }
 

@@ -22,6 +22,10 @@ import { ensureDiscographyProductions } from "./discography-productions";
 import { applyPeopleEnrichment } from "./person-dates";
 import { applyDubbingStudios } from "./seed-dubbing-studios";
 import { creditDedupeKey, stampBillingOrders } from "./credit-order";
+import {
+  mergePersonRecords,
+  mergeProductionRecords,
+} from "./merge-full-seed";
 import { applyIshimPersonPatches } from "./seed-ishim-patches";
 import { formatProductionTitle } from "./production-title";
 import {
@@ -867,46 +871,73 @@ function preferNewer<T extends { updatedAt?: string; id: string }>(
   return b; // tie: prefer remote/incoming
 }
 
-/** Merge local + remote; newer updatedAt wins per entity */
+/** Merge local + remote; remote catalog is base, local fills/overrides without wiping content/images. */
 function mergeArchives(local: ArchiveData, remote: ArchiveData): ArchiveData {
-  const people = new Map(local.people.map((p) => [p.id, p]));
-  for (const p of remote.people) {
+  // Start from remote (/api/archive = full ishim seed + Firestore) so lean local
+  // cannot drop classic people/credits that only exist on the server.
+  const people = new Map(remote.people.map((p) => [p.id, p]));
+  for (const p of local.people) {
     const existing = people.get(p.id);
-    people.set(p.id, existing ? preferNewer(existing, p) : p);
+    if (!existing) {
+      people.set(p.id, p);
+      continue;
+    }
+    const newer = preferNewer(existing, p);
+    // Field-level merge: keep richer prose/credits metadata + any imageUrl.
+    people.set(
+      p.id,
+      newer === p
+        ? mergePersonRecords(existing, p)
+        : mergePersonRecords(p, existing)
+    );
   }
 
-  const productions = new Map(local.productions.map((p) => [p.id, p]));
-  for (const p of remote.productions) {
+  const productions = new Map(remote.productions.map((p) => [p.id, p]));
+  for (const p of local.productions) {
     const existing = productions.get(p.id);
-    productions.set(p.id, existing ? preferNewer(existing, p) : p);
+    if (!existing) {
+      productions.set(p.id, p);
+      continue;
+    }
+    const newer = preferNewer(existing, p);
+    productions.set(
+      p.id,
+      newer === p
+        ? mergeProductionRecords(existing, p)
+        : mergeProductionRecords(p, existing)
+    );
   }
 
   const creditKey = (c: Credit) =>
     `${c.productionId}_${c.personId}_${c.role}`;
-  const credits = new Map(local.credits.map((c) => [creditKey(c), c]));
-  for (const c of remote.credits) {
+  const credits = new Map(remote.credits.map((c) => [creditKey(c), c]));
+  for (const c of local.credits) {
     const k = creditKey(c);
     const existing = credits.get(k);
     if (!existing) credits.set(k, c);
     else if (!existing.characterName && c.characterName) credits.set(k, c);
-    else credits.set(k, c); // remote credit replace (no updatedAt on credits)
+    else if (!existing.heading && c.heading) {
+      credits.set(k, { ...existing, heading: c.heading });
+    }
   }
 
   const contributions = new Map(
-    (local.contributions || [])
+    (remote.contributions || [])
       .filter((c) => !isModerationContribution(c))
       .map((c) => [c.id, c])
   );
-  for (const c of remote.contributions || []) {
+  for (const c of local.contributions || []) {
     if (!isModerationContribution(c)) contributions.set(c.id, c);
   }
 
-  return normalize({
+  // Remote from /api/archive is already normalized (full ishim seed).
+  // Do not re-run normalize() here — it freezes the browser on ~17k people.
+  return {
     people: [...people.values()],
     productions: [...productions.values()],
     credits: [...credits.values()],
     contributions: [...contributions.values()],
-  });
+  };
 }
 
 /** Memory only — opening a page must never write the full archive to disk. */
@@ -948,7 +979,8 @@ async function fetchCachedArchiveFromApi(
     if (!json || !Array.isArray(json.people) || !Array.isArray(json.productions)) {
       return null;
     }
-    return normalize(json);
+    // Server already normalized the full catalog — do not re-normalize in the browser.
+    return json;
   } catch {
     return null;
   }

@@ -4,18 +4,14 @@ import { unstable_cache } from "next/cache";
 import { collection, getDocs, limit, query } from "firebase/firestore";
 import { getFirebaseDb, isFirebaseConfigured } from "@/lib/firebase";
 import { getFirebaseAdminDb } from "@/lib/firebase-admin";
-import {
-  normalizeArchiveData,
-} from "@/lib/data";
 import { mergeCloudOntoFullSeed } from "@/lib/merge-full-seed";
 import { fullSeedArchive } from "@/lib/seed-full-server";
 import type { ArchiveData, Contribution, Credit, Person, Production } from "@/lib/types";
 
 /** Firestore overlays lean/user docs onto the full ishim-backed seed. */
 function hydrateFromFirestore(cloud: ArchiveData): ArchiveData {
-  return normalizeArchiveData(
-    mergeCloudOntoFullSeed(cloud, fullSeedArchive())
-  );
+  // fullSeedArchive() is already normalized + patched; avoid a second full pass.
+  return mergeCloudOntoFullSeed(cloud, fullSeedArchive());
 }
 
 export const ARCHIVE_CACHE_TAG = "archive";
