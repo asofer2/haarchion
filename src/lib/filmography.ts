@@ -1,4 +1,5 @@
 import type { ActivityCategory, ArchiveData, Credit, CreditRole, ProductionKind } from "./types";
+import { creditPersonProdRoleKey, preferCreditCharacter } from "./credit-order";
 
 /** Representative productions per activity — used to fill empty filmographies */
 const POOLS: Record<ActivityCategory, { productionIds: string[]; role: CreditRole }[]> = {
@@ -113,8 +114,24 @@ function uniqueActivities(activities: ActivityCategory[] = []): ActivityCategory
  */
 export function ensureFilmographies(data: ArchiveData): ArchiveData {
   const productionIds = new Set(data.productions.map((p) => p.id));
-  const creditKey = (c: Credit) => `${c.productionId}_${c.personId}_${c.role}`;
-  const creditMap = new Map(data.credits.map((c) => [creditKey(c), c]));
+  const peopleById = new Map(data.people.map((p) => [p.id, p]));
+  const creditMap = new Map<string, Credit>();
+  for (const credit of data.credits) {
+    const key = creditPersonProdRoleKey(credit);
+    const existing = creditMap.get(key);
+    if (!existing) {
+      creditMap.set(key, credit);
+      continue;
+    }
+    creditMap.set(
+      key,
+      preferCreditCharacter(
+        existing,
+        credit,
+        peopleById.get(credit.personId)?.name
+      )
+    );
+  }
 
   const people = data.people.map((person) => {
     const activities = uniqueActivities(person.activities);
@@ -201,7 +218,12 @@ export function ensureFilmographies(data: ArchiveData): ArchiveData {
           productionId: pick.id,
           role: pick.role,
         };
-        creditMap.set(creditKey(credit), credit);
+        const key = creditPersonProdRoleKey(credit);
+        const prior = creditMap.get(key);
+        creditMap.set(
+          key,
+          prior ? preferCreditCharacter(prior, credit, person.name) : credit
+        );
       }
     }
   }

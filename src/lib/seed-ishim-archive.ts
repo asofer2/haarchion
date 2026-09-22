@@ -6,10 +6,12 @@ import { normalizePersonName } from "./dedupe";
 import { slugify } from "./ids";
 import {
   ISHIM_CLASSIC_SOURCE,
+  cleanIshimCharacter,
   ishimCreditHeading,
   ishimWaybackPersonUrl,
   parseIshimNotes,
 } from "./ishim-import";
+import { preferCreditCharacter } from "./credit-order";
 import type {
   ActivityCategory,
   ArchiveData,
@@ -486,7 +488,8 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
         personId,
         productionId,
         role: credit.role,
-        characterName: credit.character,
+        // Person pages may list the actor's own name when they play themselves — keep it.
+        characterName: credit.character?.trim() || undefined,
         year: credit.year,
         heading: ishimCreditHeading(credit, src.name),
         billingOrder:
@@ -547,14 +550,16 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
         personId,
         productionId,
         role: credit.role,
-        characterName: credit.character,
+        characterName: cleanIshimCharacter(credit.character, credit.personName),
         year: credit.year,
       });
     }
   }
 
-  const creditKey = (c: Credit) =>
-    `${c.personId}|${c.productionId}|${c.role}|${c.year || ""}|${c.characterName || ""}`;
+  // Collapse person-page + production-cast duplicates; keep real תפקיד text.
+  const mergedByKey = new Map<string, Credit>();
+  const shortKey = (c: Credit) =>
+    `${c.personId}|${c.productionId}|${c.role}|${c.year || ""}`;
 
   const kept = data.credits.filter((credit) => {
     if (!ishimPersonIds.has(credit.personId)) return true;
@@ -565,19 +570,27 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
     return true;
   });
 
-  const mergedCredits: Credit[] = [];
-  const seen = new Set<string>();
   for (const credit of [...kept, ...newCredits]) {
-    const key = creditKey(credit);
-    if (seen.has(key)) continue;
-    seen.add(key);
-    mergedCredits.push(credit);
+    const key = shortKey(credit);
+    const existing = mergedByKey.get(key);
+    if (!existing) {
+      mergedByKey.set(key, credit);
+      continue;
+    }
+    mergedByKey.set(
+      key,
+      preferCreditCharacter(
+        existing,
+        credit,
+        peopleById.get(credit.personId)?.name
+      )
+    );
   }
 
   return {
     ...data,
     people,
     productions: [...prodById.values()],
-    credits: mergedCredits,
+    credits: [...mergedByKey.values()],
   };
 }

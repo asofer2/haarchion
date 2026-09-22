@@ -107,3 +107,25 @@ export function ishimWaybackPersonUrl(name: string): string {
 export function ishimWaybackProductionUrl(title: string): string {
   return `${ISHIM_WAYBACK_BASE}/m.php?s=${encodeURIComponent(title)}`;
 }
+
+/** Classic production cast often mis-scraped the actor name as their "character". */
+export function isSelfNamedIshimCharacter(
+  character: string | undefined,
+  personName: string | undefined
+): boolean {
+  const c = character?.trim();
+  const n = personName?.trim();
+  if (!c || !n) return false;
+  return c.replace(/\s+/g, " ").toLowerCase() === n.replace(/\s+/g, " ").toLowerCase();
+}
+
+/** Drop empty / self-named role text so person-page תפקיד wins over cast-list noise. */
+export function cleanIshimCharacter(
+  character: string | undefined,
+  personName?: string
+): string | undefined {
+  const c = character?.trim();
+  if (!c) return undefined;
+  if (isSelfNamedIshimCharacter(c, personName)) return undefined;
+  return c;
+}

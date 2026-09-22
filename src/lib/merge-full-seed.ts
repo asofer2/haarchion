@@ -1,4 +1,4 @@
-import { creditDedupeKey } from "./credit-order";
+import { creditDedupeKey, preferCreditCharacter } from "./credit-order";
 import type { ArchiveData, Person, Production } from "./types";
 
 function textLen(value?: string): number {
@@ -164,11 +164,10 @@ export function mergeCloudOntoFullSeed(
       credits.set(key, credit);
       continue;
     }
-    if (!existing.characterName && credit.characterName) {
-      credits.set(key, { ...existing, ...credit });
-    } else if (!existing.heading && credit.heading) {
-      credits.set(key, { ...existing, heading: credit.heading });
-    }
+    const personName =
+      people.get(credit.personId)?.name ||
+      people.get(existing.personId)?.name;
+    credits.set(key, preferCreditCharacter(existing, credit, personName));
   }
 
   return {

@@ -353,14 +353,22 @@ export function parseProductionHtml(html, sParam) {
         if (!/p\.php\?s=/.test(href)) continue;
         const yearSpan = m[1] && /^\d{4}$/.test(String(m[1])) ? Number(m[1]) : undefined;
         const personName = stripTags(m[3] || m[2]);
-        const character = stripTags(m[4] || m[3] || "") || undefined;
+        // Never fall back to personName — classic cast rows without a role
+        // div would otherwise store the actor as their own "character".
+        const rawChar = (stripTags(m[4] || "") || "").trim();
+        const character =
+          rawChar &&
+          rawChar.replace(/\s+/g, " ").toLowerCase() !==
+            personName.replace(/\s+/g, " ").toLowerCase()
+            ? rawChar
+            : undefined;
         credits.push({
           role,
           heading,
           year: yearSpan || year,
           personS: decodeQueryValue((href.match(/p\.php\?s=([^"']+)/) || [])[1] || ""),
           personName,
-          character: character || undefined,
+          character,
         });
       }
     }

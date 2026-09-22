@@ -21,7 +21,7 @@ import { ensureFilmographies } from "./filmography";
 import { ensureDiscographyProductions } from "./discography-productions";
 import { applyPeopleEnrichment } from "./person-dates";
 import { applyDubbingStudios } from "./seed-dubbing-studios";
-import { creditDedupeKey, stampBillingOrders } from "./credit-order";
+import { creditDedupeKey, creditPersonProdRoleKey, preferCreditCharacter, stampBillingOrders } from "./credit-order";
 import {
   mergePersonRecords,
   mergeProductionRecords,
@@ -908,16 +908,31 @@ function mergeArchives(local: ArchiveData, remote: ArchiveData): ArchiveData {
     );
   }
 
-  const creditKey = (c: Credit) =>
-    `${c.productionId}_${c.personId}_${c.role}`;
-  const credits = new Map(remote.credits.map((c) => [creditKey(c), c]));
+  const creditKey = creditPersonProdRoleKey;
+  const peopleById = new Map(remote.people.map((p) => [p.id, p]));
+  for (const p of local.people) {
+    if (!peopleById.has(p.id)) peopleById.set(p.id, p);
+  }
+  const credits = new Map<string, Credit>();
+  for (const c of remote.credits) {
+    const k = creditKey(c);
+    const existing = credits.get(k);
+    credits.set(
+      k,
+      existing
+        ? preferCreditCharacter(existing, c, peopleById.get(c.personId)?.name)
+        : c
+    );
+  }
   for (const c of local.credits) {
     const k = creditKey(c);
     const existing = credits.get(k);
     if (!existing) credits.set(k, c);
-    else if (!existing.characterName && c.characterName) credits.set(k, c);
-    else if (!existing.heading && c.heading) {
-      credits.set(k, { ...existing, heading: c.heading });
+    else {
+      credits.set(
+        k,
+        preferCreditCharacter(existing, c, peopleById.get(c.personId)?.name)
+      );
     }
   }
 

@@ -12,6 +12,7 @@ import { useArchive } from "@/hooks/useArchive";
 import { findById, canEditArchive } from "@/lib/data";
 import { IshimCreditLine } from "@/components/IshimCreditLine";
 import { compareBillingOrder } from "@/lib/credit-order";
+import { cleanIshimCharacter } from "@/lib/ishim-import";
 import {
   formatIshimCharacters,
   ISHIM_HEADING_ORDER,
@@ -264,7 +265,14 @@ function IshimProductionBody({
                 )}
                 yearAtEnd
                 lead={entry.person.name}
-                characters={formatIshimCharacters(entry.characterName) || undefined}
+                characters={
+                  formatIshimCharacters(
+                    cleanIshimCharacter(
+                      entry.characterName,
+                      entry.person.name
+                    ) || ""
+                  ) || undefined
+                }
               />
             ))}
           </ul>
@@ -419,7 +427,12 @@ export default function ProductionDetailPage() {
                         yearAtEnd
                         lead={entry.person.name}
                         characters={
-                          formatIshimCharacters(entry.characterName) || undefined
+                          formatIshimCharacters(
+                            cleanIshimCharacter(
+                              entry.characterName,
+                              entry.person.name
+                            ) || ""
+                          ) || undefined
                         }
                       />
                     ))}
