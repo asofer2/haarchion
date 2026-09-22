@@ -141,16 +141,21 @@ function isPlausibleClassicMatch(production: Production, year?: number): boolean
 function rememberPersonNames(
   person: Person,
   byName: Map<string, Person>,
-  byNick: Map<string, Person>
+  byNick: Map<string, Person>,
+  opts?: { nicknames?: boolean; skipNickKeys?: Set<string> }
 ) {
   byName.set(normalizePersonName(canonicalPersonName(person.name)), person);
+  if (opts?.nicknames === false) return;
+  const skip = opts?.skipNickKeys;
   for (const nick of person.nicknames || []) {
     const key = normalizePersonName(nick);
-    if (key) byNick.set(key, person);
+    // Never let a nickname steal another person's primary archive name.
+    if (!key || skip?.has(key)) continue;
+    if (!byNick.has(key)) byNick.set(key, person);
   }
   if (person.nameOriginal) {
     const key = normalizePersonName(person.nameOriginal);
-    if (key) byNick.set(key, person);
+    if (key && !skip?.has(key) && !byNick.has(key)) byNick.set(key, person);
   }
 }
 
@@ -159,11 +164,14 @@ function resolvePersonId(
   s: string,
   byId: Map<string, Person>,
   byName: Map<string, Person>,
-  byNick: Map<string, Person>
+  byNick: Map<string, Person>,
+  opts?: { allowNick?: boolean }
 ): string {
   const canonical = canonicalPersonName(name);
   const key = normalizePersonName(canonical);
-  const existing = byName.get(key) || byNick.get(key);
+  const existing =
+    byName.get(key) ||
+    (opts?.allowNick === false ? undefined : byNick.get(key));
   if (existing) return existing.id;
 
   let id = slugify(canonical);
@@ -299,8 +307,14 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
   const peopleIndex = new Map(people.map((p, i) => [p.id, i]));
   const peopleByName = new Map<string, Person>();
   const peopleByNick = new Map<string, Person>();
+  // Archive primary names must not be claimed by another entry's birthName/nickname.
+  const archivePrimaryKeys = new Set(
+    scrapedPeople.map((p) => normalizePersonName(canonicalPersonName(p.name)))
+  );
   for (const person of people) {
-    rememberPersonNames(person, peopleByName, peopleByNick);
+    rememberPersonNames(person, peopleByName, peopleByNick, {
+      skipNickKeys: archivePrimaryKeys,
+    });
   }
 
   const scrapedByS = new Map(scrapedPeople.map((p) => [p.s, p]));
@@ -309,10 +323,22 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
   const titlesByPerson = new Map<string, Set<string>>();
   const newCredits: Credit[] = [];
 
-  const ensurePerson = (src: IshimPerson): string => {
+  const ensurePerson = (
+    src: IshimPerson,
+    opts?: { allowNick?: boolean }
+  ): string => {
     const cached = idByS.get(src.s);
     if (cached) return cached;
-    const id = resolvePersonId(src.name, src.s, peopleById, peopleByName, peopleByNick);
+    // Match scraped people by primary name only — birthName nick collisions
+    // (e.g. אושיק לוי → אשר לוי) must not absorb a different archive person.
+    const id = resolvePersonId(
+      src.name,
+      src.s,
+      peopleById,
+      peopleByName,
+      peopleByNick,
+      { allowNick: opts?.allowNick === true }
+    );
     idByS.set(src.s, id);
     ishimPersonIds.add(id);
 
@@ -323,7 +349,10 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
       birthDate: src.birthDate,
       deathDate: src.deathDate,
       nameOriginal: src.nameOriginal,
-      nicknames: src.birthName ? [src.birthName] : [],
+      nicknames: src.birthName &&
+      !archivePrimaryKeys.has(normalizePersonName(src.birthName))
+        ? [src.birthName]
+        : [],
       tags: classic.tags,
       activities: activitiesFor(src, credits),
       ...classic,
@@ -335,17 +364,29 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
         ...new Set([
           ...(existing.nicknames || []),
           ...(patch.nicknames || []),
+          ...(patch.name &&
+          existing.name &&
+          normalizePersonName(patch.name) !==
+            normalizePersonName(existing.name)
+            ? [patch.name]
+            : []),
         ]),
       ];
       const updated: Person = {
         ...existing,
-        name: patch.name || existing.name,
+        // Never overwrite an established display name with a colliding birth name.
+        name: existing.name?.trim() ? existing.name : patch.name || existing.name,
         birthDate: patch.birthDate || existing.birthDate,
         deathDate: patch.deathDate || existing.deathDate,
         nameOriginal: patch.nameOriginal || existing.nameOriginal,
         nicknames: nicknames.length ? nicknames : existing.nicknames,
         tags: [...new Set([...(existing.tags || []), ...(patch.tags || [])])],
-        activities: activitiesFor(src, credits),
+        activities: [
+          ...new Set([
+            ...(existing.activities || []),
+            ...activitiesFor(src, credits),
+          ]),
+        ],
         // Keep curated wiki bio; classic prose lives in ishimNotes.
         bio: existing.bio?.trim() ? existing.bio : classic.bio || "",
         ishimClassic: true,
@@ -364,7 +405,9 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
       const idx = peopleIndex.get(id);
       if (idx !== undefined) people[idx] = updated;
       peopleById.set(id, updated);
-      rememberPersonNames(updated, peopleByName, peopleByNick);
+      rememberPersonNames(updated, peopleByName, peopleByNick, {
+        nicknames: false,
+      });
     } else {
       const created: Person = {
         id,
@@ -387,13 +430,25 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
       peopleIndex.set(id, people.length);
       people.push(created);
       peopleById.set(id, created);
-      rememberPersonNames(created, peopleByName, peopleByNick);
+      rememberPersonNames(created, peopleByName, peopleByNick, {
+        nicknames: false,
+      });
     }
     return id;
   };
 
   for (const src of scrapedPeople) {
-    ensurePerson(src);
+    ensurePerson(src, { allowNick: false });
+  }
+
+  // Register nicknames only after every archive primary exists.
+  for (const id of ishimPersonIds) {
+    const person = peopleById.get(id);
+    if (person) {
+      rememberPersonNames(person, peopleByName, peopleByNick, {
+        skipNickKeys: archivePrimaryKeys,
+      });
+    }
   }
 
   const scrapedProds = ISHIM.productions || [];
