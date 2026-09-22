@@ -7,8 +7,16 @@ import { getFirebaseAdminDb } from "@/lib/firebase-admin";
 import {
   normalizeArchiveData,
 } from "@/lib/data";
+import { mergeCloudOntoFullSeed } from "@/lib/merge-full-seed";
 import { fullSeedArchive } from "@/lib/seed-full-server";
 import type { ArchiveData, Contribution, Credit, Person, Production } from "@/lib/types";
+
+/** Firestore overlays lean/user docs onto the full ishim-backed seed. */
+function hydrateFromFirestore(cloud: ArchiveData): ArchiveData {
+  return normalizeArchiveData(
+    mergeCloudOntoFullSeed(cloud, fullSeedArchive())
+  );
+}
 
 export const ARCHIVE_CACHE_TAG = "archive";
 export const ARCHIVE_REVALIDATE_SECONDS = 3600;
@@ -31,7 +39,7 @@ async function readArchiveViaAdmin(): Promise<ArchiveData | null> {
       db.collection("contributions").get(),
     ]);
 
-  return normalizeArchiveData({
+  return hydrateFromFirestore({
     people: peopleSnap.docs.map((d) => d.data() as Person),
     productions: productionsSnap.docs.map((d) => d.data() as Production),
     credits: creditsSnap.docs.map((d) => d.data() as Credit),
@@ -53,7 +61,7 @@ async function readArchiveViaClientSdk(): Promise<ArchiveData> {
       getDocs(collection(db, "contributions")),
     ]);
 
-  return normalizeArchiveData({
+  return hydrateFromFirestore({
     people: peopleSnap.docs.map((d) => d.data() as Person),
     productions: productionsSnap.docs.map((d) => d.data() as Production),
     credits: creditsSnap.docs.map((d) => d.data() as Credit),
@@ -91,7 +99,7 @@ export async function readFirestoreArchiveServer(): Promise<ArchiveData> {
  */
 export const getCachedFirestoreArchive = unstable_cache(
   async (): Promise<ArchiveData> => readFirestoreArchiveServer(),
-  ["firestore-archive-v1"],
+  ["firestore-archive-v2-full-seed"],
   {
     tags: [ARCHIVE_CACHE_TAG],
     revalidate: ARCHIVE_REVALIDATE_SECONDS,

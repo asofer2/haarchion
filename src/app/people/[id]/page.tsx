@@ -330,7 +330,9 @@ export default function PersonDetailPage() {
           </section>
         ))}
 
-        {person.bio?.trim() && !person.ishimClassic && (
+        {person.bio?.trim() &&
+          (!person.ishimClassic ||
+            !person.ishimNotes?.some((n) => n.heading === "כללי")) && (
           <section className="ishim-role">
             <h3>כללי</h3>
             <div className="prose ishim-notes">{person.bio}</div>

@@ -1,0 +1,822 @@
+{
+  "name": "מומי לוי",
+  "birthDate": "1968-04-25",
+  "birthName": "שלמה לוי",
+  "keys": [
+    "דודה מפורסמת",
+    "זמרים",
+    "להקה צבאית",
+    "מדבבים",
+    "משפחת בידור"
+  ],
+  "credits": [
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 2000,
+      "title": "פופורים",
+      "character": "ממוכן (קול)"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1991,
+      "title": "סופשבוע",
+      "character": "משתתף בפינה הסאטירית 'האגף הסגור'"
+    },
+    {
+      "role": "actor",
+      "heading": "שחקן",
+      "year": 1989,
+      "title": "זהו זה!",
+      "character": "חולה מזמר"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2020,
+      "title": "Base - מוסיקה שחורה היום",
+      "character": "מגיש"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2009,
+      "title": "Base Mix",
+      "character": "מגיש"
+    },
+    {
+      "role": "host",
+      "heading": "בתפקיד עצמו",
+      "year": 2008,
+      "title": "אחד נגד 100",
+      "character": "אחד מתוך מאה האנשים"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2021,
+      "title": "6 גיבורים: הסדרה",
+      "character": "וואסאבי"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2020,
+      "title": "משמר האריות",
+      "character": "רפיקי"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2019,
+      "title": "אנגרי בירדס הסרט 2",
+      "character": "אלכס"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2018,
+      "title": "הגרינץ'",
+      "character": "בריקלבאום"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2018,
+      "title": "6 גיבורים: ביימקס חוזר",
+      "character": "וואסאבי"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2016,
+      "title": "אנגרי בירדס: הסרט"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2016,
+      "title": "משמר האריות - השאגה חוזרת",
+      "character": "רפיקי"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2014,
+      "title": "שישה גיבורים",
+      "character": "וואסאבי"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2013,
+      "title": "ארץ אוז",
+      "character": "נאק"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2013,
+      "title": "הדרדסים 2",
+      "character": "זללני / מבולבלי"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2012,
+      "title": "צעצוע של סיפור בקיצור - חיית מסיבות",
+      "character": "דאקי"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2012,
+      "title": "זמביזיה",
+      "character": "זה-קל"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2011,
+      "title": "כיפה אדומה סוגרת חשבון",
+      "character": "תייש מזמר"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2011,
+      "title": "הדרדסים - הסרט",
+      "character": "זללני"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2010,
+      "title": "כלבים נגד חתולים 2 - נקמתה של קיטי גלור",
+      "character": "שיימוס"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2006,
+      "title": "קטעים עם מיקי והחבר'ה",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2006,
+      "title": "אחי הדוב 2",
+      "character": "קולות רקע"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2006,
+      "title": "במבי 2",
+      "character": "קולות רקע"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2006,
+      "title": "כיפה אדומה - הסיפור האמיתי",
+      "character": "התייש המזמר"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2005,
+      "title": "מולאן 2",
+      "character": "לינג"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2004,
+      "title": "משפחת סופר על",
+      "character": "קולות רקע"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2003,
+      "title": "טקי הטרקטור",
+      "character": "מספר"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2003,
+      "title": "ארתור: סך הכל רוקנרול",
+      "character": "ניק קרטר"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2003,
+      "title": "ספר הג'ונגל 2",
+      "character": "קוף"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2002,
+      "title": "הצעצועים העזובים",
+      "character": "דמויות גבריות"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2002,
+      "title": "הגיבן מנוטרדאם 2 - זהו סוד הפעמון",
+      "character": "קלופין"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2002,
+      "title": "ספיי קידס 2: אי החלומות האבודים",
+      "character": "דינקי ווינקס"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2002,
+      "title": "סינדרלה 2 - חלומות מתגשמים",
+      "character": "האופה"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2001,
+      "title": "באז שנות אור ממפקדת הכוכב",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2001,
+      "title": "היפהפייה והיחפן 2: ההרפתקה של סקאמפ",
+      "character": "ג'ו / כלב אסיר"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2001,
+      "title": "כלבים נגד חתולים",
+      "character": "קולות רקע"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2001,
+      "title": "סברינה המכשפה הצעירה",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2001,
+      "title": "ספיי קידס",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2001,
+      "title": "הארי פוטר ואבן החכמים",
+      "character": "קולות רקע"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2001,
+      "title": "אטלנטיס - האימפריה האבודה"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2001,
+      "title": "הקיסר נפל על הראש",
+      "character": "קולות רקע"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2001,
+      "title": "מפלצות בע\"מ",
+      "character": "פונגוס"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2000,
+      "title": "102 כלבים וגנבים",
+      "character": "ג'ו (ארכיון) / קולות רקע"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2000,
+      "title": "החיים על פי דאג - הסרט",
+      "character": "רובוט"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2000,
+      "title": "101 דלמטים: הסדרה",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2000,
+      "title": "גופי הולך לקולג'",
+      "character": "טנק"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 2000,
+      "title": "באז שנות אור ממפקדת הכוכב - ההרפתקה מתחילה",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1999,
+      "title": "החיים על פי דאג",
+      "character": "סקיטר ולנטיין"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1999,
+      "title": "ראגרטס - הסרט",
+      "character": "סייר פרנק"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1999,
+      "title": "פצפונת ואנטון"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1998,
+      "title": "המשפחה של דולי",
+      "character": "אברון"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1998,
+      "title": "פוקהונטס 2 - מסע לעולם חדש",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1998,
+      "title": "החרב הקסומה - המסע לקמלוט",
+      "character": "המלך ארתור"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1997,
+      "title": "הבילבילים",
+      "character": "מגבון / קערון"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1997,
+      "title": "דונלד דאק וצוות קוואק",
+      "character": "קנט"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1997,
+      "title": "פאוור ריינג'רס זיאו",
+      "character": "רוקי דה-סאנטוס - זיאו ריינג'ר 3 כחול / הנסיך גלגלון / קלאנק / באבו"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1996,
+      "title": "הגיבן מנוטרדאם",
+      "character": "קלופין"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1996,
+      "title": "לאן נעלמה כרמן סן דיאגו?",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1996,
+      "title": "צעצוע של סיפור",
+      "character": "קולות רקע"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1996,
+      "title": "הגרגולים",
+      "character": "ברודווי"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1995,
+      "title": "עומר"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1995,
+      "title": "היפהפייה הנרדמת",
+      "character": "הנסיך פיליפ"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1995,
+      "title": "האופנוברים ממאדים",
+      "character": "לורנס לימבורגר / פרד"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1995,
+      "title": "פאוור ריינג'רס",
+      "character": "זאק טיילור - ריינג'ר שחור ראשון / באבו"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1994,
+      "title": "ילד דרקולה",
+      "character": "איגור / שום-עין"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1994,
+      "title": "מחנה מפלצות קטנות"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1994,
+      "title": "אצבעונית",
+      "character": "קורניליוס"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1994,
+      "title": "אקס-מן",
+      "character": "מורף"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1993,
+      "title": "עלילות טייני טון - כיף של חופשה",
+      "character": "דמויות שונות"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1993,
+      "title": "כוח וידאו",
+      "character": "סאלים"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1992,
+      "title": "סיפורי ספר הג'ונגל",
+      "character": "אקילה"
+    },
+    {
+      "role": "dubber",
+      "heading": "מדבב",
+      "year": 1989,
+      "title": "היפהפייה והיחפן",
+      "character": "ג'ו"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2020,
+      "title": "משמר האריות",
+      "character": "שירה (פרק אחרון)"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2016,
+      "title": "משמר האריות - השאגה חוזרת",
+      "character": "ביצוע שיר הסיום"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2012,
+      "title": "הלורקס",
+      "character": "מקהלה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2007,
+      "title": "לפגוש את הרובינסונים",
+      "character": "שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2007,
+      "title": "מכושפת",
+      "character": "שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2006,
+      "title": "כיפה אדומה - הסיפור האמיתי",
+      "character": "שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2005,
+      "title": "פו הדוב: סיפורו של פיל נפיל",
+      "character": "שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2005,
+      "title": "הקיסר נפל על הראש 2",
+      "character": "ליווי"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2005,
+      "title": "טרזן 2",
+      "character": "שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2005,
+      "title": "לאן נעלמה כרמן סן דיאגו?",
+      "character": "שיר פתיחה (ביצוע)"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2003,
+      "title": "על כלבים וגנבים 2 - ההרפתקאה של פאטש בלונדון",
+      "character": "שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2003,
+      "title": "אחי הדוב",
+      "character": "שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2003,
+      "title": "לאן נעלמה כרמן סן דיאגו?",
+      "character": "שיר פתיחה (ביצוע)"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2003,
+      "title": "ארתור: סך הכל רוקנרול",
+      "character": "ביצוע"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2002,
+      "title": "סוס פרא",
+      "character": "שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2002,
+      "title": "שלגיה",
+      "character": "זמר אולפן"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2000,
+      "title": "102 כלבים וגנבים",
+      "character": "שירה (\"קרואלה דה ויל\")"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2000,
+      "title": "101 דלמטים: הסדרה",
+      "character": "שיר פתיחה (ביצוע)"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2000,
+      "title": "טיגר הסרט",
+      "character": "שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2000,
+      "title": "פוקימון 2000",
+      "character": "שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2000,
+      "title": "צעצוע של סיפור 2",
+      "character": "וויזי (שירה)"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 2000,
+      "title": "פוקימון - הסרט הראשון",
+      "character": "שיר פתיחה (ביצוע)"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1999,
+      "title": "טרזן",
+      "character": "שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1998,
+      "title": "אגדות קסומות",
+      "character": "שירים (ביצוע)"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1998,
+      "title": "מולאן",
+      "character": "לינג (שירה)"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1998,
+      "title": "מלך האריות 2 - מלכות סימבה",
+      "character": "רפיקי (שירה) / שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1997,
+      "title": "הבילבילים",
+      "character": "שיר פתיחה וסיום (ביצוע)"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1997,
+      "title": "הפלא שבחיות הפרא",
+      "character": "שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1997,
+      "title": "דונלד דאק וצוות קוואק",
+      "character": "שיר פתיחה (ביצוע)"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1996,
+      "title": "צעצוע של סיפור",
+      "character": "דואט בסיום הסרט"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1996,
+      "title": "אלאדין 3 - אלאדין ומלך הגנבים",
+      "character": "ביצוע שיר הסיום (הרוכל)"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1996,
+      "title": "ספיידרמן",
+      "character": "שיר פתיחה (ביצוע)"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1995,
+      "title": "יחידת ההצלה של צ'יפ ודייל",
+      "character": "שיר פתיחה (ביצוע)"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1995,
+      "title": "עומר",
+      "character": "שיר פתיחה (ביצוע)"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1995,
+      "title": "גופי - הסרט",
+      "character": "מקהלה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1994,
+      "title": "טריקי שומר העולם",
+      "character": "ביצוע שיר פתיחה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1994,
+      "title": "ג'ינג'ה גורת אריות",
+      "character": "שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1992,
+      "title": "מיקי ואפון הקסם",
+      "character": "מקהלה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1990,
+      "title": "אליס בארץ הפלאות",
+      "character": "שירה"
+    },
+    {
+      "role": "singer",
+      "heading": "מוזיקה",
+      "year": 1989,
+      "title": "היפהפייה והיחפן",
+      "character": "שירה"
+    },
+    {
+      "role": "musical_performer",
+      "heading": "הרכבים",
+      "year": 2005,
+      "title": "להקת הנח\"ל"
+    }
+  ],
+  "ishimNotes": [
+    {
+      "heading": "קשר משפחתי",
+      "items": [
+        "אחיין של גלי עטרי, שוש עטרי ויונה עטרי"
+      ]
+    },
+    {
+      "heading": "צבא",
+      "items": [
+        "להקת הנח\"ל"
+      ]
+    }
+  ],
+  "entryAuthors": [],
+  "sourceUrl": "https://web.archive.org/web/20211018144242/https://www.ishim.co.il/p.php?s=%D7%9E%D7%95%D7%9E%D7%99+%D7%9C%D7%95%D7%99"
+}

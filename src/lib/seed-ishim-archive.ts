@@ -335,6 +335,7 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
     if (existing) {
       const nicknames = [
         ...new Set([
+          ...(existing.nicknames || []),
           ...(patch.nicknames || []),
         ]),
       ];
@@ -345,16 +346,21 @@ export function applyIshimArchive(data: ArchiveData): ArchiveData {
         deathDate: patch.deathDate || existing.deathDate,
         nameOriginal: patch.nameOriginal || existing.nameOriginal,
         nicknames: nicknames.length ? nicknames : existing.nicknames,
-        tags: patch.tags || [],
+        tags: [...new Set([...(existing.tags || []), ...(patch.tags || [])])],
         activities: activitiesFor(src, credits),
-        bio: classic.bio || "",
+        // Keep curated wiki bio; classic prose lives in ishimNotes.
+        bio: existing.bio?.trim() ? existing.bio : classic.bio || "",
         ishimClassic: true,
-        ishimNotes: classic.ishimNotes,
-        entryAuthors: classic.entryAuthors,
-        sourceNote: classic.sourceNote,
-        sourceUrl: classic.sourceUrl,
-        wikipediaUrl: undefined,
-        discography: undefined,
+        ishimNotes: classic.ishimNotes?.length
+          ? classic.ishimNotes
+          : existing.ishimNotes,
+        entryAuthors: classic.entryAuthors || existing.entryAuthors,
+        sourceNote: classic.sourceNote || existing.sourceNote,
+        sourceUrl: classic.sourceUrl || existing.sourceUrl,
+        // Preserve lean/wiki enrichment + any existing portrait.
+        wikipediaUrl: existing.wikipediaUrl,
+        discography: existing.discography,
+        imageUrl: existing.imageUrl,
         updatedAt: NOW,
       };
       const idx = peopleIndex.get(id);
