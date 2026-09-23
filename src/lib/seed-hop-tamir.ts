@@ -126,18 +126,17 @@ export const HOP_TAMIR_PRODUCTIONS: Production[] = [
       imageUrl: portrait("טימון ופומבה", "Timon & Pumbaa"),
     }
   ),
-  // Featured: listed in hoptamir-prods.json as „היה היה - דואגים לכדור הארץ (2009)” (beyond generator MAX=180);
-  // title/cast from ויקיפדיה העברית (שם הפצה בישראל) + ארכיון הופ תמיר.
+  // Featured: classic ishim (Wayback 2021-08-18) — cast/meta in seed-ishim-hyh-hyh-dvagym-lkdvr-hartz.ts
   prod(
     "ht-hyh-hyh-dvagym-lkdvr-hartz",
     "היה היה - דואגים לכדור הארץ",
-    2008,
-    "סדרת אנימציה צרפתית חינוכית על אקולוגיה ואיכות הסביבה מבית «היה היה» (פרוסידיס / אלבר בארייה). שודרה בישראל בערוץ לוגי בדיבוב עברי בבימוי אפי בן ישראל; ערך מתוך ארכיון ערוץ הופ תמיר.",
+    2009,
+    "מאסטרו ותלמידיו הילדים לומדים כיצד אפשר להיות אחראים לסביבה בכדור הארץ ואיך לשמור עליו מבעיות יומיומיות",
     {
       originalTitle: "Il était une fois... notre Terre",
-      endYear: 2009,
+      kind: "series_dubbed_foreign",
       channel: "לוגי",
-      genres: ["אנימציה", "ילדים", "דיבוב", "מדובב - זר", "חינוכי"],
+      genres: ["אנימציה", "חינוכי", "ילדים", "מדובב - זר"],
       imageUrl: portrait(
         "היה היה - דואגים לכדור הארץ",
         "Il était une fois... notre Terre"
@@ -448,7 +447,7 @@ export const HOP_TAMIR_PRODUCTIONS: Production[] = [
   prod("ht-ampybyh", "אמפיביה", 2020, "הפקה מארכיון ערוץ הופ תמיר (2020–2022).", { kind: "series", endYear: 2022 }),
 ];
 
-/** Hop Tamir credits — פיטר פן מנוהל ב-seed-ishim-peter-pan.ts */
+/** Hop Tamir credits — פיטר פן / היה היה דואגים מנוהלים ב-seed-ishim-*.ts */
 export const HOP_TAMIR_CREDITS: Credit[] = [
   // —— טימון ופומבה (אישים / הופ תמיר + ויקיפדיה) ——
   // Prefer existing main / wiki / ht person ids — no new people invented.
@@ -469,20 +468,7 @@ export const HOP_TAMIR_CREDITS: Credit[] = [
   { personId: "shrh-vynv-alad", productionId: "ht-tymvn-vpvmbh", role: "dubber", characterName: "דמויות שונות" },
   { personId: "ht-rvny-vyys", productionId: "ht-tymvn-vpvmbh", role: "composer", characterName: "ניהול מוזיקלי" },
 
-  // —— היה היה - דואגים לכדור הארץ (ויקיפדיה העברית + הופ תמיר) ——
-  { personId: "efi-ben-israel", productionId: "ht-hyh-hyh-dvagym-lkdvr-hartz", role: "dub_director", characterName: "בימוי דיבוב" },
-  { personId: "asf-ashtr", productionId: "ht-hyh-hyh-dvagym-lkdvr-hartz", role: "dubber", characterName: "מאסטרו" },
-  { personId: "liron-lev", productionId: "ht-hyh-hyh-dvagym-lkdvr-hartz", role: "dubber", characterName: "פייר" },
-  { personId: "lvrn-sbyr", productionId: "ht-hyh-hyh-dvagym-lkdvr-hartz", role: "dubber", characterName: "סופי" },
-  { personId: "gya-rvshynyak", productionId: "ht-hyh-hyh-dvagym-lkdvr-hartz", role: "dubber" },
-  { personId: "avry-avmnvty", productionId: "ht-hyh-hyh-dvagym-lkdvr-hartz", role: "dubber" },
-  { personId: "guy-friedman", productionId: "ht-hyh-hyh-dvagym-lkdvr-hartz", role: "dubber" },
-  { personId: "abytl-abrgyl", productionId: "ht-hyh-hyh-dvagym-lkdvr-hartz", role: "dubber" },
-  { personId: "aprt-gvsh", productionId: "ht-hyh-hyh-dvagym-lkdvr-hartz", role: "dubber" },
-  { personId: "abytr-adyr", productionId: "ht-hyh-hyh-dvagym-lkdvr-hartz", role: "dubber" },
-  { personId: "alh-ptr", productionId: "ht-hyh-hyh-dvagym-lkdvr-hartz", role: "dubber" },
-  { personId: "michal-reshef", productionId: "ht-hyh-hyh-dvagym-lkdvr-hartz", role: "dubber" },
-  { personId: "doron-ben-ami", productionId: "ht-hyh-hyh-dvagym-lkdvr-hartz", role: "dubber" },
+  // —— היה היה - דואגים לכדור הארץ → seed-ishim-hyh-hyh-dvagym-lkdvr-hartz.ts ——
 
   // —— המומינים (ויקיפדיה העברית + הופ תמיר) ——
   { personId: "ht-chnh-drvry-kshy", productionId: "ht-hmvmywnym", role: "dub_director", characterName: "בימוי דיבוב" },

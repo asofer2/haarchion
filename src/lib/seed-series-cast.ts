@@ -894,20 +894,7 @@ export const SERIES_CAST_CREDITS: Credit[] = [
   c("ht-shmavn-khn", "ht-tymvn-vpvmbh", "dubber", "בנזאי / קווינט"),
   c("chn-chgy", "ht-tymvn-vpvmbh", "dubber", "אד"),
 
-  // —— היה היה - דואגים לכדור הארץ (הופ תמיר / ויקיפדיה) ——
-  c("efi-ben-israel", "ht-hyh-hyh-dvagym-lkdvr-hartz", "dub_director", "בימוי דיבוב"),
-  c("asf-ashtr", "ht-hyh-hyh-dvagym-lkdvr-hartz", "dubber", "מאסטרו"),
-  c("liron-lev", "ht-hyh-hyh-dvagym-lkdvr-hartz", "dubber", "פייר"),
-  c("lvrn-sbyr", "ht-hyh-hyh-dvagym-lkdvr-hartz", "dubber", "סופי"),
-  c("gya-rvshynyak", "ht-hyh-hyh-dvagym-lkdvr-hartz", "dubber"),
-  c("avry-avmnvty", "ht-hyh-hyh-dvagym-lkdvr-hartz", "dubber"),
-  c("guy-friedman", "ht-hyh-hyh-dvagym-lkdvr-hartz", "dubber"),
-  c("abytl-abrgyl", "ht-hyh-hyh-dvagym-lkdvr-hartz", "dubber"),
-  c("aprt-gvsh", "ht-hyh-hyh-dvagym-lkdvr-hartz", "dubber"),
-  c("abytr-adyr", "ht-hyh-hyh-dvagym-lkdvr-hartz", "dubber"),
-  c("alh-ptr", "ht-hyh-hyh-dvagym-lkdvr-hartz", "dubber"),
-  c("michal-reshef", "ht-hyh-hyh-dvagym-lkdvr-hartz", "dubber"),
-  c("doron-ben-ami", "ht-hyh-hyh-dvagym-lkdvr-hartz", "dubber"),
+  // —— היה היה - דואגים לכדור הארץ → seed-ishim-hyh-hyh-dvagym-lkdvr-hartz.ts ——
 
   // —— המומינים (הופ תמיר / ויקיפדיה) ——
   c("ht-chnh-drvry-kshy", "ht-hmvmywnym", "dub_director", "בימוי דיבוב"),

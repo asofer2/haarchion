@@ -39,6 +39,7 @@ import { applyIshimChnhDrvryKshy } from "./seed-ishim-chnh-drvry-kshy";
 import { applyIshimHyhHyhHadm } from "./seed-ishim-hyh-hyh-hadm";
 import { applyIshimNalvlym } from "./seed-ishim-nalvlym";
 import { applyIshimKopyko2009 } from "./seed-ishim-kopyko-2009";
+import { applyIshimHyhHyhDvagymLkdvrHartz } from "./seed-ishim-hyh-hyh-dvagym-lkdvr-hartz";
 import { applyIshimPeterPan } from "./seed-ishim-peter-pan";
 import { applyIshimPinocchioAdventures1993 } from "./seed-ishim-pinocchio-adventures";
 import { applyIshimTuviaTsafir } from "./seed-ishim-tuvia-tsafir";
@@ -904,6 +905,7 @@ const credits: Credit[] = [
 export const SEED: ArchiveData = applyIshimPinocchioAdventures1993(
   applyIshimYaakovShemTov(
   applyIshimKopyko2009(
+  applyIshimHyhHyhDvagymLkdvrHartz(
   applyIshimPeterPan(
   applyIshimAnvrShtgrAzra(
   applyIshimChnhDrvryKshy(
@@ -993,6 +995,7 @@ export const SEED: ArchiveData = applyIshimPinocchioAdventures1993(
   })(),
   contributions: [],
   })
+  )
   )
   )
   )

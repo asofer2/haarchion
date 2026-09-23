@@ -1,0 +1,86 @@
+{
+  "title": "היה היה - דואגים לכדור הארץ",
+  "originalTitle": "Il était une fois... notre Terre",
+  "year": 2009,
+  "summary": "מאסטרו ותלמידיו הילדים לומדים כיצד אפשר להיות אחראים לסביבה בכדור הארץ ואיך לשמור עליו מבעיות יומיומיות",
+  "runtimeMinutes": 25,
+  "episodeCount": 26,
+  "genres": ["אנימציה", "חינוכי", "ילדים", "מדובב - זר"],
+  "channel": "לוגי",
+  "ishimKeys": ["איכות הסביבה"],
+  "entryAuthors": ["תמיר סופר", "Kobi Likverman", "ברק חננאל"],
+  "credits": [
+    {
+      "personId": "efi-ben-israel",
+      "role": "dub_director",
+      "heading": "בימוי דיבוב"
+    },
+    {
+      "personId": "anvr-shtgr-azra",
+      "role": "producer",
+      "heading": "הפקת דיבוב"
+    },
+    {
+      "personId": "asf-ashtr",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "מאסטרו"
+    },
+    {
+      "personId": "liron-lev",
+      "role": "dubber",
+      "heading": "מדבבים"
+    },
+    {
+      "personId": "gya-rvshynyak",
+      "role": "dubber",
+      "heading": "מדבבים"
+    },
+    {
+      "personId": "michal-reshef",
+      "role": "dubber",
+      "heading": "מדבבים"
+    },
+    {
+      "personId": "abytl-abrgyl",
+      "role": "dubber",
+      "heading": "מדבבים"
+    },
+    {
+      "personId": "avry-avmnvty",
+      "role": "dubber",
+      "heading": "מדבבים"
+    },
+    {
+      "personId": "alh-ptr",
+      "role": "dubber",
+      "heading": "מדבבים"
+    },
+    {
+      "personId": "lvrn-sbyr",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "סופי"
+    },
+    {
+      "personId": "guy-friedman",
+      "role": "dubber",
+      "heading": "מדבבים"
+    },
+    {
+      "personId": "aprt-gvsh",
+      "role": "dubber",
+      "heading": "מדבבים"
+    },
+    {
+      "personId": "abytr-adyr",
+      "role": "dubber",
+      "heading": "מדבבים"
+    },
+    {
+      "personId": "doron-ben-ami",
+      "role": "dubber",
+      "heading": "מדבבים"
+    }
+  ]
+}
