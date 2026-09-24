@@ -173,7 +173,7 @@ export const HOP_TAMIR_PRODUCTIONS: Production[] = [
       kind: "tv_series",
       originalTitle: "T.U.F.F. Puppy",
       endYear: 2013,
-      channel: "ניקלודיאון",
+      channel: "ניקולודיאון",
       genres: [
         "אנימציה",
         "ילדים",
@@ -543,11 +543,12 @@ export const HOP_TAMIR_CREDITS: Credit[] = [
   { personId: "gadi-levi", productionId: "ht-chbvbvtp", role: "dubber", characterName: "וולדורף" },
 
   // —— כלב חשאי (הופ תמיר / אישים) ——
+  // דמויות מדבבים כבעמוד; לצוות אין שם־דמות (רק כותרת סעיף כמו בהופ תמיר)
   {
     personId: "amychy-br-tvb",
     productionId: "ht-klb-chshay",
     role: "dub_director",
-    characterName: "בימוי דיבוב",
+    heading: "בימוי דיבוב",
     billingOrder: 1,
     year: 2011,
     endYear: 2012,
@@ -556,7 +557,7 @@ export const HOP_TAMIR_CREDITS: Credit[] = [
     personId: "mati-atlas",
     productionId: "ht-klb-chshay",
     role: "dub_director",
-    characterName: "בימוי דיבוב",
+    heading: "בימוי דיבוב",
     billingOrder: 2,
     year: 2013,
   },
@@ -564,14 +565,14 @@ export const HOP_TAMIR_CREDITS: Credit[] = [
     personId: "tami-barak",
     productionId: "ht-klb-chshay",
     role: "producer",
-    characterName: "הפקת דיבוב",
+    heading: "הפקת דיבוב",
     billingOrder: 3,
   },
   {
     personId: "asnt-sdn",
     productionId: "ht-klb-chshay",
     role: "producer",
-    characterName: "הפקת דיבוב",
+    heading: "הפקת דיבוב",
     billingOrder: 4,
     year: 2013,
   },

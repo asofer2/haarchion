@@ -50,3 +50,6 @@ scripts/ishim-archive/parsed-*/
 scripts/ishim-archive/progress.json
 scripts/ishim-archive/progress-*.json
 scripts/ishim-archive/*.html
+
+.vercel
+.env*
