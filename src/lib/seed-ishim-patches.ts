@@ -12,25 +12,28 @@ import { applyIshimPeterPan } from "./seed-ishim-peter-pan";
 import { applyIshimPinocchioAdventures1993 } from "./seed-ishim-pinocchio-adventures";
 import { applyIshimSavriMaranan } from "./seed-ishim-savri-maranan";
 import { applyIshimMomiLevy } from "./seed-ishim-momi-levy";
+import { applyIshimNicoBar } from "./seed-ishim-nico-bar";
 import { applyIshimTuviaTsafir } from "./seed-ishim-tuvia-tsafir";
 import { applyIshimYaakovShemTov } from "./seed-ishim-yaakov-shem-tov";
 
 /** ערכי אישים/הפקות שלא בארכיון הגדול — מיושמים אחרי applyIshimArchive */
 export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
-  return applyIshimMomiLevy(
-    applyIshimSavriMaranan(
-      applyIshimPinocchioAdventures1993(
-        applyIshimYaakovShemTov(
-          applyIshimKopyko2009(
-            applyIshimHyhHyhDvagymLkdvrHartz(
-              applyIshimPeterPan(
-                applyIshimAnvrShtgrAzra(
-                  applyIshimChnhDrvryKshy(
-                    applyIshimNalvlym(
-                      applyIshimHyhHyhHadm(
-                        applyIshimChnnGoldblatt(
-                          applyIshimTuviaTsafir(
-                            applyIshimGadiPor(applyIshimAzraHs(data))
+  return applyIshimNicoBar(
+    applyIshimMomiLevy(
+      applyIshimSavriMaranan(
+        applyIshimPinocchioAdventures1993(
+          applyIshimYaakovShemTov(
+            applyIshimKopyko2009(
+              applyIshimHyhHyhDvagymLkdvrHartz(
+                applyIshimPeterPan(
+                  applyIshimAnvrShtgrAzra(
+                    applyIshimChnhDrvryKshy(
+                      applyIshimNalvlym(
+                        applyIshimHyhHyhHadm(
+                          applyIshimChnnGoldblatt(
+                            applyIshimTuviaTsafir(
+                              applyIshimGadiPor(applyIshimAzraHs(data))
+                            )
                           )
                         )
                       )
