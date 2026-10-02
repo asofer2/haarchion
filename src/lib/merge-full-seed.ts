@@ -146,8 +146,19 @@ export function mergeCloudOntoFullSeed(
   }
 
   const productions = new Map(fullSeed.productions.map((p) => [p.id, p]));
+  const classicProductionIds = new Set(
+    fullSeed.productions.filter((p) => p.ishimClassic).map((p) => p.id)
+  );
   for (const production of cloud.productions || []) {
     const existing = productions.get(production.id);
+    // Classic pages are owned by seed (Hop Tamir / אישים). Cloud copies are stale.
+    if (existing?.ishimClassic) {
+      productions.set(production.id, {
+        ...existing,
+        imageUrl: preferImageUrl(production.imageUrl, existing.imageUrl),
+      });
+      continue;
+    }
     productions.set(
       production.id,
       existing ? mergeProductionRecords(existing, production) : production
@@ -158,6 +169,7 @@ export function mergeCloudOntoFullSeed(
     fullSeed.credits.map((c) => [creditDedupeKey(c), c])
   );
   for (const credit of cloud.credits || []) {
+    if (classicProductionIds.has(credit.productionId)) continue;
     const key = creditDedupeKey(credit);
     const existing = credits.get(key);
     if (!existing) {
