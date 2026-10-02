@@ -1,0 +1,87 @@
+{
+  "title": "אוטובוס הקסמים",
+  "originalTitle": "The Magic School Bus",
+  "year": 1996,
+  "endYear": 1999,
+  "summary": "גברת פריזל היא מורה ייחודית שמעבירה את שיעוריה באמצעות טיולי שדה קסומים.",
+  "runtimeMinutes": 30,
+  "episodeCount": 52,
+  "genres": ["אנימציה", "חינוכי", "ילדים", "מדובב - זר"],
+  "channel": "ערוץ הילדים",
+  "ishimKeys": ["טיולים"],
+  "notes": [
+    {
+      "heading": "קישורים",
+      "items": [
+        "אוטובוס הקסמים - שיר הפתיחה",
+        "ראה סדרת המשך אוטובוס הקסמים נוסע שוב"
+      ]
+    },
+    {
+      "heading": "ציטוטים",
+      "items": [
+        "\"לפי מה שידוע לי...\" - דורותי אן, משפט חוזר",
+        "\"בבית הספר הישן...\" - פיבי, משפט חוזר",
+        "\"אני תמיד אומרת...\" - גברת פריזל, משפט חוזר",
+        "\"הייתי צריך להישאר בבית\" - ארנולד, משפט חוזר"
+      ]
+    },
+    {
+      "heading": "טריוויה לא מעניינת",
+      "items": ["ארנולד הוא יהודי אמריקאי"]
+    }
+  ],
+  "people": [
+    { "id": "ht-mvrn-lkhysh", "name": "מורן לכיש" },
+    { "id": "ht-saly-amygh", "name": "סאלי אמיגה" },
+    { "id": "ht-yvntn-mndlmn", "name": "יונתן מנדלמן" },
+    { "id": "ht-aydv-mzrchy", "name": "עידו מזרחי" },
+    { "id": "ht-dnyal-zylbrshtyyn", "name": "דניאל זילברשטיין" },
+    { "id": "ht-amyr-svlvbytsyk", "name": "אמיר סולובייצ'יק" },
+    { "id": "ht-alvn-vvrthhymr", "name": "אלון וורטהיימר" },
+    { "id": "ht-tlyh-dvr", "name": "טליה דור" },
+    { "id": "ht-nta-tyshlr", "name": "נטע טישלר" },
+    { "id": "ht-aprt-bvrvkhvbsky", "name": "אפרת בורוכובסקי" },
+    { "id": "ht-tmrh-plynt", "name": "תמרה פלינט" },
+    { "id": "ht-hyly-yshral", "name": "הילי ישראל" },
+    { "id": "ht-tl-tsdkvny", "name": "טל צדקוני" },
+    { "id": "ht-ant-shaby", "name": "ענת שאבי" }
+  ],
+  "credits": [
+    { "name": "ענת ניב", "role": "dub_director", "heading": "בימוי דיבוב", "year": 1996 },
+    { "name": "מורן לכיש", "role": "producer", "heading": "הפקת דיבוב" },
+    { "name": "עוזי פוקס", "role": "producer", "heading": "הפקת דיבוב", "year": 1997, "endYear": 1999 },
+    { "name": "סאלי אמיגה", "role": "producer", "heading": "הפקת דיבוב", "year": 1997, "endYear": 1999 },
+    { "name": "ענבר שטגר עזרא", "role": "producer", "heading": "הפקת דיבוב" },
+    { "name": "ענת ניב", "role": "producer", "heading": "הפקת דיבוב", "year": 1996 },
+    { "name": "מיקי קם", "role": "dubber", "heading": "מדבבים", "character": "גברת פריזל", "year": 1996, "endYear": 1997 },
+    { "name": "אפי בן ישראל", "role": "dubber", "heading": "מדבבים", "character": "גברת פריזל", "year": 1999 },
+    { "name": "ניר רון", "role": "dubber", "heading": "מדבבים", "character": "המפיק / דמויות שונות" },
+    { "name": "יונתן מנדלמן", "role": "dubber", "heading": "מדבבים", "character": "ארנולד", "year": 1996, "endYear": 1997 },
+    { "name": "דורון בן עמי", "role": "dubber", "heading": "מדבבים", "character": "ארנולד", "year": 1997, "endYear": 1999 },
+    { "name": "טליה ברקאי", "role": "dubber", "heading": "מדבבים", "character": "דורותי-אן" },
+    { "name": "עידו מזרחי", "role": "dubber", "heading": "מדבבים", "character": "רלפי", "year": 1996, "endYear": 1997 },
+    { "name": "אסף קורמן", "role": "dubber", "heading": "מדבבים", "character": "רלפי", "year": 1999 },
+    { "name": "יובל סגל", "role": "dubber", "heading": "מדבבים", "character": "טים / ילד שמתקשר עם המפיק", "year": 1996, "endYear": 1997 },
+    { "name": "דניאל זילברשטיין", "role": "dubber", "heading": "מדבבים", "character": "טים", "year": 1999 },
+    { "name": "אמיר סולובייצ'יק", "role": "dubber", "heading": "מדבבים", "character": "קרלוס / מייקי", "year": 1996, "endYear": 1997 },
+    { "name": "אלון וורטהיימר", "role": "dubber", "heading": "מדבבים", "character": "קרלוס", "year": 1999 },
+    { "name": "טליה דור", "role": "dubber", "heading": "מדבבים", "character": "וונדה", "year": 1996, "endYear": 1997 },
+    { "name": "נטע טישלר", "role": "dubber", "heading": "מדבבים", "character": "וונדה", "year": 1999 },
+    { "name": "אפרת בורוכובסקי", "role": "dubber", "heading": "מדבבים", "character": "פיבי / קישה", "year": 1996, "endYear": 1997 },
+    { "name": "תמרה פלינט", "role": "dubber", "heading": "מדבבים", "character": "פיבי", "year": 1999 },
+    { "name": "הילי ישראל", "role": "dubber", "heading": "מדבבים", "character": "קישה", "year": 1999 },
+    { "name": "ענת ניב", "role": "dubber", "heading": "מדבבים" },
+    { "name": "עדי זינו", "role": "dubber", "heading": "מדבבים", "character": "ג'נט / המפיקה / דמויות שונות", "year": 1996, "endYear": 1997 },
+    { "name": "עדי זינו", "role": "dubber", "heading": "מדבבים", "character": "ג'נט", "year": 1999 },
+    { "name": "דניאל מגון", "role": "dubber", "heading": "מדבבים אורחים", "character": "מייקי", "year": 1999 },
+    { "name": "אורלי קטן", "role": "dubber", "heading": "מדבבים אורחים", "character": "גברת ריחנית / אישה בפארק", "year": 1999 },
+    { "name": "יהויכין פרידלנדר", "role": "dubber", "heading": "מדבבים אורחים", "character": "דמויות שונות", "year": 1997, "endYear": 1999 },
+    { "name": "טל צדקוני", "role": "dubber", "heading": "מדבבים אורחים", "character": "אישה במועצה", "year": 1999 },
+    { "name": "מורן לכיש", "role": "dubber", "heading": "מדבבים אורחים", "character": "דמויות שונות" },
+    { "name": "עמי מנדלמן", "role": "dubber", "heading": "מדבבים אורחים", "character": "דמויות שונות", "year": 1999 },
+    { "name": "עדי וייס", "role": "dubber", "heading": "מדבבים אורחים", "character": "דמויות שונות", "year": 1999 },
+    { "name": "ענת שאבי", "role": "singer", "heading": "מוזיקה", "character": "שיר פתיחה (ביצוע)" },
+    { "name": "עוזי פוקס", "role": "singer", "heading": "מוזיקה", "character": "שיר פתיחה (ביצוע)" }
+  ]
+}

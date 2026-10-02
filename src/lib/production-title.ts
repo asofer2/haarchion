@@ -11,6 +11,7 @@ const SERIES_KINDS = new Set<ProductionKind>([
   "series",
   "miniseries",
   "tv_series",
+  "series_dubbed_foreign",
   "series_israeli_foreign_dubbed",
   "tv_program",
 ]);

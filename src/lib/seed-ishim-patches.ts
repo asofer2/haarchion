@@ -1,4 +1,5 @@
 import type { ArchiveData } from "./types";
+import { applyIshimMagicSchoolBus } from "./seed-ishim-avtvbvs-hksmym";
 import { applyIshimAnvrShtgrAzra } from "./seed-ishim-anvr-shtgr-azra";
 import { applyIshimAzraHs } from "./seed-ishim-azra-hs";
 import { applyIshimChnhDrvryKshy } from "./seed-ishim-chnh-drvry-kshy";
@@ -18,7 +19,8 @@ import { applyIshimYaakovShemTov } from "./seed-ishim-yaakov-shem-tov";
 
 /** ערכי אישים/הפקות שלא בארכיון הגדול — מיושמים אחרי applyIshimArchive */
 export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
-  return applyIshimNicoBar(
+  return applyIshimMagicSchoolBus(
+    applyIshimNicoBar(
     applyIshimMomiLevy(
       applyIshimSavriMaranan(
         applyIshimPinocchioAdventures1993(
@@ -45,6 +47,7 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
           )
         )
       )
+    )
     )
   );
 }
