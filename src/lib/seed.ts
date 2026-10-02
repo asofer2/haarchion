@@ -42,6 +42,8 @@ import { applyIshimKopyko2009 } from "./seed-ishim-kopyko-2009";
 import { applyIshimHyhHyhDvagymLkdvrHartz } from "./seed-ishim-hyh-hyh-dvagym-lkdvr-hartz";
 import { applyIshimPeterPan } from "./seed-ishim-peter-pan";
 import { applyIshimMagicSchoolBus } from "./seed-ishim-avtvbvs-hksmym";
+import { applyIshimLionKing3 } from "./seed-ishim-mlk-haryvt-3";
+import { applyIshimTimonPumbaa } from "./seed-ishim-tymvn-vpvmbh";
 import { applyIshimPinocchioAdventures1993 } from "./seed-ishim-pinocchio-adventures";
 import { applyIshimTuviaTsafir } from "./seed-ishim-tuvia-tsafir";
 import { applyIshimYaakovShemTov } from "./seed-ishim-yaakov-shem-tov";
@@ -903,7 +905,9 @@ const credits: Credit[] = [
   { personId: "tamir-ginsburg", productionId: "little-mermaid-he", role: "dubber" },
 ];
 
-export const SEED: ArchiveData = applyIshimMagicSchoolBus(
+export const SEED: ArchiveData = applyIshimLionKing3(
+  applyIshimTimonPumbaa(
+  applyIshimMagicSchoolBus(
   applyIshimPinocchioAdventures1993(
   applyIshimYaakovShemTov(
   applyIshimKopyko2009(
@@ -997,6 +1001,8 @@ export const SEED: ArchiveData = applyIshimMagicSchoolBus(
   })(),
   contributions: [],
   })
+  )
+  )
   )
   )
   )

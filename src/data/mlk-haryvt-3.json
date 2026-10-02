@@ -1,0 +1,76 @@
+{
+  "title": "מלך האריות 3 - האקונה מאטאטה",
+  "originalTitle": "The Lion King 1 1/2",
+  "year": 2004,
+  "summary": "עלילת הסרט הראשון מנקודת מבטם של טימון ופומבה",
+  "runtimeMinutes": 77,
+  "genres": ["אנימציה", "ילדים", "מדובב - זר", "קומדיה"],
+  "ishimKeys": ["סדרת סרטים"],
+  "notes": [
+    {
+      "heading": "כללי",
+      "items": ["הסרט גם נקרא מלך האריות 1.5"]
+    },
+    {
+      "heading": "מאחורי הקלעים",
+      "items": [
+        "קולות השירה של רותי הולצמן ודורון בן עמי מהסרט הראשון שומשו כארכיון קולות"
+      ]
+    },
+    {
+      "heading": "קישורים",
+      "items": [
+        "ראה גם מלך האריות 2 - מלכות סימבה",
+        "ראה גם מלך האריות"
+      ]
+    }
+  ],
+  "people": [
+    { "id": "ht-gyl-zmq", "name": "גיל זמק" },
+    { "id": "ht-alvn-brnd", "name": "אלון ברנד" },
+    { "id": "ht-avprh-vyngrtn", "name": "עופרה ויינגרטן" },
+    { "id": "ht-myky-ylvn", "name": "מיקי ילון" },
+    { "id": "ht-ytzhq-lavr", "name": "יצחק לאור" },
+    { "id": "ht-amyt-ryys", "name": "עמית רייס" },
+    { "id": "ht-yaal-dqlbavm", "name": "יעל דקלבאום" },
+    { "id": "ht-avrly-try", "name": "אורלי טרי" },
+    { "id": "ht-synyh-bvaz", "name": "סיניה בועז" },
+    { "id": "ht-ygal-qmynqa", "name": "יגאל קמינקא" },
+    { "id": "ht-lyrvn-al-al", "name": "לירון אל-על" },
+    { "id": "ht-rvn-gng", "name": "רון גנג" },
+    { "id": "ht-rpy-zlyg", "name": "רפי זליג" }
+  ],
+  "credits": [
+    { "name": "שפרירה זכאי", "role": "dub_director", "heading": "בימוי דיבוב" },
+    { "name": "שפרירה זכאי", "role": "producer", "heading": "הפקת דיבוב" },
+    { "name": "תומר שרון", "role": "dubber", "heading": "מדבבים", "character": "טימון" },
+    { "name": "עמי מנדלמן", "role": "dubber", "heading": "מדבבים", "character": "פומבה" },
+    { "name": "אלון אופיר", "role": "dubber", "heading": "מדבבים", "character": "סימבה" },
+    { "name": "אלון ברנד", "role": "dubber", "heading": "מדבבים", "character": "סימבה הצעיר" },
+    { "name": "שרית וינו אלעד", "role": "dubber", "heading": "מדבבים", "character": "נלה" },
+    { "name": "שלמה בר שביט", "role": "dubber", "heading": "מדבבים", "character": "ראפיקי" },
+    { "name": "אוהד שחר", "role": "dubber", "heading": "מדבבים", "character": "זאזו / ישנוני" },
+    { "name": "דבי בסרגליק", "role": "dubber", "heading": "מדבבים", "character": "אמא של טימון" },
+    { "name": "דב רייזר", "role": "dubber", "heading": "מדבבים", "character": "דוד מקס / רטנוני" },
+    { "name": "עופרה ויינגרטן", "role": "dubber", "heading": "מדבבים", "character": "שנזי" },
+    { "name": "שמעון כהן", "role": "dubber", "heading": "מדבבים", "character": "בנזאי / אפצ'י / קולות רקע" },
+    { "name": "שרונה נסטוביץ'", "role": "dubber", "heading": "מדבבים", "character": "שלגיה / קולות רקע" },
+    { "name": "מיקי ילון", "role": "dubber", "heading": "מדבבים", "character": "ילדים אבודים" },
+    { "name": "גיל זמק", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+    { "name": "יצחק לאור", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+    { "name": "עמית רייס", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+    { "name": "יעל דקלבאום", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+    { "name": "רותי הולצמן", "role": "singer", "heading": "מוזיקה", "character": "שירה \"גלגל החיים\" מהסרט הראשון" },
+    { "name": "דורון בן עמי", "role": "singer", "heading": "מוזיקה", "character": "סימבה הצעיר בשירה \"משתגע כבר מלך להיות\" מהסרט הראשון" },
+    { "name": "מומי לוי", "role": "singer", "heading": "מוזיקה", "character": "שירה" },
+    { "name": "אורלי טרי", "role": "singer", "heading": "מוזיקה", "character": "שירה" },
+    { "name": "סיניה בועז", "role": "singer", "heading": "מוזיקה", "character": "שירה" },
+    { "name": "שרונה נסטוביץ'", "role": "singer", "heading": "מוזיקה", "character": "שירה" },
+    { "name": "יגאל קמינקא", "role": "singer", "heading": "מוזיקה", "character": "מקהלת סוריקטות" },
+    { "name": "לירון אל-על", "role": "singer", "heading": "מוזיקה", "character": "מקהלת סוריקטות" },
+    { "name": "רון גנג", "role": "singer", "heading": "מוזיקה", "character": "מקהלת סוריקטות" },
+    { "name": "יסמין גמליאל", "role": "singer", "heading": "מוזיקה", "character": "מקהלת סוריקטות" },
+    { "name": "רוני וייס", "role": "composer", "heading": "מוזיקה", "character": "ניהול מוזיקלי" },
+    { "name": "רפי זליג", "role": "singer", "heading": "מוזיקה", "character": "מקהלת סוריקטות" }
+  ]
+}

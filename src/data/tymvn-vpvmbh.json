@@ -1,0 +1,46 @@
+{
+  "title": "טימון ופומבה",
+  "originalTitle": "Timon & Pumbaa",
+  "year": 1997,
+  "endYear": 1999,
+  "summary": "הרפתקאותיהם המצחיקות של טימון ופומבה במעמקי הג'ונגל וברחבי העולם",
+  "runtimeMinutes": 22,
+  "episodeCount": 86,
+  "genres": ["אנימציה", "ילדים", "מדובב - זר", "קומדיה"],
+  "channel": "ערוץ 2",
+  "ishimKeys": ["טיולים", "ספין אוף"],
+  "notes": [
+    {
+      "heading": "טריוויה לא מעניינת",
+      "items": [
+        "על אף שדמותו של טימון היא סוריקטה, בדיבוב העברי הוא מוצג באופן שגוי כחתול בר"
+      ]
+    }
+  ],
+  "people": [
+    { "id": "ht-gyl-zmq", "name": "גיל זמק" },
+    { "id": "ht-shyrly-tpr", "name": "שירלי טפר" }
+  ],
+  "credits": [
+    { "name": "שפרירה זכאי", "role": "dub_director", "heading": "בימוי דיבוב" },
+    { "name": "שפרירה זכאי", "role": "producer", "heading": "הפקת דיבוב" },
+    { "name": "תומר שרון", "role": "dubber", "heading": "מדבבים", "character": "טימון" },
+    { "name": "עמי מנדלמן", "role": "dubber", "heading": "מדבבים", "character": "פומבה" },
+    { "name": "שפרירה זכאי", "role": "dubber", "heading": "מדבבים", "character": "שנזי / דמויות שונות" },
+    { "name": "שמוליק טנא", "role": "dubber", "heading": "מדבבים", "character": "בנזאי / דמויות שונות", "year": 1997 },
+    { "name": "שמעון כהן", "role": "dubber", "heading": "מדבבים", "character": "בנזאי / קווינט / הדב הרע / דמויות שונות" },
+    { "name": "חן חגי", "role": "dubber", "heading": "מדבבים", "character": "אד / נשר שוטר 1 / פרד / דמויות שונות" },
+    { "name": "אלון אופיר", "role": "dubber", "heading": "מדבבים", "character": "סימבה" },
+    { "name": "אוהד שחר", "role": "dubber", "heading": "מדבבים", "character": "זאזו" },
+    { "name": "דב רייזר", "role": "dubber", "heading": "מדבבים", "character": "ראפיקי / הדב הרע / דמויות שונות" },
+    { "name": "עפרון אטקין", "role": "dubber", "heading": "מדבבים", "character": "נשר שוטר 2 / ספידי זריזי / דמויות שונות" },
+    { "name": "שרית וינו אלעד", "role": "dubber", "heading": "מדבבים", "character": "דמויות שונות" },
+    { "name": "גיל זמק", "role": "dubber", "heading": "מדבבים", "character": "דמויות שונות", "year": 1999 },
+    { "name": "אבי חדש", "role": "dubber", "heading": "מדבבים אורחים", "character": "דמויות שונות", "year": 1997 },
+    { "name": "יהויכין פרידלנדר", "role": "dubber", "heading": "מדבבים אורחים", "character": "ספידי זריזי / דמויות שונות", "year": 1997 },
+    { "name": "אורנה כץ", "role": "dubber", "heading": "מדבבים אורחים", "character": "דמויות שונות", "year": 1997 },
+    { "name": "ליליאן ברטו", "role": "dubber", "heading": "מדבבים אורחים", "character": "דמויות שונות" },
+    { "name": "שירלי טפר", "role": "dubber", "heading": "מדבבים אורחים", "character": "דמויות שונות", "year": 1999 },
+    { "name": "רוני וייס", "role": "composer", "heading": "מוזיקה", "character": "ניהול מוזיקלי" }
+  ]
+}
