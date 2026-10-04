@@ -41,6 +41,8 @@ type ShowJson = {
   channel?: string;
   ishimKeys?: string[];
   notes?: Note[];
+  /** Wikipedia page title, when it differs from the display title. */
+  wikiTitle?: string;
   people: PersonRow[];
   credits: CreditRow[];
 };
@@ -53,6 +55,16 @@ const LION2_URL =
   "https://sites.google.com/view/hoptamir/%D7%9E%D7%9C%D7%9A-%D7%94%D7%90%D7%A8%D7%99%D7%95%D7%AA-2-%D7%9E%D7%9C%D7%9B%D7%95%D7%AA-%D7%A1%D7%99%D7%9E%D7%91%D7%94-1998-%D7%90%D7%99%D7%A9%D7%99%D7%9D";
 const ALON_URL =
   "https://web.archive.org/web/20210506000201/https://www.ishim.co.il/p.php?s=%D7%90%D7%9C%D7%95%D7%9F+%D7%90%D7%95%D7%A4%D7%99%D7%A8";
+
+function storedImage(url?: string): url is string {
+  if (!url) return false;
+  if (url.startsWith("/images/") || url.startsWith("data:")) return true;
+  return (
+    /^https?:\/\//i.test(url) &&
+    !url.includes("/api/portrait") &&
+    !url.includes("/api/wiki-image")
+  );
+}
 
 function normName(name: string): string {
   return canonicalPersonName(name)
@@ -127,7 +139,11 @@ function applyShow(
     ishimKeys: rows.ishimKeys,
     ishimNotes: rows.notes,
     ishimClassic: true,
-    imageUrl: imageUrl || portrait(rows.title, rows.originalTitle),
+    imageUrl: storedImage(imageUrl)
+      ? imageUrl
+      : portrait(rows.wikiTitle || rows.title, rows.originalTitle, {
+          kind: "film",
+        }),
     sourceNote: "ערוץ הופ תמיר",
     sourceUrl,
     createdAt: createdAt || NOW,
@@ -174,6 +190,8 @@ const ALON_ACTOR: {
   heading: string;
   kind: ProductionKind;
   id: string;
+  /** Wikipedia page to take the image from, when one exists. */
+  wikiTitle?: string;
 }[] = [
   {
     title: "איים אבודים",
@@ -182,6 +200,7 @@ const ALON_ACTOR: {
     heading: "שחקן",
     kind: "stage",
     id: "ishim-ayym-avvdym",
+    wikiTitle: "איים אבודים (הצגה)",
   },
   {
     title: "כל העולם במה",
@@ -198,6 +217,7 @@ const ALON_ACTOR: {
     heading: "שחקן",
     kind: "festival",
     id: "ishim-fstygl-95-chyvt",
+    wikiTitle: "פסטיגל",
   },
   {
     title: "להיטים מצוירים משלנו",
@@ -206,6 +226,7 @@ const ALON_ACTOR: {
     heading: "שחקן",
     kind: "cassette_kids",
     id: "ishim-lhytym-mtsvyrym",
+    wikiTitle: "להיטים מצוירים משלנו",
   },
   {
     title: "ספיישל 110 שנים להולדת וולט דיסני",
@@ -230,6 +251,9 @@ function applyAlonOfirActorRoles(data: ArchiveData): ArchiveData {
       sameTitle.find((p) => p.year === row.year) ||
       (sameTitle.length === 1 ? sameTitle[0] : undefined);
     const productionId = found?.id || row.id;
+    const wikiImage = row.wikiTitle
+      ? portrait(row.wikiTitle, undefined, { kind: "film" })
+      : undefined;
     if (!found) {
       productions.push({
         id: productionId,
@@ -238,11 +262,14 @@ function applyAlonOfirActorRoles(data: ArchiveData): ArchiveData {
         kind: row.kind,
         summary: "",
         genres: [],
+        imageUrl: wikiImage,
         sourceNote: "אישים",
         sourceUrl: ALON_URL,
         createdAt: NOW,
         updatedAt: NOW,
       });
+    } else if (wikiImage && !storedImage(found.imageUrl)) {
+      found.imageUrl = wikiImage;
     }
     const exists = credits.some(
       (c) =>

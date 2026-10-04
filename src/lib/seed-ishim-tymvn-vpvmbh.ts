@@ -48,7 +48,18 @@ function productionRecord(id: string, imageUrl?: string, createdAt?: string): Pr
     ishimKeys: rowsJson.ishimKeys,
     ishimNotes: rowsJson.notes as Note[],
     ishimClassic: true,
-    imageUrl: imageUrl || portrait(rowsJson.title, rowsJson.originalTitle),
+    imageUrl:
+      imageUrl &&
+      (/^https?:\/\//i.test(imageUrl) ||
+        imageUrl.startsWith("/images/") ||
+        imageUrl.startsWith("data:")) &&
+      !imageUrl.includes("/api/portrait")
+        ? imageUrl
+        : portrait(
+            rowsJson.wikiTitle || rowsJson.title,
+            rowsJson.originalTitle,
+            { kind: "film" }
+          ),
     sourceNote: "ערוץ הופ תמיר",
     sourceUrl: SOURCE_URL,
     createdAt: createdAt || NOW,
