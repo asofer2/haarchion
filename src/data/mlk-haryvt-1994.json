@@ -1,0 +1,59 @@
+{
+  "title": "מלך האריות",
+  "originalTitle": "The Lion King",
+  "year": 1994,
+  "kind": "film_dubbed_foreign",
+  "summary": "אריה צעיר בשם סימבה לומד על מקומו בעוד הוא עתיד להיות היורש של כס המלכות בצוק התקווה",
+  "runtimeMinutes": 89,
+  "genres": ["ילדים", "מדובב - זר"],
+  "ishimKeys": ["סדרת סרטים"],
+  "notes": [
+    {
+      "heading": "כללי",
+      "items": ["אלטון ג'ון הלחין את המוזיקה המקורית"]
+    },
+    {
+      "heading": "מאחורי הקלעים",
+      "items": [
+        "הצבוע אד, רק צוחק ולא מדבר, ולכן נשאר בכל הגרסאות שהופצו ברחבי העולם קולו המקורי של השחקן ג'יימס קאמינגס",
+        "בקטע מוזיקלי אחד שנכלל בגרסת הסרט המורחב שיצאה בדיוידי ב-2003, אלחי רפואה דיבב את סימבה"
+      ]
+    },
+    {
+      "heading": "קישורים",
+      "items": [
+        "ראה גם מלך האריות 3 - האקונה מאטאטה",
+        "ראה גם מלך האריות 2 - מלכות סימבה"
+      ]
+    }
+  ],
+  "people": [
+    { "id": "ht-tmy-spyvq", "name": "תמי ספיבק" },
+    { "id": "ht-rvnh-dnyaly", "name": "רונה דניאלי" }
+  ],
+  "credits": [
+    { "name": "שפרירה זכאי", "role": "dub_director", "heading": "בימוי דיבוב" },
+    { "name": "שפרירה זכאי", "role": "producer", "heading": "הפקת דיבוב" },
+    { "name": "דורון בן עמי", "role": "dubber", "heading": "מדבבים", "character": "סימבה הצעיר" },
+    { "name": "אלון אופיר", "role": "dubber", "heading": "מדבבים", "character": "סימבה המבוגר" },
+    { "name": "אמנון מסקין", "role": "dubber", "heading": "מדבבים", "character": "מופסה" },
+    { "name": "תמי ספיבק", "role": "dubber", "heading": "מדבבים", "character": "סאראבי" },
+    { "name": "רונה דניאלי", "role": "dubber", "heading": "מדבבים", "character": "נלה הצעירה" },
+    { "name": "שרית וינו אלעד", "role": "dubber", "heading": "מדבבים", "character": "נלה המבוגרת" },
+    { "name": "שפרירה זכאי", "role": "dubber", "heading": "מדבבים", "character": "סאראפינה" },
+    { "name": "אוהד שחר", "role": "dubber", "heading": "מדבבים", "character": "זאזו" },
+    { "name": "שלמה בר שביט", "role": "dubber", "heading": "מדבבים", "character": "ראפיקי" },
+    { "name": "תומר שרון", "role": "dubber", "heading": "מדבבים", "character": "טימון" },
+    { "name": "עמי מנדלמן", "role": "dubber", "heading": "מדבבים", "character": "פומבה" },
+    { "name": "אלי גורנשטיין", "role": "dubber", "heading": "מדבבים", "character": "סקאר" },
+    { "name": "שרי צוריאל", "role": "dubber", "heading": "מדבבים", "character": "שנזי" },
+    { "name": "אבי פניני", "role": "dubber", "heading": "מדבבים", "character": "בנזאי" },
+    { "name": "רותי הולצמן", "role": "singer", "heading": "מוזיקה", "character": "גלגל החיים (ביצוע)" },
+    { "name": "מומי לוי", "role": "singer", "heading": "מוזיקה", "character": "שירה" },
+    { "name": "יגאל קמינקא", "role": "singer", "heading": "מוזיקה", "character": "שירה" },
+    { "name": "אורלי טרי", "role": "singer", "heading": "מוזיקה", "character": "שירה" },
+    { "name": "סיניה בועז", "role": "singer", "heading": "מוזיקה", "character": "שירה" },
+    { "name": "שרונה נסטוביץ'", "role": "singer", "heading": "מוזיקה", "character": "שירה" },
+    { "name": "רוני וייס", "role": "composer", "heading": "מוזיקה", "character": "ניהול מוזיקלי" }
+  ]
+}

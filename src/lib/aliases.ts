@@ -13,6 +13,7 @@ export const PERSON_NAME_ALIASES: Record<string, string> = {
   "אורי לוי": "אורי לוי (שחקן)",
   "יעל בן ארי": "יעל בן אריה",
   "שלמה בר שביט": "שלמה בר-שביט",
+  "גיל סגל": "גיל סגל (שחקן)",
 };
 
 export const PERSON_ID_ALIASES: Record<string, string> = {

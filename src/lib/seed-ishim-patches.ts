@@ -1,5 +1,6 @@
 import type { ArchiveData } from "./types";
 import { applyIshimMagicSchoolBus } from "./seed-ishim-avtvbvs-hksmym";
+import { applyIshimHopLionAndBears } from "./seed-ishim-hop-lion-bears";
 import { applyIshimLionKing3 } from "./seed-ishim-mlk-haryvt-3";
 import { applyIshimTimonPumbaa } from "./seed-ishim-tymvn-vpvmbh";
 import { applyIshimAnvrShtgrAzra } from "./seed-ishim-anvr-shtgr-azra";
@@ -21,7 +22,8 @@ import { applyIshimYaakovShemTov } from "./seed-ishim-yaakov-shem-tov";
 
 /** ערכי אישים/הפקות שלא בארכיון הגדול — מיושמים אחרי applyIshimArchive */
 export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
-  return applyIshimLionKing3(
+  return applyIshimHopLionAndBears(
+    applyIshimLionKing3(
     applyIshimTimonPumbaa(
     applyIshimMagicSchoolBus(
     applyIshimNicoBar(
@@ -51,6 +53,7 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
           )
         )
       )
+    )
     )
     )
     )

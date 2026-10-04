@@ -1,0 +1,24 @@
+{
+  "title": "אי הדובים",
+  "year": 1990,
+  "kind": "series_dubbed_foreign",
+  "summary": "דוב קוטב שגדל אצל ארנבים יוצא עם חברו הארנב והשד שבקבוק למצוא את אי מולדתו",
+  "runtimeMinutes": 11,
+  "episodeCount": 26,
+  "genres": ["אנימציה", "ילדים", "מדובב - זר", "מדע בדיוני", "פנטזיה"],
+  "channel": "ערוץ 1",
+  "people": [
+    { "id": "ht-shrvn-mlmd", "name": "שרון מלמד" },
+    { "id": "ht-avnr-chvdvrv", "name": "אבנר חודורוב" }
+  ],
+  "credits": [
+    { "name": "ניקו בר", "role": "dub_director", "heading": "בימוי דיבוב" },
+    { "name": "שרון מלמד", "role": "producer", "heading": "הפקת דיבוב" },
+    { "name": "עמי מנדלמן", "role": "dubber", "heading": "מדבבים", "character": "אדי / דוקטור מוס / דמויות שונות" },
+    { "name": "שמוליק טנא", "role": "dubber", "heading": "מדבבים", "character": "מקס / ציפור הסערה / דמויות שונות" },
+    { "name": "נחמן אשכנזי", "role": "dubber", "heading": "מדבבים", "character": "אוק / סגן המפקד / רוח רפאים / דמויות שונות" },
+    { "name": "ניקו בר", "role": "dubber", "heading": "מדבבים", "character": "המפקד / קריין" },
+    { "name": "עידו מוסרי", "role": "singer", "heading": "מוזיקה", "character": "שיר פתיחה (ביצוע)" },
+    { "name": "אבנר חודורוב", "role": "composer", "heading": "מוזיקה", "character": "שיר פתיחה (לחן)" }
+  ]
+}

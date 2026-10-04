@@ -1,0 +1,53 @@
+{
+  "title": "מלך האריות 2 - מלכות סימבה",
+  "originalTitle": "The Lion King 2: Simba's Pride",
+  "year": 1998,
+  "kind": "film_dubbed_foreign",
+  "summary": "יורשו של סקאר מתאהב בבתו של סימבה והשניים מאחדים בין הפלג של סימבה לפלג של סקאר",
+  "runtimeMinutes": 81,
+  "genres": ["אנימציה", "ילדים", "מדובב - זר", "קומדיה", "רומנטיקה"],
+  "ishimKeys": ["אהבה", "סדרת סרטים"],
+  "notes": [
+    {
+      "heading": "קישורים",
+      "items": [
+        "ראה גם מלך האריות 3 - האקונה מאטאטה",
+        "ראה גם מלך האריות"
+      ]
+    }
+  ],
+  "people": [
+    { "id": "ht-mykl-brnd", "name": "מיכל ברנד" },
+    { "id": "ht-msh-tymvr", "name": "משה טימור" }
+  ],
+  "credits": [
+    { "name": "שפרירה זכאי", "role": "dub_director", "heading": "בימוי דיבוב" },
+    { "name": "שפרירה זכאי", "role": "producer", "heading": "הפקת דיבוב" },
+    { "name": "יסמין עיון", "role": "dubber", "heading": "מדבבים", "character": "קיארה הצעירה" },
+    { "name": "מיכל ברנד", "role": "dubber", "heading": "מדבבים", "character": "קיארה המבוגרת" },
+    { "name": "אלון אופיר", "role": "dubber", "heading": "מדבבים", "character": "סימבה" },
+    { "name": "שרית וינו אלעד", "role": "dubber", "heading": "מדבבים", "character": "נלה" },
+    { "name": "אוהד שחר", "role": "dubber", "heading": "מדבבים", "character": "זאזו / קולות רקע" },
+    { "name": "שלמה בר שביט", "role": "dubber", "heading": "מדבבים", "character": "ראפיקי" },
+    { "name": "תומר שרון", "role": "dubber", "heading": "מדבבים", "character": "טימון" },
+    { "name": "עמי מנדלמן", "role": "dubber", "heading": "מדבבים", "character": "פומבה" },
+    { "name": "משה טימור", "role": "dubber", "heading": "מדבבים", "character": "מופסה" },
+    { "name": "גיל סגל", "role": "dubber", "heading": "מדבבים", "character": "קובו הצעיר" },
+    { "name": "עידו מוסרי", "role": "dubber", "heading": "מדבבים", "character": "קובו המבוגר" },
+    { "name": "יעל עמית", "role": "dubber", "heading": "מדבבים", "character": "זירה" },
+    { "name": "אורי הוכמן", "role": "dubber", "heading": "מדבבים", "character": "נוקה" },
+    { "name": "מיטל מיכאלי", "role": "dubber", "heading": "מדבבים", "character": "ויטני הצעירה" },
+    { "name": "נעמי פרומוביץ'", "role": "dubber", "heading": "מדבבים", "character": "ויטני המבוגרת" },
+    { "name": "אלי גורנשטיין", "role": "dubber", "heading": "מדבבים", "character": "סקאר" },
+    { "name": "דבי בסרגליק", "role": "dubber", "heading": "מדבבים", "character": "לביאה" },
+    { "name": "שפרירה זכאי", "role": "dubber", "heading": "מדבבים", "character": "לביאה" },
+    { "name": "סיניה בועז", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+    { "name": "שרונה נסטוביץ'", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+    { "name": "מומי לוי", "role": "singer", "heading": "מוזיקה", "character": "רפיקי (שירה) / שירה" },
+    { "name": "רפי זליג", "role": "singer", "heading": "מוזיקה", "character": "שירה" },
+    { "name": "אורלי טרי", "role": "singer", "heading": "מוזיקה", "character": "שירה" },
+    { "name": "סיניה בועז", "role": "singer", "heading": "מוזיקה", "character": "שירה" },
+    { "name": "שרונה נסטוביץ'", "role": "singer", "heading": "מוזיקה", "character": "שירה" },
+    { "name": "רוני וייס", "role": "composer", "heading": "מוזיקה", "character": "ניהול מוזיקלי" }
+  ]
+}
