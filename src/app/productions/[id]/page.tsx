@@ -9,7 +9,13 @@ import { EntityImage } from "@/components/EntityImage";
 import { OwnerActions } from "@/components/OwnerActions";
 import { EntityProvenance } from "@/components/EntityProvenance";
 import { useArchive } from "@/hooks/useArchive";
-import { findById, canEditArchive } from "@/lib/data";
+import {
+  canEditArchive,
+  creditsForProduction,
+  findById,
+  findSeedProduction,
+  peopleByIds,
+} from "@/lib/data";
 import { IshimCreditLine } from "@/components/IshimCreditLine";
 import { compareBillingOrder } from "@/lib/credit-order";
 import { cleanIshimCharacter } from "@/lib/ishim-import";
@@ -298,26 +304,41 @@ export default function ProductionDetailPage() {
   const { data, loading, error } = useArchive();
   const { user } = useAuth();
 
-  const production = data ? findById(data.productions, params.id) : undefined;
+  const production =
+    (data ? findById(data.productions, params.id) : undefined) ??
+    findSeedProduction(params.id);
+
+  const cast = useMemo(() => {
+    if (!production) return { credits: [] as Credit[], people: [] as Person[] };
+    const credits = creditsForProduction(data, production.id);
+    return {
+      credits,
+      people: peopleByIds(
+        credits.map((credit) => credit.personId),
+        data?.people ?? []
+      ),
+    };
+  }, [data, production]);
 
   const ishimCreditGroups = useMemo(
     () =>
-      data && production
-        ? groupCreditsByHeading(data.credits, data.people, production.id)
+      production
+        ? groupCreditsByHeading(cast.credits, cast.people, production.id)
         : [],
-    [data, production]
+    [cast, production]
   );
 
   const crew = useMemo(
     () =>
-      data && production
-        ? groupCreditsByRole(data.credits, data.people, production)
+      production
+        ? groupCreditsByRole(cast.credits, cast.people, production)
         : [],
-    [data, production]
+    [cast, production]
   );
 
-  if (loading && !data) return <ArchiveSkeleton label="טוען…" cards={4} />;
-  if (error) return <p className="form-error">{error}</p>;
+  if (!production && (loading || !data))
+    return <ArchiveSkeleton label="טוען…" cards={4} />;
+  if (error && !production) return <p className="form-error">{error}</p>;
   if (!production) return <p className="form-error">ההפקה לא נמצאה</p>;
 
   const displayTitle = formatProductionTitle(production);

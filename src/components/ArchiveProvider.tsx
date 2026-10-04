@@ -35,12 +35,14 @@ export function ArchiveProvider({ children }: { children: ReactNode }) {
     if (blocking) setLoading(true);
     setError(null);
     try {
+      let remoteLanded = false;
       const next = await loadArchive(force, {
         onRemote: (remote) => {
+          remoteLanded = true;
           setData(remote);
         },
       });
-      setData(next);
+      if (!remoteLanded) setData(next);
     } catch (err) {
       setError(err instanceof Error ? err.message : "שגיאה בטעינת הנתונים");
       // Keep previous data if any

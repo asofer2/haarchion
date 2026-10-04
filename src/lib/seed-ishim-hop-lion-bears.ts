@@ -100,12 +100,17 @@ function applyShow(
 
   const productions = [...data.productions];
   const matchIndexes = productions
-    .map((p, i) => (matches(p) ? i : -1))
+    .map((p, i) => (p.id === fallbackId || matches(p) ? i : -1))
     .filter((i) => i >= 0);
-  const keepIndex = matchIndexes[0];
-  const productionId =
-    keepIndex === undefined ? fallbackId : productions[keepIndex].id;
-  const droppedIds = new Set(matchIndexes.slice(1).map((i) => productions[i].id));
+  const canonicalIndex = matchIndexes.find((i) => productions[i].id === fallbackId);
+  const keepIndex =
+    canonicalIndex !== undefined ? canonicalIndex : matchIndexes[0];
+  const productionId = fallbackId;
+  const droppedIds = new Set(
+    matchIndexes
+      .map((i) => productions[i].id)
+      .filter((id) => id !== fallbackId)
+  );
 
   const record = (imageUrl?: string, createdAt?: string): Production => ({
     id: productionId,

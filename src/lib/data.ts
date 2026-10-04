@@ -14,7 +14,7 @@ import {
 } from "./firebase-session";
 import { ensureCloudImageUrl } from "./cloud-storage";
 import { SEED } from "./seed";
-import { slugify as makeSlug } from "./ids";
+import { findById, slugify as makeSlug } from "./ids";
 import { normalizeImageUrl } from "./portrait";
 import { dedupeArchive, normalizePersonName } from "./dedupe";
 import { ensureFilmographies } from "./filmography";
@@ -42,6 +42,36 @@ import {
 } from "./types";
 
 export { slugify, findById, resolveRouteId } from "./ids";
+
+/** Seed row for a public URL, even when a local overlay hid it. */
+export function findSeedProduction(
+  rawId: string | string[] | undefined
+): Production | undefined {
+  return findById(SEED.productions, rawId);
+}
+
+export function creditsForProduction(
+  data: ArchiveData | null,
+  productionId: string
+): Credit[] {
+  const fromData =
+    data?.credits.filter((c) => c.productionId === productionId) ?? [];
+  if (fromData.length > 0) return fromData;
+  return SEED.credits.filter((c) => c.productionId === productionId);
+}
+
+/** People named on these credits. Archive records override seed when both exist. */
+export function peopleByIds(ids: Iterable<string>, extra: Person[] = []): Person[] {
+  const wanted = new Set(ids);
+  const map = new Map<string, Person>();
+  for (const person of SEED.people) {
+    if (wanted.has(person.id)) map.set(person.id, person);
+  }
+  for (const person of extra) {
+    if (wanted.has(person.id)) map.set(person.id, person);
+  }
+  return [...map.values()];
+}
 
 /** Firestore rejects `undefined` — strip before every write */
 function stripUndefined(value: unknown): unknown {
@@ -583,13 +613,20 @@ function extractOverlay(data: ArchiveData): LocalOverlay {
       (c) => !sameCredit(seedCredits.get(creditKeyOf(c)), c)
     ),
     contributions: data.contributions || [],
-    removedPersonIds: [...seedPeople.keys()].filter((id) => !dataPeople.has(id)),
+    removedPersonIds: [...seedPeople.keys()].filter(
+      (id) => !dataPeople.has(id) && !seedPeople.get(id)?.ishimClassic
+    ),
     removedProductionIds: [...seedProds.keys()].filter(
-      (id) => !dataProds.has(id)
+      (id) => !dataProds.has(id) && !seedProds.get(id)?.ishimClassic
     ),
-    removedCreditKeys: [...seedCredits.keys()].filter(
-      (k) => !dataCredits.has(k)
-    ),
+    removedCreditKeys: [...seedCredits.keys()].filter((k) => {
+      if (dataCredits.has(k)) return false;
+      const credit = seedCredits.get(k);
+      const production = credit
+        ? seedProds.get(credit.productionId)
+        : undefined;
+      return !production?.ishimClassic;
+    }),
   };
 }
 
@@ -639,14 +676,22 @@ function archiveFromOverlay(overlay: LocalOverlay | null): ArchiveData {
     data = { ...data, credits: [...map.values()] };
   }
 
-  const removedPeople = new Set(overlay.removedPersonIds);
-  const removedProds = new Set(overlay.removedProductionIds);
+  const removedPeople = new Set(
+    overlay.removedPersonIds.filter((id) => !classicPersonIds.has(id))
+  );
+  const removedProds = new Set(
+    overlay.removedProductionIds.filter((id) => !classicProductionIds.has(id))
+  );
   const removedCredits = new Set(overlay.removedCreditKeys);
 
   return applyIshimPersonPatches({
     people: data.people.filter((p) => !removedPeople.has(p.id)),
     productions: data.productions.filter((p) => !removedProds.has(p.id)),
-    credits: data.credits.filter((c) => !removedCredits.has(creditKeyOf(c))),
+    credits: data.credits.filter(
+      (c) =>
+        classicProductionIds.has(c.productionId) ||
+        !removedCredits.has(creditKeyOf(c))
+    ),
     contributions: overlay.contributions || [],
   });
 }
@@ -981,8 +1026,8 @@ async function fetchCachedArchiveFromApi(
   if (typeof window === "undefined") return null;
   try {
     const url = force
-      ? "/api/archive?fresh=1&catalog=5"
-      : "/api/archive?catalog=5";
+      ? "/api/archive?fresh=1&catalog=6"
+      : "/api/archive?catalog=6";
     const res = await withTimeout(
       fetch(url, {
         cache: force ? "no-store" : "default",

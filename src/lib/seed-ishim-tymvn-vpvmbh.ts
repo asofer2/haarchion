@@ -96,10 +96,17 @@ export function applyIshimTimonPumbaa(data: ArchiveData): ArchiveData {
     .map((p, i) => (p.id === TIMON_PUMBAA_ID || p.title === rowsJson.title ? i : -1))
     .filter((i) => i >= 0);
 
-  const keepIndex = matchIndexes[0];
-  const productionId =
-    keepIndex === undefined ? TIMON_PUMBAA_ID : productions[keepIndex].id;
-  const droppedIds = new Set(matchIndexes.slice(1).map((i) => productions[i].id));
+  const canonicalIndex = matchIndexes.find(
+    (i) => productions[i].id === TIMON_PUMBAA_ID
+  );
+  const keepIndex =
+    canonicalIndex !== undefined ? canonicalIndex : matchIndexes[0];
+  const productionId = TIMON_PUMBAA_ID;
+  const droppedIds = new Set(
+    matchIndexes
+      .map((i) => productions[i].id)
+      .filter((id) => id !== TIMON_PUMBAA_ID)
+  );
   if (keepIndex === undefined) {
     productions.push(productionRecord(productionId));
   } else {
