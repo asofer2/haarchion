@@ -1,8 +1,11 @@
+import alonRolesJson from "@/data/alon-ofir-roles.json";
 import bearJson from "@/data/ay-hdvbym.json";
 import lion2Json from "@/data/mlk-haryvt-2.json";
 import lionJson from "@/data/mlk-haryvt-1994.json";
 import { canonicalPersonName } from "./aliases";
 import { assignBillingOrders } from "./credit-order";
+import { FILMOGRAPHY_FILLER_IDS } from "./filmography";
+import { slugify } from "./ids";
 import { portrait } from "./portrait";
 import type {
   ArchiveData,
@@ -238,12 +241,111 @@ const ALON_ACTOR: {
   },
 ];
 
+type AlonRoleRow = {
+  role: CreditRole;
+  heading: string;
+  year: number;
+  title: string;
+  character?: string;
+};
+
+const ALON_DUB_ROLES = alonRolesJson.credits as AlonRoleRow[];
+
+/** Existing catalog ids when the אישים year is the Hebrew-dub year, not the original release. */
+const ALON_PREFERRED_PRODUCTION: Record<string, string> = {
+  מדגסקר: "madagascar-he",
+  "אחי הדוב": "brother-bear-he",
+  במבי: "bambi-he",
+  "היפה והחיה": "beauty-beast-he",
+  פוקהונטס: "pocahontas-he",
+  "הגיבן מנוטרדאם": "hunchback-he",
+  "מלך האריות": "lion-king-he",
+  "מלך האריות 2 - מלכות סימבה": "ht-mlk-haryvt-2",
+  "מלך האריות 3 - האקונה מאטאטה": "ht-mlk-haryvt-3",
+  "טימון ופומבה": "ht-tymvn-vpvmbh",
+};
+
+const ALON_SERIES = new Set([
+  "סברינה המכשפה הצעירה",
+  "החיים על פי דאג",
+  "טימון ופומבה",
+  "לאן נעלמה כרמן סן דיאגו?",
+  "תינוקות בצמרת",
+  "פנטומית",
+]);
+
+function alonRoleKind(row: AlonRoleRow): ProductionKind {
+  if (row.title === "קיטי קט וחומי") return "cassette_kids";
+  if (row.title === "אלאדין" && row.year === 1997) return "series_dubbed_foreign";
+  if (ALON_SERIES.has(row.title)) return "series_dubbed_foreign";
+  return "film_dubbed_foreign";
+}
+
+function resolveAlonProduction(
+  row: AlonRoleRow,
+  productions: Production[],
+  byId: Map<string, Production>
+): string {
+  if (row.title === "אלאדין" && row.year === 1993 && byId.has("aladdin-he")) {
+    return "aladdin-he";
+  }
+
+  const sameTitle = productions.filter((p) => p.title === row.title);
+  if (row.title === "אלאדין" && row.year === 1997) {
+    const series = sameTitle.find((p) => p.year === 1997 && p.id !== "aladdin-he");
+    if (series) return series.id;
+  } else {
+    const preferred = ALON_PREFERRED_PRODUCTION[row.title];
+    if (preferred && byId.has(preferred)) return preferred;
+    if (sameTitle.length) {
+      const exact = sameTitle.find((p) => p.year === row.year);
+      if (exact) return exact.id;
+      const close = sameTitle.find((p) => Math.abs(p.year - row.year) <= 2);
+      if (close) return close.id;
+      const nearest = [...sameTitle].sort(
+        (a, b) => Math.abs(a.year - row.year) - Math.abs(b.year - row.year)
+      )[0];
+      if (nearest) return nearest.id;
+    }
+  }
+
+  const base = `ishim-${slugify(row.title)}`;
+  let id = base;
+  const taken = byId.get(id);
+  if (taken && (taken.title !== row.title || Math.abs(taken.year - row.year) > 2)) {
+    id = `${base}-${row.year}`;
+  }
+  if (!byId.has(id)) {
+    const production: Production = {
+      id,
+      title: row.title,
+      year: row.year,
+      kind: alonRoleKind(row),
+      summary: "",
+      genres: [],
+      imageUrl: portrait(row.title, undefined, { kind: "film" }),
+      sourceNote: "אישים",
+      sourceUrl: ALON_URL,
+      createdAt: NOW,
+      updatedAt: NOW,
+    };
+    productions.push(production);
+    byId.set(id, production);
+  }
+  return id;
+}
+
 function applyAlonOfirActorRoles(data: ArchiveData): ArchiveData {
   const person = data.people.find((p) => p.id === ALON_ID || p.name === "אלון אופיר");
   if (!person) throw new Error("Missing person אלון אופיר");
 
   const productions = [...data.productions];
-  const credits = [...data.credits];
+  const byId = new Map(productions.map((p) => [p.id, p]));
+  const credits = data.credits.filter((c) => {
+    if (c.personId !== person.id) return true;
+    if (!FILMOGRAPHY_FILLER_IDS.has(c.productionId)) return true;
+    return Boolean(c.characterName || c.heading);
+  });
 
   for (const row of ALON_ACTOR) {
     const sameTitle = productions.filter((p) => p.title === row.title);
@@ -255,7 +357,7 @@ function applyAlonOfirActorRoles(data: ArchiveData): ArchiveData {
       ? portrait(row.wikiTitle, undefined, { kind: "film" })
       : undefined;
     if (!found) {
-      productions.push({
+      const created: Production = {
         id: productionId,
         title: row.title,
         year: row.year,
@@ -267,7 +369,9 @@ function applyAlonOfirActorRoles(data: ArchiveData): ArchiveData {
         sourceUrl: ALON_URL,
         createdAt: NOW,
         updatedAt: NOW,
-      });
+      };
+      productions.push(created);
+      byId.set(productionId, created);
     } else if (wikiImage && !storedImage(found.imageUrl)) {
       found.imageUrl = wikiImage;
     }
@@ -289,7 +393,65 @@ function applyAlonOfirActorRoles(data: ArchiveData): ArchiveData {
     });
   }
 
-  return { ...data, productions, credits };
+  for (const row of ALON_DUB_ROLES) {
+    const productionId = resolveAlonProduction(row, productions, byId);
+    const character = row.character?.trim() || "";
+    const index = credits.findIndex(
+      (c) =>
+        c.personId === person.id &&
+        c.productionId === productionId &&
+        c.role === row.role &&
+        (c.characterName || "") === character
+    );
+    if (index >= 0) {
+      const current = credits[index];
+      credits[index] = {
+        ...current,
+        heading: row.heading,
+        year: row.year,
+        characterName: character || current.characterName,
+      };
+      continue;
+    }
+    credits.push({
+      personId: person.id,
+      productionId,
+      role: row.role,
+      heading: row.heading,
+      characterName: character || undefined,
+      year: row.year,
+    });
+  }
+
+  const tags = [...person.tags];
+  for (const tag of ["בית צבי", "גאים/גאות", "להקה צבאית", "מדבבים"]) {
+    if (!tags.includes(tag)) tags.push(tag);
+  }
+  const ishimNotes = [...(person.ishimNotes || [])];
+  if (!ishimNotes.some((note) => note.heading === "צבא")) {
+    ishimNotes.push({ heading: "צבא", items: ["להקת פיקוד המרכז"] });
+  }
+  const people = data.people.map((p) =>
+    p.id === person.id
+      ? {
+          ...p,
+          tags,
+          activities: [
+            ...new Set([
+              ...p.activities,
+              "acting" as const,
+              "stage" as const,
+              "festival" as const,
+              "cassette" as const,
+            ]),
+          ],
+          ishimNotes,
+          updatedAt: NOW,
+        }
+      : p
+  );
+
+  return { ...data, people, productions, credits };
 }
 
 /** אי הדובים, מלך האריות 1994 ומלך האריות 2 לפי הופ תמיר, ותפקידי השחקן של אלון אופיר. */
