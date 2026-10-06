@@ -2,6 +2,7 @@ import {
   GoogleAuthProvider,
   getRedirectResult,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signInWithRedirect,
   signOut,
@@ -93,6 +94,29 @@ export async function signInWithGoogle(): Promise<User> {
     throw error instanceof Error
       ? error
       : new Error("התחברות עם Google נכשלה");
+  }
+}
+
+export async function signInWithEmail(email: string, password: string): Promise<User> {
+  const auth = getFirebaseAuth();
+  if (!auth) {
+    throw new Error("Firebase לא מוגדר — חסרים משתני סביבה.");
+  }
+  try {
+    const result = await signInWithEmailAndPassword(auth, email.trim(), password);
+    return result.user;
+  } catch (error: unknown) {
+    const code =
+      error && typeof error === "object" && "code" in error
+        ? String((error as { code: string }).code)
+        : "";
+    if (code === "auth/invalid-credential" || code === "auth/wrong-password" || code === "auth/user-not-found") {
+      throw new Error("דוא״ל או סיסמה שגויים.");
+    }
+    if (code === "auth/operation-not-allowed") {
+      throw new Error("כניסה עם סיסמה עדיין כבויה ב-Firebase. יש להפעיל Email/Password ב-Authentication.");
+    }
+    throw error instanceof Error ? error : new Error("התחברות עם סיסמה נכשלה");
   }
 }
 

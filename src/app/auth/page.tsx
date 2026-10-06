@@ -10,9 +10,11 @@ function AuthPageInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const next = safeNextPath(searchParams.get("next"));
-  const { signInWithGoogle, user, logout, configured, loading } = useAuth();
+  const { signInWithGoogle, signInWithEmail, user, logout, configured, loading } = useAuth();
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     if (user && next && next !== "/me") {
@@ -36,7 +38,7 @@ function AuthPageInner() {
               (<span className="meta">{user.email}</span>)
             </>
           ) : null}
-          — עריכות נשמרות תחת חשבון Google זה.
+          — עריכות נשמרות תחת החשבון הזה.
         </p>
         <div className="hero-actions">
           <Link href={next} className="btn btn-primary">
@@ -93,6 +95,45 @@ function AuthPageInner() {
           <GoogleIcon />
           {busy ? "מתחבר…" : "המשך עם Google"}
         </button>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            setBusy(true);
+            setError(null);
+            void signInWithEmail(email, password)
+              .then(() => router.push(next))
+              .catch((err: unknown) => {
+                setError(err instanceof Error ? err.message : "התחברות נכשלה");
+              })
+              .finally(() => setBusy(false));
+          }}
+          style={{ display: "grid", gap: "0.6rem", marginTop: "1rem" }}
+        >
+          <p className="muted" style={{ margin: 0, fontSize: "0.85rem" }}>
+            כניסה עם דוא״ל וסיסמה — לחשבון שנוצר מראש, בלי הרשמה פתוחה.
+          </p>
+          <input
+            type="email"
+            name="email"
+            autoComplete="username"
+            required
+            placeholder="דוא״ל"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <input
+            type="password"
+            name="password"
+            autoComplete="current-password"
+            required
+            placeholder="סיסמה"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <button type="submit" className="btn btn-ghost" disabled={busy || !configured}>
+            {busy ? "מתחבר…" : "כניסה עם סיסמה"}
+          </button>
+        </form>
         {error && (
           <p className="form-error" style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}>
             {error}

@@ -14,6 +14,7 @@ import { getFirebaseDb, isFirebaseConfigured } from "@/lib/firebase";
 import {
   completeGoogleRedirectIfAny,
   ensureFirebaseSignedIn,
+  signInWithEmail as firebaseEmailSignIn,
   signInWithGoogle as firebaseGoogleSignIn,
   signOutFirebase,
   watchFirebaseAuth,
@@ -33,6 +34,7 @@ interface AuthContextValue {
   localMode: boolean;
   configured: boolean;
   signInWithGoogle: () => Promise<void>;
+  signInWithEmail: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
 }
 
@@ -141,6 +143,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           );
         }
         const firebaseUser = await firebaseGoogleSignIn();
+        const next = toAppUser(firebaseUser);
+        setUser(next);
+        await rememberEditor(next);
+      },
+      async signInWithEmail(email: string, password: string) {
+        if (!configured) {
+          throw new Error(
+            "Firebase לא מוגדר. הוסיפו NEXT_PUBLIC_FIREBASE_* ב־.env.local."
+          );
+        }
+        const firebaseUser = await firebaseEmailSignIn(email, password);
         const next = toAppUser(firebaseUser);
         setUser(next);
         await rememberEditor(next);
