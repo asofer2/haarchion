@@ -8,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import type { User } from "firebase/auth";
 import { getFirebaseDb, isFirebaseConfigured } from "@/lib/firebase";
 import {
@@ -64,15 +64,23 @@ async function rememberEditor(user: AppUser) {
     // Ensure ID token is attached before the editors write
     const uid = await ensureFirebaseSignedIn();
     if (!uid) return;
+    const ref = doc(db, "editors", user.uid);
+    const existing = await getDoc(ref);
+    const prev = existing.exists() ? existing.data() : undefined;
+    const now = new Date().toISOString();
     await setDoc(
-      doc(db, "editors", user.uid),
+      ref,
       {
         uid: user.uid,
         displayName: user.displayName,
         email: user.email || null,
         photoURL: user.photoURL || null,
-        lastSeenAt: new Date().toISOString(),
-        provider: "google",
+        registeredAt:
+          (typeof prev?.registeredAt === "string" && prev.registeredAt) ||
+          (typeof prev?.lastSeenAt === "string" && prev.lastSeenAt) ||
+          now,
+        lastSeenAt: now,
+        provider: user.email?.endsWith("@haarchion.vercel.app") ? "password" : "google",
       },
       { merge: true }
     );

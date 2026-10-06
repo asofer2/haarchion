@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { AdminInbox } from "@/components/AdminInbox";
+import { RegisteredUsers } from "@/components/RegisteredUsers";
 import { useAuth } from "@/components/AuthProvider";
 import { isSiteAdmin, SITE_ADMIN_NAME } from "@/lib/admin";
 
@@ -13,8 +14,8 @@ export default function ApprovalPage() {
     <>
       <h1 className="page-title">פאנל ניהול — בקשות לאישור</h1>
       <p className="notice" style={{ marginBottom: "1rem" }}>
-        כאן {SITE_ADMIN_NAME} מאשר או דוחה הוספות, עדכונים ומחיקות של משתמשים
-        אחרים. השינוי עולה לאתר רק אחרי „כן”.
+        כאן {SITE_ADMIN_NAME} רואה מי נרשם לאתר, ומאשר או דוחה הוספות,
+        עדכונים ומחיקות. השינוי עולה לאתר רק אחרי „כן”.
       </p>
 
       {authLoading && <p className="muted">טוען התחברות…</p>}
@@ -36,7 +37,12 @@ export default function ApprovalPage() {
         </p>
       )}
 
-      {admin && <AdminInbox />}
+      {admin && (
+        <>
+          <RegisteredUsers />
+          <AdminInbox />
+        </>
+      )}
     </>
   );
 }
