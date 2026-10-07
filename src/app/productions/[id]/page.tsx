@@ -30,6 +30,7 @@ import {
   formatProductionYears,
   productionHasSingleYear,
 } from "@/lib/production-title";
+import { seeAlsoHref } from "@/lib/see-also";
 import {
   masculineCreditHeading,
   masculineRoleLabel,
@@ -170,9 +171,11 @@ function groupCreditsByRole(
 function IshimProductionBody({
   production,
   creditGroups,
+  productions,
 }: {
   production: Production;
   creditGroups: { heading: string; entries: CrewEntry[] }[];
+  productions?: Production[];
 }) {
   const years = formatProductionYears(production.year, production.endYear);
 
@@ -290,9 +293,14 @@ function IshimProductionBody({
         <section key={note.heading} className="ishim-role">
           <h3>{note.heading}</h3>
           <ul className="ishim-notes-list">
-            {note.items.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
+            {note.items.map((item) => {
+              const href = seeAlsoHref(item, productions, production.id);
+              return (
+                <li key={item}>
+                  {href ? <Link href={href}>{item}</Link> : item}
+                </li>
+              );
+            })}
           </ul>
         </section>
       ))}
@@ -422,6 +430,7 @@ export default function ProductionDetailPage() {
           <IshimProductionBody
             production={production}
             creditGroups={ishimCreditGroups}
+            productions={data?.productions}
           />
         ) : (
           <>
