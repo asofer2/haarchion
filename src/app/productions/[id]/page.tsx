@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
 import { ArchiveSkeleton } from "@/components/ArchiveSkeleton";
 import { EntityImage } from "@/components/EntityImage";
@@ -14,6 +14,7 @@ import {
   creditsForProduction,
   findById,
   findSeedProduction,
+  getProduction,
   peopleByIds,
 } from "@/lib/data";
 import { IshimCreditLine } from "@/components/IshimCreditLine";
@@ -304,9 +305,40 @@ export default function ProductionDetailPage() {
   const { data, loading, error } = useArchive();
   const { user } = useAuth();
 
-  const production =
+  const fromArchive =
     (data ? findById(data.productions, params.id) : undefined) ??
     findSeedProduction(params.id);
+  const [fromCloud, setFromCloud] = useState<Production | undefined>();
+  const [cloudChecked, setCloudChecked] = useState(false);
+  const [lookupId, setLookupId] = useState(params.id);
+  if (lookupId !== params.id) {
+    setLookupId(params.id);
+    setFromCloud(undefined);
+    setCloudChecked(false);
+  }
+
+  useEffect(() => {
+    if (fromArchive || loading || !params.id) return;
+    let cancelled = false;
+    void getProduction(params.id)
+      .then((found) => {
+        if (cancelled) return;
+        if (found) setFromCloud(found);
+      })
+      .catch(() => {
+        /* catalog snapshot may be stale; direct read is best-effort */
+      })
+      .finally(() => {
+        if (!cancelled) setCloudChecked(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [fromArchive, loading, params.id]);
+
+  const production =
+    fromArchive ?? (lookupId === params.id ? fromCloud : undefined);
+  const cloudReady = lookupId === params.id && cloudChecked;
 
   const cast = useMemo(() => {
     if (!production) return { credits: [] as Credit[], people: [] as Person[] };
@@ -336,7 +368,7 @@ export default function ProductionDetailPage() {
     [cast, production]
   );
 
-  if (!production && (loading || !data))
+  if (!production && (loading || !data || !cloudReady))
     return <ArchiveSkeleton label="טוען…" cards={4} />;
   if (error && !production) return <p className="form-error">{error}</p>;
   if (!production) return <p className="form-error">ההפקה לא נמצאה</p>;

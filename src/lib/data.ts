@@ -3,8 +3,11 @@ import {
   doc,
   getDoc,
   getDocs,
+  limit,
+  query,
   setDoc,
   deleteDoc,
+  where,
   writeBatch,
 } from "firebase/firestore";
 import { getFirebaseDb, isFirebaseConfigured } from "./firebase";
@@ -126,6 +129,7 @@ const STORAGE_KEY = "haarchion-overlay-v24";
 const FIRESTORE_LOAD_MS = 20_000;
 const CLOUD_SAVE_MS = 20_000;
 let firestoreSyncInFlight = false;
+let archiveSyncToken = 0;
 let storageBootstrapped = false;
 
 /** In-memory cache — one Firestore/local load shared across navigation */
@@ -146,7 +150,9 @@ type LocalOverlay = {
 };
 
 export function invalidateArchiveCache() {
-  memoryCache = null;
+  // Keep the catalog already in memory. Nulling it made a refresh replace a
+  // just-approved production with the stale cached snapshot, so search missed it.
+  if (memoryCache) memoryCache.at = 0;
 }
 
 function firebaseErrorCode(error: unknown): string {
@@ -1048,6 +1054,19 @@ async function fetchCachedArchiveFromApi(
   }
 }
 
+function applyRemoteArchive(
+  token: number,
+  remote: ArchiveData,
+  fallback: ArchiveData,
+  onRemote?: (data: ArchiveData) => void
+) {
+  if (token !== archiveSyncToken) return;
+  const base = memoryCache?.data ?? fallback;
+  const merged = mergeArchives(base, remote);
+  cacheLocally(merged);
+  onRemote?.(merged);
+}
+
 export async function loadArchive(
   force = false,
   opts?: { onRemote?: (data: ArchiveData) => void }
@@ -1060,50 +1079,30 @@ export async function loadArchive(
     return memoryCache.data;
   }
 
-  // Lean seed / local overlay first — never pull the ~35MB ishim JSON on the client.
-  const local = fallbackArchive();
-  cacheLocally(local);
+  // Prefer the catalog already in memory (includes a production just approved).
+  // Falling back to the lean seed must not wipe that copy.
+  const local = memoryCache?.data ?? fallbackArchive();
+  if (!memoryCache) cacheLocally(local);
 
-  if (!isFirebaseConfigured()) {
-    // Still try CDN archive when Firebase env is unset but API is available.
-    if (typeof window !== "undefined" && !firestoreSyncInFlight) {
-      firestoreSyncInFlight = true;
-      void (async () => {
-        try {
-          const remote = await fetchCachedArchiveFromApi(force);
-          if (remote) {
-            const merged = mergeArchives(local, remote);
-            cacheLocally(merged);
-            opts?.onRemote?.(merged);
-          }
-        } catch (error) {
-          console.warn("Archive API sync failed — using lean seed", error);
-        } finally {
-          firestoreSyncInFlight = false;
-        }
-      })();
-    }
-    return local;
-  }
-
-  if (!firestoreSyncInFlight) {
+  const startSync = force || !firestoreSyncInFlight;
+  if (startSync && typeof window !== "undefined") {
+    const token = ++archiveSyncToken;
     firestoreSyncInFlight = true;
     void (async () => {
       try {
-        const remote =
-          (await fetchCachedArchiveFromApi(force)) ??
-          (await withTimeout(
-            readFirestoreArchive(),
-            FIRESTORE_LOAD_MS,
-            "Firestore load"
-          ));
-        const merged = mergeArchives(local, remote);
-        cacheLocally(merged);
-        opts?.onRemote?.(merged);
+        const remote = isFirebaseConfigured()
+          ? ((await fetchCachedArchiveFromApi(force)) ??
+            (await withTimeout(
+              readFirestoreArchive(),
+              FIRESTORE_LOAD_MS,
+              "Firestore load"
+            )))
+          : await fetchCachedArchiveFromApi(force);
+        if (remote) applyRemoteArchive(token, remote, local, opts?.onRemote);
       } catch (error) {
-        console.warn("Firestore sync failed — using local/seed data", error);
+        console.warn("Archive sync failed — using local/seed data", error);
       } finally {
-        firestoreSyncInFlight = false;
+        if (token === archiveSyncToken) firestoreSyncInFlight = false;
       }
     })();
   }
@@ -1141,6 +1140,65 @@ export async function getProduction(
     }
   }
   return readLocal().productions.find((p) => p.id === id);
+}
+
+/** Titles/names saved after the catalog snapshot — search uses this directly. */
+export async function searchCloudCatalog(term: string): Promise<{
+  people: Person[];
+  productions: Production[];
+}> {
+  const q = term.trim();
+  const empty = { people: [] as Person[], productions: [] as Production[] };
+  if (q.length < 2 || !isFirebaseConfigured()) return empty;
+  const db = getFirebaseDb();
+  if (!db) return empty;
+  const end = `${q}\uf8ff`;
+  try {
+    const [peopleSnap, productionsSnap] = await Promise.all([
+      getDocs(
+        query(
+          collection(db, "people"),
+          where("name", ">=", q),
+          where("name", "<=", end),
+          limit(15)
+        )
+      ),
+      getDocs(
+        query(
+          collection(db, "productions"),
+          where("title", ">=", q),
+          where("title", "<=", end),
+          limit(15)
+        )
+      ),
+    ]);
+    return {
+      people: peopleSnap.docs.map((row) => {
+        const person = row.data() as Person;
+        return {
+          ...person,
+          id: person.id || row.id,
+          nicknames: person.nicknames || [],
+          tags: person.tags || [],
+          activities: person.activities || [],
+          bio: person.bio || "",
+        };
+      }),
+      productions: productionsSnap.docs.map((row) => {
+        const production = row.data() as Production;
+        return {
+          ...production,
+          id: production.id || row.id,
+          genres: production.genres || [],
+          summary: production.summary || "",
+          title: production.title || "",
+        };
+      }),
+    };
+  } catch (error) {
+    console.warn("cloud catalog search failed", error);
+    return empty;
+  }
 }
 
 export async function savePerson(

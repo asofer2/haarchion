@@ -1,11 +1,13 @@
 "use client";
 
-import { Suspense, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { PersonCard } from "@/components/PersonCard";
 import { ProductionCard } from "@/components/ProductionCard";
 import { useArchive } from "@/hooks/useArchive";
+import { searchCloudCatalog } from "@/lib/data";
 import {
+  mergeCloudSearch,
   SEARCH_SCOPE_LABELS,
   SEARCH_SCOPE_LIST,
   searchArchive,
@@ -13,6 +15,7 @@ import {
   type SearchResults,
   type SearchScope,
 } from "@/lib/search";
+import type { Person, Production } from "@/lib/types";
 
 const EMPTY: SearchResults = {
   people: [],
@@ -57,11 +60,40 @@ function SearchPageInner() {
   const searchParams = useSearchParams();
   const [q, setQ] = useState(searchParams.get("q") || "");
   const [scope, setScope] = useState<SearchScope>("all");
+  const [cloud, setCloud] = useState<{
+    people: Person[];
+    productions: Production[];
+  }>({ people: [], productions: [] });
+  const [cloudPending, setCloudPending] = useState(false);
+
+  useEffect(() => {
+    const term = q.trim();
+    if (term.length < 2) {
+      setCloud({ people: [], productions: [] });
+      setCloudPending(false);
+      return;
+    }
+    let cancelled = false;
+    setCloudPending(true);
+    const timer = window.setTimeout(() => {
+      void searchCloudCatalog(term)
+        .then((found) => {
+          if (!cancelled) setCloud(found);
+        })
+        .finally(() => {
+          if (!cancelled) setCloudPending(false);
+        });
+    }, 300);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [q]);
 
   const allResults = useMemo(() => {
-    if (!data) return EMPTY;
-    return searchArchive(data, q);
-  }, [data, q]);
+    const base = data ? searchArchive(data, q) : EMPTY;
+    return mergeCloudSearch(base, cloud);
+  }, [cloud, data, q]);
 
   const results = useMemo(
     () => scopedResults(allResults, scope),
@@ -124,6 +156,8 @@ function SearchPageInner() {
 
       {!hasQuery ? (
         <p className="muted">הקלידו שם, כותרת, ז׳אנר או שם דמות כדי לחפש.</p>
+      ) : total === 0 && cloudPending ? (
+        <p className="muted">מחפש…</p>
       ) : total === 0 ? (
         <p className="muted">לא נמצאו תוצאות ל«{q.trim()}».</p>
       ) : searchResultCount(results) === 0 ? (

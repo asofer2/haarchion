@@ -178,6 +178,38 @@ export function searchArchive(data: ArchiveData, query: string): SearchResults {
   return { people, series, films, productions };
 }
 
+/** Add Firestore hits that the cached catalog snapshot does not contain yet. */
+export function mergeCloudSearch(
+  base: SearchResults,
+  cloud: { people: Person[]; productions: Production[] }
+): SearchResults {
+  const peopleIds = new Set(base.people.map((person) => person.id));
+  const people = [...base.people];
+  for (const person of cloud.people) {
+    if (!person?.id || !person.name || peopleIds.has(person.id)) continue;
+    peopleIds.add(person.id);
+    people.push(person);
+  }
+
+  const series = [...base.series];
+  const films = [...base.films];
+  const productions = [...base.productions];
+  const productionIds = new Set(
+    [...series, ...films, ...productions].map((production) => production.id)
+  );
+  for (const production of cloud.productions) {
+    if (!production?.id || !production.title || productionIds.has(production.id)) {
+      continue;
+    }
+    productionIds.add(production.id);
+    if (isSeriesProduction(production)) series.push(production);
+    else if (isFilmProduction(production)) films.push(production);
+    else productions.push(production);
+  }
+
+  return { people, series, films, productions };
+}
+
 export function searchResultCount(results: SearchResults): number {
   return (
     results.people.length +
