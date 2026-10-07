@@ -5,14 +5,14 @@ import { collection, getDocs, limit, query } from "firebase/firestore";
 import { getFirebaseDb, isFirebaseConfigured } from "@/lib/firebase";
 import { getFirebaseAdminDb } from "@/lib/firebase-admin";
 import { mergeCloudOntoFullSeed } from "@/lib/merge-full-seed";
-import { applyTelepenoli } from "@/lib/seed-telepenoli";
+import { applyCatalogFixes } from "@/lib/seed-approved-cast";
 import { fullSeedArchive } from "@/lib/seed-full-server";
 import type { ArchiveData, Contribution, Credit, Person, Production } from "@/lib/types";
 
 /** Firestore overlays lean/user docs onto the full ishim-backed seed. */
 function hydrateFromFirestore(cloud: ArchiveData): ArchiveData {
   // fullSeedArchive() is already normalized + patched; avoid a second full pass.
-  return applyTelepenoli(mergeCloudOntoFullSeed(cloud, fullSeedArchive()));
+  return applyCatalogFixes(mergeCloudOntoFullSeed(cloud, fullSeedArchive()));
 }
 
 export const ARCHIVE_CACHE_TAG = "archive";
@@ -96,7 +96,7 @@ export async function readFirestoreArchiveServer(): Promise<ArchiveData> {
  */
 export const getCachedFirestoreArchive = unstable_cache(
   async (): Promise<ArchiveData> => readFirestoreArchiveServer(),
-  ["firestore-archive-v7-telepenoli"],
+  ["firestore-archive-v8-approved-cast"],
   {
     tags: [ARCHIVE_CACHE_TAG],
     revalidate: ARCHIVE_REVALIDATE_SECONDS,

@@ -30,7 +30,7 @@ import {
   mergeProductionRecords,
 } from "./merge-full-seed";
 import { applyIshimPersonPatches } from "./seed-ishim-patches";
-import { applyTelepenoli } from "./seed-telepenoli";
+import { applyCatalogFixes } from "./seed-approved-cast";
 import { formatProductionTitle } from "./production-title";
 import {
   defaultCreditRole,
@@ -999,7 +999,7 @@ function mergeArchives(local: ArchiveData, remote: ArchiveData): ArchiveData {
 
   // Remote from /api/archive is already normalized (full ishim seed).
   // Do not re-run normalize() here — it freezes the browser on ~17k people.
-  return applyTelepenoli({
+  return applyCatalogFixes({
     people: [...people.values()],
     productions: [...productions.values()],
     credits: [...credits.values()],
@@ -1033,8 +1033,8 @@ async function fetchCachedArchiveFromApi(
   if (typeof window === "undefined") return null;
   try {
     const url = force
-      ? "/api/archive?fresh=1&catalog=7"
-      : "/api/archive?catalog=7";
+      ? "/api/archive?fresh=1&catalog=8"
+      : "/api/archive?catalog=8";
     const res = await withTimeout(
       fetch(url, {
         cache: force ? "no-store" : "default",
