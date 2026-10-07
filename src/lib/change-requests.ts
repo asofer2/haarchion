@@ -48,6 +48,8 @@ export interface ChangeRequest {
   production?: Production;
   creditInputs?: PersonCategoryCreditInput[];
   credits?: Credit[];
+  /** אישים חדשים שנוצרו משורות השחקנים/המדבבים בטופס ההפקה */
+  relatedPeople?: Person[];
 }
 
 export type ModerationUser = {
@@ -405,6 +407,7 @@ function mergeRequestData(
     production: overlay.production || base.production,
     creditInputs: overlay.creditInputs || base.creditInputs,
     credits: overlay.credits || base.credits,
+    relatedPeople: overlay.relatedPeople || base.relatedPeople,
   };
 }
 
@@ -822,10 +825,26 @@ export async function requestOrApplyProductionSave(
   user: ModerationUser,
   production: Production,
   isNew: boolean,
-  citation?: string
+  citation?: string,
+  extras?: { credits?: Credit[]; relatedPeople?: Person[] }
 ): Promise<SubmitResult> {
   const citationTrimmed = citation?.trim() || undefined;
+  const credits = extras?.credits;
+  const relatedPeople = extras?.relatedPeople?.length
+    ? extras.relatedPeople
+    : undefined;
   if (isSiteAdmin(user)) {
+    if (relatedPeople) {
+      for (const person of relatedPeople) {
+        await savePerson(person, {
+          userId: user.uid,
+          userName: user.displayName,
+          isNew: true,
+          citation: citationTrimmed,
+          sourceNote: citationTrimmed || person.sourceNote,
+        });
+      }
+    }
     await saveProduction(production, {
       userId: user.uid,
       userName: user.displayName,
@@ -833,6 +852,14 @@ export async function requestOrApplyProductionSave(
       citation: citationTrimmed,
       sourceNote: citationTrimmed || production.sourceNote,
     });
+    if (credits) {
+      await saveCreditsForProduction(production.id, credits, {
+        userId: user.uid,
+        userName: user.displayName,
+        entityTitle: production.title,
+        citation: citationTrimmed,
+      });
+    }
     return { pending: false };
   }
   return queueRequest(user, {
@@ -842,6 +869,8 @@ export async function requestOrApplyProductionSave(
     entityTitle: production.title,
     citation: citationTrimmed,
     production,
+    credits,
+    relatedPeople,
   });
 }
 
@@ -922,6 +951,17 @@ export async function approveChangeRequest(
       );
     }
   } else if (full.entityType === "production") {
+    if (full.relatedPeople?.length) {
+      for (const person of full.relatedPeople) {
+        await savePerson(person, {
+          userId: full.requestedBy,
+          userName: full.requestedByName,
+          isNew: true,
+          citation: full.citation,
+          sourceNote: full.citation || person.sourceNote,
+        });
+      }
+    }
     if (full.production) {
       await saveProduction(full.production, {
         userId: full.requestedBy,

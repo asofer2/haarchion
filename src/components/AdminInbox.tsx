@@ -40,7 +40,15 @@ function requestSummary(request: ChangeRequest): string {
     return `${request.person.name}${extra}`;
   }
   if (request.production) {
-    return `${request.production.title} (${request.production.year})`;
+    const cast = request.credits?.length || 0;
+    const people = request.relatedPeople?.length || 0;
+    const extra = [
+      cast ? `${cast} קרדיטים` : "",
+      people ? `${people} אישים חדשים` : "",
+    ]
+      .filter(Boolean)
+      .join(", ");
+    return `${request.production.title} (${request.production.year})${extra ? ` · ${extra}` : ""}`;
   }
   if (request.credits) {
     return `${request.entityTitle} · ${request.credits.length} קרדיטים`;
