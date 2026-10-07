@@ -374,6 +374,7 @@ function applyShagit(data: ArchiveData): ArchiveData {
       "שגית המושגית היא סדרת הנפשה ישראלית לילדים ששודרה בערוץ הראשון ב-2013 (2 עונות, 18 פרקים, כ-3 דקות לפרק). הסדרה עוקבת אחרי ילדה צבעונית ומגניבה בשם שגית המושגית, המדובבת על ידי דון לני גבאי. את הסדרה יצר וביים קוה שפרן; יפה גבאי ביימה את הקולות.",
     sourceNote: "ויקיפדיה",
     sourceUrl: SHAGIT_WIKI,
+    dubbingStudio: undefined,
     imageUrl: storedImage(previous?.imageUrl)
       ? previous?.imageUrl
       : portrait(SHAGIT_TITLE, undefined, { kind: "film", productionId: id }),
@@ -455,7 +456,26 @@ function resolveProduction(
     };
   }
   const stub = matches.find((production) => production.id === stubId);
-  if (stub) return { productions, production: stub };
+  if (stub) {
+    const updated: Production = {
+      ...stub,
+      title: row.title,
+      year: row.year,
+      endYear: row.endYear,
+      airStatus: "ended",
+      kind: row.kind,
+      channel: row.channel,
+      genres: row.genres,
+      summary: row.summary,
+      updatedAt: NOW,
+    };
+    return {
+      productions: productions.map((production) =>
+        production.id === stub.id ? updated : production
+      ),
+      production: updated,
+    };
+  }
 
   const created: Production = {
     id: stubId,
@@ -488,16 +508,31 @@ function upsertRole(credits: Credit[], credit: Credit, droppedId?: string): Cred
       row.productionId === credit.productionId &&
       row.role === credit.role
   );
-  if (index < 0) return [...moved, credit];
-  const current = moved[index];
   const next = [...moved];
-  next[index] = {
-    ...current,
-    characterName: credit.characterName,
-    heading: credit.heading || current.heading,
-    billingOrder: current.billingOrder ?? credit.billingOrder,
-  };
-  return next;
+  if (index < 0) next.push(credit);
+  else {
+    const current = moved[index];
+    next[index] = {
+      ...current,
+      characterName: credit.characterName,
+      heading: credit.heading || current.heading,
+      billingOrder: current.billingOrder ?? credit.billingOrder,
+    };
+  }
+  let named = false;
+  return next.filter((row) => {
+    const same =
+      row.personId === credit.personId &&
+      row.productionId === credit.productionId &&
+      row.role === credit.role;
+    if (!same) return true;
+    if (row.characterName?.trim()) {
+      if (named) return false;
+      named = true;
+      return true;
+    }
+    return false;
+  });
 }
 
 function applyNamedRoles(data: ArchiveData): ArchiveData {
