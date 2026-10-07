@@ -1,0 +1,93 @@
+{
+  "shows": [
+    {
+      "id": "ht-krvslt-hksmym-2005",
+      "title": "קרוסלת הקסמים",
+      "year": 2005,
+      "kind": "film_dubbed_foreign",
+      "summary": "חבורה של חברים יוצאת למסע מסוכן במאצץ לכלוא את המכשף המרושע - זיבד",
+      "runtimeMinutes": 85,
+      "genres": ["אנימציה", "חינוכי", "ילדים", "מדובב - זר", "פנטזיה"],
+      "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%A7%D7%A8%D7%95%D7%A1%D7%9C%D7%AA-%D7%94%D7%A7%D7%A1%D7%9E%D7%99%D7%9D-2005-%D7%90%D7%99%D7%A9%D7%99%D7%9D",
+      "notes": [
+        {
+          "heading": "קישורים",
+          "items": ["ראה גם קרוסלת הקסמים (2008)"]
+        }
+      ],
+      "people": [
+        { "id": "ht-shpryrh-zkay", "name": "שפרירה זכאי" },
+        { "id": "ht-alvn-avpyr", "name": "אלון אופיר" },
+        { "id": "ht-dv-ryyzr", "name": "דב רייזר" },
+        { "id": "ht-shryt-vynv-alad", "name": "שרית וינו אלעד" },
+        { "id": "ht-shmavn-khn", "name": "שמעון כהן" },
+        { "id": "ht-aytzyq-sydvf", "name": "איציק סיידוף" },
+        { "id": "ht-gyl-ntnzn", "name": "גיל נתנזון" },
+        { "id": "ht-ysmyn-ayvn", "name": "יסמין עיון" },
+        { "id": "ht-lyanh-ayvn", "name": "ליאנה עיון" },
+        { "id": "ht-myky-ylvn-krvslt", "name": "מיקי ילון" },
+        { "id": "ht-aprvn-atqyn", "name": "עפרון אטקין" },
+        { "id": "ht-aly-gvrnshtyyn-krvslt", "name": "אלי גורנשטיין" }
+      ],
+      "credits": [
+        { "name": "שפרירה זכאי", "role": "dub_director", "heading": "בימוי דיבוב" },
+        { "name": "שפרירה זכאי", "role": "producer", "heading": "הפקת דיבוב" },
+        { "name": "אלון אופיר", "role": "dubber", "heading": "מדבבים", "character": "דוגאל" },
+        { "name": "דב רייזר", "role": "dubber", "heading": "מדבבים", "character": "זבדי" },
+        { "name": "שרית וינו אלעד", "role": "dubber", "heading": "מדבבים", "character": "גרטרוד" },
+        { "name": "שמעון כהן", "role": "dubber", "heading": "מדבבים", "character": "דילן / שלד מפלצתי" },
+        { "name": "איציק סיידוף", "role": "dubber", "heading": "מדבבים", "character": "בריאן" },
+        { "name": "גיל נתנזון", "role": "dubber", "heading": "מדבבים", "character": "רכבת" },
+        { "name": "יסמין עיון", "role": "dubber", "heading": "מדבבים", "character": "פלורנס" },
+        { "name": "ליאנה עיון", "role": "dubber", "heading": "מדבבים", "character": "קוראל" },
+        { "name": "מיקי ילון", "role": "dubber", "heading": "מדבבים", "character": "בזיל" },
+        { "name": "עפרון אטקין", "role": "dubber", "heading": "מדבבים", "character": "סם / מוכר ממתקים / אדון רייספי" },
+        { "name": "אלי גורנשטיין", "role": "dubber", "heading": "מדבבים", "character": "זיבד" }
+      ]
+    },
+    {
+      "id": "ht-krvslt-hksmym-2008",
+      "title": "קרוסלת הקסמים",
+      "year": 2008,
+      "kind": "series_dubbed_foreign",
+      "summary": "בובו הכלבלב וחבריו חיים זה לצד זה בכפר קטן שבמרכזו עומדת קרוסלת קסמים",
+      "runtimeMinutes": 15,
+      "episodeCount": 52,
+      "channel": "הופ!",
+      "genres": ["אנימציה", "חינוכי", "ילדים", "מדובב - זר"],
+      "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%A7%D7%A8%D7%95%D7%A1%D7%9C%D7%AA-%D7%94%D7%A7%D7%A1%D7%9E%D7%99%D7%9D-2008-%D7%90%D7%99%D7%A9%D7%99%D7%9D",
+      "notes": [
+        {
+          "heading": "קישורים",
+          "items": ["ראה גם קרוסלת הקסמים (2005)"]
+        }
+      ],
+      "people": [
+        { "id": "ht-lyavr-svl", "name": "ליאור סול" },
+        { "id": "ht-anvr-shtgr-azra-krvslt", "name": "ענבר שטגר עזרא" },
+        { "id": "ht-asf-ashtr", "name": "אסף אשתר" },
+        { "id": "ht-aylt-bnd", "name": "אילת בנד" },
+        { "id": "ht-shmchh-brbyrv", "name": "שמחה ברבירו" },
+        { "id": "ht-yvav-br-lb", "name": "יואב בר לב" },
+        { "id": "ht-avrly-qtn", "name": "אורלי קטן" },
+        { "id": "ht-rvbrt-hnyg", "name": "רוברט הניג" },
+        { "id": "ht-zyv-mayr", "name": "זיו מאיר" },
+        { "id": "ht-mayh-br-shlvvm", "name": "מאיה בר שלום" },
+        { "id": "ht-mykl-rshf", "name": "מיכל רשף" }
+      ],
+      "credits": [
+        { "name": "ליאור סול", "role": "dub_director", "heading": "בימוי דיבוב" },
+        { "name": "ענבר שטגר עזרא", "role": "producer", "heading": "הפקת דיבוב" },
+        { "name": "אסף אשתר", "role": "dubber", "heading": "מדבבים", "character": "בובו" },
+        { "name": "אילת בנד", "role": "dubber", "heading": "מדבבים", "character": "גילי" },
+        { "name": "שמחה ברבירו", "role": "dubber", "heading": "מדבבים", "character": "שבלולי / מוכר הממתקים" },
+        { "name": "יואב בר לב", "role": "dubber", "heading": "מדבבים", "character": "נבי / סם" },
+        { "name": "אורלי קטן", "role": "dubber", "heading": "מדבבים", "character": "נחמה" },
+        { "name": "רוברט הניג", "role": "dubber", "heading": "מדבבים", "character": "מר כהן" },
+        { "name": "זיו מאיר", "role": "dubber", "heading": "מדבבים", "character": "נחום" },
+        { "name": "מאיה בר שלום", "role": "composer", "heading": "מוזיקה" },
+        { "name": "מיכל רשף", "role": "singer", "heading": "שיר פתיחה (ביצוע)" }
+      ]
+    }
+  ]
+}
