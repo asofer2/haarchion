@@ -29,6 +29,7 @@ import {
   mergePersonRecords,
   mergeProductionRecords,
 } from "./merge-full-seed";
+import { applyIshimHopCast } from "./seed-ishim-hop-cast";
 import { applyIshimPersonPatches } from "./seed-ishim-patches";
 import { applyCatalogFixes } from "./seed-approved-cast";
 import { formatProductionTitle } from "./production-title";
@@ -470,7 +471,8 @@ export function seedArchiveBaseline(): ArchiveData {
 }
 
 function normalize(data: ArchiveData): ArchiveData {
-  return applyIshimPersonPatches(
+  return applyIshimHopCast(
+    applyIshimPersonPatches(
     ensureDiscographyProductions(
       ensureFilmographies(
         stampArchiveCredits(
@@ -519,6 +521,7 @@ function normalize(data: ArchiveData): ArchiveData {
       )
     )
     )
+  )
   );
 }
 
@@ -1033,8 +1036,8 @@ async function fetchCachedArchiveFromApi(
   if (typeof window === "undefined") return null;
   try {
     const url = force
-      ? "/api/archive?fresh=1&catalog=11"
-      : "/api/archive?catalog=11";
+      ? "/api/archive?fresh=1&catalog=12"
+      : "/api/archive?catalog=12";
     const res = await withTimeout(
       fetch(url, {
         cache: force ? "no-store" : "default",
