@@ -1,6 +1,7 @@
 import { normalizePersonName } from "./dedupe";
 import { slugify } from "./ids";
 import { portrait } from "./portrait";
+import { applyIshimJungleBook } from "./seed-ishim-spr-hgvngl";
 import { applyIshimMagicRoundabout } from "./seed-ishim-krvslt-hksmym";
 import { applyTelepenoli } from "./seed-telepenoli";
 import type {
@@ -573,5 +574,7 @@ function applyNamedRoles(data: ArchiveData): ArchiveData {
 
 /** טלפנולי, שגית המושגית, והתפקידים הנקובים של האישים שאושרו באותה קבוצה. */
 export function applyCatalogFixes(data: ArchiveData): ArchiveData {
-  return applyIshimMagicRoundabout(applyNamedRoles(applyShagit(applyTelepenoli(data))));
+  return applyIshimJungleBook(
+    applyIshimMagicRoundabout(applyNamedRoles(applyShagit(applyTelepenoli(data))))
+  );
 }

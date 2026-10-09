@@ -1,0 +1,137 @@
+{
+  "shows": [
+    {
+      "id": "ishim-spr-hgvngl-1988",
+      "alsoIds": ["jungle-book-he-1988"],
+      "title": "ספר הג'ונגל",
+      "year": 1988,
+      "kind": "film_dubbed_foreign",
+      "originalTitle": "The Jungle Book",
+      "summary": "מוגלי, ילד שגדל בג'ונגל, מובל על ידיד בגירה הפנתר לכפר בני אדם ובדרך מתגבר על שלל סכנות",
+      "runtimeMinutes": 78,
+      "genres": ["אנימציה", "ילדים", "מדובב - זר", "מוזיקלי", "קומדיה"],
+      "sourceUrl": "https://web.archive.org/web/20190916004329/https://www.ishim.co.il/m.php?s=%D7%A1%D7%A4%D7%A8+%D7%94%D7%92%27%D7%95%D7%A0%D7%92%D7%9C%231988",
+      "notes": [
+        {
+          "heading": "מאחורי הקלעים",
+          "items": ["חיים טופול ואילי גורליצקי דיבבו את אותן דמויות גם בספר הג'ונגל 2"]
+        },
+        {
+          "heading": "קישורים",
+          "items": ["ראה גם ספר הג'ונגל 2"]
+        }
+      ],
+      "people": [
+        { "id": "jb-shpryrh-zkay", "name": "שפרירה זכאי" },
+        { "id": "jb-tl-blkrvbyts", "name": "טל בלכרוביץ'" },
+        { "id": "jb-chyym-tvpvl", "name": "חיים טופול" },
+        { "id": "jb-dny-lytny", "name": "דני ליטני" },
+        { "id": "jb-yvsy-ydyn", "name": "יוסי ידין" },
+        { "id": "jb-ayly-gvrlytsky", "name": "אילי גורליצקי" },
+        { "id": "jb-dv-ryyzr", "name": "דב רייזר" },
+        { "id": "jb-yvvl-dvr", "name": "יובל דור" },
+        { "id": "jb-amy-mndlm", "name": "עמי מנדלמן" },
+        { "id": "jb-aryh-mvskvnh", "name": "אריה מוסקונה" },
+        { "id": "jb-tl-tvldnv", "name": "טל טולדנו" },
+        { "id": "jb-shmavn-khn", "name": "שמעון כהן" },
+        { "id": "jb-shlvmvt-ahrvn", "name": "שלומית אהרון" },
+        { "id": "jb-aldad-shrym", "name": "אלדד שרים" },
+        { "id": "jb-qyqy-rvtshtyyn", "name": "קיקי רוטשטיין" }
+      ],
+      "credits": [
+        { "name": "שפרירה זכאי", "role": "dub_director", "heading": "בימוי דיבוב" },
+        { "name": "שפרירה זכאי", "role": "producer", "heading": "הפקת דיבוב" },
+        { "name": "טל בלכרוביץ'", "role": "dubber", "heading": "מדבבים", "character": "מוגלי \"גור האדם\"" },
+        { "name": "חיים טופול", "role": "dubber", "heading": "מדבבים", "character": "בגירה הפנתר" },
+        { "name": "דני ליטני", "role": "dubber", "heading": "מדבבים", "character": "באלו הדוב" },
+        { "name": "יוסי ידין", "role": "dubber", "heading": "מדבבים", "character": "שירחאן הנמר" },
+        { "name": "אילי גורליצקי", "role": "dubber", "heading": "מדבבים", "character": "קא הנחש" },
+        { "name": "דב רייזר", "role": "dubber", "heading": "מדבבים", "character": "אקילה הזאב / באזי הנשר" },
+        { "name": "יובל דור", "role": "dubber", "heading": "מדבבים", "character": "ראמה הזאב / פלאפס הנשר" },
+        { "name": "עמי מנדלמן", "role": "dubber", "heading": "מדבבים", "character": "המלך לואי האורנג אוטנג / זיגי הנשר" },
+        { "name": "אריה מוסקונה", "role": "dubber", "heading": "מדבבים", "character": "קולונל האטי הפיל" },
+        { "name": "טל טולדנו", "role": "dubber", "heading": "מדבבים", "character": "ג'וניור הפיל" },
+        { "name": "שפרירה זכאי", "role": "dubber", "heading": "מדבבים", "character": "וויניפרד האטי הפילה" },
+        { "name": "שמעון כהן", "role": "dubber", "heading": "מדבבים", "character": "דיזי הנשר" },
+        { "name": "שלומית אהרון", "role": "dubber", "heading": "מדבבים", "character": "שאנטי" },
+        { "name": "אלדד שרים", "role": "composer", "heading": "ניהול מוזיקלי" },
+        { "name": "יובל דור", "role": "singer", "heading": "שירה" },
+        { "name": "עמי מנדלמן", "role": "singer", "heading": "שירה" },
+        { "name": "קיקי רוטשטיין", "role": "singer", "heading": "שירה", "character": "דיזי הנשר (שירה)" }
+      ]
+    },
+    {
+      "id": "ishim-spr-hgvngl-2",
+      "title": "ספר הג'ונגל 2",
+      "year": 2003,
+      "kind": "film_dubbed_foreign",
+      "summary": "מוגלי חוזר לג'ונגל אך מגלה שהוא מתגעגע לחיי הכפר",
+      "runtimeMinutes": 72,
+      "genres": ["אנימציה", "ילדים", "מדובב - זר", "מוזיקלי", "קומדיה"],
+      "sourceUrl": "https://web.archive.org/web/20191214163941/https://www.ishim.co.il/m.php?s=%D7%A1%D7%A4%D7%A8+%D7%94%D7%92%27%D7%95%D7%A0%D7%92%D7%9C+2",
+      "notes": [
+        {
+          "heading": "כללי",
+          "items": ["סרט המשך לספר הג'ונגל"]
+        },
+        {
+          "heading": "מאחורי הקלעים",
+          "items": ["חיים טופול ואילי גורליצקי דיבבו את אותן דמויות גם בספר הג'ונגל"]
+        }
+      ],
+      "people": [
+        { "id": "jb2-shpryrh-zkay", "name": "שפרירה זכאי" },
+        { "id": "jb2-alvn-brnd", "name": "אלון ברנד" },
+        { "id": "jb2-aynt-arvnshtyyn", "name": "עינת ארונשטיין" },
+        { "id": "jb2-avmr-brnd", "name": "עומר ברנד" },
+        { "id": "jb2-dv-ryyzr", "name": "דב רייזר" },
+        { "id": "jb2-dny-bsn", "name": "דני בסן" },
+        { "id": "jb2-chyym-tvpvl", "name": "חיים טופול" },
+        { "id": "jb2-ayly-gvrlytsky", "name": "אילי גורליצקי" },
+        { "id": "jb2-mykh-avzyn", "name": "מיכה אוזין סליאן" },
+        { "id": "jb2-mvmy-lvy", "name": "מומי לוי" },
+        { "id": "jb2-tvmr-shrvn", "name": "תומר שרון" },
+        { "id": "jb2-amy-mndlm", "name": "עמי מנדלמן" },
+        { "id": "jb2-yvrm-yvspsbrg", "name": "יורם יוספסברג" },
+        { "id": "jb2-yhvychyn-frydlndr", "name": "יהויכין פרידלנדר" },
+        { "id": "jb2-shmvlvq-tna", "name": "שמוליק טנא" },
+        { "id": "jb2-aly-gvrnshtyyn", "name": "אלי גורנשטיין" },
+        { "id": "jb2-mykl-tspyr", "name": "מיכל צפיר" },
+        { "id": "jb2-aytmr-frydlndr", "name": "איתמר פרידלנדר" },
+        { "id": "jb2-amyt-ryys", "name": "עמית רייס" },
+        { "id": "jb2-shrvnh-nstvbyts", "name": "שרונה נסטוביץ'" },
+        { "id": "jb2-yal-dqlbavm", "name": "יעל דקלבאום" },
+        { "id": "jb2-nyr-lvnbrg", "name": "ניר לבנברג" },
+        { "id": "jb2-gvma-pryd", "name": "גומא פריד" },
+        { "id": "jb2-rvny-vyys", "name": "רוני וייס" }
+      ],
+      "credits": [
+        { "name": "שפרירה זכאי", "role": "dub_director", "heading": "בימוי דיבוב" },
+        { "name": "שפרירה זכאי", "role": "producer", "heading": "הפקת דיבוב" },
+        { "name": "אלון ברנד", "role": "dubber", "heading": "מדבבים", "character": "מוגלי" },
+        { "name": "עינת ארונשטיין", "role": "dubber", "heading": "מדבבים", "character": "שאנטי" },
+        { "name": "עומר ברנד", "role": "dubber", "heading": "מדבבים", "character": "ראנג'אן" },
+        { "name": "דב רייזר", "role": "dubber", "heading": "מדבבים", "character": "אבא של ראנג'אן" },
+        { "name": "דני בסן", "role": "dubber", "heading": "מדבבים", "character": "באלו הדוב" },
+        { "name": "חיים טופול", "role": "dubber", "heading": "מדבבים", "character": "בגירה הפנתר" },
+        { "name": "אילי גורליצקי", "role": "dubber", "heading": "מדבבים", "character": "קא הנחש" },
+        { "name": "מיכה אוזין סליאן", "role": "dubber", "heading": "מדבבים", "character": "קולונל האטי הפיל" },
+        { "name": "מומי לוי", "role": "dubber", "heading": "מדבבים", "character": "קוף" },
+        { "name": "תומר שרון", "role": "dubber", "heading": "מדבבים", "character": "לאקי הנשר" },
+        { "name": "עמי מנדלמן", "role": "dubber", "heading": "מדבבים", "character": "באזי הנשר" },
+        { "name": "יורם יוספסברג", "role": "dubber", "heading": "מדבבים", "character": "פלאפס הנשר" },
+        { "name": "יהויכין פרידלנדר", "role": "dubber", "heading": "מדבבים", "character": "זיגי הנשר" },
+        { "name": "שמוליק טנא", "role": "dubber", "heading": "מדבבים", "character": "דיזי הנשר" },
+        { "name": "אלי גורנשטיין", "role": "dubber", "heading": "מדבבים", "character": "שירחאן הנמר" },
+        { "name": "מיכל צפיר", "role": "dubber", "heading": "מדבבים" },
+        { "name": "איתמר פרידלנדר", "role": "dubber", "heading": "מדבבים" },
+        { "name": "עמית רייס", "role": "dubber", "heading": "מדבבים" },
+        { "name": "שרונה נסטוביץ'", "role": "dubber", "heading": "מדבבים" },
+        { "name": "יעל דקלבאום", "role": "dubber", "heading": "מדבבים" },
+        { "name": "ניר לבנברג", "role": "dubber", "heading": "מדבבים" },
+        { "name": "גומא פריד", "role": "dubber", "heading": "מדבבים" },
+        { "name": "רוני וייס", "role": "composer", "heading": "ניהול מוזיקלי" }
+      ]
+    }
+  ]
+}
