@@ -72,6 +72,8 @@ let byName: Map<string, IshimPerson> | null = null;
 let bySlug: Map<string, IshimPerson> | null = null;
 let seedById: Map<string, Production> | null = null;
 let seedByTitle: Map<string, Production[]> | null = null;
+let seedPeopleByName: Map<string, Person> | null = null;
+let catalog: { people: Person[]; byId: Map<string, IshimPerson> } | null = null;
 
 function archiveIndexes(): {
   byName: Map<string, IshimPerson>;
@@ -98,6 +100,53 @@ function archiveIndexes(): {
     }
   }
   return { byName, bySlug };
+}
+
+function seedPeopleIndex(): Map<string, Person> {
+  if (seedPeopleByName) return seedPeopleByName;
+  seedPeopleByName = new Map();
+  for (const person of SEED.people) {
+    const key = normalizePersonName(canonicalPersonName(person.name));
+    if (key && !seedPeopleByName.has(key)) seedPeopleByName.set(key, person);
+  }
+  return seedPeopleByName;
+}
+
+function listPerson(person: Person): Person {
+  return {
+    ...person,
+    bio: "",
+    ishimNotes: undefined,
+    discography: undefined,
+  };
+}
+
+function ensureCatalog(): { people: Person[]; byId: Map<string, IshimPerson> } {
+  if (catalog) return catalog;
+  const { byName: names } = archiveIndexes();
+  const seedNames = seedPeopleIndex();
+  const people: Person[] = [];
+  const byId = new Map<string, IshimPerson>();
+  const used = new Set<string>();
+  for (const src of names.values()) {
+    const key = normalizePersonName(canonicalPersonName(src.name));
+    const existing = key ? seedNames.get(key) : undefined;
+    let person = listPerson(toPerson(src, existing));
+    if (used.has(person.id)) {
+      const suffix = slugify(src.s).slice(0, 12) || "2";
+      person = { ...person, id: `${person.id}-${suffix}` };
+    }
+    used.add(person.id);
+    byId.set(person.id, src);
+    people.push(person);
+  }
+  catalog = { people, byId };
+  return catalog;
+}
+
+/** Every person from the classic Ishim archive, keyed like their role page. */
+export function classicPeople(): Person[] {
+  return ensureCatalog().people;
 }
 
 function productionIndexes(): {
@@ -207,7 +256,10 @@ export function classicFilmography(rawId: string): {
   if (!id) return null;
   const existing = findById(SEED.people, id);
   const { byName, bySlug } = archiveIndexes();
+  const assigned = ensureCatalog().byId;
   const src =
+    assigned.get(id) ||
+    assigned.get(id.replace(/-w2$/i, "")) ||
     (existing
       ? byName.get(normalizePersonName(canonicalPersonName(existing.name)))
       : undefined) ||

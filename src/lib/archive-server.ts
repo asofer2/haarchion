@@ -6,7 +6,7 @@ import { getFirebaseDb, isFirebaseConfigured } from "@/lib/firebase";
 import { getFirebaseAdminDb } from "@/lib/firebase-admin";
 import { mergeCloudOntoFullSeed } from "@/lib/merge-full-seed";
 import { applyCatalogFixes } from "@/lib/seed-approved-cast";
-import { classicFilmography } from "@/lib/classic-filmography";
+import { classicFilmography, classicPeople } from "@/lib/classic-filmography";
 import { fullSeedArchive } from "@/lib/seed-full-server";
 import type { ArchiveData, Contribution, Credit, Person, Production } from "@/lib/types";
 
@@ -113,6 +113,11 @@ export async function getPersonFilmography(rawId: string): Promise<{
   productions: Production[];
 } | null> {
   return classicFilmography(rawId);
+}
+
+/** Classic Ishim people for the directory and search, without the full catalog. */
+export async function getClassicPeople(): Promise<Person[]> {
+  return classicPeople();
 }
 
 /** Lightweight Admin/Firestore warm check for /api/ping cold-start warming. */
