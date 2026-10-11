@@ -20,7 +20,7 @@ import { SEED } from "./seed";
 import { findById, slugify as makeSlug } from "./ids";
 import { normalizeImageUrl } from "./portrait";
 import { dedupeArchive, normalizePersonName } from "./dedupe";
-import { ensureFilmographies } from "./filmography";
+import { ensureFilmographies, FILMOGRAPHY_FILLER_IDS } from "./filmography";
 import { ensureDiscographyProductions } from "./discography-productions";
 import { applyPeopleEnrichment } from "./person-dates";
 import { applyDubbingStudios } from "./seed-dubbing-studios";
@@ -129,6 +129,8 @@ function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise
 const STORAGE_KEY = "haarchion-overlay-v24";
 /** Background cloud sync — keep short so the UI stays responsive */
 const FIRESTORE_LOAD_MS = 20_000;
+/** The full catalog is ~40MB JSON; a 20s cap was dropping it and leaving placeholder roles. */
+const ARCHIVE_API_MS = 120_000;
 const CLOUD_SAVE_MS = 20_000;
 let firestoreSyncInFlight = false;
 let archiveSyncToken = 0;
@@ -980,6 +982,13 @@ function mergeArchives(local: ArchiveData, remote: ArchiveData): ArchiveData {
     );
   }
   for (const c of local.credits) {
+    if (
+      FILMOGRAPHY_FILLER_IDS.has(c.productionId) &&
+      !c.characterName?.trim() &&
+      !c.heading?.trim()
+    ) {
+      continue;
+    }
     const k = creditKey(c);
     const existing = credits.get(k);
     if (!existing) credits.set(k, c);
@@ -1036,14 +1045,14 @@ async function fetchCachedArchiveFromApi(
   if (typeof window === "undefined") return null;
   try {
     const url = force
-      ? "/api/archive?fresh=1&catalog=12"
-      : "/api/archive?catalog=12";
+      ? "/api/archive?fresh=1&catalog=13"
+      : "/api/archive?catalog=13";
     const res = await withTimeout(
       fetch(url, {
         cache: force ? "no-store" : "default",
         headers: { Accept: "application/json" },
       }),
-      FIRESTORE_LOAD_MS,
+      ARCHIVE_API_MS,
       "Archive API"
     );
     if (!res.ok) return null;

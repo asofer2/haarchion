@@ -140,6 +140,17 @@ export function ensureFilmographies(data: ArchiveData): ArchiveData {
 
   for (const person of people) {
     const existing = [...creditMap.values()].filter((c) => c.personId === person.id);
+    const fillerOnly = (credit: Credit) =>
+      FILMOGRAPHY_FILLER_IDS.has(credit.productionId) &&
+      !credit.characterName?.trim() &&
+      !credit.heading?.trim();
+    const real = existing.filter((credit) => !fillerOnly(credit));
+    if (real.length > 0) {
+      for (const credit of existing) {
+        if (fillerOnly(credit)) creditMap.delete(creditPersonProdRoleKey(credit));
+      }
+      continue;
+    }
 
     for (const activity of person.activities) {
       const alreadyHas = existing.some((c) => {
