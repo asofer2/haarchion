@@ -80,8 +80,7 @@ export function parseIshimNotes(
       family.push(t);
     } else if (
       t.includes("חלוצי לוחם") ||
-      t.includes("נוער") ||
-      (t.length < 40 && !t.includes("הצגה") && !t.includes("למרות"))
+      /צה"ל|צה״ל|נח"ל|נח״ל|חיל |להקת|להקה צבאית|גולני|שריון|מילואים|שירות צבאי/.test(t)
     ) {
       army.push(t);
     } else {
