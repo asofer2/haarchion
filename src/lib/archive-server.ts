@@ -109,13 +109,17 @@ function creditBelongsToPerson(creditPersonId: string, personId: string): boolea
   return creditPersonId.replace(/-w2$/i, "") === personId.replace(/-w2$/i, "");
 }
 
-/** One person's filmography from the full catalog — small enough for the browser. */
+/**
+ * One person's filmography from the classic catalog.
+ * Reads the in-process seed, not the full Firestore download, so a person
+ * page can answer before the ~40MB archive route finishes.
+ */
 export async function getPersonFilmography(rawId: string): Promise<{
   person: Person;
   credits: Credit[];
   productions: Production[];
 } | null> {
-  const data = await getCachedFirestoreArchive();
+  const data = fullSeedArchive();
   const person = findById(data.people, rawId);
   if (!person) return null;
 
