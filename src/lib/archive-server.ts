@@ -6,7 +6,7 @@ import { getFirebaseDb, isFirebaseConfigured } from "@/lib/firebase";
 import { getFirebaseAdminDb } from "@/lib/firebase-admin";
 import { mergeCloudOntoFullSeed } from "@/lib/merge-full-seed";
 import { applyCatalogFixes } from "@/lib/seed-approved-cast";
-import { findById } from "@/lib/ids";
+import { classicFilmography } from "@/lib/classic-filmography";
 import { fullSeedArchive } from "@/lib/seed-full-server";
 import type { ArchiveData, Contribution, Credit, Person, Production } from "@/lib/types";
 
@@ -104,34 +104,15 @@ export const getCachedFirestoreArchive = unstable_cache(
   }
 );
 
-function creditBelongsToPerson(creditPersonId: string, personId: string): boolean {
-  if (creditPersonId === personId) return true;
-  return creditPersonId.replace(/-w2$/i, "") === personId.replace(/-w2$/i, "");
-}
-
-/**
- * One person's filmography from the classic catalog.
- * Reads the in-process seed, not the full Firestore download, so a person
- * page can answer before the ~40MB archive route finishes.
+/** One person's classic Ishim roles.
+ * Reads that person only, so the page does not wait for the full catalog.
  */
 export async function getPersonFilmography(rawId: string): Promise<{
   person: Person;
   credits: Credit[];
   productions: Production[];
 } | null> {
-  const data = fullSeedArchive();
-  const person = findById(data.people, rawId);
-  if (!person) return null;
-
-  const credits = data.credits.filter((credit) =>
-    creditBelongsToPerson(credit.personId, person.id)
-  );
-  const productionIds = new Set(credits.map((credit) => credit.productionId));
-  const productions = data.productions.filter((production) =>
-    productionIds.has(production.id)
-  );
-
-  return { person, credits, productions };
+  return classicFilmography(rawId);
 }
 
 /** Lightweight Admin/Firestore warm check for /api/ping cold-start warming. */

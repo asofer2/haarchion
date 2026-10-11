@@ -64,6 +64,7 @@ export function parseIshimNotes(
     const t = normalizeTriviaLine(raw);
     if (!t) continue;
     if (
+      /אוסקר|גלובוס הזהב/.test(t) ||
       /^פרס/.test(t) ||
       (/\bפרס\b/.test(t) &&
         (t.includes("מסך") ||
@@ -73,8 +74,8 @@ export function parseIshimNotes(
     ) {
       awards.push(t);
     } else if (
-      /^(אבא|אמא|בן |בת |אח |אחות|בעל|אשת)/.test(t) ||
-      /אב(א|) של|אמ(א|) של|בן של|בת של/.test(t)
+      /^(אבא|אמא|בן |בת |אח |אחות|בעל|אשת|נשוי|נשואה|סבא|סבתא|נכד|נכדה)/.test(t) ||
+      /אב(א|) של|אמ(א|) של|בן של|בת של|סבא של|סבתא של/.test(t)
     ) {
       family.push(t);
     } else if (
