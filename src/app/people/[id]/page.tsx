@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
 import { AdminInbox } from "@/components/AdminInbox";
 import { ArchiveSkeleton } from "@/components/ArchiveSkeleton";
@@ -33,12 +33,29 @@ import {
   personCreditHeading,
 } from "@/lib/person-gender";
 import { groupIshimCredits } from "@/lib/ishim-credits";
+import { FILMOGRAPHY_FILLER_IDS } from "@/lib/filmography";
 import {
   ACTIVITY_LABELS,
   type ActivityCategory,
+  type Credit,
   type CreditRole,
+  type Person,
   type Production,
 } from "@/lib/types";
+
+type PersonBundle = {
+  person: Person;
+  credits: Credit[];
+  productions: Production[];
+};
+
+function isFillerCredit(credit: Credit): boolean {
+  return (
+    FILMOGRAPHY_FILLER_IDS.has(credit.productionId) &&
+    !credit.characterName?.trim() &&
+    !credit.heading?.trim()
+  );
+}
 
 function hasHebrew(value: string): boolean {
   return /[\u0590-\u05FF]/.test(value);
@@ -48,24 +65,64 @@ export default function PersonDetailPage() {
   const params = useParams<{ id: string }>();
   const { data, loading, error } = useArchive();
   const { user } = useAuth();
+  const [bundle, setBundle] = useState<PersonBundle | null>(null);
+  const [bundleState, setBundleState] = useState<"loading" | "ready" | "miss">(
+    "loading"
+  );
 
-  const person = data ? findById(data.people, params.id) : undefined;
+  useEffect(() => {
+    const id = Array.isArray(params.id) ? params.id[0] : params.id;
+    if (!id) return;
+    let cancelled = false;
+    setBundle(null);
+    setBundleState("loading");
+    void fetch(`/api/people/${encodeURIComponent(id)}`, {
+      headers: { Accept: "application/json" },
+    })
+      .then(async (res) => {
+        if (!res.ok) return null;
+        return (await res.json()) as PersonBundle;
+      })
+      .then((json) => {
+        if (cancelled) return;
+        if (!json?.person || !Array.isArray(json.credits)) {
+          setBundleState("miss");
+          return;
+        }
+        setBundle(json);
+        setBundleState("ready");
+      })
+      .catch(() => {
+        if (!cancelled) setBundleState("miss");
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [params.id]);
+
+  const person =
+    bundle?.person ?? (data ? findById(data.people, params.id) : undefined);
   const gender = person ? inferPersonGender(person) : undefined;
 
   const byRole = useMemo(() => {
-    if (!data || !person) {
+    if (!person) {
       return [] as {
         heading: string;
         items: ReturnType<typeof groupIshimCredits>;
       }[];
     }
 
-    const credits = data.credits.filter(
+    const sourceCredits = bundle?.credits ?? data?.credits ?? [];
+    const sourceProductions = bundle?.productions ?? data?.productions ?? [];
+    let credits = sourceCredits.filter(
       (c) =>
         c.personId === person.id ||
         c.personId === `${person.id}-w2` ||
         c.personId.replace(/-w2$/i, "") === person.id
     );
+    if (credits.some((credit) => !isFillerCredit(credit))) {
+      credits = credits.filter((credit) => !isFillerCredit(credit));
+    }
 
     const map = new Map<
       string,
@@ -79,7 +136,7 @@ export default function PersonDetailPage() {
     >();
 
     for (const credit of credits) {
-      const production = data.productions.find((p) => p.id === credit.productionId);
+      const production = sourceProductions.find((p) => p.id === credit.productionId);
       if (!production) continue;
       const heading = personCreditHeading(credit, gender);
       const list = map.get(heading) || [];
@@ -122,10 +179,12 @@ export default function PersonDetailPage() {
         const ib = ISHIM_HEADING_ORDER.indexOf(b.heading);
         return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
       });
-  }, [data, person, gender]);
+  }, [bundle, data, person, gender]);
 
-  if (loading && !data) return <ArchiveSkeleton label="טוען…" cards={4} />;
-  if (error) return <p className="form-error">{error}</p>;
+  if (bundleState === "loading" || (loading && !data && !person)) {
+    return <ArchiveSkeleton label="טוען…" cards={4} />;
+  }
+  if (error && !person) return <p className="form-error">{error}</p>;
   if (!person) {
     return (
       <div>
