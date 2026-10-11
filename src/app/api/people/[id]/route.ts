@@ -3,6 +3,7 @@ import { getPersonFilmography } from "@/lib/archive-server";
 
 export const runtime = "nodejs";
 export const revalidate = 3600;
+export const maxDuration = 60;
 
 /**
  * One person's roles from the full Ishim catalog.
