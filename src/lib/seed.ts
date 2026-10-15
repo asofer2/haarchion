@@ -42,6 +42,7 @@ import { applyIshimKopyko2009 } from "./seed-ishim-kopyko-2009";
 import { applyIshimHyhHyhDvagymLkdvrHartz } from "./seed-ishim-hyh-hyh-dvagym-lkdvr-hartz";
 import { applyIshimPeterPan } from "./seed-ishim-peter-pan";
 import { applyIshimMagicSchoolBus } from "./seed-ishim-avtvbvs-hksmym";
+import { applyIshimKassaiLeuk } from "./seed-ishim-ksay-lvk-vmrnh";
 import { applyIshimHopLionAndBears } from "./seed-ishim-hop-lion-bears";
 import { applyCatalogFixes } from "./seed-approved-cast";
 import { applyIshimLionKing3 } from "./seed-ishim-mlk-haryvt-3";
@@ -908,6 +909,7 @@ const credits: Credit[] = [
 ];
 
 export const SEED: ArchiveData = applyCatalogFixes(
+  applyIshimKassaiLeuk(
   applyIshimHopLionAndBears(
   applyIshimLionKing3(
   applyIshimTimonPumbaa(
@@ -1005,6 +1007,7 @@ export const SEED: ArchiveData = applyCatalogFixes(
   })(),
   contributions: [],
   })
+  )
   )
   )
   )

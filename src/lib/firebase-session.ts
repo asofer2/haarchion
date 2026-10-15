@@ -13,6 +13,16 @@ import { getFirebaseAuth, isFirebaseConfigured } from "./firebase";
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: "select_account" });
 
+/**
+ * Cursor's embedded browser is Electron. Firebase's popup signs in, then
+ * cannot post the session back because `window.opener` is dropped, so the
+ * site stays on the login screen. A same-tab redirect completes on return.
+ */
+export function googleSignInUsesRedirect(): boolean {
+  if (typeof navigator === "undefined") return false;
+  return /\bCursor\/|\bElectron\//.test(navigator.userAgent);
+}
+
 /** Current Firebase Auth uid if signed in with a real account (not anonymous) */
 export function getSignedInUid(): string | null {
   const auth = getFirebaseAuth();
@@ -57,6 +67,11 @@ export async function signInWithGoogle(): Promise<User> {
   const auth = getFirebaseAuth();
   if (!auth) {
     throw new Error("Firebase לא מוגדר — חסרים משתני סביבה.");
+  }
+
+  if (googleSignInUsesRedirect()) {
+    await signInWithRedirect(auth, googleProvider);
+    return new Promise(() => undefined);
   }
 
   try {
