@@ -1,5 +1,6 @@
 import type { ArchiveData } from "./types";
 import { applyIshimMagicSchoolBus } from "./seed-ishim-avtvbvs-hksmym";
+import { applyIshimHaPigamot } from "./seed-ishim-ha-pigamot";
 import { applyIshimHopTamirOct } from "./seed-ishim-hoptamir-oct";
 import { applyIshimKassaiLeuk } from "./seed-ishim-ksay-lvk-vmrnh";
 import { applyIshimHopLionAndBears } from "./seed-ishim-hop-lion-bears";
@@ -24,7 +25,8 @@ import { applyIshimYaakovShemTov } from "./seed-ishim-yaakov-shem-tov";
 
 /** ערכי אישים/הפקות שלא בארכיון הגדול — מיושמים אחרי applyIshimArchive */
 export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
-  return applyIshimHopTamirOct(
+  return applyIshimHaPigamot(
+  applyIshimHopTamirOct(
     applyIshimKassaiLeuk(
     applyIshimHopLionAndBears(
     applyIshimLionKing3(
@@ -64,5 +66,6 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
     )
     )
     )
+  )
   );
 }
