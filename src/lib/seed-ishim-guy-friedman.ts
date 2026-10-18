@@ -155,9 +155,15 @@ export function applyIshimGuyFriedman(data: ArchiveData): ArchiveData {
       name: "גיא פרידמן",
       nicknames: [],
       tags: [],
-      createdAt: NOW,
-      ...patch,
       bio: "",
+      activities: ["acting", "dubbing", "musical", "series"],
+      gender: "male",
+      ishimClassic: true,
+      entryAuthors: ["תמיר סופר", "Gal Talmon"],
+      sourceNote: ISHIM_CLASSIC_SOURCE,
+      sourceUrl: SOURCE_URL,
+      createdAt: NOW,
+      updatedAt: NOW,
     });
   }
 
