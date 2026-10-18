@@ -112,14 +112,39 @@ export default function PersonDetailPage() {
       }[];
     }
 
-    const sourceCredits = bundle?.credits ?? data?.credits ?? [];
-    const sourceProductions = bundle?.productions ?? data?.productions ?? [];
-    let credits = sourceCredits.filter(
-      (c) =>
-        c.personId === person.id ||
-        c.personId === `${person.id}-w2` ||
-        c.personId.replace(/-w2$/i, "") === person.id
-    );
+    const belongsToPerson = (credit: Credit) =>
+      credit.personId === person.id ||
+      credit.personId === `${person.id}-w2` ||
+      credit.personId.replace(/-w2$/i, "") === person.id;
+    // The role API is the classic Ishim list. Edit mode reads the full catalog,
+    // which also has Hop Tamir and later credits for the same person.
+    const creditKey = (credit: Credit) =>
+      [
+        credit.productionId,
+        credit.role,
+        credit.year || "",
+        credit.endYear || "",
+        credit.characterName || "",
+        credit.heading || "",
+      ].join("|");
+    const creditMap = new Map<string, Credit>();
+    for (const credit of bundle?.credits ?? []) {
+      if (belongsToPerson(credit)) creditMap.set(creditKey(credit), credit);
+    }
+    for (const credit of data?.credits ?? []) {
+      if (!belongsToPerson(credit)) continue;
+      const key = creditKey(credit);
+      if (!creditMap.has(key)) creditMap.set(key, credit);
+    }
+    const productionMap = new Map<string, Production>();
+    for (const production of bundle?.productions ?? []) {
+      productionMap.set(production.id, production);
+    }
+    for (const production of data?.productions ?? []) {
+      if (!productionMap.has(production.id)) productionMap.set(production.id, production);
+    }
+    const sourceProductions = [...productionMap.values()];
+    let credits = [...creditMap.values()];
     if (credits.some((credit) => !isFillerCredit(credit))) {
       credits = credits.filter((credit) => !isFillerCredit(credit));
     }
