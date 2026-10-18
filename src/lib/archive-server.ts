@@ -97,7 +97,7 @@ export async function readFirestoreArchiveServer(): Promise<ArchiveData> {
  */
 export const getCachedFirestoreArchive = unstable_cache(
   async (): Promise<ArchiveData> => readFirestoreArchiveServer(),
-  ["firestore-archive-v14-ha-pigamot"],
+  ["firestore-archive-v15-hop-oct-three"],
   {
     tags: [ARCHIVE_CACHE_TAG],
     revalidate: ARCHIVE_REVALIDATE_SECONDS,

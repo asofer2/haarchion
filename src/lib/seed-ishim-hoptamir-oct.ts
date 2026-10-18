@@ -898,6 +898,88 @@ const SHOWS: Show[] = [
       { name: "שמחה ברבירו", role: "actor", heading: "שחקנים", character: "קול" },
     ],
   },
+  {
+    id: "ht-prngly-hyar-hksvm",
+    title: "פרנגלי - היער הקסום",
+    year: 1993,
+    kind: "film_dubbed_foreign",
+    summary: "הפיות שביער פרנגלי נאבקות בבני האדם שרוצים להרוס את הבית שלהן",
+    genres: ["אנימציה", "הרפתקאות", "ילדים", "מדובב - זר", "פנטזיה"],
+    runtimeMinutes: 76,
+    ishimNotes: [
+      { heading: "קישורים", items: ["ראה גם סרט המשך פרנגלי 2 - מבצע הצלה"] },
+    ],
+    sourceUrl: page(
+      "%D7%A4%D7%A8%D7%A0%D7%92%D7%9C%D7%99-%D7%94%D7%99%D7%A2%D7%A8-%D7%94%D7%A7%D7%A1%D7%95%D7%9D-1993-%D7%90%D7%99%D7%A9%D7%99%D7%9D"
+    ),
+    credits: [
+      { name: "שפרירה זכאי", role: "dub_director", heading: "בימוי דיבוב" },
+      { name: "שפרירה זכאי", role: "producer", heading: "הפקת דיבוב" },
+      { name: "לימור שפירא", role: "dubber", heading: "מדבבים", character: "קריסטה" },
+      { name: "חן חגי", role: "dubber", heading: "מדבבים", character: "זאק" },
+      { name: "אלון אופיר", role: "dubber", heading: "מדבבים", character: "פיפס" },
+      { name: "נתן דטנר", role: "dubber", heading: "מדבבים", character: "לפי" },
+      { name: "רחל אטאס", role: "dubber", heading: "מדבבים", character: "מאג'י" },
+      { name: "אבי פניני", role: "dubber", heading: "מדבבים", character: "ראלף / אוק" },
+      { name: "יעקב בוך", role: "dubber", heading: "מדבבים", character: "טוני" },
+      { name: "דב רייזר", role: "dubber", heading: "מדבבים", character: "אבא של קריסטה / רוק / וילי / לו" },
+      { name: "עפרון אטקין", role: "dubber", heading: "מדבבים", character: "פיט" },
+      { name: "אריאל פורמן", role: "dubber", heading: "מדבבים", character: "סטאמפ / לטאת כוח" },
+      { name: "דני ליטני", role: "dubber", heading: "מדבבים", character: "הקסוס" },
+      { name: "שירלי טפר", role: "dubber", heading: "מדבבים", character: "פיות שונות" },
+      { name: "גיל זמק", role: "dubber", heading: "מדבבים", character: "פיות שונות" },
+      { name: "גלי עטרי", role: "singer", heading: "מוזיקה", character: "שירה" },
+      { name: "דני בסן", role: "singer", heading: "מוזיקה", character: "שירה" },
+      { name: "רוני וייס", role: "singer", heading: "מוזיקה", character: "ניהול מוזיקלי" },
+    ],
+  },
+  {
+    id: "ht-mslvl-hvp-bsfary",
+    title: "מסלול הופ! בספארי",
+    year: 2011,
+    kind: "tv_series",
+    summary: "בכל פרק מכירים חיה אחרת בכל פעם בספארי ברמת גן.",
+    genres: ["חינוכי", "ילדים", "מוזיקלי"],
+    channel: "הופ!",
+    runtimeMinutes: 3,
+    episodeCount: 18,
+    ishimNotes: [
+      {
+        heading: "ציטוטים",
+        items: ["בואו לבקר אותנו במסלול הופ! בספארי - קריינות בסוף הפרק"],
+      },
+    ],
+    sourceUrl: page(
+      "%D7%9E%D7%A1%D7%9C%D7%95%D7%9C-%D7%94%D7%95%D7%A4-%D7%91%D7%A1%D7%A4%D7%90%D7%A8%D7%99-2011-%D7%90%D7%99%D7%A9%D7%99%D7%9D"
+    ),
+    credits: [
+      { name: "יהלי ניב ושלר", role: "actor", heading: "שחקנים", character: "קריינות" },
+    ],
+  },
+  {
+    id: "ht-nbchrt-hvp-bsfary",
+    title: "נבחרת הופ! בספארי",
+    year: 2012,
+    kind: "tv_series",
+    summary: "בכל פרק מומו הגמל מספר על חיה אחרת שאלופה בשבירת שיא בספארי ברמת גן.",
+    genres: ["חינוכי", "ילדים", "מוזיקלי"],
+    channel: "הופ!",
+    runtimeMinutes: 3,
+    episodeCount: 11,
+    ishimNotes: [
+      {
+        heading: "ציטוטים",
+        items: [
+          "שלום לכם חברים וחברות כאן מומו הגמל משדר אליכם מעוד יום ספורטיבי במיוחד של נבחרת הופ! בספארי - מומו הגמל בתחילת הפרק",
+          "רוצים עוד חידות, משחקים והמון הפתעות היכנסו לאתר של הופ, להתראות בספארי - מומו הגמל בסוף הפרק",
+        ],
+      },
+    ],
+    sourceUrl: page(
+      "%D7%A0%D7%91%D7%97%D7%A8%D7%AA-%D7%94%D7%95%D7%A4-%D7%91%D7%A1%D7%A4%D7%90%D7%A8%D7%99-2012-%D7%90%D7%99%D7%A9%D7%99%D7%9D"
+    ),
+    credits: [],
+  },
 ];
 
 function normName(name: string): string {
