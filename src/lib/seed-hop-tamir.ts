@@ -493,7 +493,6 @@ export const HOP_TAMIR_CREDITS: Credit[] = [
   // —— פרפר נחמד — העונות המאוחרות (1998–2004) / ויקיפדיה + הופ תמיר ——
   { personId: "dudu-zar", productionId: "ht-prpr-nchmd-late", role: "host", characterName: "מנחה" },
   { personId: "efi-ben-israel", productionId: "ht-prpr-nchmd-late", role: "host", characterName: "מנחה" },
-  { personId: "guy-friedman", productionId: "ht-prpr-nchmd-late", role: "host", characterName: "מנחה" },
   { personId: "elinor-aharon", productionId: "ht-prpr-nchmd-late", role: "host", characterName: "מנחה" },
   { personId: "adva-adani", productionId: "ht-prpr-nchmd-late", role: "host", characterName: "מנחה אורחת" },
   { personId: "rama-messinger", productionId: "ht-prpr-nchmd-late", role: "actor", characterName: "אורחת" },

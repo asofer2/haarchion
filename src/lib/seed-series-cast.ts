@@ -26,6 +26,11 @@ function p(
     deathDate: extra.deathDate,
     wikipediaUrl: extra.wikipediaUrl,
     imageUrl: extra.imageUrl ?? wikiImage(name),
+    gender: extra.gender,
+    ishimClassic: extra.ishimClassic,
+    entryAuthors: extra.entryAuthors,
+    sourceNote: extra.sourceNote,
+    sourceUrl: extra.sourceUrl,
     createdAt: now,
     updatedAt: now,
   };
@@ -396,8 +401,15 @@ export const SERIES_CAST_PEOPLE: Person[] = [
   p("avner-katz", "אבנר כץ", ["series", "film", "stage"], "אמן ושחקן. עיצב את קיפי והשתתף ב„רחוב סומסום”.", {
     nameOriginal: "Avner Katz",
   }),
-  p("guy-friedman", "גיא פרידמן", ["series", "hosting", "dubbing"], "מנחה ומדבב. דיבב את קיפי בעונות מאוחרות של „רחוב סומסום”; מנחה ב„פרפר נחמד” (1998–2004).", {
+  p("guy-friedman", "גיא פרידמן", ["acting", "dubbing", "musical", "series"], "", {
     nameOriginal: "Guy Friedman",
+    tags: [],
+    gender: "male",
+    ishimClassic: true,
+    entryAuthors: ["תמיר סופר", "Gal Talmon"],
+    sourceNote: "אישים",
+    sourceUrl:
+      "https://web.archive.org/web/20211218111535/https://www.ishim.co.il/p.php?s=%D7%92%D7%99%D7%90+%D7%A4%D7%A8%D7%99%D7%93%D7%9E%D7%9F",
   }),
   p("elinor-aharon", "אלינור אהרון", ["series", "hosting", "performance", "musical"], "שחקנית, זמרת ומנחה. הנחתה ב„פרפר נחמד” (2000–2004).", {
     nameOriginal: "Elinor Aharon",
@@ -812,7 +824,6 @@ export const SERIES_CAST_CREDITS: Credit[] = [
   // —— פרפר נחמד — העונות המאוחרות (1998–2004) / הופ תמיר ——
   c("dudu-zar", "ht-prpr-nchmd-late", "host", "מנחה"),
   c("efi-ben-israel", "ht-prpr-nchmd-late", "host", "מנחה"),
-  c("guy-friedman", "ht-prpr-nchmd-late", "host", "מנחה"),
   c("elinor-aharon", "ht-prpr-nchmd-late", "host", "מנחה"),
   c("adva-adani", "ht-prpr-nchmd-late", "host", "מנחה אורחת"),
   c("rama-messinger", "ht-prpr-nchmd-late", "actor", "אורחת"),
@@ -836,7 +847,6 @@ export const SERIES_CAST_CREDITS: Credit[] = [
   c("avner-katz", "sesame-israel", "actor", "אבנר"),
   c("miki-kam", "sesame-israel", "actor", "מיקי"),
   c("tuvia-tsafir", "sesame-israel", "actor", "טוביה / דמויות"),
-  c("guy-friedman", "sesame-israel", "dubber", "קיפי (עונות מאוחרות)"),
   c("irit-shilo", "sesame-israel", "dubber", "דפי"),
   c("gilles-ben-david", "sesame-israel", "actor", "דמויות"),
   c("yoram-yosefsberg", "sesame-israel", "dubber", "דמויות"),

@@ -1045,8 +1045,8 @@ async function fetchCachedArchiveFromApi(
   if (typeof window === "undefined") return null;
   try {
     const url = force
-      ? "/api/archive?fresh=1&catalog=16"
-      : "/api/archive?catalog=16";
+      ? "/api/archive?fresh=1&catalog=17"
+      : "/api/archive?catalog=17";
     const res = await withTimeout(
       fetch(url, {
         cache: force ? "no-store" : "default",

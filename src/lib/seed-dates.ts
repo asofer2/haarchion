@@ -215,7 +215,6 @@ export const PERSON_DATES: Record<
   "glad-shmvaly-shchkn": { birthDate: "1981-01-01" },
   "glyt-gyat": { birthDate: "1971-10-03" },
   "gma-pryd": { birthDate: "1987-08-11" },
-  "guy-friedman": { birthDate: "1971-01-16" },
   "gvr-mvrd": { birthDate: "1989-12-13" },
   "gvry-alpy": { birthDate: "1976-09-18" },
   "gya-ntyb": { birthDate: "1973-05-24" },

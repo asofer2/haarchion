@@ -12,6 +12,7 @@ import { applyIshimAzraHs } from "./seed-ishim-azra-hs";
 import { applyIshimChnhDrvryKshy } from "./seed-ishim-chnh-drvry-kshy";
 import { applyIshimChnnGoldblatt } from "./seed-ishim-chnn-goldblatt";
 import { applyIshimGadiPor } from "./seed-ishim-gadi-por";
+import { applyIshimGuyFriedman } from "./seed-ishim-guy-friedman";
 import { applyIshimHyhHyhDvagymLkdvrHartz } from "./seed-ishim-hyh-hyh-dvagym-lkdvr-hartz";
 import { applyIshimHyhHyhHadm } from "./seed-ishim-hyh-hyh-hadm";
 import { applyIshimKopyko2009 } from "./seed-ishim-kopyko-2009";
@@ -26,7 +27,8 @@ import { applyIshimYaakovShemTov } from "./seed-ishim-yaakov-shem-tov";
 
 /** ערכי אישים/הפקות שלא בארכיון הגדול — מיושמים אחרי applyIshimArchive */
 export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
-  return applyIshimKesemHaMagi(
+  return applyIshimGuyFriedman(
+  applyIshimKesemHaMagi(
   applyIshimHaPigamot(
   applyIshimHopTamirOct(
     applyIshimKassaiLeuk(
@@ -68,6 +70,7 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
     )
     )
     )
+  )
   )
   )
   );

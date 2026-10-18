@@ -313,7 +313,6 @@ export const WIKI_DUBBERS: Person[] = [
   p("gma-pryd", "גמא פריד"),
   p("dlyh-prydlnd", "דליה פרידלנד"),
   p("yhvykyn-prydlndr", "יהויכין פרידלנדר"),
-  p("gya-prydmn", "גיא פרידמן"),
   p("gya-rvshynyak", "גיא רושיניאק"),
   p("tl-prydmn", "טל פרידמן"),
   p("nyr-prydmn", "ניר פרידמן"),
