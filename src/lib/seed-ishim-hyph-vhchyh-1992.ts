@@ -14,7 +14,8 @@ import type {
 import { roleToActivity } from "./types";
 
 const NOW = "2026-10-20T00:00:00.000Z";
-export const BEAUTY_BEAST_1992_ID = "ishim-hyph-vhchyh-1992";
+export const BEAUTY_BEAST_1992_ID = "beauty-beast-he";
+const REPLACED_IDS = new Set([BEAUTY_BEAST_1992_ID, "ishim-hyph-vhchyh-1992"]);
 const TITLE = "היפה והחיה";
 const YEAR = 1992;
 const SOURCE_URL =
@@ -135,16 +136,14 @@ function resolvePersonId(
   return person.id;
 }
 
-/** היפה והחיה (1992) מעמוד אישים בארכיון 15 בינואר 2022. לא הערך משנת 1991. */
+/** היפה והחיה לפי עמוד אישים 1992. מחליף את ערך 1991 שכבר באתר. */
 export function applyIshimBeautyBeast1992(data: ArchiveData): ArchiveData {
   const productions = [...data.productions];
   const duplicateIds = new Set<string>();
 
   for (let i = 0; i < productions.length; i++) {
     const production = productions[i];
-    const match =
-      production.id === BEAUTY_BEAST_1992_ID ||
-      (production.title === TITLE && coversYear(production) && production.id !== "beauty-beast-he");
+    const match = REPLACED_IDS.has(production.id) || (production.title === TITLE && coversYear(production));
     if (!match) continue;
     if (production.id !== BEAUTY_BEAST_1992_ID) duplicateIds.add(production.id);
     productions[i] = {
