@@ -1,0 +1,95 @@
+{
+  "title": "עופל בופל",
+  "originalTitle": "Fiddley Foodle Bird",
+  "year": 1993,
+  "kind": "series_dubbed_foreign",
+  "summary": "עלילותיו של הילד מתתיהו והציפור הענקית עופל בופל וחבריהם",
+  "runtimeMinutes": 8,
+  "genres": [
+    "אנימציה",
+    "הרפתקאות",
+    "ילדים",
+    "מדובב - זר"
+  ],
+  "channel": "חינוכית",
+  "ishimKeys": ["חבורת ילדים"],
+  "ishimNotes": [
+    {
+      "heading": "טריוויה לא מעניינת",
+      "items": [
+        "שמו המלא של עופל הוא עופל בופל ימפמפופל אליק בליק בם"
+      ]
+    }
+  ],
+  "entryAuthors": ["Ben Geller", "Nir Bassan", "ברק חננאל"],
+  "credits": [
+    {
+      "personName": "חנה דרורי קשי",
+      "role": "dub_director",
+      "heading": "בימוי דיבוב"
+    },
+    {
+      "personName": "חסיה ורטהיים",
+      "role": "producer",
+      "heading": "הפקת דיבוב"
+    },
+    {
+      "personName": "אסף קורמן",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "מתיתיהו (מתי)"
+    },
+    {
+      "personName": "שמעון כהן",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "עופל / מר מגבעת"
+    },
+    {
+      "personName": "דן תורן",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "המספר / קלוד פלאנל"
+    },
+    {
+      "personName": "רונית שפי",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "גברת קוטרבאום"
+    },
+    {
+      "personName": "נחמן אשכנזי",
+      "role": "dubber",
+      "heading": "מדבבים"
+    },
+    {
+      "personName": "דוד שחורי",
+      "role": "dubber",
+      "heading": "מדבבים"
+    },
+    {
+      "personName": "שחר צרפתי",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "נזק / אבא של מתי"
+    },
+    {
+      "personName": "אפי בן ישראל",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "הנסיכה / אמא של מתי"
+    },
+    {
+      "personName": "אפי בן ישראל",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "שיר סיום (ביצוע)"
+    },
+    {
+      "personName": "דן תורן",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "שיר סיום (ביצוע)"
+    }
+  ]
+}

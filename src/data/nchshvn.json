@@ -1,0 +1,74 @@
+{
+  "title": "נחשון",
+  "originalTitle": "Archibald le Magi-chien",
+  "year": 1986,
+  "kind": "series_dubbed_foreign",
+  "summary": "בכל פרק, נחשון הכלב המדבר, מלמד את בעליו הצעיר גיל כיצד לשמור על הגוף ועל הבריאות",
+  "runtimeMinutes": 5,
+  "episodeCount": 12,
+  "genres": [
+    "אנימציה",
+    "הרפתקאות",
+    "חינוכי",
+    "ילדים",
+    "מדובב - זר",
+    "פנטזיה"
+  ],
+  "channel": "חינוכית",
+  "ishimKeys": ["כלב"],
+  "ishimNotes": [
+    {
+      "heading": "כללי",
+      "items": ["שודר במסגרת רכבת ההפתעות"]
+    },
+    {
+      "heading": "ציטוטים",
+      "items": [
+        "\"לחש נחש נחשונים\" - נחשון",
+        "\"שוד ושבר\" - נחשון"
+      ]
+    }
+  ],
+  "entryAuthors": ["Ben Geller", "ברק חננאל"],
+  "credits": [
+    {
+      "personName": "מרקו סימיונוביץ",
+      "role": "dub_director",
+      "heading": "בימוי דיבוב"
+    },
+    {
+      "personName": "יוני חן",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "נחשון"
+    },
+    {
+      "personName": "עירית שילה",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "גיל"
+    },
+    {
+      "personName": "קובי מידן",
+      "role": "dubber",
+      "heading": "מדבבים"
+    },
+    {
+      "personName": "עירית דגן",
+      "role": "dubber",
+      "heading": "מדבבים"
+    },
+    {
+      "personName": "יוני חן",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "ביצוע שיר הפתיחה"
+    },
+    {
+      "personName": "לאה נאור",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "מילים לשיר פתיחה"
+    }
+  ]
+}
