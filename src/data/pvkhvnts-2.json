@@ -1,0 +1,142 @@
+{
+  "title": "פוקהונטס 2 - מסע לעולם חדש",
+  "year": 1998,
+  "kind": "film_dubbed_foreign",
+  "summary": "פוקהונטס מפליגה לאנגליה עם חבריה ומתחילה משימה חשובה של שלום",
+  "runtimeMinutes": 72,
+  "genres": [
+    "אנימציה",
+    "ילדים",
+    "מדובב - זר",
+    "מוזיקלי",
+    "מלחמה",
+    "מתח"
+  ],
+  "entryAuthors": ["ברק חננאל"],
+  "credits": [
+    {
+      "personName": "שפרירה זכאי",
+      "role": "dub_director",
+      "heading": "בימוי דיבוב"
+    },
+    {
+      "personName": "שפרירה זכאי",
+      "role": "producer",
+      "heading": "הפקת דיבוב"
+    },
+    {
+      "personName": "רמה מסינגר",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "פוקהונטס"
+    },
+    {
+      "personName": "אלון אופיר",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "ג'ון רולף"
+    },
+    {
+      "personName": "יגאל שדה",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "ג'ון סמית"
+    },
+    {
+      "personName": "דני ליטני",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "המושל רטקליף"
+    },
+    {
+      "personName": "דב רייזר",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "צ'יף פוהאטאן"
+    },
+    {
+      "personName": "שרית וינו אלעד",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "נאקומה"
+    },
+    {
+      "personName": "נחמה הנדל",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "סבתא-רבא"
+    },
+    {
+      "personName": "איציק סיידוף",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "המלך ג'יימס"
+    },
+    {
+      "personName": "יעל פרל בקר",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "המלכה אן"
+    },
+    {
+      "personName": "אפי בן ישראל",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "גברת ג'נקינס"
+    },
+    {
+      "personName": "גיל זמק",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "דמויות שונות"
+    },
+    {
+      "personName": "גיל סגל",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "דמויות שונות"
+    },
+    {
+      "personName": "יובל זמיר",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "דמויות שונות"
+    },
+    {
+      "personName": "מומי לוי",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "דמויות שונות"
+    },
+    {
+      "personName": "עפרון אטקין",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "דמויות שונות"
+    },
+    {
+      "personName": "שמוליק טנא",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "דמויות שונות"
+    },
+    {
+      "personName": "שמעון כהן",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "דמויות שונות"
+    },
+    {
+      "personName": "שפרירה זכאי",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "דמויות שונות"
+    },
+    {
+      "personName": "רוני וייס",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "ניהול מוזיקלי"
+    }
+  ]
+}

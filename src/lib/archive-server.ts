@@ -97,7 +97,7 @@ export async function readFirestoreArchiveServer(): Promise<ArchiveData> {
  */
 export const getCachedFirestoreArchive = unstable_cache(
   async (): Promise<ArchiveData> => readFirestoreArchiveServer(),
-  ["firestore-archive-v20-bsktyrs"],
+  ["firestore-archive-v21-pvkhvnts-2"],
   {
     tags: [ARCHIVE_CACHE_TAG],
     revalidate: ARCHIVE_REVALIDATE_SECONDS,
