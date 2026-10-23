@@ -29,39 +29,42 @@ import { applyIshimYaakovShemTov } from "./seed-ishim-yaakov-shem-tov";
 import { applyIshimNchshvn } from "./seed-ishim-nchshvn";
 import { applyIshimAvplBvpl } from "./seed-ishim-avpl-bvpl";
 import { applyIshimBsktyrs } from "./seed-ishim-bsktyrs";
+import { applyIshimBazShnvtAvr } from "./seed-ishim-baz-shnvt-avr";
 
 /** ערכי אישים/הפקות שלא בארכיון הגדול — מיושמים אחרי applyIshimArchive */
 export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
-  return applyIshimBsktyrs(
-    applyIshimAvplBvpl(
-      applyIshimNchshvn(
-        applyIshimJungleCity2006(
-          applyIshimBeautyBeast1992(
-            applyIshimGuyFriedman(
-              applyIshimKesemHaMagi(
-                applyIshimHaPigamot(
-                  applyIshimHopTamirOct(
-                    applyIshimKassaiLeuk(
-                      applyIshimHopLionAndBears(
-                        applyIshimLionKing3(
-                          applyIshimTimonPumbaa(
-                            applyIshimMagicSchoolBus(
-                              applyIshimNicoBar(
-                                applyIshimMomiLevy(
-                                  applyIshimSavriMaranan(
-                                    applyIshimPinocchioAdventures1993(
-                                      applyIshimYaakovShemTov(
-                                        applyIshimKopyko2009(
-                                          applyIshimHyhHyhDvagymLkdvrHartz(
-                                            applyIshimPeterPan(
-                                              applyIshimAnvrShtgrAzra(
-                                                applyIshimChnhDrvryKshy(
-                                                  applyIshimNalvlym(
-                                                    applyIshimHyhHyhHadm(
-                                                      applyIshimChnnGoldblatt(
-                                                        applyIshimTuviaTsafir(
-                                                          applyIshimGadiPor(
-                                                            applyIshimAzraHs(data)
+  return applyIshimBazShnvtAvr(
+    applyIshimBsktyrs(
+      applyIshimAvplBvpl(
+        applyIshimNchshvn(
+          applyIshimJungleCity2006(
+            applyIshimBeautyBeast1992(
+              applyIshimGuyFriedman(
+                applyIshimKesemHaMagi(
+                  applyIshimHaPigamot(
+                    applyIshimHopTamirOct(
+                      applyIshimKassaiLeuk(
+                        applyIshimHopLionAndBears(
+                          applyIshimLionKing3(
+                            applyIshimTimonPumbaa(
+                              applyIshimMagicSchoolBus(
+                                applyIshimNicoBar(
+                                  applyIshimMomiLevy(
+                                    applyIshimSavriMaranan(
+                                      applyIshimPinocchioAdventures1993(
+                                        applyIshimYaakovShemTov(
+                                          applyIshimKopyko2009(
+                                            applyIshimHyhHyhDvagymLkdvrHartz(
+                                              applyIshimPeterPan(
+                                                applyIshimAnvrShtgrAzra(
+                                                  applyIshimChnhDrvryKshy(
+                                                    applyIshimNalvlym(
+                                                      applyIshimHyhHyhHadm(
+                                                        applyIshimChnnGoldblatt(
+                                                          applyIshimTuviaTsafir(
+                                                            applyIshimGadiPor(
+                                                              applyIshimAzraHs(data)
+                                                            )
                                                           )
                                                         )
                                                       )
