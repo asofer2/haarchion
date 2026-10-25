@@ -54,7 +54,7 @@ const ROWS: Row[] = [
   { role: "actor", heading: "שחקן", year: 1996, title: "עליסה בארץ הפלאות", character: "החתול" },
   { role: "actor", heading: "שחקן", year: 1995, title: "דגדוגים - שירי משחק ראשונים", character: "יונתן הקטן" },
   { role: "actor", heading: "בתפקיד עצמו", year: 2016, title: "פיצוחים 50", character: "משתתף" },
-  { role: "dubber", heading: "מדבב", year: 2009, title: "היה היה - דואגים לכדור הארץ" },
+  { role: "dubber", heading: "מדבב", year: 2009, title: "היה היה - דואגים לכדור הארץ", character: "סימון / דמויות שונות" },
   { role: "dubber", heading: "מדבב", year: 2008, title: "קסם המג'י", character: "טוני ג'ונס" },
   { role: "dubber", heading: "מדבב", year: 2005, title: "אגדות אנדרסן", character: "דמויות שונות" },
   { role: "dubber", heading: "מדבב", year: 2002, title: "הרפתקאותיו של טוב טוב הגמד" },
