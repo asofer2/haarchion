@@ -175,7 +175,20 @@ export default function PersonDetailPage() {
               id: canonicalId,
             };
       const productionRole = `${production.id}|${credit.role}`;
-      if (seenProductionRole.has(productionRole)) continue;
+      if (seenProductionRole.has(productionRole)) {
+        const character = credit.characterName?.trim();
+        if (!character) continue;
+        for (const list of map.values()) {
+          const existing = list.find(
+            (item) =>
+              item.production.id === production.id && item.role === credit.role
+          );
+          if (!existing || existing.characterName?.trim()) continue;
+          existing.characterName = character;
+          break;
+        }
+        continue;
+      }
       seenProductionRole.add(productionRole);
       const heading = personCreditHeading(credit, gender);
       const list = map.get(heading) || [];
