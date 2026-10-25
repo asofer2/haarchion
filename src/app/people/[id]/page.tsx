@@ -150,6 +150,7 @@ export default function PersonDetailPage() {
       credits = credits.filter((credit) => !isFillerCredit(credit));
     }
 
+    const seenProductionRole = new Set<string>();
     const map = new Map<
       string,
       {
@@ -173,6 +174,9 @@ export default function PersonDetailPage() {
               ...listed,
               id: canonicalId,
             };
+      const productionRole = `${production.id}|${credit.role}`;
+      if (seenProductionRole.has(productionRole)) continue;
+      seenProductionRole.add(productionRole);
       const heading = personCreditHeading(credit, gender);
       const list = map.get(heading) || [];
       if (
