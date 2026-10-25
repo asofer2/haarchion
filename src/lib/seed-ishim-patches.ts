@@ -34,10 +34,12 @@ import { applyIshimHercules1997 } from "./seed-ishim-hrqvls-1997";
 import { applyIshimPvkhvnts2 } from "./seed-ishim-pvkhvnts-2";
 import { applyIshimPocahontasDisney } from "./seed-ishim-pocahontas-disney";
 import { applyIshimHbobodim2002 } from "./seed-ishim-hbvbvdym-2002";
+import { applyIshimTinkerBell2008 } from "./seed-ishim-ht-tynkrbl-2008";
 
 /** ערכי אישים/הפקות שלא בארכיון הגדול — מיושמים אחרי applyIshimArchive */
 export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
-  return applyIshimHbobodim2002(
+  return applyIshimTinkerBell2008(
+  applyIshimHbobodim2002(
     applyIshimPocahontasDisney(
     applyIshimPvkhvnts2(
     applyIshimHercules1997(
@@ -105,5 +107,6 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
     )
     )
     )
+  )
   );
 }
