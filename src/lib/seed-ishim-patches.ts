@@ -32,10 +32,12 @@ import { applyIshimBsktyrs } from "./seed-ishim-bsktyrs";
 import { applyIshimBazShnvtAvr } from "./seed-ishim-baz-shnvt-avr";
 import { applyIshimHercules1997 } from "./seed-ishim-hrqvls-1997";
 import { applyIshimPvkhvnts2 } from "./seed-ishim-pvkhvnts-2";
+import { applyIshimPocahontasDisney } from "./seed-ishim-pocahontas-disney";
 
 /** ערכי אישים/הפקות שלא בארכיון הגדול — מיושמים אחרי applyIshimArchive */
 export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
-  return applyIshimPvkhvnts2(
+  return applyIshimPocahontasDisney(
+    applyIshimPvkhvnts2(
     applyIshimHercules1997(
     applyIshimBazShnvtAvr(
     applyIshimBsktyrs(
@@ -96,6 +98,7 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
           )
         )
       )
+    )
     )
     )
     )

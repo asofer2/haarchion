@@ -1,0 +1,144 @@
+{
+  "title": "פוקהונטס",
+  "originalTitle": "Pocahontas",
+  "year": 1995,
+  "kind": "film_dubbed_foreign",
+  "summary": "ביתו של צי'ף של שבט מקומי וחייל אנגלי מתאהבים זה בזה בזמן שהמתנחלים האנגליים פולשים לוירג'יניה של המאה ה-17",
+  "runtimeMinutes": 81,
+  "genres": [
+    "אנימציה",
+    "ילדים",
+    "מדובב - זר",
+    "מוזיקלי",
+    "מלחמה",
+    "מתח",
+    "פנטזיה"
+  ],
+  "ishimNotes": [
+    {
+      "heading": "כללי",
+      "items": ["לתשומת לבך: קיים עוד פוקהונטס"]
+    }
+  ],
+  "entryAuthors": ["Ben Geller", "ברק חננאל"],
+  "credits": [
+    {
+      "personName": "שפרירה זכאי",
+      "role": "dub_director",
+      "heading": "בימוי דיבוב"
+    },
+    {
+      "personName": "שפרירה זכאי",
+      "role": "producer",
+      "heading": "הפקת דיבוב"
+    },
+    {
+      "personName": "ריטה",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "פוקהונטס"
+    },
+    {
+      "personName": "יגאל שדה",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "ג'ון סמית"
+    },
+    {
+      "personName": "דני ליטני",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "המושל רטקליף"
+    },
+    {
+      "personName": "דב רייזר",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "צ'יף פוהאטאן"
+    },
+    {
+      "personName": "שרית וינו אלעד",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "נאקומה"
+    },
+    {
+      "personName": "ליאור אשכנזי",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "קוקואם"
+    },
+    {
+      "personName": "יהויכין פרידלנדר",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "קקאטה"
+    },
+    {
+      "personName": "ליה דוליצקיה",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "סבתא-רבא"
+    },
+    {
+      "personName": "לימור שפירא",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "רוח"
+    },
+    {
+      "personName": "אלון אופיר",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "ת'ומס"
+    },
+    {
+      "personName": "שמעון כהן",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "בן"
+    },
+    {
+      "personName": "איציק סיידוף",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "לון"
+    },
+    {
+      "personName": "אוהד שחר",
+      "role": "dubber",
+      "heading": "מדבבים",
+      "character": "וויגינס"
+    },
+    {
+      "personName": "יובל זמיר",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "ג'ון סמית (קטעי שירה)"
+    },
+    {
+      "personName": "רוני וייס",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "ניהול מוזיקלי"
+    },
+    {
+      "personName": "רונית כץ",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "מקהלה"
+    },
+    {
+      "personName": "רון גנג",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "מקהלה"
+    },
+    {
+      "personName": "רפי זליג",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "מקהלה"
+    }
+  ]
+}
