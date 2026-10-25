@@ -197,10 +197,17 @@ export function mergeCloudSearch(
   const productionIds = new Set(
     [...series, ...films, ...productions].map((production) => production.id)
   );
+  const titleKeys = new Set(
+    [...series, ...films, ...productions].map(
+      (production) => `${production.year}|${production.title.trim()}`
+    )
+  );
   for (const production of cloud.productions) {
     if (!production?.id || !production.title || productionIds.has(production.id)) {
       continue;
     }
+    const titleKey = `${production.year}|${production.title.trim()}`;
+    if (titleKeys.has(titleKey)) continue;
     productionIds.add(production.id);
     if (isSeriesProduction(production)) series.push(production);
     else if (isFilmProduction(production)) films.push(production);

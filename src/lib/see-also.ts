@@ -15,7 +15,7 @@ export function seeAlsoHref(
   productions: Production[] | undefined,
   currentId?: string
 ): string | undefined {
-  const match = item.trim().match(/^(?:ראה גם|ראה סדרת המשך)\s+(.+)$/);
+  const match = item.trim().match(/^(?:ראה גם|ראה סדרת המשך|ראה סרט ההמשך|סרט המשך ל)\s*(.+)$/);
   if (!match) return undefined;
 
   let title = match[1].trim();
