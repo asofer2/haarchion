@@ -34,6 +34,7 @@ import {
 } from "@/lib/person-gender";
 import { groupIshimCredits } from "@/lib/ishim-credits";
 import { FILMOGRAPHY_FILLER_IDS } from "@/lib/filmography";
+import { canonicalProductionId } from "@/lib/production-aliases";
 import {
   ACTIVITY_LABELS,
   type ActivityCategory,
@@ -161,8 +162,17 @@ export default function PersonDetailPage() {
     >();
 
     for (const credit of credits) {
-      const production = sourceProductions.find((p) => p.id === credit.productionId);
-      if (!production) continue;
+      const listed = sourceProductions.find((p) => p.id === credit.productionId);
+      if (!listed) continue;
+      const canonicalId = canonicalProductionId(listed.id);
+      const production =
+        canonicalId === listed.id
+          ? listed
+          : sourceProductions.find((item) => item.id === canonicalId) ||
+            data?.productions.find((item) => item.id === canonicalId) || {
+              ...listed,
+              id: canonicalId,
+            };
       const heading = personCreditHeading(credit, gender);
       const list = map.get(heading) || [];
       if (

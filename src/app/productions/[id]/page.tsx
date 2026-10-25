@@ -30,6 +30,8 @@ import {
   formatProductionYears,
   productionHasSingleYear,
 } from "@/lib/production-title";
+import { canonicalProductionId } from "@/lib/production-aliases";
+import { resolveRouteId } from "@/lib/ids";
 import { seeAlsoHref } from "@/lib/see-also";
 import {
   masculineCreditHeading,
@@ -313,9 +315,10 @@ export default function ProductionDetailPage() {
   const { data, loading, error } = useArchive();
   const { user } = useAuth();
 
+  const routeId = canonicalProductionId(resolveRouteId(params.id));
   const fromArchive =
-    (data ? findById(data.productions, params.id) : undefined) ??
-    findSeedProduction(params.id);
+    (data ? findById(data.productions, routeId) : undefined) ??
+    findSeedProduction(routeId);
   const [fromCloud, setFromCloud] = useState<Production | undefined>();
   const [cloudChecked, setCloudChecked] = useState(false);
   const [lookupId, setLookupId] = useState(params.id);
@@ -326,9 +329,9 @@ export default function ProductionDetailPage() {
   }
 
   useEffect(() => {
-    if (fromArchive || loading || !params.id) return;
+    if (fromArchive || loading || !routeId) return;
     let cancelled = false;
-    void getProduction(params.id)
+    void getProduction(routeId)
       .then((found) => {
         if (cancelled) return;
         if (found) setFromCloud(found);
@@ -342,7 +345,7 @@ export default function ProductionDetailPage() {
     return () => {
       cancelled = true;
     };
-  }, [fromArchive, loading, params.id]);
+  }, [fromArchive, loading, routeId]);
 
   const production =
     fromArchive ?? (lookupId === params.id ? fromCloud : undefined);

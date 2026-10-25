@@ -10,6 +10,7 @@ import {
   ishimWaybackPersonUrl,
   parseIshimNotes,
 } from "@/lib/ishim-import";
+import { CANONICAL_PRODUCTION_ID_BY_TITLE } from "@/lib/production-aliases";
 import { SEED } from "@/lib/seed";
 import {
   kindToActivity,
@@ -53,6 +54,7 @@ const PREFERRED_PRODUCTION_ID: Record<string, string> = {
   "פרפר נחמד": "parpar-nechmad",
   הדרדסים: "the-smurfs-he",
   "דובוני אכפת לי": "care-bears-he",
+  ...CANONICAL_PRODUCTION_ID_BY_TITLE,
 };
 
 const KEY_ACTIVITY: Record<string, ActivityCategory> = {
@@ -192,6 +194,20 @@ function productionFor(
     (year ? hits.find((production) => production.year === year) : undefined) ||
     (hits.length === 1 ? hits[0] : undefined);
   if (chosen) return chosen;
+
+  if (preferredId && CANONICAL_PRODUCTION_ID_BY_TITLE[title]) {
+    return {
+      id: preferredId,
+      title,
+      year: year || 0,
+      kind: kind || "film_dubbed_foreign",
+      summary: "",
+      genres: [],
+      ishimClassic: true,
+      createdAt: NOW,
+      updatedAt: NOW,
+    };
+  }
 
   return {
     id: `ishim-${slugify(title) || "prod"}`,
