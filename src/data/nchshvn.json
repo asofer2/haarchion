@@ -37,26 +37,33 @@
       "heading": "בימוי דיבוב"
     },
     {
+      "personName": "חסיה ורטהיים",
+      "role": "producer",
+      "heading": "הפקת דיבוב"
+    },
+    {
       "personName": "יוני חן",
       "role": "dubber",
       "heading": "מדבבים",
-      "character": "נחשון"
+      "character": "נחשון / דמויות שונות"
     },
     {
       "personName": "עירית שילה",
       "role": "dubber",
       "heading": "מדבבים",
-      "character": "גיל"
+      "character": "גיל / דמויות שונות"
     },
     {
       "personName": "קובי מידן",
       "role": "dubber",
-      "heading": "מדבבים"
+      "heading": "מדבבים",
+      "character": "דמויות שונות"
     },
     {
       "personName": "עירית דגן",
       "role": "dubber",
-      "heading": "מדבבים"
+      "heading": "מדבבים",
+      "character": "דמויות שונות"
     },
     {
       "personName": "יוני חן",

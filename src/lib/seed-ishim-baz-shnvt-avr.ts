@@ -12,7 +12,7 @@ import type {
 } from "./types";
 import { roleToActivity } from "./types";
 
-const NOW = "2026-10-23T00:00:00.000Z";
+const NOW = "2026-10-28T00:00:00.000Z";
 export const BAZ_SHNVT_AVR_ID = "ht-baz-shnvt-avr";
 const TITLE = "באז שנות אור ממפקדת הכוכב - ההרפתקה מתחילה";
 const YEAR = 2000;
@@ -59,9 +59,7 @@ const CREDITS: CreditRow[] = [
     heading: "מדבבים",
     character: "האם / דמויות שונות",
   },
-  { personName: "מומי לוי", role: "dubber", heading: "מדבבים", character: "זבוב" },
-  { personName: "עפרון אטקין", role: "dubber", heading: "מדבבים", character: "דמויות שונות" },
-  { personName: "לירז ברגמן", role: "dubber", heading: "מדבבים", character: "דמויות שונות" },
+  { personName: "עפרון אטקין", role: "dubber", heading: "מדבבים", character: "זבוב" },
 ];
 
 const PRODUCTION: Production = {

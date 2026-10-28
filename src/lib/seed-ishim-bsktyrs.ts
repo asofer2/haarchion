@@ -13,7 +13,7 @@ import type {
 } from "./types";
 import { roleToActivity } from "./types";
 
-const NOW = "2026-10-21T00:00:00.000Z";
+const NOW = "2026-10-28T00:00:00.000Z";
 export const BSKTYRS_ID = "ishim-bsktyrs";
 const TITLE = "בסקטירס";
 const SOURCE_URL =
@@ -27,6 +27,7 @@ type CreditRow = {
   year?: number;
 };
 
+/** צוות דיבוב לפי עמוד הופ תמיר בסקטירס (2012-2014). */
 const CREDITS: CreditRow[] = [
   { personName: "ליאור סול", role: "dub_director", heading: "בימוי דיבוב", year: 2012 },
   { personName: "אפי בן ישראל", role: "dub_director", heading: "בימוי דיבוב", year: 2014 },
@@ -38,14 +39,15 @@ const CREDITS: CreditRow[] = [
     personName: "שחר קדוש",
     role: "dubber",
     heading: "מדבבים",
-    character: "ליאו",
+    character: "ליאו / דולורס / דמויות שונות",
     year: 2012,
   },
   {
     personName: "עדן גמליאל",
     role: "dubber",
     heading: "מדבבים",
-    character: "ליאו (עונה 2) / קירסטן / דמויות שונות",
+    character:
+      "ליאו (עונה 2) / קירסטן / אנדריאה סמדי / אנני / ג'יין (עונה 1) / דמויות שונות",
   },
   {
     personName: "אלעד בהרב",
@@ -61,21 +63,33 @@ const CREDITS: CreditRow[] = [
     character: "מייק",
     year: 2014,
   },
-  { personName: "ערן מור", role: "dubber", heading: "מדבבים", character: "טוני פרקר" },
-  { personName: "דור סרוגו", role: "dubber", heading: "מדבבים" },
-  { personName: "טליה ברקאי", role: "dubber", heading: "מדבבים" },
+  { personName: "תמיר סופר", role: "dubber", heading: "מדבבים", character: "טוני פרקר" },
+  {
+    personName: "דור סרוגו",
+    role: "dubber",
+    heading: "מדבבים",
+    character: "אריק / פרוג / אדם / קרלוס / סול / קסי / דמויות שונות",
+  },
+  {
+    personName: "טליה ברקאי",
+    role: "dubber",
+    heading: "מדבבים",
+    character:
+      "ג'ני / נאטי / מאוסט / סאלי / ליספה / סלינה (עונה 1) / ג'יין (עונה 2) / ג'ייד / דמויות שונות",
+  },
   {
     personName: "יובל סגל",
     role: "dubber",
     heading: "מדבבים",
-    character: "סלים / דמויות שונות",
+    character:
+      "סלים / בני / וואייט / הברון סמדי / סטיב / ראקאם / אבא של סלינה / דמויות שונות",
     year: 2012,
   },
   {
     personName: "גיא רושיניאק",
     role: "dubber",
     heading: "מדבבים",
-    character: "סלים / דמויות שונות",
+    character: "סלים / אושן / מאג'יד / אלי הופ / דמויות שונות",
     year: 2014,
   },
   {
@@ -85,7 +99,14 @@ const CREDITS: CreditRow[] = [
     character: "דוק / טים / דמויות שונות",
     year: 2012,
   },
-  { personName: "דן קיזלר", role: "dubber", heading: "מדבבים", year: 2012 },
+  {
+    personName: "דן קיזלר",
+    role: "dubber",
+    heading: "מדבבים",
+    character:
+      "טוד / קווין מקנמרה / סטניסלס סמדי / אליוט מס / פרש ג'ון / דמויות שונות",
+    year: 2012,
+  },
   {
     personName: "ברק ברויטמן",
     role: "dubber",
@@ -104,12 +125,32 @@ const CREDITS: CreditRow[] = [
     personName: "יותם סחייק",
     role: "dubber",
     heading: "מדבבים",
-    character: "ממבה / מורגאן / סמוז / פריז / דמויות שונות",
+    character: "ממבה / מורגאן / סמוז / פריז / קימו / דמויות שונות",
     year: 2012,
   },
-  { personName: "מאיה בר שלום", role: "dubber", heading: "מדבבים", year: 2014 },
-  { personName: "גדי לוי", role: "dubber", heading: "מדבבים", year: 2014 },
-  { personName: "צביקה פורמן", role: "dubber", heading: "מדבבים", year: 2014 },
+  {
+    personName: "צביקה פורמן",
+    role: "dubber",
+    heading: "מדבבים",
+    character:
+      "וואייט / קומר / טאטו / באו / לאקי פוקס / אבא של סלינה / ביג רון / השייח אלי-בה / בובי / אלי הופ (קול זמני) / דמויות שונות",
+    year: 2014,
+  },
+  {
+    personName: "גדי לוי",
+    role: "dubber",
+    heading: "מדבבים",
+    character:
+      "גאגאן / דוק / טים / בבאק / אל חווז / היי טק / קינג / מאסטר זא / סנטה קלאוס / דמויות שונות",
+    year: 2014,
+  },
+  {
+    personName: "מאיה בר שלום",
+    role: "dubber",
+    heading: "מדבבים",
+    character: "קאג'ול / סלינה (עונה 2) / לונה / לוקרסיה / מימי / דמויות שונות",
+    year: 2014,
+  },
   {
     personName: "אלון שר",
     role: "singer",

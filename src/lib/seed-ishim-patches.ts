@@ -37,47 +37,67 @@ import { applyIshimHbobodim2002 } from "./seed-ishim-hbvbvdym-2002";
 import { applyIshimJungleBookKids } from "./seed-ishim-spr-hgvngl-kids";
 import { applyIshimTinkerBell2008 } from "./seed-ishim-ht-tynkrbl-2008";
 import { applyIshimTinkerBellSequels } from "./seed-ishim-ht-tynkrbl-sequels";
+import { applyIshimSpirou2013 } from "./seed-ishim-spyrv-2013";
+import { applyIshimBagLyyf } from "./seed-ishim-bag-lyyf";
+import { applyIshimMulan1998 } from "./seed-ishim-mulan-1998";
+import { applyIshimVipo2008 } from "./seed-ishim-ht-vypv-2008";
 
 /** ערכי אישים/הפקות שלא בארכיון הגדול — מיושמים אחרי applyIshimArchive */
 export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
-  return applyIshimTinkerBellSequels(
-    applyIshimTinkerBell2008(
-  applyIshimJungleBookKids(
-  applyIshimHbobodim2002(
-    applyIshimPocahontasDisney(
-    applyIshimPvkhvnts2(
-    applyIshimHercules1997(
-    applyIshimBazShnvtAvr(
-    applyIshimBsktyrs(
-      applyIshimAvplBvpl(
-        applyIshimNchshvn(
-          applyIshimJungleCity2006(
-            applyIshimBeautyBeast1992(
-              applyIshimGuyFriedman(
-                applyIshimKesemHaMagi(
-                  applyIshimHaPigamot(
-                    applyIshimHopTamirOct(
-                      applyIshimKassaiLeuk(
-                        applyIshimHopLionAndBears(
-                          applyIshimLionKing3(
-                            applyIshimTimonPumbaa(
-                              applyIshimMagicSchoolBus(
-                                applyIshimNicoBar(
-                                  applyIshimMomiLevy(
-                                    applyIshimSavriMaranan(
-                                      applyIshimPinocchioAdventures1993(
-                                        applyIshimYaakovShemTov(
-                                          applyIshimKopyko2009(
-                                            applyIshimHyhHyhDvagymLkdvrHartz(
-                                              applyIshimPeterPan(
-                                                applyIshimAnvrShtgrAzra(
-                                                  applyIshimChnhDrvryKshy(
-                                                    applyIshimNalvlym(
-                                                      applyIshimHyhHyhHadm(
-                                                        applyIshimChnnGoldblatt(
-                                                          applyIshimTuviaTsafir(
-                                                            applyIshimGadiPor(
-                                                              applyIshimAzraHs(data)
+  return applyIshimVipo2008(
+  applyIshimMulan1998(
+    applyIshimBagLyyf(
+      applyIshimSpirou2013(
+        applyIshimTinkerBellSequels(
+          applyIshimTinkerBell2008(
+            applyIshimJungleBookKids(
+              applyIshimHbobodim2002(
+                applyIshimPocahontasDisney(
+                  applyIshimPvkhvnts2(
+                    applyIshimHercules1997(
+                      applyIshimBazShnvtAvr(
+                        applyIshimBsktyrs(
+                          applyIshimAvplBvpl(
+                            applyIshimNchshvn(
+                              applyIshimJungleCity2006(
+                                applyIshimBeautyBeast1992(
+                                  applyIshimGuyFriedman(
+                                    applyIshimKesemHaMagi(
+                                      applyIshimHaPigamot(
+                                        applyIshimHopTamirOct(
+                                          applyIshimKassaiLeuk(
+                                            applyIshimHopLionAndBears(
+                                              applyIshimLionKing3(
+                                                applyIshimTimonPumbaa(
+                                                  applyIshimMagicSchoolBus(
+                                                    applyIshimNicoBar(
+                                                      applyIshimMomiLevy(
+                                                        applyIshimSavriMaranan(
+                                                          applyIshimPinocchioAdventures1993(
+                                                            applyIshimYaakovShemTov(
+                                                              applyIshimKopyko2009(
+                                                                applyIshimHyhHyhDvagymLkdvrHartz(
+                                                                  applyIshimPeterPan(
+                                                                    applyIshimAnvrShtgrAzra(
+                                                                      applyIshimChnhDrvryKshy(
+                                                                        applyIshimNalvlym(
+                                                                          applyIshimHyhHyhHadm(
+                                                                            applyIshimChnnGoldblatt(
+                                                                              applyIshimTuviaTsafir(
+                                                                                applyIshimGadiPor(
+                                                                                  applyIshimAzraHs(
+                                                                                    data
+                                                                                  )
+                                                                                )
+                                                                              )
+                                                                            )
+                                                                          )
+                                                                        )
+                                                                      )
+                                                                    )
+                                                                  )
+                                                                )
+                                                              )
                                                             )
                                                           )
                                                         )
@@ -107,12 +127,6 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
         )
       )
     )
-    )
-    )
-    )
-    )
   )
-    )
-    )
   );
 }

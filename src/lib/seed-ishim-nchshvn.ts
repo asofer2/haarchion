@@ -15,7 +15,7 @@ import type {
   Production,
 } from "./types";
 
-const NOW = "2026-10-21T00:00:00.000Z";
+const NOW = "2026-10-28T00:00:00.000Z";
 export const NCHSHVN_ID = "ishim-nchshvn";
 
 const WAYBACK_URL =
