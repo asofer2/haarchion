@@ -90,12 +90,14 @@ export function ImageDropzone({
   const [dragging, setDragging] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [uploadingCloud, setUploadingCloud] = useState(false);
   const [hint, setHint] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleBlob = useCallback(
     async (source: File | Blob) => {
       setBusy(true);
+      setUploadingCloud(false);
       setError(null);
       setHint(null);
       try {
@@ -103,6 +105,9 @@ export function ImageDropzone({
         // Always update preview immediately so file-picker / paste / drop feel instant
         const localPreview = await blobToDataUrl(blob);
         onChange(localPreview);
+        // Unlock the form right away — cloud upload must not block the UI forever
+        setBusy(false);
+        if (inputRef.current) inputRef.current.value = "";
 
         if (!isFirebaseConfigured()) return;
 
@@ -116,19 +121,23 @@ export function ImageDropzone({
           typeof crypto !== "undefined" && "randomUUID" in crypto
             ? crypto.randomUUID()
             : `${Date.now()}`;
+        setUploadingCloud(true);
         try {
           const url = await uploadImageBlob(blob, `uploads/${id}.jpg`);
           onChange(url);
           setHint(null);
+          setError(null);
         } catch (uploadErr) {
           // Keep local preview; savePerson/saveProduction will retry via ensureCloudImageUrl
           setError(cloudUploadErrorMessage(uploadErr));
           setHint("התמונה מוצגת מקומית — נסו לשמור; ההעלאה לענן תתבצע שוב בשמירה.");
+        } finally {
+          setUploadingCloud(false);
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : "העלאה נכשלה");
-      } finally {
         setBusy(false);
+        setUploadingCloud(false);
         if (inputRef.current) inputRef.current.value = "";
       }
     },
@@ -268,7 +277,7 @@ export function ImageDropzone({
             </button>
           </>
         )}
-        {busy && <span className="muted">מעלה לענן…</span>}
+        {uploadingCloud && <span className="muted">מעלה לענן…</span>}
         {value && (
           <div className="image-drop-replace-actions">
             <button
@@ -291,11 +300,12 @@ export function ImageDropzone({
             <button
               type="button"
               className="btn btn-danger"
-              disabled={busy}
+              disabled={busy || uploadingCloud}
               onClick={() => {
                 onChange(undefined);
                 setError(null);
                 setHint(null);
+                setUploadingCloud(false);
               }}
             >
               הסרת תמונה

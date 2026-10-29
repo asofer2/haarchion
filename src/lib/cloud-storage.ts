@@ -84,6 +84,26 @@ export function cloudUploadErrorMessage(error: unknown): string {
   return `בעיה בהעלאה לענן: ${raw || code || "שגיאה לא ידועה"}`;
 }
 
+const UPLOAD_TIMEOUT_MS = 25_000;
+
+function withUploadTimeout<T>(promise: Promise<T>, label: string): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const timer = setTimeout(() => {
+      reject(new Error(`${label} timed out after ${UPLOAD_TIMEOUT_MS / 1000}s`));
+    }, UPLOAD_TIMEOUT_MS);
+    promise.then(
+      (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      (error) => {
+        clearTimeout(timer);
+        reject(error);
+      }
+    );
+  });
+}
+
 /** Upload a browser File/Blob to Firebase Storage and return a public download URL */
 export async function uploadImageBlob(
   blob: Blob,
@@ -99,8 +119,11 @@ export async function uploadImageBlob(
 
   async function put(store: FirebaseStorage): Promise<string> {
     const storageRef = ref(store, path);
-    await uploadBytes(storageRef, blob, { contentType });
-    return getDownloadURL(storageRef);
+    await withUploadTimeout(
+      uploadBytes(storageRef, blob, { contentType }),
+      "Storage upload"
+    );
+    return withUploadTimeout(getDownloadURL(storageRef), "Storage download URL");
   }
 
   try {
