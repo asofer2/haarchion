@@ -17,6 +17,7 @@ import { applyIshimBeautyBeast1992 } from "./seed-ishim-hyph-vhchyh-1992";
 import { applyIshimJungleCity2006 } from "./seed-ishim-gvngl-syty";
 import { applyIshimHyhHyhDvagymLkdvrHartz } from "./seed-ishim-hyh-hyh-dvagym-lkdvr-hartz";
 import { applyIshimHyhHyhHadm } from "./seed-ishim-hyh-hyh-hadm";
+import { applyIshimKopyko1993 } from "./seed-ishim-kopyko-1993";
 import { applyIshimKopyko2009 } from "./seed-ishim-kopyko-2009";
 import { applyIshimNalvlym } from "./seed-ishim-nalvlym";
 import { applyIshimPeterPan } from "./seed-ishim-peter-pan";
@@ -76,17 +77,19 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
                                                           applyIshimPinocchioAdventures1993(
                                                             applyIshimYaakovShemTov(
                                                               applyIshimKopyko2009(
-                                                                applyIshimHyhHyhDvagymLkdvrHartz(
-                                                                  applyIshimPeterPan(
-                                                                    applyIshimAnvrShtgrAzra(
-                                                                      applyIshimChnhDrvryKshy(
-                                                                        applyIshimNalvlym(
-                                                                          applyIshimHyhHyhHadm(
-                                                                            applyIshimChnnGoldblatt(
-                                                                              applyIshimTuviaTsafir(
-                                                                                applyIshimGadiPor(
-                                                                                  applyIshimAzraHs(
-                                                                                    data
+                                                                applyIshimKopyko1993(
+                                                                  applyIshimHyhHyhDvagymLkdvrHartz(
+                                                                    applyIshimPeterPan(
+                                                                      applyIshimAnvrShtgrAzra(
+                                                                        applyIshimChnhDrvryKshy(
+                                                                          applyIshimNalvlym(
+                                                                            applyIshimHyhHyhHadm(
+                                                                              applyIshimChnnGoldblatt(
+                                                                                applyIshimTuviaTsafir(
+                                                                                  applyIshimGadiPor(
+                                                                                    applyIshimAzraHs(
+                                                                                      data
+                                                                                    )
                                                                                   )
                                                                                 )
                                                                               )

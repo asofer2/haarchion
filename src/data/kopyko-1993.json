@@ -1,0 +1,417 @@
+{
+  "title": "קופיקו",
+  "year": 1994,
+  "summary": "עלילות קופיקו, הקוף השובב ומשפחת לזר בשכונת עין גנים בפתח תקווה",
+  "runtimeMinutes": 14,
+  "episodeCount": 15,
+  "genres": [
+    "ילדים",
+    "קומדיה"
+  ],
+  "channel": "ערוץ הילדים",
+  "ishimKeys": [
+    "מבוסס על ספר",
+    "קומדיית מצבים",
+    "שכנים"
+  ],
+  "ishimNotes": [
+    {
+      "heading": "כללי",
+      "items": [
+        "בשנת 2009 יצאה גרסה מחודשת שגם היא נקראה קופיקו"
+      ]
+    }
+  ],
+  "entryAuthors": [
+    "רודני פארזבום",
+    "Nir Bassan",
+    "מנדי סקירה",
+    "ברק חננאל"
+  ],
+  "kind": "tv_series",
+  "credits": [
+    {
+      "personId": "adi-benyaminov",
+      "role": "director",
+      "heading": "בימוי"
+    },
+    {
+      "personId": "rvn-ayyzyk",
+      "role": "producer",
+      "heading": "הפקה"
+    },
+    {
+      "personId": "adi-benyaminov",
+      "role": "writer",
+      "heading": "עריכה"
+    },
+    {
+      "personId": "syny-br-dvd",
+      "role": "writer",
+      "heading": "עריכה"
+    },
+    {
+      "personId": "chanan-peled",
+      "role": "writer",
+      "heading": "תסריט"
+    },
+    {
+      "personId": "tamar-bornstein-lazar",
+      "role": "writer",
+      "heading": "תסריט",
+      "character": "(עפ\"י ספריה)"
+    },
+    {
+      "personId": "gny-tmyr",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "קופיקו (קול בלבד)"
+    },
+    {
+      "personId": "dor-zweigenboom",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "שלומקה לזר"
+    },
+    {
+      "personId": "dorit-peled",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "תמר לזר"
+    },
+    {
+      "personId": "dpnh-ayln",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "אורנה לזר"
+    },
+    {
+      "personId": "yvtm-shav",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "יורם לזר"
+    },
+    {
+      "personId": "ndyh-rvznbrg",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "נוגה לזר"
+    },
+    {
+      "personId": "asty-brad-pvrym",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "שושנה"
+    },
+    {
+      "personId": "arn-bn-zab",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "אברום"
+    },
+    {
+      "personId": "adm-shvmr",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "דוד אבי"
+    },
+    {
+      "personId": "avdy-gyl",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "איציק הסייד"
+    },
+    {
+      "personId": "avdy-kysry",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personId": "avry-kbyry",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ספי"
+    },
+    {
+      "personId": "ayylt-gbay-ygvdh",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "נאווה"
+    },
+    {
+      "personId": "ayln-lyndbnd",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personId": "br-rpaly",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "איריס, חברה של נוגה"
+    },
+    {
+      "personId": "dvvy-khn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "חולה של ד\"ר שבח"
+    },
+    {
+      "personId": "dlyt-khn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מנחה תחרות אומנות"
+    },
+    {
+      "personId": "drvr-tplytsky",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "איש קופת חולים / אבא של טל מכיתה ד'"
+    },
+    {
+      "personId": "vadym-kvtlrvb",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "רופא שיניים"
+    },
+    {
+      "personId": "ysmyn-kdr",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "לילי העוזרת"
+    },
+    {
+      "personId": "yshral-tsdvk",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personId": "mny-sbyr",
+      "role": "actor",
+      "heading": "שחקנים אורחים"
+    },
+    {
+      "personId": "nta-khn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ילדה"
+    },
+    {
+      "personId": "amykm-lvy",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ד\"ר שבח"
+    },
+    {
+      "personId": "kmy-gm",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בחור במרפאת שיניים"
+    },
+    {
+      "personId": "krn-vyys",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ילדה במשחק הכדורסל"
+    },
+    {
+      "personId": "rpy-rvtshtyyn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מאמן כדורסל"
+    },
+    {
+      "personId": "dvd-khn",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "חולה"
+    },
+    {
+      "personId": "aytn-arbl",
+      "role": "cinematographer",
+      "heading": "צילום"
+    },
+    {
+      "personId": "shmvlyk-nvypld",
+      "role": "singer",
+      "heading": "מוזיקה"
+    },
+    {
+      "personId": "avryt-azvlay",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ליהוק"
+    },
+    {
+      "personId": "syny-br-dvd",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ע. במאי"
+    },
+    {
+      "personId": "lyad-gvrdvn",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "עיצוב קופיקו"
+    },
+    {
+      "personId": "gdy-br-lbya",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ליהוק ניצבים"
+    }
+  ],
+  "people": [
+    {
+      "id": "adi-benyaminov",
+      "name": "עדי בנימינוב"
+    },
+    {
+      "id": "rvn-ayyzyk",
+      "name": "רון אייזיק"
+    },
+    {
+      "id": "syny-br-dvd",
+      "name": "סיני בר דוד"
+    },
+    {
+      "id": "chanan-peled",
+      "name": "חנן פלד"
+    },
+    {
+      "id": "tamar-bornstein-lazar",
+      "name": "תמר בורנשטיין לזר"
+    },
+    {
+      "id": "gny-tmyr",
+      "name": "גני תמיר"
+    },
+    {
+      "id": "dor-zweigenboom",
+      "name": "דור צויגנבום"
+    },
+    {
+      "id": "dorit-peled",
+      "name": "דורית פלד הרפז"
+    },
+    {
+      "id": "dpnh-ayln",
+      "name": "דפנה אילן"
+    },
+    {
+      "id": "yvtm-shav",
+      "name": "יותם שאו"
+    },
+    {
+      "id": "ndyh-rvznbrg",
+      "name": "נדיה רוזנברג"
+    },
+    {
+      "id": "asty-brad-pvrym",
+      "name": "אסתי ברעד פורים"
+    },
+    {
+      "id": "arn-bn-zab",
+      "name": "ערן בן זאב"
+    },
+    {
+      "id": "adm-shvmr",
+      "name": "אדם שומר"
+    },
+    {
+      "id": "avdy-gyl",
+      "name": "אודי גיל"
+    },
+    {
+      "id": "avdy-kysry",
+      "name": "אודי קיסרי"
+    },
+    {
+      "id": "avry-kbyry",
+      "name": "אורי כבירי"
+    },
+    {
+      "id": "ayylt-gbay-ygvdh",
+      "name": "איילת גבאי יגודה"
+    },
+    {
+      "id": "ayln-lyndbnd",
+      "name": "אילן לינדבנד"
+    },
+    {
+      "id": "br-rpaly",
+      "name": "בר רפאלי"
+    },
+    {
+      "id": "dvvy-khn",
+      "name": "דווי כהן"
+    },
+    {
+      "id": "dlyt-khn",
+      "name": "דלית קהן"
+    },
+    {
+      "id": "drvr-tplytsky",
+      "name": "דרור טפליצקי"
+    },
+    {
+      "id": "vadym-kvtlrvb",
+      "name": "ואדים קוטלרוב"
+    },
+    {
+      "id": "ysmyn-kdr",
+      "name": "יסמין קדר"
+    },
+    {
+      "id": "yshral-tsdvk",
+      "name": "ישראל צדוק"
+    },
+    {
+      "id": "mny-sbyr",
+      "name": "מני סביר"
+    },
+    {
+      "id": "nta-khn",
+      "name": "נטע כהן"
+    },
+    {
+      "id": "amykm-lvy",
+      "name": "עמיקם לוי"
+    },
+    {
+      "id": "kmy-gm",
+      "name": "קמי גם"
+    },
+    {
+      "id": "krn-vyys",
+      "name": "קרן וייס"
+    },
+    {
+      "id": "rpy-rvtshtyyn",
+      "name": "רפי רוטשטיין"
+    },
+    {
+      "id": "dvd-khn",
+      "name": "דוד כהן"
+    },
+    {
+      "id": "aytn-arbl",
+      "name": "איתן ארבל"
+    },
+    {
+      "id": "shmvlyk-nvypld",
+      "name": "שמוליק נויפלד"
+    },
+    {
+      "id": "avryt-azvlay",
+      "name": "אורית אזולאי"
+    },
+    {
+      "id": "lyad-gvrdvn",
+      "name": "ליעד גורדון"
+    },
+    {
+      "id": "gdy-br-lbya",
+      "name": "גדי בר לביא"
+    }
+  ]
+}

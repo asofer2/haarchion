@@ -8,7 +8,7 @@ const NOW = "2026-09-13T00:00:00.000Z";
 export const KOPYKO_2009_ID = "ishim-kvpykv-2009";
 
 const KOPYKO_WAYBACK_URL =
-  "https://web.archive.org/web/20190915201811/https://www.ishim.co.il/m.php?s=%D7%A7%D7%95%D7%A4%D7%99%D7%A7%D7%95%232009";
+  "https://web.archive.org/web/20220516084707/https://www.ishim.co.il/m.php?s=%D7%A7%D7%95%D7%A4%D7%99%D7%A7%D7%95%232009";
 
 type CreditRow = {
   personId: string;

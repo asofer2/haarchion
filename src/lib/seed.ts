@@ -38,6 +38,7 @@ import { applyIshimAnvrShtgrAzra } from "./seed-ishim-anvr-shtgr-azra";
 import { applyIshimChnhDrvryKshy } from "./seed-ishim-chnh-drvry-kshy";
 import { applyIshimHyhHyhHadm } from "./seed-ishim-hyh-hyh-hadm";
 import { applyIshimNalvlym } from "./seed-ishim-nalvlym";
+import { applyIshimKopyko1993 } from "./seed-ishim-kopyko-1993";
 import { applyIshimKopyko2009 } from "./seed-ishim-kopyko-2009";
 import { applyIshimHyhHyhDvagymLkdvrHartz } from "./seed-ishim-hyh-hyh-dvagym-lkdvr-hartz";
 import { applyIshimPeterPan } from "./seed-ishim-peter-pan";
@@ -919,6 +920,7 @@ export const SEED: ArchiveData = applyCatalogFixes(
   applyIshimPinocchioAdventures1993(
   applyIshimYaakovShemTov(
   applyIshimKopyko2009(
+  applyIshimKopyko1993(
   applyIshimHyhHyhDvagymLkdvrHartz(
   applyIshimPeterPan(
   applyIshimAnvrShtgrAzra(
@@ -1009,6 +1011,7 @@ export const SEED: ArchiveData = applyCatalogFixes(
   })(),
   contributions: [],
   })
+  )
   )
   )
   )
