@@ -18,6 +18,8 @@ import { applyIshimJungleCity2006 } from "./seed-ishim-gvngl-syty";
 import { applyIshimHyhHyhDvagymLkdvrHartz } from "./seed-ishim-hyh-hyh-dvagym-lkdvr-hartz";
 import { applyIshimHyhHyhHadm } from "./seed-ishim-hyh-hyh-hadm";
 import { applyIshimAgdotAndersen } from "./seed-ishim-agdot-andersen";
+import { applyIshimFindingNemo } from "./seed-ishim-ht-finding-nemo";
+import { applyIshimMegamind2010 } from "./seed-ishim-ht-mgh-mvch-2010";
 import { applyIshimKopyko1993 } from "./seed-ishim-kopyko-1993";
 import { applyIshimKopyko2009 } from "./seed-ishim-kopyko-2009";
 import { applyIshimNalvlym } from "./seed-ishim-nalvlym";
@@ -46,7 +48,9 @@ import { applyIshimVipo2008 } from "./seed-ishim-ht-vypv-2008";
 
 /** ערכי אישים/הפקות שלא בארכיון הגדול — מיושמים אחרי applyIshimArchive */
 export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
-  return applyIshimAgdotAndersen(
+  return applyIshimFindingNemo(
+  applyIshimMegamind2010(
+  applyIshimAgdotAndersen(
   applyIshimVipo2008(
   applyIshimMulan1998(
     applyIshimBagLyyf(
@@ -132,6 +136,8 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
         )
       )
     )
+  )
+  )
   )
   )
   );
