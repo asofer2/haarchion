@@ -46,10 +46,12 @@ import { applyIshimBagLyyf } from "./seed-ishim-bag-lyyf";
 import { applyIshimMulan1998 } from "./seed-ishim-mulan-1998";
 import { applyIshimVipo2008 } from "./seed-ishim-ht-vypv-2008";
 import { applyIshimDisney1993Fixes } from "./seed-ishim-disney-1993";
+import { applyIshimHopMid2000s } from "./seed-ishim-ht-mid-2000s";
 
 /** ערכי אישים/הפקות שלא בארכיון הגדול — מיושמים אחרי applyIshimArchive */
 export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
-  return applyIshimDisney1993Fixes(
+  return applyIshimHopMid2000s(
+  applyIshimDisney1993Fixes(
   applyIshimFindingNemo(
   applyIshimMegamind2010(
   applyIshimAgdotAndersen(
@@ -138,6 +140,7 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
         )
       )
     )
+  )
   )
   )
   )

@@ -1,6 +1,5 @@
 import "server-only";
 
-import { unstable_cache } from "next/cache";
 import { collection, getDocs, limit, query } from "firebase/firestore";
 import { getFirebaseDb, isFirebaseConfigured } from "@/lib/firebase";
 import { getFirebaseAdminDb } from "@/lib/firebase-admin";
@@ -91,18 +90,24 @@ export async function readFirestoreArchiveServer(): Promise<ArchiveData> {
 }
 
 /**
- * Cached archive loader for Route Handlers / RSC.
- * Project uses the previous caching model (cacheComponents off) — see
- * `node_modules/next/dist/docs/01-app/02-guides/caching-without-cache-components.md`.
+ * Process memory, not `unstable_cache`: the catalog is ~40MB and the cache
+ * rejects entries over 2MB, which made `/api/archive` return 500 and left
+ * search with only the small seed (so «כנפי הרעם» was missing).
  */
-export const getCachedFirestoreArchive = unstable_cache(
-  async (): Promise<ArchiveData> => readFirestoreArchiveServer(),
-  ["firestore-archive-v35-disney-1993-zmn-dysny"],
-  {
-    tags: [ARCHIVE_CACHE_TAG],
-    revalidate: ARCHIVE_REVALIDATE_SECONDS,
+let memoryArchive: { at: number; data: ArchiveData } | null = null;
+
+export async function getCachedFirestoreArchive(): Promise<ArchiveData> {
+  const now = Date.now();
+  if (
+    memoryArchive &&
+    now - memoryArchive.at < ARCHIVE_REVALIDATE_SECONDS * 1000
+  ) {
+    return memoryArchive.data;
   }
-);
+  const data = await readFirestoreArchiveServer();
+  memoryArchive = { at: now, data };
+  return data;
+}
 
 /** One person's classic Ishim roles.
  * Reads that person only, so the page does not wait for the full catalog.

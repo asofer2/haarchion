@@ -64,18 +64,28 @@ function SearchPageInner() {
     people: Person[];
     productions: Production[];
   }>({ people: [], productions: [] });
+  const [catalog, setCatalog] = useState<{
+    people: Person[];
+    productions: Production[];
+  }>({ people: [], productions: [] });
   const [cloudPending, setCloudPending] = useState(false);
+  const [catalogPending, setCatalogPending] = useState(false);
 
   useEffect(() => {
     const term = q.trim();
-    if (term.length < 2) {
-      setCloud({ people: [], productions: [] });
-      setCloudPending(false);
-      return;
-    }
     let cancelled = false;
-    setCloudPending(true);
     const timer = window.setTimeout(() => {
+      if (term.length < 2) {
+        setCloud({ people: [], productions: [] });
+        setCatalog({ people: [], productions: [] });
+        setCloudPending(false);
+        setCatalogPending(false);
+        return;
+      }
+      setCloud({ people: [], productions: [] });
+      setCatalog({ people: [], productions: [] });
+      setCloudPending(true);
+      setCatalogPending(true);
       void searchCloudCatalog(term)
         .then((found) => {
           if (!cancelled) setCloud(found);
@@ -83,7 +93,28 @@ function SearchPageInner() {
         .finally(() => {
           if (!cancelled) setCloudPending(false);
         });
-    }, 300);
+      void fetch(`/api/search?q=${encodeURIComponent(term)}`, {
+        headers: { Accept: "application/json" },
+      })
+        .then(async (res) => {
+          if (!res.ok) return { people: [], productions: [] };
+          return (await res.json()) as {
+            people?: Person[];
+            productions?: Production[];
+          };
+        })
+        .then((found) => {
+          if (cancelled) return;
+          setCatalog({
+            people: found.people || [],
+            productions: found.productions || [],
+          });
+        })
+        .catch(() => undefined)
+        .finally(() => {
+          if (!cancelled) setCatalogPending(false);
+        });
+    }, term.length < 2 ? 0 : 300);
     return () => {
       cancelled = true;
       window.clearTimeout(timer);
@@ -92,8 +123,8 @@ function SearchPageInner() {
 
   const allResults = useMemo(() => {
     const base = data ? searchArchive(data, q) : EMPTY;
-    return mergeCloudSearch(base, cloud);
-  }, [cloud, data, q]);
+    return mergeCloudSearch(mergeCloudSearch(base, catalog), cloud);
+  }, [catalog, cloud, data, q]);
 
   const results = useMemo(
     () => scopedResults(allResults, scope),
@@ -156,7 +187,7 @@ function SearchPageInner() {
 
       {!hasQuery ? (
         <p className="muted">הקלידו שם, כותרת, ז׳אנר או שם דמות כדי לחפש.</p>
-      ) : total === 0 && cloudPending ? (
+      ) : total === 0 && (cloudPending || catalogPending) ? (
         <p className="muted">מחפש…</p>
       ) : total === 0 ? (
         <p className="muted">לא נמצאו תוצאות ל«{q.trim()}».</p>

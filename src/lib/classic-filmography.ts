@@ -18,6 +18,7 @@ import {
   DISNEY_TIME_ID,
   DISNEY_TIME_NARRATORS,
 } from "@/lib/seed-ishim-disney-1993";
+import { hopMid2000sProduction } from "@/lib/seed-ishim-ht-mid-2000s";
 import {
   kindToActivity,
   roleToActivity,
@@ -193,6 +194,8 @@ function productionFor(
   year: number | undefined,
   kind: ProductionKind | null | undefined
 ): Production {
+  const known = hopMid2000sProduction(title, year);
+  if (known) return known;
   const { byId, byTitle } = productionIndexes();
   const preferredId = PREFERRED_PRODUCTION_ID[title];
   const preferred = preferredId ? byId.get(preferredId) : undefined;

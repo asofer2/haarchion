@@ -3,6 +3,7 @@ export const LEGACY_PRODUCTION_IDS: Record<string, string> = {
   "ishim-tynkrbl": "ht-tynkrbl-2008",
   "ishim-tynkrbl-vhavtsr-habvd": "ht-tynkrbl-vhavtsr-hbvd",
   "ishim-tynkrbl-vhsvd-hksvm": "ht-tynkrbl-vhsvd-hksvm",
+  "ishim-knpy-hram-srt": "ishim-knpy-hram",
 };
 
 /** Exact classic titles whose role pages should link at the catalog id. */
