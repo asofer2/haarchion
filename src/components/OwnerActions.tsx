@@ -19,6 +19,8 @@ interface Props {
   canDelete: boolean;
   /** Any signed-in editor may edit any entry */
   canEdit?: boolean;
+  /** תווית כפתור המחיקה כשתמיר סופר מחובר. */
+  deleteLabel?: string;
 }
 
 export function OwnerActions({
@@ -27,6 +29,7 @@ export function OwnerActions({
   title,
   canDelete,
   canEdit = true,
+  deleteLabel,
 }: Props) {
   const router = useRouter();
   const { user } = useAuth();
@@ -93,7 +96,13 @@ export function OwnerActions({
           disabled={busy}
           onClick={() => void onDelete()}
         >
-          {busy ? (admin ? "מוחק…" : "שולח…") : admin ? "מחיקה" : "בקשת מחיקה"}
+          {busy
+            ? admin
+              ? "מוחק…"
+              : "שולח…"
+            : admin
+              ? deleteLabel || (kind === "person" ? "מחיקת אדם" : "מחיקה")
+              : "בקשת מחיקה"}
         </button>
       )}
       {notice && <p className="notice">{notice}</p>}

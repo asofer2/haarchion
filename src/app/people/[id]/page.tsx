@@ -33,6 +33,7 @@ import {
   personCreditHeading,
 } from "@/lib/person-gender";
 import { groupIshimCredits } from "@/lib/ishim-credits";
+import { formatProductionYears } from "@/lib/production-title";
 import { FILMOGRAPHY_FILLER_IDS } from "@/lib/filmography";
 import { canonicalProductionId } from "@/lib/production-aliases";
 import {
@@ -158,6 +159,7 @@ export default function PersonDetailPage() {
         role: CreditRole;
         characterName?: string;
         year?: number;
+        endYear?: number;
         billingOrder?: number;
       }[]
     >();
@@ -206,6 +208,7 @@ export default function PersonDetailPage() {
           role: credit.role,
           characterName: credit.characterName,
           year: credit.year || production.year,
+          endYear: credit.endYear,
           billingOrder: credit.billingOrder,
         });
       }
@@ -282,6 +285,7 @@ export default function PersonDetailPage() {
               title={person.name}
               canEdit
               canDelete
+              deleteLabel="מחיקת אדם"
             />
           )}
         </div>
@@ -394,7 +398,11 @@ export default function PersonDetailPage() {
             <h3>{group.heading}</h3>
             <ul className="ishim-credits">
               {group.items.map((item) => {
-                const year = item.year || item.production.year || "";
+                const year =
+                  formatProductionYears(
+                    item.year || item.production.year,
+                    item.endYear
+                  ) || "";
                 const characters = item.characters
                   .map((name) => formatIshimCharacters(name))
                   .filter(Boolean)

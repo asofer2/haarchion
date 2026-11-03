@@ -33,6 +33,7 @@ import {
 import { canonicalProductionId } from "@/lib/production-aliases";
 import { resolveRouteId } from "@/lib/ids";
 import { seeAlsoHref } from "@/lib/see-also";
+import { isSeriesProduction } from "@/lib/search";
 import {
   masculineCreditHeading,
   masculineRoleLabel,
@@ -425,6 +426,9 @@ export default function ProductionDetailPage() {
               title={production.title}
               canEdit
               canDelete
+              deleteLabel={
+                isSeriesProduction(production) ? "מחיקת סדרה" : "מחיקת הפקה"
+              }
             />
           )}
         </div>

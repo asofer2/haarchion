@@ -13,6 +13,12 @@ import {
 import { CANONICAL_PRODUCTION_ID_BY_TITLE } from "@/lib/production-aliases";
 import { SEED } from "@/lib/seed";
 import {
+  adjustClassicIshimCredit,
+  DISNEY_TIME,
+  DISNEY_TIME_ID,
+  DISNEY_TIME_NARRATORS,
+} from "@/lib/seed-ishim-disney-1993";
+import {
   kindToActivity,
   roleToActivity,
   type ActivityCategory,
@@ -33,6 +39,8 @@ type IshimCredit = {
   character?: string;
   kind?: ProductionKind | null;
   orderIndex?: number;
+  s?: string;
+  channel?: string;
 };
 
 type IshimPerson = {
@@ -293,19 +301,46 @@ export function classicFilmography(rawId: string): {
   for (const credit of src.credits || []) {
     const title = credit.title?.trim();
     if (!title) continue;
-    const production = productionFor(title, credit.year, credit.kind);
+    const fixed = adjustClassicIshimCredit(person.name, credit);
+    if (fixed.skip) continue;
+    const production =
+      fixed.production || productionFor(title, credit.year, credit.kind);
     if (!seen.has(production.id)) {
       seen.add(production.id);
       productions.push(production);
     }
+    const character = fixed.production
+      ? fixed.character
+      : cleanIshimCharacter(credit.character, person.name);
     credits.push({
       personId: person.id,
       productionId: production.id,
-      role: credit.role,
-      characterName: cleanIshimCharacter(credit.character, person.name),
-      year: credit.year,
-      heading: credit.heading,
+      role: fixed.role,
+      characterName: character,
+      year: fixed.year,
+      endYear: fixed.endYear,
+      heading: fixed.heading,
       billingOrder: credit.orderIndex,
+    });
+  }
+
+  const narrator = DISNEY_TIME_NARRATORS.find(
+    (row) =>
+      normalizePersonName(canonicalPersonName(row.name)) ===
+      normalizePersonName(canonicalPersonName(person.name))
+  );
+  if (narrator && !credits.some((credit) => credit.productionId === DISNEY_TIME_ID)) {
+    if (!seen.has(DISNEY_TIME_ID)) {
+      seen.add(DISNEY_TIME_ID);
+      productions.push(DISNEY_TIME);
+    }
+    credits.push({
+      personId: person.id,
+      productionId: DISNEY_TIME_ID,
+      role: "host",
+      heading: "קריינות",
+      year: narrator.year,
+      endYear: narrator.endYear,
     });
   }
   return { person, credits, productions };
