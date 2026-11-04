@@ -403,6 +403,7 @@ export const SERIES_CAST_PEOPLE: Person[] = [
   }),
   p("guy-friedman", "גיא פרידמן", ["acting", "dubbing", "musical", "series"], "", {
     nameOriginal: "Guy Friedman",
+    birthDate: "1971-01-16",
     tags: [],
     gender: "male",
     ishimClassic: true,

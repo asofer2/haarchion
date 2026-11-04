@@ -30,6 +30,36 @@ export function isStoredImageUrl(imageUrl: string): boolean {
   );
 }
 
+/** A file the editor chose — not a generated /api/portrait placeholder. */
+export function isDirectImageUrl(imageUrl?: string): boolean {
+  if (!imageUrl) return false;
+  if (imageUrl.startsWith("data:") || imageUrl.startsWith("/images/")) return true;
+  return isStoredImageUrl(imageUrl);
+}
+
+/**
+ * A saved upload replaces a seed/portrait URL.
+ * When both sides are real files, the later `updatedAt` wins.
+ */
+export function preferEditedImageUrl(
+  edited?: { imageUrl?: string; updatedAt?: string },
+  base?: { imageUrl?: string; updatedAt?: string }
+): string | undefined {
+  const saved = edited?.imageUrl?.trim();
+  const fallback = base?.imageUrl?.trim();
+  const savedDirect = isDirectImageUrl(saved);
+  const fallbackDirect = isDirectImageUrl(fallback);
+  if (savedDirect && !fallbackDirect) return saved;
+  if (fallbackDirect && !savedDirect) return fallback;
+  if (savedDirect && fallbackDirect && saved !== fallback) {
+    const savedAt = edited?.updatedAt || "";
+    const fallbackAt = base?.updatedAt || "";
+    if (fallbackAt > savedAt) return fallback;
+    return saved;
+  }
+  return saved || fallback;
+}
+
 function withEntityId(url: string, opts: PortraitOptions): string {
   const param = opts.personId ? "personId" : "productionId";
   const id = opts.personId || opts.productionId;

@@ -134,7 +134,6 @@ export function applyIshimGuyFriedman(data: ArchiveData): ArchiveData {
   const patch: Partial<Person> = {
     activities: ["acting", "dubbing", "musical", "series"],
     bio: "",
-    birthDate: undefined,
     gender: "male",
     ishimClassic: true,
     entryAuthors: ["תמיר סופר", "Gal Talmon"],

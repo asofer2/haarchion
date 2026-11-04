@@ -36,6 +36,7 @@ import { groupIshimCredits } from "@/lib/ishim-credits";
 import { formatProductionYears } from "@/lib/production-title";
 import { FILMOGRAPHY_FILLER_IDS } from "@/lib/filmography";
 import { canonicalProductionId } from "@/lib/production-aliases";
+import { preferEditedImageUrl } from "@/lib/portrait";
 import {
   ACTIVITY_LABELS,
   type ActivityCategory,
@@ -79,6 +80,7 @@ export default function PersonDetailPage() {
     setBundle(null);
     setBundleState("loading");
     void fetch(`/api/people/${encodeURIComponent(id)}`, {
+      cache: "no-store",
       headers: { Accept: "application/json" },
     })
       .then(async (res) => {
@@ -102,8 +104,30 @@ export default function PersonDetailPage() {
     };
   }, [params.id]);
 
-  const person =
-    bundle?.person ?? (data ? findById(data.people, params.id) : undefined);
+  const archived = data ? findById(data.people, params.id) : undefined;
+  const fromBundle = bundle?.person;
+  const imageUrl = preferEditedImageUrl(archived, fromBundle);
+  const imageFromArchive = Boolean(imageUrl && imageUrl === archived?.imageUrl);
+  const person = fromBundle
+    ? {
+        ...fromBundle,
+        name: archived?.name?.trim() || fromBundle.name,
+        nameOriginal: archived?.nameOriginal || fromBundle.nameOriginal,
+        nicknames: archived?.nicknames?.length
+          ? archived.nicknames
+          : fromBundle.nicknames,
+        birthDate: archived?.birthDate || fromBundle.birthDate,
+        deathDate: archived?.deathDate || fromBundle.deathDate,
+        bio: archived?.bio?.trim() ? archived.bio : fromBundle.bio,
+        imageUrl,
+        imageSource: imageFromArchive
+          ? archived?.imageSource || fromBundle.imageSource
+          : fromBundle.imageSource || archived?.imageSource,
+        imageCachedAt: imageFromArchive
+          ? archived?.imageCachedAt || fromBundle.imageCachedAt
+          : fromBundle.imageCachedAt || archived?.imageCachedAt,
+      }
+    : archived;
   const gender = person ? inferPersonGender(person) : undefined;
 
   const byRole = useMemo(() => {

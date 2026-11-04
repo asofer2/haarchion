@@ -252,7 +252,7 @@ function toPerson(src: IshimPerson, existing?: Person): Person {
       : src.birthName
         ? [src.birthName]
         : [],
-    birthDate: src.birthDate || existing?.birthDate,
+    birthDate: existing?.birthDate || src.birthDate,
     deathDate: existing?.deathDate || src.deathDate,
     bio: existing?.bio || "",
     imageUrl: existing?.imageUrl,
