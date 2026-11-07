@@ -59,7 +59,19 @@ const CREDITS: CreditRow[] = [
     heading: "מדבבים",
     character: "האם / דמויות שונות",
   },
-  { personName: "עפרון אטקין", role: "dubber", heading: "מדבבים", character: "זבוב" },
+  { personName: "מומי לוי", role: "dubber", heading: "מדבבים", character: "זבוב" },
+  {
+    personName: "עפרון אטקין",
+    role: "dubber",
+    heading: "מדבבים",
+    character: "דמויות שונות",
+  },
+  {
+    personName: "לירז ברגמן",
+    role: "dubber",
+    heading: "מדבבים",
+    character: "דמויות שונות",
+  },
 ];
 
 const PRODUCTION: Production = {

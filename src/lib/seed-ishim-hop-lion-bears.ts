@@ -255,7 +255,7 @@ const ALON_DUB_ROLES = alonRolesJson.credits as AlonRoleRow[];
 const ALON_PREFERRED_PRODUCTION: Record<string, string> = {
   מדגסקר: "madagascar-he",
   "אחי הדוב": "brother-bear-he",
-  במבי: "bambi-he",
+  במבי: "ishim-bmby",
   "היפה והחיה": "beauty-beast-he",
   פוקהונטס: "pocahontas-he",
   "הגיבן מנוטרדאם": "hunchback-he",

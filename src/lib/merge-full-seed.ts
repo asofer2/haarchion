@@ -1,4 +1,5 @@
 import { creditDedupeKey, preferCreditCharacter } from "./credit-order";
+import { LEGACY_PRODUCTION_IDS } from "./production-aliases";
 import type { ArchiveData, Person, Production } from "./types";
 
 function textLen(value?: string): number {
@@ -14,8 +15,8 @@ function preferText(primary?: string, fallback?: string): string {
 }
 
 /**
- * Keep any existing image. Overlay wins only when it has a real URL;
- * never overwrite a seed/Storage portrait with empty/missing image.
+ * A saved image replaces the previous one.
+ * An empty overlay does not wipe a portrait that is already there.
  */
 export function preferImageUrl(
   overlay?: string,
@@ -150,6 +151,8 @@ export function mergeCloudOntoFullSeed(
     fullSeed.productions.filter((p) => p.ishimClassic).map((p) => p.id)
   );
   for (const production of cloud.productions || []) {
+    const legacyTarget = LEGACY_PRODUCTION_IDS[production.id];
+    if (legacyTarget && productions.has(legacyTarget)) continue;
     const existing = productions.get(production.id);
     // Classic pages are owned by seed (Hop Tamir / אישים). Cloud copies are stale.
     if (existing?.ishimClassic) {
@@ -170,6 +173,8 @@ export function mergeCloudOntoFullSeed(
   );
   for (const credit of cloud.credits || []) {
     if (classicProductionIds.has(credit.productionId)) continue;
+    const legacyTarget = LEGACY_PRODUCTION_IDS[credit.productionId];
+    if (legacyTarget && productions.has(legacyTarget)) continue;
     const key = creditDedupeKey(credit);
     const existing = credits.get(key);
     if (!existing) {
