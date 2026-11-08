@@ -938,8 +938,7 @@ export const SERIES_CAST_CREDITS: Credit[] = [
   // —— לירוי וסטיץ׳ ——
   c("simcha-barbiro", "ht-lyrvy-vstytz", "dubber", "סטיץ׳ / דמויות"),
 
-  // —— סוניק X / טוטלי ספייס / דרגון בול (הופ תמיר) ——
-  c("eliana-magon", "ht-tvtly-spyys", "dubber", "סם"),
+  // —— סוניק X / דרגון בול (הופ תמיר) ——
   c("tsvika-furman", "ht-drgvn-bvl", "dubber", "גוקו"),
 
   // —— אמפיביה (ויקיפדיה / אישים) ——

@@ -38,6 +38,7 @@ const PRODUCTION: Production = {
   genres: rowsJson.genres,
   channel: rowsJson.channel,
   runtimeMinutes: rowsJson.runtimeMinutes,
+  episodeCount: 13,
   ishimKeys: rowsJson.ishimKeys,
   ishimNotes: rowsJson.ishimNotes,
   ishimClassic: true,
