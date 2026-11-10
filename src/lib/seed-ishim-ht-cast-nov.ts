@@ -279,7 +279,8 @@ const SHOWS: Show[] = [
       d("עמי מנדלמן", "דמויות שונות [2010]"),
     ],
     (production) =>
-      production.id === "ht-vvndr-pts" || production.title === "וונדר פטס"
+      production.id === "ht-vvndr-pts" || production.title === "וונדר פטס",
+    false
   ),
   show(
     hopFilm(
@@ -562,7 +563,8 @@ const SHOWS: Show[] = [
       },
     ],
     (production) =>
-      production.id === "ht-tvtly-spyys" || production.title === "טוטלי ספייס"
+      production.id === "ht-tvtly-spyys" || production.title === "טוטלי ספייס",
+    false
   ),
   show(
     hopFilm(
