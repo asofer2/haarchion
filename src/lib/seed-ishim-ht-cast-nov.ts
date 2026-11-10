@@ -28,14 +28,17 @@ type Show = {
   production: Production;
   credits: Row[];
   matches: (production: Production) => boolean;
+  /** כשהשנים כבר כתובות בתפקיד — לא להוסיף שנת הפקה לכל שורה */
+  stampYear?: boolean;
 };
 
 function show(
   production: Production,
   credits: Row[],
-  matches: (production: Production) => boolean
+  matches: (production: Production) => boolean,
+  stampYear = true
 ): Show {
-  return { production, credits, matches };
+  return { production, credits, matches, stampYear };
 }
 
 function hopFilm(
@@ -120,7 +123,7 @@ const SHOWS: Show[] = [
         "ishim-lyly-hmkshph",
         "לילי המכשפה",
         2005,
-        "לילי הנערה יוצאת בזמן עם חברה הדרקון במסע לימודי, ופוגשת אנשים שהיו אחראים להשראה גדולה בהיסטוריה של העולם",
+        "לילי הנערה, יוצאת בזמן עם חברה הדרקון במסע לימודי ופוגשים אנשים שהיו אחראים להשראה גדולה בהיסטוריה של העולם",
         LILY_URL,
         {
           originalTitle: "Lilly the Witch",
@@ -138,17 +141,17 @@ const SHOWS: Show[] = [
       { personName: "ענבר שטגר עזרא", role: "producer", heading: "הפקת דיבוב" },
       d("מאי יעקובסון", "לילי"),
       d("ניר רון", "הקטור"),
-      d("עידו דנקנר", "ליאון [2005]"),
-      d("שיר הדר", "ליאון [2006]"),
+      d("עידו דנקנר", "ליאון [ 2005 ]"),
+      d("שיר הדר", "ליאון [ 2006 ]"),
       d("אלי לולאי", "דמויות שונות", "מדבבים אורחים"),
       d("עמי מנדלמן", "דמויות שונות", "מדבבים אורחים"),
       d("שרית סרי", "דמויות שונות", "מדבבים אורחים"),
       d("תום שוורצברג", "דמויות שונות", "מדבבים אורחים"),
-      d("אפי בן ישראל", "דמויות שונות [2005]", "מדבבים אורחים"),
-      d("יהונתן מגון", "דמויות שונות [2005]", "מדבבים אורחים"),
-      d("ירון לוי סבג", "דמויות שונות [2005]", "מדבבים אורחים"),
-      d("קובי פרג'", "דמויות שונות [2006]", "מדבבים אורחים"),
-      d("מירון אהרונוביץ'", "דמויות שונות [2006]", "מדבבים אורחים"),
+      d("אפי בן ישראל", "דמויות שונות [ 2005 ]", "מדבבים אורחים"),
+      d("יהונתן מגון", "דמויות שונות [ 2005 ]", "מדבבים אורחים"),
+      d("ירון לוי סבג", "דמויות שונות [ 2005 ]", "מדבבים אורחים"),
+      d("קובי פרג'", "דמויות שונות [ 2006 ]", "מדבבים אורחים"),
+      d("מירון אהרונוביץ'", "דמויות שונות [ 2006 ]", "מדבבים אורחים"),
       {
         personName: "אלי לולאי",
         role: "singer",
@@ -157,7 +160,8 @@ const SHOWS: Show[] = [
       },
     ],
     (production) =>
-      production.id === "ishim-lyly-hmkshph" || production.title === "לילי המכשפה"
+      production.id === "ishim-lyly-hmkshph" || production.title === "לילי המכשפה",
+    false
   ),
   show(
     hopFilm(
@@ -756,7 +760,7 @@ export function applyIshimHopCastNov(data: ArchiveData): ArchiveData {
           role: row.role,
           heading: row.heading,
           characterName: row.character,
-          year: item.production.year,
+          year: item.stampYear === false ? undefined : item.production.year,
         }))
       )
     );
