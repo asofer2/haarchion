@@ -49,10 +49,12 @@ import { applyIshimDisney1993Fixes } from "./seed-ishim-disney-1993";
 import { applyIshimHopMid2000s } from "./seed-ishim-ht-mid-2000s";
 import { applyIshimBambi } from "./seed-ishim-bambi";
 import { applyIshimHopCastNov } from "./seed-ishim-ht-cast-nov";
+import { applyIshimHopCastNov11 } from "./seed-ishim-ht-cast-nov11";
 
 /** ערכי אישים/הפקות שלא בארכיון הגדול — מיושמים אחרי applyIshimArchive */
 export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
-  return applyIshimHopCastNov(
+  return applyIshimHopCastNov11(
+  applyIshimHopCastNov(
   applyIshimBambi(
   applyIshimHopMid2000s(
   applyIshimDisney1993Fixes(
@@ -144,6 +146,7 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
         )
       )
     )
+  )
   )
   )
   )
