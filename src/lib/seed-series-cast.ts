@@ -31,6 +31,7 @@ function p(
     entryAuthors: extra.entryAuthors,
     sourceNote: extra.sourceNote,
     sourceUrl: extra.sourceUrl,
+    ishimNotes: extra.ishimNotes,
     createdAt: now,
     updatedAt: now,
   };
@@ -691,6 +692,21 @@ export const SERIES_CAST_PEOPLE: Person[] = [
       tags: ["תסריט", "ארץ נהדרת"],
     }
   ),
+  p("gya-pyns", "גיא פינס", ["series", "acting", "hosting"], "", {
+    birthDate: "1966-07-25",
+    tags: ["אמא מפורסמת", "גלצניקים"],
+    gender: "male",
+    ishimClassic: true,
+    sourceNote: "אישים",
+    sourceUrl:
+      "https://web.archive.org/web/20210120041954/https://www.ishim.co.il/p.php?s=%D7%92%D7%99%D7%90+%D7%A4%D7%99%D7%A0%D7%A1",
+    ishimNotes: [
+      {
+        heading: "קשר משפחתי",
+        items: ["הבן של ציפי פינס", "נשוי לרותי רודנר", "הגיס של חמי רודנר"],
+      },
+    ],
+  }),
 ];
 
 export const SERIES_CAST_CREDITS: Credit[] = [

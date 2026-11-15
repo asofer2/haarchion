@@ -4,6 +4,7 @@ export const LEGACY_PRODUCTION_IDS: Record<string, string> = {
   "ishim-tynkrbl-vhavtsr-habvd": "ht-tynkrbl-vhavtsr-hbvd",
   "ishim-tynkrbl-vhsvd-hksvm": "ht-tynkrbl-vhsvd-hksvm",
   "ishim-knpy-hram-srt": "ishim-knpy-hram",
+  "ishim-kyph-advmh-hsypvr-hamyty": "ht-kyph-advmh",
   "bambi-he": "ishim-bmby",
 };
 
@@ -12,6 +13,7 @@ export const CANONICAL_PRODUCTION_ID_BY_TITLE: Record<string, string> = {
   טינקרבל: "ht-tynkrbl-2008",
   "טינקרבל והאוצר האבוד": "ht-tynkrbl-vhavtsr-hbvd",
   "טינקרבל והסוד הקסום": "ht-tynkrbl-vhsvd-hksvm",
+  "כיפה אדומה - הסיפור האמיתי": "ht-kyph-advmh",
   במבי: "ishim-bmby",
   "במבי 2": "ishim-bmby-2",
 };

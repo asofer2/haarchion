@@ -1,0 +1,1177 @@
+{
+  "title": "בנות הזהב",
+  "year": 2011,
+  "endYear": 2016,
+  "kind": "tv_series",
+  "airStatus": "ended",
+  "summary": "ארבע נשים מבוגרות חולקות בית",
+  "runtimeMinutes": 24,
+  "episodeCount": 69,
+  "genres": [
+    "קומדיה"
+  ],
+  "channel": "ערוץ 10",
+  "ishimKeys": [
+    "פורמט זר",
+    "קומדיית מצבים"
+  ],
+  "ishimNotes": [
+    {
+      "heading": "כללי",
+      "items": [
+        "מבוסס על הסדרה האמריקאית The Golden Girls"
+      ]
+    }
+  ],
+  "entryAuthors": [
+    "אליק פומבה",
+    "ברק חננאל",
+    "סטיבן קוזניצוב",
+    "Chen Trabelsi",
+    "Ben Fraind",
+    "סנטה קלאוס",
+    "תמיר סופר"
+  ],
+  "credits": [
+    {
+      "personName": "שירילי דשא",
+      "role": "director",
+      "heading": "בימוי"
+    },
+    {
+      "personName": "מישל זריהן",
+      "role": "director",
+      "heading": "בימוי",
+      "character": "בימוי מצלמות",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "אפרת שמעיה דרור",
+      "role": "producer",
+      "heading": "הפקה",
+      "character": "מפיקה אחראית",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "יעל לסקיה-פארי",
+      "role": "producer",
+      "heading": "הפקה",
+      "character": "מפיקה בפועל",
+      "year": 2011
+    },
+    {
+      "personName": "אפרת פוקס זריהן",
+      "role": "producer",
+      "heading": "הפקה",
+      "character": "מפיקת פוסט"
+    },
+    {
+      "personName": "עוז וידל",
+      "role": "producer",
+      "heading": "הפקה",
+      "character": "מפיק ראשי"
+    },
+    {
+      "personName": "מיטל מזרחי",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "ענבל לוי",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2011,
+      "endYear": 2012
+    },
+    {
+      "personName": "תמר זילבר-ענבר",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "אפרת שמעיה דרור",
+      "role": "writer",
+      "heading": "עריכה",
+      "character": "עורכת אחראית",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "גל זייד",
+      "role": "writer",
+      "heading": "עריכה",
+      "character": "עורך אחראי ערוץ 10",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "אורן נבות",
+      "role": "writer",
+      "heading": "עריכה",
+      "year": 2011,
+      "endYear": 2016
+    },
+    {
+      "personName": "דפנה רוזמן",
+      "role": "writer",
+      "heading": "עריכה",
+      "year": 2011,
+      "endYear": 2012
+    },
+    {
+      "personName": "שמעון ספקטור",
+      "role": "writer",
+      "heading": "עריכה",
+      "year": 2012,
+      "endYear": 2013
+    },
+    {
+      "personName": "אלכס ניימן",
+      "role": "writer",
+      "heading": "עריכה",
+      "year": 2012,
+      "endYear": 2016
+    },
+    {
+      "personName": "ליבי בן עמוס",
+      "role": "writer",
+      "heading": "עריכה",
+      "year": 2016
+    },
+    {
+      "personName": "אריק שגב",
+      "role": "writer",
+      "heading": "תסריט"
+    },
+    {
+      "personName": "לי גילת",
+      "role": "writer",
+      "heading": "תסריט"
+    },
+    {
+      "personName": "שירילי דשא",
+      "role": "writer",
+      "heading": "תסריט",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "שי רינגל",
+      "role": "writer",
+      "heading": "תסריט",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "רן דברת",
+      "role": "writer",
+      "heading": "תסריט",
+      "year": 2012,
+      "endYear": 2013
+    },
+    {
+      "personName": "מאיה הפנר",
+      "role": "writer",
+      "heading": "תסריט",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "רועי שגב",
+      "role": "writer",
+      "heading": "תסריט",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "חנה לסלאו",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "דליה"
+    },
+    {
+      "personName": "מיקי קם",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "רותי"
+    },
+    {
+      "personName": "תיקי דיין",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "שוש בן בסט"
+    },
+    {
+      "personName": "רבקה מיכאלי",
+      "role": "actor",
+      "heading": "שחקנים",
+      "character": "ריבה"
+    },
+    {
+      "personName": "אבי פניני",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שוקי",
+      "year": 2011
+    },
+    {
+      "personName": "אהרון זילברברג",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שלמה",
+      "year": 2011
+    },
+    {
+      "personName": "אודיה קורן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ורדה",
+      "year": 2011
+    },
+    {
+      "personName": "אושיק לוי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "גדי",
+      "year": 2011
+    },
+    {
+      "personName": "אושרת אינגדשט",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מוכרת",
+      "year": 2011
+    },
+    {
+      "personName": "אילנית בן יעקב",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "נעמי",
+      "year": 2011
+    },
+    {
+      "personName": "אריק שגב",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "עובד המשרד לאזרחים ותיקים",
+      "year": 2011
+    },
+    {
+      "personName": "גיא לואל",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "רופא",
+      "year": 2011
+    },
+    {
+      "personName": "גיל דסיאנו ביטון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "סיב",
+      "year": 2011
+    },
+    {
+      "personName": "גלעד קלטר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "חגי",
+      "year": 2011,
+      "endYear": 2012
+    },
+    {
+      "personName": "דודו שמאי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שלמה",
+      "year": 2011
+    },
+    {
+      "personName": "דניאל מורשת",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "זיו",
+      "year": 2011
+    },
+    {
+      "personName": "הוגו ירדן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מר אביגדור",
+      "year": 2011
+    },
+    {
+      "personName": "ולדימיר פרידמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "יפים פטרונוב",
+      "year": 2011
+    },
+    {
+      "personName": "טוני ברמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אלכסנדר",
+      "year": 2011
+    },
+    {
+      "personName": "יניב לוי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אבישי בן בסט",
+      "year": 2011
+    },
+    {
+      "personName": "יניב סוויסה",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שוטר",
+      "year": 2011,
+      "endYear": 2016
+    },
+    {
+      "personName": "יעל גרובגלס",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ליהי",
+      "year": 2011
+    },
+    {
+      "personName": "יעל טל",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "לולי",
+      "year": 2011,
+      "endYear": 2016
+    },
+    {
+      "personName": "יעקב בודו",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מיקלוש",
+      "year": 2011
+    },
+    {
+      "personName": "מאור כהן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מאור",
+      "year": 2011
+    },
+    {
+      "personName": "מאיר סוויסה",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "איז'ק",
+      "year": 2011
+    },
+    {
+      "personName": "מיכאל ורשביאק",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "המנהל של רותי",
+      "year": 2011
+    },
+    {
+      "personName": "נתן נתנזון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "גדעון",
+      "year": 2011
+    },
+    {
+      "personName": "ערן שראל",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אינסטלטור",
+      "year": 2011
+    },
+    {
+      "personName": "רפי רוטשטיין",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מר ורשבסקי",
+      "year": 2011
+    },
+    {
+      "personName": "שחר רוזנצוויג",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מיטל",
+      "year": 2011
+    },
+    {
+      "personName": "שלומי טפיארו",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ג'לי",
+      "year": 2011
+    },
+    {
+      "personName": "שמואל וילוז'ני",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "רפי",
+      "year": 2011
+    },
+    {
+      "personName": "שמוליק לוי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "נחום",
+      "year": 2011,
+      "endYear": 2016
+    },
+    {
+      "personName": "שלומי רוטשטיין",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מר ורשבסקי",
+      "year": 2011
+    },
+    {
+      "personName": "לבנה פינקלשטיין",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מלכה מוגרבי",
+      "year": 2011
+    },
+    {
+      "personName": "איציק סיידוף",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מנהל מקיף כ\"ג",
+      "year": 2012
+    },
+    {
+      "personName": "אלכס פלג",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אלכס",
+      "year": 2012
+    },
+    {
+      "personName": "דליה פרידלנד",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "גיטה",
+      "year": 2012
+    },
+    {
+      "personName": "אסף בן שמעון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "רביב",
+      "year": 2012
+    },
+    {
+      "personName": "חנה ריבר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "גברת טרכטנברג",
+      "year": 2012
+    },
+    {
+      "personName": "חני נחמיאס",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "תמי",
+      "year": 2012
+    },
+    {
+      "personName": "יורם יוספסברג",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מוני",
+      "year": 2012
+    },
+    {
+      "personName": "משה אשכנזי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אביחי",
+      "year": 2012,
+      "endYear": 2016
+    },
+    {
+      "personName": "עודד יחזקאל",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מנגש",
+      "year": 2012
+    },
+    {
+      "personName": "פיני מיטלמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מנהל בית אבות",
+      "year": 2012
+    },
+    {
+      "personName": "רוני מרחבי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אלינור",
+      "year": 2012
+    },
+    {
+      "personName": "רמי ברוך",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מר פדהצור",
+      "year": 2012
+    },
+    {
+      "personName": "שושה גורן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "חמדה",
+      "year": 2012
+    },
+    {
+      "personName": "שירי גולן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "נורית",
+      "year": 2012
+    },
+    {
+      "personName": "שלמה סדן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "עמי",
+      "year": 2012
+    },
+    {
+      "personName": "שמיל בן ארי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ג'קי",
+      "year": 2012
+    },
+    {
+      "personName": "שושיק שני",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "חביבה",
+      "year": 2015
+    },
+    {
+      "personName": "אורלי וילנאי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמה",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "גיא מרוז",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתפקיד עצמו",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "אייל גולדמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מוש",
+      "year": 2015
+    },
+    {
+      "personName": "דרור טפליצקי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שרגא",
+      "year": 2015
+    },
+    {
+      "personName": "לני רביץ",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "דוד פרדי",
+      "year": 2015
+    },
+    {
+      "personName": "נילי צרויה",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אורנה",
+      "year": 2015
+    },
+    {
+      "personName": "ענבר דנון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "דנית",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "לי גילת",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "במאית",
+      "year": 2015
+    },
+    {
+      "personName": "אריה צ'רנר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "משה הדייג",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "מיטל סלקמון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אמא של מלאך",
+      "year": 2016
+    },
+    {
+      "personName": "עדי אייזנמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אבא של מלאך",
+      "year": 2016
+    },
+    {
+      "personName": "קובי מאור",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אבשה",
+      "year": 2016
+    },
+    {
+      "personName": "אלברט כהן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אלברט",
+      "year": 2016
+    },
+    {
+      "personName": "ג'יל בן דוד",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "רמי",
+      "year": 2016
+    },
+    {
+      "personName": "דוד קיגלר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מאיר",
+      "year": 2016
+    },
+    {
+      "personName": "רות גלר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אלישבע",
+      "year": 2016
+    },
+    {
+      "personName": "טוביה צפיר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "נסראללה",
+      "year": 2016
+    },
+    {
+      "personName": "רועי שגב",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אריק",
+      "year": 2016
+    },
+    {
+      "personName": "גיל צרנוביץ",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "גדעון",
+      "year": 2016
+    },
+    {
+      "personName": "ישראל גוריון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ישראל",
+      "year": 2016
+    },
+    {
+      "personName": "ואן נויין",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "טריאקי",
+      "year": 2016
+    },
+    {
+      "personName": "הילה אברמוביץ",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "קיץ",
+      "year": 2016
+    },
+    {
+      "personName": "עמי מנדלמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "מוטי",
+      "year": 2016
+    },
+    {
+      "personName": "גילת אנקורי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בלה",
+      "year": 2016
+    },
+    {
+      "personName": "אברהם סלקטר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "חזי שביט",
+      "year": 2016
+    },
+    {
+      "personName": "גל שלהב אהרונוביץ",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "נריה",
+      "year": 2016
+    },
+    {
+      "personName": "מולי שולמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "עודד",
+      "year": 2016
+    },
+    {
+      "personName": "דני יאיר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "דיווה די",
+      "year": 2016
+    },
+    {
+      "personName": "טל קלאי",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "טלולה בונט",
+      "year": 2016
+    },
+    {
+      "personName": "יובל אדלמן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "ציונה פטריוט",
+      "year": 2016
+    },
+    {
+      "personName": "ליאור כהן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "קיארה דופלה",
+      "year": 2016
+    },
+    {
+      "personName": "טלי אורן",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "אבנין חן",
+      "year": 2016
+    },
+    {
+      "personName": "יניב הלפגוט",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "יוס",
+      "year": 2016
+    },
+    {
+      "personName": "הילה סורג'ון פישר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "דליה",
+      "year": 2016
+    },
+    {
+      "personName": "הלל קפון",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "יהלי",
+      "year": 2016
+    },
+    {
+      "personName": "חגית דסברג",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בתיה משולם",
+      "year": 2016
+    },
+    {
+      "personName": "אורנה כץ",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "חני",
+      "year": 2016
+    },
+    {
+      "personName": "אילן דר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "שכטר",
+      "year": 2016
+    },
+    {
+      "personName": "אסף אשתר",
+      "role": "actor",
+      "heading": "שחקנים אורחים",
+      "character": "בני בידור",
+      "year": 2016
+    },
+    {
+      "personName": "אייל וענונו",
+      "role": "cinematographer",
+      "heading": "צילום"
+    },
+    {
+      "personName": "אבי קסמן",
+      "role": "cinematographer",
+      "heading": "צילום"
+    },
+    {
+      "personName": "ירון בניסטי",
+      "role": "cinematographer",
+      "heading": "צילום"
+    },
+    {
+      "personName": "הרצל פור",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011
+    },
+    {
+      "personName": "עדי בן ברון",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011,
+      "endYear": 2012
+    },
+    {
+      "personName": "חיים זדרבקו",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "רזבן טומסקו",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011
+    },
+    {
+      "personName": "אסף סילנר",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "איתן הדר",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011
+    },
+    {
+      "personName": "נוויל האריס",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "עמוס שם טוב",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011,
+      "endYear": 2012
+    },
+    {
+      "personName": "אבי אורן",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "רומן ילנוביץ'",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011
+    },
+    {
+      "personName": "בוריס בלנקין",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011
+    },
+    {
+      "personName": "יריב מור",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011
+    },
+    {
+      "personName": "עידו ברלד",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011
+    },
+    {
+      "personName": "צביקה רוזן",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011,
+      "endYear": 2012
+    },
+    {
+      "personName": "יובל דקל",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011,
+      "endYear": 2012
+    },
+    {
+      "personName": "אלון צרפתי",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "ירון שרון",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011,
+      "endYear": 2012
+    },
+    {
+      "personName": "איציק אסף",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "דני שניידר",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011,
+      "endYear": 2012
+    },
+    {
+      "personName": "אילן ברדה",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2011,
+      "endYear": 2012
+    },
+    {
+      "personName": "מיקי קריכלי",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2012,
+      "endYear": 2013
+    },
+    {
+      "personName": "מיכאל צייטלין",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2012,
+      "endYear": 2013
+    },
+    {
+      "personName": "דודי מאיר",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "אופיר שבתאי",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "אריה קאופמן",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "איגור בזיליאנקו",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "רן דיקשטיין",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "דניאל סלומון",
+      "role": "composer",
+      "heading": "מוזיקה"
+    },
+    {
+      "personName": "לי גילת",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "עריכת תסריט / פיתוח גרסה ישראלית"
+    },
+    {
+      "personName": "מור טרגר דלריה",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "אחראית מטעם ערוץ 10"
+    },
+    {
+      "personName": "עוזי קרין",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "סמנכ\"ל הפקה"
+    },
+    {
+      "personName": "אפרת שמעיה דרור",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "מנכ\"לית משותפת",
+      "year": 2012,
+      "endYear": 2016
+    },
+    {
+      "personName": "גלית אשכול",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ליהוק שחקני משנה",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "נעמה גוטרמן",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ע. במאי",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "גילת גינסברג",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ע. במאי",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "דליה היימן",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ע. במאי",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "טל קסטון",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ע. הפקה",
+      "year": 2011,
+      "endYear": 2012
+    },
+    {
+      "personName": "מיטל שגב",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ניהול אולפן",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "עוז גוטמן",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ע. עריכה",
+      "year": 2011
+    },
+    {
+      "personName": "סלאביק גריניש",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ע. צלם",
+      "year": 2011,
+      "endYear": 2012
+    },
+    {
+      "personName": "אורי גלאון",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "עריכת סאונד"
+    },
+    {
+      "personName": "ניר סבו",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "עריכת סאונד",
+      "year": 2011,
+      "endYear": 2012
+    },
+    {
+      "personName": "זהר ניב",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "פוסט פרודקשיין",
+      "year": 2011,
+      "endYear": 2013
+    },
+    {
+      "personName": "שירילי דשא",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "עריכת תסריט",
+      "year": 2015,
+      "endYear": 2016
+    },
+    {
+      "personName": "חיים פירר",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "סאונד / פיקוח קול"
+    },
+    {
+      "personName": "גילי פרידמן",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "פיקוח קול",
+      "year": 2015,
+      "endYear": 2016
+    }
+  ]
+}

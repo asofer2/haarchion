@@ -19,6 +19,7 @@ import { applyIshimHyhHyhDvagymLkdvrHartz } from "./seed-ishim-hyh-hyh-dvagym-lk
 import { applyIshimHyhHyhHadm } from "./seed-ishim-hyh-hyh-hadm";
 import { applyIshimAgdotAndersen } from "./seed-ishim-agdot-andersen";
 import { applyIshimFindingNemo } from "./seed-ishim-ht-finding-nemo";
+import { applyIshimHoodwinked2006 } from "./seed-ishim-ht-kyph-advmh";
 import { applyIshimMegamind2010 } from "./seed-ishim-ht-mgh-mvch-2010";
 import { applyIshimKopyko1993 } from "./seed-ishim-kopyko-1993";
 import { applyIshimKopyko2009 } from "./seed-ishim-kopyko-2009";
@@ -47,19 +48,38 @@ import { applyIshimMulan1998 } from "./seed-ishim-mulan-1998";
 import { applyIshimVipo2008 } from "./seed-ishim-ht-vypv-2008";
 import { applyIshimDisney1993Fixes } from "./seed-ishim-disney-1993";
 import { applyIshimHopMid2000s } from "./seed-ishim-ht-mid-2000s";
+import { applyIshimHai } from "./seed-ishim-hai";
+import { applyIshimGuyPines } from "./seed-ishim-guy-pines";
 import { applyIshimBambi } from "./seed-ishim-bambi";
 import { applyIshimHopCastNov } from "./seed-ishim-ht-cast-nov";
 import { applyIshimHopCastNov11 } from "./seed-ishim-ht-cast-nov11";
 import { applyIshimHopCastNov12 } from "./seed-ishim-ht-cast-nov12";
+import { applyIshimHopCastNov15 } from "./seed-ishim-ht-cast-nov15";
+import { applyIshimBnotHazahav } from "./seed-ishim-bnot-hazahav";
 
 /** ערכי אישים/הפקות שלא בארכיון הגדול — מיושמים אחרי applyIshimArchive */
 export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
-  return applyIshimHopCastNov12(
+  const keptFacts = new Map(
+    data.people.map((person) => [
+      person.id,
+      {
+        birthDate: person.birthDate,
+        deathDate: person.deathDate,
+        bio: person.bio,
+      },
+    ])
+  );
+  const patched = applyIshimHopCastNov15(
+  applyIshimHopCastNov12(
   applyIshimHopCastNov11(
   applyIshimHopCastNov(
   applyIshimBambi(
+  applyIshimBnotHazahav(
+  applyIshimGuyPines(
+  applyIshimHai(
   applyIshimHopMid2000s(
   applyIshimDisney1993Fixes(
+  applyIshimHoodwinked2006(
   applyIshimFindingNemo(
   applyIshimMegamind2010(
   applyIshimAgdotAndersen(
@@ -150,6 +170,11 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
     )
   )
   )
+      )
+    )
+  )
+  )
+  )
   )
   )
   )
@@ -159,4 +184,22 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
   )
   )
   );
+  return {
+    ...patched,
+    people: patched.people.map((person) => {
+      const prior = keptFacts.get(person.id);
+      if (!prior) return person;
+      const birthDate = prior.birthDate || person.birthDate;
+      const deathDate = prior.deathDate || person.deathDate;
+      const bio = prior.bio?.trim() ? prior.bio : person.bio;
+      if (
+        birthDate === person.birthDate &&
+        deathDate === person.deathDate &&
+        bio === person.bio
+      ) {
+        return person;
+      }
+      return { ...person, birthDate, deathDate, bio };
+    }),
+  };
 }

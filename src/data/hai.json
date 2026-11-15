@@ -1,0 +1,1240 @@
+{
+  "title": "האי",
+  "year": 2007,
+  "endYear": 2010,
+  "kind": "tv_series",
+  "airStatus": "ended",
+  "summary": "חבורת ילדים הנוסעת בזמן צריכה להציל את העולם מאסטרואיד שאמור לנחות בכדור הארץ",
+  "runtimeMinutes": 26,
+  "episodeCount": 143,
+  "genres": [
+    "מדע בדיוני",
+    "מתח",
+    "נוער"
+  ],
+  "channel": "HOT, ערוץ הילדים",
+  "ishimKeys": [
+    "אהבה",
+    "בגידות",
+    "חבורת ילדים",
+    "טרגדיה",
+    "ילדי פלא",
+    "פשע",
+    "תוכנית טלוויזיה יומית"
+  ],
+  "ishimNotes": [
+    {
+      "heading": "שירים",
+      "items": [
+        "2007 — שיר הפתיחה של האי"
+      ]
+    },
+    {
+      "heading": "ראה גם",
+      "items": [
+        "מעבר לאי"
+      ]
+    },
+    {
+      "heading": "תחרויות ופרסים",
+      "items": [
+        "טקס נבחרי הילדים — סדרת הילדים הישראלית של השנה (2008)",
+        "פרס האקדמיה לטלוויזיה — תוכנית ילדים ונוער הטובה ביותר (2008)"
+      ]
+    }
+  ],
+  "entryAuthors": [
+    "ברק חננאל"
+  ],
+  "credits": [
+    {
+      "personName": "עופר ויצמן",
+      "role": "director",
+      "heading": "בימוי"
+    },
+    {
+      "personName": "עדי סופר",
+      "role": "director",
+      "heading": "בימוי",
+      "year": 2007
+    },
+    {
+      "personName": "אייל דורי",
+      "role": "director",
+      "heading": "בימוי",
+      "character": "בימוי עריכות",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "אלעד קופרמן",
+      "role": "producer",
+      "heading": "הפקה"
+    },
+    {
+      "personName": "גליה עידן",
+      "role": "producer",
+      "heading": "הפקה"
+    },
+    {
+      "personName": "כפיר יונסוף וייס",
+      "role": "producer",
+      "heading": "הפקה",
+      "character": "מפיק בפועל",
+      "year": 2007
+    },
+    {
+      "personName": "מירה אן בינרט",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2007
+    },
+    {
+      "personName": "יעל דבורי",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2008
+    },
+    {
+      "personName": "חנה אזולאי קלמנסון",
+      "role": "producer",
+      "heading": "הפקה",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "רז טוכבנד",
+      "role": "producer",
+      "heading": "הפקה",
+      "character": "מפיק בפועל",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "ירון ארזי",
+      "role": "producer",
+      "heading": "עריכה"
+    },
+    {
+      "personName": "אורן ענבי",
+      "role": "producer",
+      "heading": "עריכה",
+      "year": 2007
+    },
+    {
+      "personName": "אייל שפירא",
+      "role": "producer",
+      "heading": "עריכה",
+      "year": 2007
+    },
+    {
+      "personName": "חגי לפיד",
+      "role": "producer",
+      "heading": "עריכה",
+      "year": 2007
+    },
+    {
+      "personName": "ענת שומכר",
+      "role": "producer",
+      "heading": "עריכה",
+      "year": 2007,
+      "endYear": 2008
+    },
+    {
+      "personName": "אייל דורי",
+      "role": "producer",
+      "heading": "עריכה",
+      "character": "עורך וידאו",
+      "year": 2007,
+      "endYear": 2008
+    },
+    {
+      "personName": "דרור אשכנזי",
+      "role": "producer",
+      "heading": "עריכה",
+      "character": "עורך וידאו",
+      "year": 2007,
+      "endYear": 2009
+    },
+    {
+      "personName": "יואב זומר",
+      "role": "producer",
+      "heading": "עריכה",
+      "year": 2010
+    },
+    {
+      "personName": "שלמה גלפנד",
+      "role": "producer",
+      "heading": "עריכה",
+      "character": "עריכה מוזיקלית",
+      "year": 2010
+    },
+    {
+      "personName": "מיכל קופר קרן",
+      "role": "writer",
+      "heading": "תסריט",
+      "character": "תסריטאית ראשית",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "רוני ידור",
+      "role": "writer",
+      "heading": "תסריט",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "גיורא חמיצר",
+      "role": "writer",
+      "heading": "תסריט",
+      "character": "פיתוח עלילה ודמויות"
+    },
+    {
+      "personName": "ירון ארזי",
+      "role": "writer",
+      "heading": "תסריט",
+      "character": "פיתוח עלילה ודמויות"
+    },
+    {
+      "personName": "דפנה ממן",
+      "role": "writer",
+      "heading": "תסריט",
+      "character": "דיאלוגים"
+    },
+    {
+      "personName": "גיורא חמיצר",
+      "role": "writer",
+      "heading": "נוצר על ידי"
+    },
+    {
+      "personName": "יון תומרקין",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "דילן"
+    },
+    {
+      "personName": "אביגיל הררי",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "ליבי"
+    },
+    {
+      "personName": "עוז זהבי",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "סול"
+    },
+    {
+      "personName": "ליאת בלו",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "זואי"
+    },
+    {
+      "personName": "יעל גרובגלס",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "ג'יני"
+    },
+    {
+      "personName": "אפרת בן יעקב",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "אנה"
+    },
+    {
+      "personName": "דניאל מורשת",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "מייקי"
+    },
+    {
+      "personName": "לירון לבו",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "אדי",
+      "year": 2007,
+      "endYear": 2009
+    },
+    {
+      "personName": "דנה ברגר",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "סילביה",
+      "year": 2007,
+      "endYear": 2008
+    },
+    {
+      "personName": "ארז רונן",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "מיילו"
+    },
+    {
+      "personName": "עידית טפרסון",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "הלנה"
+    },
+    {
+      "personName": "זהר ליבה",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "צ'יף"
+    },
+    {
+      "personName": "אביב אלוש",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "בן",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "רותי בורנשטיין",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "פני בן עמי",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "מיקי גבע",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "דוד בן עמי",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "טל מוסרי",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "בלו / גורדון מילר"
+    },
+    {
+      "personName": "נוריה ויטל",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "עלמה בן עמי"
+    },
+    {
+      "personName": "סיגלית תמיר",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "ליסה",
+      "year": 2007,
+      "endYear": 2009
+    },
+    {
+      "personName": "אורן יאדגר",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "קאיראן",
+      "year": 2008,
+      "endYear": 2010
+    },
+    {
+      "personName": "תמר עמית יוסף",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "אמה ברודי",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "תום אבני",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "ריק ברודי",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "דון לני גבאי",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "נלי בראון",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "עמוס לביא",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "סם ברודי",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "אורי פפר",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "מוזס",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "אמנון וולף",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "ג'יי",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "רמי ברוך",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "מישל",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "פלורנס בלוך",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "נורה בראון",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "יעל איתן",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "דינה",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "ישי גולן",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "מקס"
+    },
+    {
+      "personName": "איילת מרגלית",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "אסתר עיני"
+    },
+    {
+      "personName": "מאי הרשקוביץ רשף",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "סופי",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "אור מאיר",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "ג'פרי",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "ליאור רז",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "קפטן בריגס",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "הנרי דוד",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "הוגו",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "רוני הדר",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "רומי",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "מיכאלה אלקין",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "איזבלה",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "גיא ברכה",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "ארנולד",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "גל לב",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "יהלי",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "גלעד קלטר",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "רון",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "איתמר צור",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "דניאל",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "שלומי ברטונוב",
+      "role": "actor",
+      "heading": "שחקן",
+      "character": "קוזמו",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "רוני גאמר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "ויל",
+      "year": 2010
+    },
+    {
+      "personName": "תומר גלרון",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "ג'רום",
+      "year": 2010
+    },
+    {
+      "personName": "נדב אסולין",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "קפטן רוס",
+      "year": 2010
+    },
+    {
+      "personName": "אלחי לויט",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "בארי",
+      "year": 2010
+    },
+    {
+      "personName": "אלדד פריבס",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "פול",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "נאור זילברמן",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "דיויד",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "שמואל וולף",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "סבסטיאן",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "איציק גבאי",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "אלכס",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "דן קסטוריאנו",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "מרקוס",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "עידן אלימלך",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "ג'ים",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "נהד בשיר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "קרטר",
+      "year": 2009,
+      "endYear": 2010
+    },
+    {
+      "personName": "מורין אמור",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "נלי הצעירה",
+      "year": 2009
+    },
+    {
+      "personName": "חלי גולדנברג",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "ליז",
+      "year": 2009
+    },
+    {
+      "personName": "איציק ג'ולי",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "ביל בראון",
+      "year": 2009
+    },
+    {
+      "personName": "מוריס כהן",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "סקיפי",
+      "year": 2009
+    },
+    {
+      "personName": "אסף שיינברגר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "חבר קונגרס / לוקאס",
+      "year": 2008,
+      "endYear": 2010
+    },
+    {
+      "personName": "יונתן עוזיאל",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "שוטר",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "יוסי חנוכה",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "שוטר",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "אודי רוטשילד",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "ג'וני",
+      "year": 2008
+    },
+    {
+      "personName": "רענן חפץ",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "צייד",
+      "year": 2008
+    },
+    {
+      "personName": "דורון בן דוד",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "צייד",
+      "year": 2008
+    },
+    {
+      "personName": "שמוליק כהן",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "גנב",
+      "year": 2008
+    },
+    {
+      "personName": "חיים זנאתי",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "בעל בית המחסה",
+      "year": 2008
+    },
+    {
+      "personName": "קובי שטמברג",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "פיראט שחור",
+      "year": 2008
+    },
+    {
+      "personName": "שרון רג'יניאנו",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "אלונזו בלייק",
+      "year": 2008
+    },
+    {
+      "personName": "מהרטה ברוך",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "נעמי",
+      "year": 2008
+    },
+    {
+      "personName": "יואב יפת",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "הומלס",
+      "year": 2008
+    },
+    {
+      "personName": "אייל רוזלס",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "פרדי",
+      "year": 2008
+    },
+    {
+      "personName": "מירב פלדמן",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "קריינית חדשות",
+      "year": 2008
+    },
+    {
+      "personName": "ערן בן צבי",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "חבר של דוד",
+      "year": 2008
+    },
+    {
+      "personName": "בועז קונפורטי",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "חבר של דוד",
+      "year": 2008
+    },
+    {
+      "personName": "ערן לנסקי",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "שוטר",
+      "year": 2008
+    },
+    {
+      "personName": "דקלה קידר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "נטלי",
+      "year": 2008
+    },
+    {
+      "personName": "ליאור פינקסון",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "שון",
+      "year": 2008
+    },
+    {
+      "personName": "איתי בלייברג",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "חבר במחתרת",
+      "year": 2008
+    },
+    {
+      "personName": "גיא אלון",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "חבר קונגרס",
+      "year": 2008
+    },
+    {
+      "personName": "דנה סמו",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "מוכרת במרינה",
+      "year": 2007,
+      "endYear": 2008
+    },
+    {
+      "personName": "שמחה ברבירו",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "בחור בקיוסק במרינה",
+      "year": 2007,
+      "endYear": 2008
+    },
+    {
+      "personName": "לביא זיטנר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "בחור בקיוסק במרינה",
+      "year": 2007,
+      "endYear": 2008
+    },
+    {
+      "personName": "אלון פדות",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "ארי",
+      "year": 2007,
+      "endYear": 2008
+    },
+    {
+      "personName": "אלכס פלג",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "שופט",
+      "year": 2007,
+      "endYear": 2008
+    },
+    {
+      "personName": "ידידיה ויטל",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "בוק",
+      "year": 2007,
+      "endYear": 2008
+    },
+    {
+      "personName": "דודיק סמדר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "מוכר בחנות תכשיטים",
+      "year": 2007
+    },
+    {
+      "personName": "דור פלס",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "בוארון",
+      "year": 2007
+    },
+    {
+      "personName": "שרון הכהן בר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "קונה טבעות מאנה",
+      "year": 2007
+    },
+    {
+      "personName": "תום גורביץ",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "אודי",
+      "year": 2007
+    },
+    {
+      "personName": "דניאל קופרמן",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "עובד בלימונדה",
+      "year": 2007
+    },
+    {
+      "personName": "איתי כספית",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "עובד בלימונדה",
+      "year": 2007
+    },
+    {
+      "personName": "ורד פרידלנדר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "שוטרת",
+      "year": 2007
+    },
+    {
+      "personName": "מיכאל פרוכטר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "שותף של בלו",
+      "year": 2007
+    },
+    {
+      "personName": "ארקדי זטקובצקי",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "שותף של בלו",
+      "year": 2007
+    },
+    {
+      "personName": "גלעד בנבנישתי",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "שותף של בלו",
+      "year": 2007
+    },
+    {
+      "personName": "ניר פאר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "חבר במחתרת",
+      "year": 2007
+    },
+    {
+      "personName": "יאיר גפני",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "חבר במחתרת",
+      "year": 2007
+    },
+    {
+      "personName": "אביתר לזר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "גיל",
+      "year": 2007
+    },
+    {
+      "personName": "אדם חדש",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "טומי הקטן",
+      "year": 2007
+    },
+    {
+      "personName": "אלי אריה",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "year": 2007
+    },
+    {
+      "personName": "דני שגב",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "עובד בסוכנות החלל",
+      "year": 2007
+    },
+    {
+      "personName": "עודד גרובר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "שותף של מקס",
+      "year": 2007
+    },
+    {
+      "personName": "לירז דבוש",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "כלה במרינה",
+      "year": 2007,
+      "endYear": 2008
+    },
+    {
+      "personName": "רפי טיכובר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "איש בקתרינה",
+      "year": 2010
+    },
+    {
+      "personName": "ליאור מיכאלי",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "לואי",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "שני קליין",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "אמילי",
+      "year": 2010
+    },
+    {
+      "personName": "עירד רובינשטיין",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "ציון",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "רוי מילר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "שוטר",
+      "year": 2008
+    },
+    {
+      "personName": "יהודה נהרי",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "רופא",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "יובל כרמי",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "רופא",
+      "year": 2008,
+      "endYear": 2009
+    },
+    {
+      "personName": "אלון דהן",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "בוב",
+      "year": 2008
+    },
+    {
+      "personName": "רועי מירון",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "שוטר",
+      "year": 2008
+    },
+    {
+      "personName": "סופי קסטרו",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "year": 2008
+    },
+    {
+      "personName": "אוריאל בן חמו",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "חבר מחתרת",
+      "year": 2007,
+      "endYear": 2008
+    },
+    {
+      "personName": "אלעד קופרמן",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "ראש הממשלה",
+      "year": 2007,
+      "endYear": 2008
+    },
+    {
+      "personName": "סנדרה שונוולד",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "סוכנת נסיעות",
+      "year": 2008
+    },
+    {
+      "personName": "יונתן רוזן",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "שוטר",
+      "year": 2009
+    },
+    {
+      "personName": "שי רז",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "מגיש חדשות",
+      "year": 2007
+    },
+    {
+      "personName": "ישי דינר",
+      "role": "actor",
+      "heading": "שחקן אורח",
+      "character": "חבר מחתרת",
+      "year": 2007
+    },
+    {
+      "personName": "רוני קלדרון",
+      "role": "cinematographer",
+      "heading": "צילום"
+    },
+    {
+      "personName": "איציק ברכה",
+      "role": "cinematographer",
+      "heading": "צילום"
+    },
+    {
+      "personName": "שי רז",
+      "role": "cinematographer",
+      "heading": "צילום"
+    },
+    {
+      "personName": "אילן ברדה",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2007
+    },
+    {
+      "personName": "גור פלג",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2007
+    },
+    {
+      "personName": "לירן מרום",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2007
+    },
+    {
+      "personName": "עמיקם שילה",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2007
+    },
+    {
+      "personName": "אבי קורן",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2007
+    },
+    {
+      "personName": "חגי מזור",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2008
+    },
+    {
+      "personName": "שי כהן",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2008,
+      "endYear": 2010
+    },
+    {
+      "personName": "צביקה רוזן",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2010
+    },
+    {
+      "personName": "מקסים סטולבוב",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2010
+    },
+    {
+      "personName": "שלומי נמאטייב",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2010
+    },
+    {
+      "personName": "יובל דקל",
+      "role": "cinematographer",
+      "heading": "צילום",
+      "year": 2010
+    },
+    {
+      "personName": "דנה ברגר",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "שיר נושא (ביצוע, \"כאילו אין מחר\")"
+    },
+    {
+      "personName": "גיורא חמיצר",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "שיר נושא (מילים, \"כאילו אין מחר\")"
+    },
+    {
+      "personName": "דני רייכנטל",
+      "role": "singer",
+      "heading": "מוזיקה",
+      "character": "שיר נושא (לחן, \"כאילו אין מחר\")"
+    },
+    {
+      "personName": "אסתר קלינג",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ליהוק"
+    },
+    {
+      "personName": "דידי לובצקי",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ליהוק",
+      "year": 2010
+    },
+    {
+      "personName": "בן אביב",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ע. צלם",
+      "year": 2007
+    },
+    {
+      "personName": "חוה שיר מעודה",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ע. במאי"
+    },
+    {
+      "personName": "ליהי לוין",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ע. במאי",
+      "year": 2007
+    },
+    {
+      "personName": "אורן שקדי",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "ע. במאי",
+      "year": 2007,
+      "endYear": 2009
+    },
+    {
+      "personName": "יצחק רונן",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "עיצוב אומנותי"
+    },
+    {
+      "personName": "רואי רוט",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "עיצוב אומנותי",
+      "year": 2007
+    },
+    {
+      "personName": "גלי מערבי",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "מתאמת הפקה",
+      "year": 2007
+    },
+    {
+      "personName": "חיים פירר",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "מקליט",
+      "year": 2007,
+      "endYear": 2008
+    },
+    {
+      "personName": "גל זייד",
+      "role": "producer",
+      "heading": "תפקידים שונים",
+      "character": "עריכת תסריט",
+      "year": 2010
+    }
+  ]
+}
