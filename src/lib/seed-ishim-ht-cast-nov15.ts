@@ -17,6 +17,21 @@ import { roleToActivity } from "./types";
 
 const NOW = "2026-11-15T00:00:00.000Z";
 const HOP = "ערוץ הופ תמיר";
+const OZ_TITLE = "בחזרה לארץ עוץ";
+const OZ_2014_ID = "ht-bchzrh-larts-avts-2014";
+const OZ_1995_SUMMARY =
+  "דורותי חוזרת לארץ עוץ כדי לסכל את מזימתה של מומבי בעזרת ידידיה הותיקים וחברים חדשים";
+const OZ_1995_GENRES = [
+  "אנימציה",
+  "דרמה",
+  "ילדים",
+  "מדובב - זר",
+  "מדע בדיוני",
+  "מוזיקלי",
+  "פנטזיה",
+  "פעולה",
+  "קומדיה",
+];
 
 type Row = {
   personName: string;
@@ -63,7 +78,65 @@ function matches(production: Production, item: Show): boolean {
   }
   if (item.id === "ht-hpygmvt-hmhzmr") return production.year === 2003;
   if (item.id === "ht-hsykh-hksvf") return true;
+  if (item.id === "ht-antvny-hnmlh") {
+    const title = normTitle(production.title);
+    return (
+      (title === "אנתוני הנמלה" || title === "אנטוני הנמלה") &&
+      production.year === 2017
+    );
+  }
+  if (item.id === OZ_2014_ID) return production.year === 2014;
   return production.year === item.year;
+}
+
+/** הארכיון מדביק את 1995 ואת 2014 לאותה רשומה. 1995 נשארת, ו-2014 נבנית מחדש. */
+function separateOz1995(
+  productions: Production[],
+  credits: Credit[]
+): { productions: Production[]; credits: Credit[] } {
+  const oz = productions.filter((production) => normTitle(production.title) === OZ_TITLE);
+  if (!oz.length) return { productions, credits };
+  const ids = new Set(oz.map((production) => production.id));
+  const from1995 = credits.filter(
+    (credit) => ids.has(credit.productionId) && credit.year === 1995
+  );
+  if (!from1995.length) return { productions, credits };
+
+  const existing1995 = oz.find(
+    (production) => production.year === 1995 && production.id !== OZ_2014_ID
+  );
+  const host =
+    existing1995 || oz.find((production) => production.id !== OZ_2014_ID);
+  if (!host) return { productions, credits };
+  const id1995 = existing1995?.id || host.id;
+  const restored: Production = existing1995
+    ? existing1995
+    : {
+        ...host,
+        id: id1995,
+        title: OZ_TITLE,
+        year: 1995,
+        kind: "film_dubbed_foreign",
+        summary: OZ_1995_SUMMARY,
+        genres: OZ_1995_GENRES,
+        runtimeMinutes: undefined,
+        sourceUrl: host.sourceUrl?.includes("2014") ? undefined : host.sourceUrl,
+        updatedAt: NOW,
+      };
+
+  return {
+    productions: [
+      ...productions.filter(
+        (production) =>
+          normTitle(production.title) !== OZ_TITLE || production.id === OZ_2014_ID
+      ),
+      restored,
+    ],
+    credits: [
+      ...credits.filter((credit) => !ids.has(credit.productionId)),
+      ...from1995.map((credit) => ({ ...credit, productionId: id1995 })),
+    ],
+  };
 }
 
 function productionFrom(item: Show, previous?: Production): Production {
@@ -167,7 +240,9 @@ export function applyIshimHopCastNov15(data: ArchiveData): ArchiveData {
     }
   }
 
-  let productions = [...data.productions];
+  const separated = separateOz1995([...data.productions], [...data.credits]);
+  let productions = separated.productions;
+  let credits = separated.credits;
   const replaced = new Set<string>();
   const added: Credit[] = [];
 
@@ -205,7 +280,7 @@ export function applyIshimHopCastNov15(data: ArchiveData): ArchiveData {
     people,
     productions,
     credits: [
-      ...data.credits.filter((credit) => !replaced.has(credit.productionId)),
+      ...credits.filter((credit) => !replaced.has(credit.productionId)),
       ...added,
     ],
   };

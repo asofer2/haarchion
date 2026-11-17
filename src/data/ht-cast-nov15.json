@@ -3220,5 +3220,397 @@
       }
     ],
     "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%94%D7%93%D7%91%D7%95%D7%A8%D7%94-%D7%9E%D7%90%D7%99%D7%94-2012-2013-%D7%90%D7%99%D7%A9%D7%99%D7%9D"
+  },
+  {
+    "id": "ht-msavt-gvlybr",
+    "title": "מסעות גוליבר",
+    "year": 1993,
+    "kind": "series_dubbed_foreign",
+    "summary": "בעקבות סערה, מוצא את עצמו ההרפתקן גוליבר ועוזרו רפאל, באי הגמדים ליליפוט השוכנים אנשים בגודל אצבע",
+    "runtimeMinutes": 23,
+    "genres": [
+      "אנימציה",
+      "הרפתקאות",
+      "חינוכי",
+      "ילדים",
+      "מדובב - זר"
+    ],
+    "ishimKeys": [],
+    "credits": [
+      {
+        "personName": "שפרירה זכאי",
+        "role": "dub_director",
+        "heading": "בימוי דיבוב"
+      },
+      {
+        "personName": "חסיה ורטהיים",
+        "role": "producer",
+        "heading": "הפקת דיבוב"
+      },
+      {
+        "personName": "יואב צפיר",
+        "role": "dubber",
+        "heading": "מדבבים",
+        "character": "גוליבר"
+      },
+      {
+        "personName": "מיכאל הנגבי",
+        "role": "dubber",
+        "heading": "מדבבים",
+        "character": "רפאל"
+      },
+      {
+        "personName": "אוהד שחר",
+        "role": "dubber",
+        "heading": "מדבבים",
+        "character": "פלים"
+      },
+      {
+        "personName": "יפה גבאי",
+        "role": "dubber",
+        "heading": "מדבבים",
+        "character": "פוליה"
+      },
+      {
+        "personName": "שרית סרי",
+        "role": "dubber",
+        "heading": "מדבבים",
+        "character": "פוסלה"
+      },
+      {
+        "personName": "דב רייזר",
+        "role": "dubber",
+        "heading": "מדבבים"
+      },
+      {
+        "personName": "יעקב בוך",
+        "role": "dubber",
+        "heading": "מדבבים",
+        "character": "המלך"
+      },
+      {
+        "personName": "שפרירה זכאי",
+        "role": "dubber",
+        "heading": "מדבבים"
+      },
+      {
+        "personName": "עפרון אטקין",
+        "role": "dubber",
+        "heading": "מדבבים",
+        "character": "בולגולם"
+      },
+      {
+        "personName": "אילן ליבוביץ",
+        "role": "singer",
+        "heading": "מוזיקה",
+        "character": "שיר פתיחה (ביצוע)"
+      },
+      {
+        "personName": "מיכל צפיר",
+        "role": "singer",
+        "heading": "מוזיקה",
+        "character": "שיר פתיחה (ביצוע)"
+      },
+      {
+        "personName": "רוני וייס",
+        "role": "composer",
+        "heading": "מוזיקה",
+        "character": "שיר פתיחה (ניהול מוזיקלי)"
+      }
+    ],
+    "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%9E%D7%A1%D7%A2%D7%95%D7%AA-%D7%92%D7%95%D7%9C%D7%99%D7%91%D7%A8-1993-%D7%90%D7%99%D7%A9%D7%99%D7%9D"
+  },
+  {
+    "id": "ht-avdy-vhdvby",
+    "title": "אודי והדובי",
+    "year": 2004,
+    "kind": "series_dubbed_foreign",
+    "summary": "שני חברים טובים ילד ודב גדול חווים הרפתקאות בדימיון שלהם.",
+    "runtimeMinutes": 26,
+    "channel": "הופ!",
+    "genres": ["אנימציה", "הרפתקאות", "ילדים", "מדובב - זר", "מוזיקלי"],
+    "credits": [
+      { "personName": "ניר רון", "role": "dubber", "heading": "מדבבים", "character": "דובי" }
+    ],
+    "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%90%D7%95%D7%93%D7%99-%D7%95%D7%94%D7%93%D7%95%D7%91%D7%99-2004-%D7%90%D7%99%D7%A9%D7%99%D7%9D"
+  },
+  {
+    "id": "ht-ayty-chbr-mkvkb-achr",
+    "title": "אי.טי. - חבר מכוכב אחר",
+    "originalTitle": "E.T. The Extra-Terrestrial",
+    "year": 2002,
+    "kind": "film_dubbed_foreign",
+    "summary": "ילד קטן מתחבר עם חוצן מכוכב אחר, ומגן עליו עם אחיו מפני הממשלה על מנת לעזור לו לחזור הביתה בשלום",
+    "runtimeMinutes": 120,
+    "genres": ["דרמה", "ילדים", "מדובב - זר", "מדע בדיוני", "פנטזיה"],
+    "ishimNotes": [
+      { "heading": "ציטוטים", "items": ["\"אי.טי טלפון הביתה\" - אי.טי"] },
+      { "heading": "טריוויה לא מעניינת", "items": ["הסרט הוקרן לראשונה בארצות הברית בשנת 1982, והוקרן מחדש בשנת 2002 עם תוספות לרגל 20 שנה להפקתו"] }
+    ],
+    "credits": [
+      { "personName": "שרון כהן", "role": "dub_director", "heading": "בימוי דיבוב" },
+      { "personName": "הדר שחף-מעיין", "role": "dubber", "heading": "מדבבים", "character": "אי.טי" },
+      { "personName": "יונתן השילוני", "role": "dubber", "heading": "מדבבים", "character": "אליוט" },
+      { "personName": "אסף קורמן", "role": "dubber", "heading": "מדבבים", "character": "מייקל" },
+      { "personName": "לני כהן", "role": "dubber", "heading": "מדבבים", "character": "גרטי" },
+      { "personName": "שרית וינו אלעד", "role": "dubber", "heading": "מדבבים", "character": "מרי" },
+      { "personName": "צביקה שוורצברג", "role": "dubber", "heading": "מדבבים", "character": "קיז" },
+      { "personName": "יוני קיסלוב", "role": "dubber", "heading": "מדבבים", "character": "גרג" },
+      { "personName": "סתיו סבר", "role": "dubber", "heading": "מדבבים", "character": "סטיב" },
+      { "personName": "מורן סופר", "role": "dubber", "heading": "מדבבים", "character": "טיילר" },
+      { "personName": "דור סרוגו", "role": "dubber", "heading": "מדבבים", "character": "ילדה / ילד" },
+      { "personName": "אוהד שחר", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+      { "personName": "מירי כהן", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+      { "personName": "אביטל פסטרנק", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+      { "personName": "אלברט כהן", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+      { "personName": "יורם יוספסברג", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+      { "personName": "יעקב בוך", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+      { "personName": "מיכה אוזין סליאן", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+      { "personName": "נטלי פיק", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+      { "personName": "עידו מוסרי", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+      { "personName": "ערן בוהם", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+      { "personName": "רמה מסינגר", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" }
+    ],
+    "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%90%D7%99-%D7%98%D7%99-%D7%97%D7%91%D7%A8-%D7%9E%D7%9B%D7%95%D7%9B%D7%91-%D7%90%D7%97%D7%A8-2002-%D7%90%D7%99%D7%A9%D7%99%D7%9D"
+  },
+  {
+    "id": "ht-game-aytmr-mtzyl-at-hym",
+    "title": "איתמר מציל את הים",
+    "year": 2003,
+    "kind": "game_dubbed_foreign",
+    "summary": "איתמר יוצא עם הדג שלו מתחת לפני הים למצוא את הפקק שנעלם בים",
+    "genres": ["אנימציה", "ילדים", "מדובב - זר", "פנטזיה", "קומדיה"],
+    "credits": [],
+    "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%90%D7%99%D7%AA%D7%9E%D7%A8-%D7%9E%D7%A6%D7%99%D7%9C-%D7%90%D7%AA-%D7%94%D7%99%D7%9D-2003-%D7%90%D7%99%D7%A9%D7%99%D7%9D-%D7%9E%D7%A9%D7%97%D7%A7-%D7%9E%D7%97%D7%A9%D7%91"
+  },
+  {
+    "id": "ht-alpa-vavmgh",
+    "title": "אלפא ואומגה",
+    "year": 2010,
+    "kind": "film_dubbed_foreign",
+    "summary": "שני זאבים מצדדים מנוגדים של הסולם החברתי, יוצאים למסע ארוך על מנת להגיע בחזרה הביתה ללהקה שלהם",
+    "runtimeMinutes": 88,
+    "genres": ["אנימציה", "הרפתקאות", "מדובב - זר", "מוזיקלי", "נוער", "פנטזיה", "קומדיה", "רומנטיקה"],
+    "ishimKeys": ["אהבה"],
+    "credits": [
+      { "personName": "שרון כהן", "role": "dub_director", "heading": "בימוי דיבוב" },
+      { "personName": "אפרת ענבל", "role": "dub_director", "heading": "בימוי דיבוב" },
+      { "personName": "עמיחי בר טוב", "role": "dub_director", "heading": "בימוי דיבוב" },
+      { "personName": "הדס מוזס", "role": "producer", "heading": "הפקת דיבוב" },
+      { "personName": "עמית פרקש", "role": "dubber", "heading": "מדבבים", "character": "קייט" },
+      { "personName": "יון תומרקין", "role": "dubber", "heading": "מדבבים", "character": "האמפרי" },
+      { "personName": "אלברט כהן", "role": "dubber", "heading": "מדבבים", "character": "מרסל" },
+      { "personName": "דב רייזר", "role": "dubber", "heading": "מדבבים", "character": "פאדי" },
+      { "personName": "מאיה מיטלפונקט", "role": "dubber", "heading": "מדבבים", "character": "לילי" },
+      { "personName": "גיא רושיניאק", "role": "dubber", "heading": "מדבבים", "character": "גארת" },
+      { "personName": "אריה צ'רנר", "role": "dubber", "heading": "מדבבים", "character": "וינסטון" },
+      { "personName": "לירון אלידי", "role": "dubber", "heading": "מדבבים", "character": "איב" },
+      { "personName": "אברהם סלקטר", "role": "dubber", "heading": "מדבבים", "character": "טוני" },
+      { "personName": "עידו רוזנברג", "role": "dubber", "heading": "מדבבים", "character": "שייקי" },
+      { "personName": "אברי ארבל", "role": "dubber", "heading": "מדבבים", "character": "סולטי" },
+      { "personName": "יואב הייט", "role": "dubber", "heading": "מדבבים", "character": "מוטץ" },
+      { "personName": "עומר שיש", "role": "dubber", "heading": "מדבבים", "character": "קן-דו" },
+      { "personName": "מיכה אוזין סליאן", "role": "dubber", "heading": "מדבבים", "character": "גארן" },
+      { "personName": "עדי קוזלובסקי", "role": "dubber", "heading": "מדבבים", "character": "דבי" },
+      { "personName": "יהלי מרגלית טופול", "role": "dubber", "heading": "מדבבים", "character": "דב צעיר" },
+      { "personName": "מיכל מוכתר", "role": "dubber", "heading": "מדבבים", "character": "נידלס / זאבה" },
+      { "personName": "אלון שר", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+      { "personName": "שאול עזר", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+      { "personName": "דידי גת", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+      { "personName": "מאיה מדג'ר", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" },
+      { "personName": "שרון כהן", "role": "dubber", "heading": "מדבבים", "character": "קולות רקע" }
+    ],
+    "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%90%D7%9C%D7%A4%D7%90-%D7%95%D7%90%D7%95%D7%9E%D7%92%D7%94-2010-%D7%90%D7%99%D7%A9%D7%99%D7%9D"
+  },
+  {
+    "id": "ht-amyl-vhblshym",
+    "title": "אמיל והבלשים",
+    "year": 2002,
+    "kind": "film_dubbed_foreign",
+    "summary": "אמיל נחוש בדעתו לסייע לאביו שנפגע בתאונת דרכים בדיוק שמצא עבודה, ומשם העניינים מסתבכים",
+    "runtimeMinutes": 110,
+    "genres": ["ילדים", "מדובב - זר", "מתח"],
+    "ishimKeys": ["חבורת ילדים"],
+    "ishimNotes": [
+      { "heading": "כללי", "items": ["מבוסס על ספר באותו השם מאת אריך קסטנר"] }
+    ],
+    "credits": [
+      { "personName": "שפרירה זכאי", "role": "dub_director", "heading": "בימוי דיבוב" },
+      { "personName": "שפרירה זכאי", "role": "producer", "heading": "הפקת דיבוב" },
+      { "personName": "דניאל מגון", "role": "dubber", "heading": "מדבבים", "character": "אמיל" },
+      { "personName": "יסמין עיון", "role": "dubber", "heading": "מדבבים", "character": "פוני" },
+      { "personName": "גומא פריד", "role": "dubber", "heading": "מדבבים", "character": "גוסטב" },
+      { "personName": "דני אבידן", "role": "dubber", "heading": "מדבבים", "character": "ג'יפסי" },
+      { "personName": "שי חורש", "role": "dubber", "heading": "מדבבים", "character": "קרומביגל" },
+      { "personName": "דין ברנד", "role": "dubber", "heading": "מדבבים" },
+      { "personName": "ניר לבנברג", "role": "dubber", "heading": "מדבבים", "character": "קבאב" },
+      { "personName": "גל סרי", "role": "dubber", "heading": "מדבבים", "character": "פייה" },
+      { "personName": "שירלי ורטהיימר", "role": "dubber", "heading": "מדבבים", "character": "אלפא" },
+      { "personName": "איל כהן", "role": "dubber", "heading": "מדבבים", "character": "ששת" },
+      { "personName": "נמרוד בינדר", "role": "dubber", "heading": "מדבבים", "character": "חסונה" },
+      { "personName": "אלון וורטהיימר", "role": "dubber", "heading": "מדבבים", "character": "פרדי" },
+      { "personName": "דור צויגנבום", "role": "dubber", "heading": "מדבבים", "character": "גרונדייס" },
+      { "personName": "אורנה כץ", "role": "dubber", "heading": "מדבבים", "character": "גברת הומל / דמויות שונות" },
+      { "personName": "יהויכין פרידלנדר", "role": "dubber", "heading": "מדבבים", "character": "מר הומל / דמויות שונות" },
+      { "personName": "עפרון אטקין", "role": "dubber", "heading": "מדבבים", "character": "מר טישביין / דמויות שונות" },
+      { "personName": "שפרירה זכאי", "role": "dubber", "heading": "מדבבים", "character": "אישה במסעדה" },
+      { "personName": "שרית סרי", "role": "dubber", "heading": "מדבבים", "character": "דמויות שונות" },
+      { "personName": "מיכה אוזין סליאן", "role": "dubber", "heading": "מדבבים", "character": "דמויות שונות" },
+      { "personName": "איציק סיידוף", "role": "dubber", "heading": "מדבבים", "character": "דמויות שונות" }
+    ],
+    "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%90%D7%9E%D7%99%D7%9C-%D7%95%D7%94%D7%91%D7%9C%D7%A9%D7%99%D7%9D-2002-%D7%90%D7%99%D7%A9%D7%99%D7%9D"
+  },
+  {
+    "id": "ht-antvny-hnmlh",
+    "title": "אנתוני הנמלה",
+    "originalTitle": "Anthony Ant",
+    "year": 2017,
+    "kind": "series_dubbed_foreign",
+    "summary": "עלילותיהם של אנטוני הנמלה וחבריו בעיר הנמלים \"אנטוויל\"",
+    "runtimeMinutes": 22,
+    "episodeCount": 13,
+    "channel": "JimJam",
+    "genres": ["אנימציה", "הרפתקאות", "ילדים", "מדובב - זר"],
+    "ishimNotes": [{ "heading": "כללי", "items": ["קיים עוד אנטוני הנמלה"] }],
+    "credits": [
+      { "personName": "דן שצברג", "role": "dub_director", "heading": "בימוי דיבוב" },
+      { "personName": "יעל אללוף", "role": "producer", "heading": "הפקת דיבוב" },
+      { "personName": "ליאור ידידיה", "role": "producer", "heading": "הפקת דיבוב" },
+      { "personName": "יולי סקר", "role": "dubber", "heading": "מדבבים", "character": "אנטוני" },
+      { "personName": "קובי ליקורמן", "role": "dubber", "heading": "מדבבים", "character": "קווין" },
+      { "personName": "דור סרוגו", "role": "dubber", "heading": "מדבבים", "character": "טרי" },
+      { "personName": "ליאור ידידיה", "role": "dubber", "heading": "מדבבים", "character": "וויבל המכשפה" },
+      { "personName": "עדי בר לב", "role": "dubber", "heading": "מדבבים" },
+      { "personName": "יהויכין פרידלנדר", "role": "dubber", "heading": "מדבבים" },
+      { "personName": "גדי לוי", "role": "dubber", "heading": "מדבבים" },
+      { "personName": "דן שצברג", "role": "dubber", "heading": "מדבבים" },
+      { "personName": "טליה ברקאי", "role": "dubber", "heading": "מדבבים" }
+    ],
+    "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%90%D7%A0%D7%AA%D7%95%D7%A0%D7%99-%D7%94%D7%A0%D7%9E%D7%9C%D7%94-2017-%D7%90%D7%99%D7%A9%D7%99%D7%9D"
+  },
+  {
+    "id": "ht-game-atr-hyldym-hagvdh-lmlchmh-bsrtn",
+    "title": "אתר הילדים - האגודה למלחמה בסרטן",
+    "year": 2003,
+    "kind": "website",
+    "summary": "שלושה חייזרים מגיעים לכדור הארץ לעזור חולי סרטן רבים בנושא עישון והגנה מהשמש",
+    "channel": "אינטרנט",
+    "genres": ["ילדים"],
+    "credits": [
+      { "personName": "יואב בר לב", "role": "actor", "heading": "שחקנים", "character": "שבע / גזע / ברק / מעשן (קול)" },
+      { "personName": "אור אזולאי", "role": "actor", "heading": "שחקנים", "character": "ויסקוזה / דיקלה / נגה / צחי / מעשנת (קול)" }
+    ],
+    "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%90%D7%AA%D7%A8-%D7%94%D7%99%D7%9C%D7%93%D7%99%D7%9D-%D7%94%D7%90%D7%92%D7%95%D7%93%D7%94-%D7%9C%D7%9E%D7%9C%D7%97%D7%9E%D7%94-%D7%91%D7%A1%D7%A8%D7%98%D7%9F-2003-%D7%90%D7%99%D7%A9%D7%99%D7%9D-%D7%9E%D7%A9%D7%97%D7%A7-%D7%9E%D7%97%D7%A9%D7%91"
+  },
+  {
+    "id": "ht-game-ba-bchshbvn",
+    "title": "בא בחשבון",
+    "year": 1995,
+    "kind": "game_dubbed_foreign",
+    "summary": "משחק של קומפדיה ללימוד חשבון להילחם בוירוסי המחשב במחשבו של גורדי",
+    "genres": ["אנימציה", "ילדים", "מדובב - זר", "פנטזיה", "קומדיה"],
+    "credits": [
+      { "personName": "צביקה פורמן", "role": "dubber", "heading": "מדבבים", "character": "גורדי / אנטי וירוס / רופא / כרטיס הקול" }
+    ],
+    "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%91%D7%90-%D7%91%D7%97%D7%A9%D7%91%D7%95%D7%9F-1995-%D7%90%D7%99%D7%A9%D7%99%D7%9D-%D7%9E%D7%A9%D7%97%D7%A7-%D7%9E%D7%97%D7%A9%D7%91"
+  },
+  {
+    "id": "ht-game-bastr-vapvn-hpla",
+    "title": "באסטר ואפון הפלא",
+    "year": 1997,
+    "kind": "game_dubbed_foreign",
+    "summary": "מטרת המשחק היא לעזור לשני הטייני טון הנוכחים: באסטר באני ופלאקי דאק להיכנס אל הטירה של הענק",
+    "genres": ["אנימציה", "ילדים", "מדובב - זר", "פנטזיה", "קומדיה"],
+    "credits": [
+      { "personName": "אוהד שחר", "role": "dubber", "heading": "מדבבים", "character": "באסטר באני" },
+      { "personName": "אבי פניני", "role": "dubber", "heading": "מדבבים", "character": "פלאקי דאק" },
+      { "personName": "שרית וינו אלעד", "role": "dubber", "heading": "מדבבים", "character": "באבי באני" },
+      { "personName": "נטלי פיק", "role": "dubber", "heading": "מדבבים", "character": "אלמירה דאף" },
+      { "personName": "מיכה אוזין סליאן", "role": "dubber", "heading": "מדבבים", "character": "קריינות (קריינות הוראות במשחק)" }
+    ],
+    "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%91%D7%90%D7%A1%D7%98%D7%A8-%D7%95%D7%90%D7%A4%D7%95%D7%9F-%D7%94%D7%A4%D7%9C%D7%90-1997-%D7%90%D7%99%D7%A9%D7%99%D7%9D-%D7%9E%D7%A9%D7%97%D7%A7-%D7%9E%D7%97%D7%A9%D7%91"
+  },
+  {
+    "id": "ht-game-hrptkavt-bmbh-bmmlkh-hksvmh",
+    "title": "הרפתקאות במבה בממלכה הקסומה",
+    "year": 2009,
+    "kind": "game_israeli",
+    "genres": ["משחק מחשב", "ילדים", "חינוכי"],
+    "credits": [
+      { "personName": "גני תמיר", "role": "dubber", "heading": "מדבבים", "character": "תינוק במבה" }
+    ],
+    "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%94%D7%A8%D7%A4%D7%AA%D7%A7%D7%90%D7%95%D7%AA-%D7%91%D7%9E%D7%91%D7%94-%D7%91%D7%9E%D7%9E%D7%9C%D7%9B%D7%94-%D7%94%D7%A7%D7%A1%D7%95%D7%9E%D7%94-2009-%D7%90%D7%99%D7%A9%D7%99%D7%9D-%D7%9E%D7%A9%D7%97%D7%A7-%D7%9E%D7%97%D7%A9%D7%91"
+  },
+  {
+    "id": "ht-byt-spr-lpyvt",
+    "title": "בית ספר לפיות",
+    "year": 2013,
+    "kind": "series_dubbed_foreign",
+    "summary": "כל פרק מתאר חוויות יומיומיות בבית הספר של אביגבי וחבריה. טיול כיתה, משחק תחפושות, טיפול בחיות מחמד ועוד",
+    "runtimeMinutes": 10,
+    "channel": "הופ!",
+    "genres": ["אנימציה", "חינוכי", "ילדים", "מדובב - זר", "מוזיקלי", "פנטזיה"],
+    "ishimKeys": ["קסמים"],
+    "credits": [
+      { "personName": "תמי ברק", "role": "dub_director", "heading": "בימוי דיבוב" },
+      { "personName": "אסנת סדן", "role": "producer", "heading": "הפקת דיבוב" },
+      { "personName": "גלי נשר", "role": "producer", "heading": "הפקת דיבוב" },
+      { "personName": "בר סביר", "role": "dubber", "heading": "מדבבים", "character": "אביגבי" },
+      { "personName": "גדי לוי", "role": "dubber", "heading": "מדבבים", "character": "גוניגאם / דמויות שונות" },
+      { "personName": "עידו רוזנברג", "role": "dubber", "heading": "מדבבים", "character": "בלוג" },
+      { "personName": "תמי ברק", "role": "dubber", "heading": "מדבבים", "character": "גברת אף-קסם" },
+      { "personName": "מולי שולמן", "role": "dubber", "heading": "מדבבים", "character": "דמויות שונות" },
+      { "personName": "נדב ירושלמי", "role": "dubber", "heading": "מדבבים", "character": "דמויות שונות" },
+      { "personName": "איילה פלדמן", "role": "dubber", "heading": "מדבבים", "character": "דמויות שונות" }
+    ],
+    "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%91%D7%99%D7%AA-%D7%A1%D7%A4%D7%A8-%D7%9C%D7%A4%D7%99%D7%95%D7%AA-2013-%D7%90%D7%99%D7%A9%D7%99%D7%9D"
+  },
+  {
+    "id": "ht-mvsk-nyk",
+    "title": "מוסכ-ניק",
+    "year": 2004,
+    "kind": "tv_series",
+    "genres": [],
+    "credits": [
+      { "personName": "רוברט הניג", "role": "dubber", "heading": "מדבבים", "character": "פרופסור ברק" }
+    ],
+    "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%9E%D7%95%D7%A1%D7%9B-%D7%A0%D7%99%D7%A7-2004-%D7%90%D7%99%D7%A9%D7%99%D7%9D"
+  },
+  {
+    "id": "ht-bchzrh-larts-avts-2014",
+    "title": "בחזרה לארץ עוץ",
+    "year": 2014,
+    "kind": "film_dubbed_foreign",
+    "summary": "דורותי חוזרת לארץ עוץ במטרה להציל את חבריה מאויב חדש",
+    "runtimeMinutes": 92,
+    "genres": ["אנימציה", "הרפתקאות", "ילדים", "מדובב - זר", "פנטזיה"],
+    "ishimKeys": ["מבוסס על ספר"],
+    "ishimNotes": [{ "heading": "כללי", "items": ["קיים עוד בחזרה לארץ עוץ"] }],
+    "credits": [
+      { "personName": "נינה אמיר", "role": "dub_director", "heading": "בימוי דיבוב" },
+      { "personName": "יעל אללוף", "role": "producer", "heading": "הפקת דיבוב" },
+      { "personName": "אמי בכר", "role": "producer", "heading": "הפקת דיבוב" },
+      { "personName": "גילי בכר", "role": "producer", "heading": "הפקת דיבוב" },
+      { "personName": "רוני דלומי", "role": "dubber", "heading": "מדבבים", "character": "דורותי" },
+      { "personName": "דן שצברג", "role": "dubber", "heading": "מדבבים", "character": "הדחליל / שוטר" },
+      { "personName": "יורם יוספסברג", "role": "dubber", "heading": "מדבבים", "character": "האריה הפחדן" },
+      { "personName": "אמנון וולף", "role": "dubber", "heading": "מדבבים", "character": "איש הפח" },
+      { "personName": "סער בדישי", "role": "dubber", "heading": "מדבבים", "character": "מרשל מרשמלו" },
+      { "personName": "עדי רז", "role": "dubber", "heading": "מדבבים", "character": "וויזר הינשוף" },
+      { "personName": "נועה קשפיצקי", "role": "dubber", "heading": "מדבבים", "character": "נסיכת חרסינה" },
+      { "personName": "עמי מנדלמן", "role": "dubber", "heading": "מדבבים", "character": "טאג / כרוז חרסינה מלכותי" },
+      { "personName": "לורן סביר", "role": "dubber", "heading": "מדבבים", "character": "גלינדה" },
+      { "personName": "צביקה פורמן", "role": "dubber", "heading": "מדבבים", "character": "ליצן החצר / השמאי" },
+      { "personName": "גדי לוי", "role": "dubber", "heading": "מדבבים", "character": "דוד הנרי" },
+      { "personName": "שרון שחל", "role": "dubber", "heading": "מדבבים", "character": "דודה אם" },
+      { "personName": "יהויכין פרידלנדר", "role": "dubber", "heading": "מדבבים", "character": "שופט שובר-לסת" },
+      { "personName": "דניאל מגון", "role": "dubber", "heading": "מדבבים", "character": "מר שוקולדי" },
+      { "personName": "אורנה כץ", "role": "dubber", "heading": "מדבבים" },
+      { "personName": "לירון ברנס", "role": "dubber", "heading": "מדבבים" },
+      { "personName": "מאי יעקובסון", "role": "dubber", "heading": "מדבבים" },
+      { "personName": "רוני דלומי", "role": "singer", "heading": "מוזיקה", "character": "שירה" },
+      { "personName": "מאי יעקובסון", "role": "singer", "heading": "מוזיקה", "character": "שירה (ליווי)" }
+    ],
+    "sourceUrl": "https://sites.google.com/view/hoptamir/%D7%91%D7%97%D7%96%D7%A8%D7%94-%D7%9C%D7%90%D7%A8%D7%A5-%D7%A2%D7%95%D7%A5-2014-%D7%90%D7%99%D7%A9%D7%99%D7%9D"
   }
 ]
