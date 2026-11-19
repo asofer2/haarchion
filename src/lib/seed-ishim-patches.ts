@@ -55,6 +55,7 @@ import { applyIshimHopCastNov } from "./seed-ishim-ht-cast-nov";
 import { applyIshimHopCastNov11 } from "./seed-ishim-ht-cast-nov11";
 import { applyIshimHopCastNov12 } from "./seed-ishim-ht-cast-nov12";
 import { applyIshimHopCastNov15 } from "./seed-ishim-ht-cast-nov15";
+import { applyIshimHopCastNov19 } from "./seed-ishim-ht-cast-nov19";
 import { applyIshimBnotHazahav } from "./seed-ishim-bnot-hazahav";
 
 /** ערכי אישים/הפקות שלא בארכיון הגדול — מיושמים אחרי applyIshimArchive */
@@ -69,7 +70,8 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
       },
     ])
   );
-  const patched = applyIshimHopCastNov15(
+  const patched = applyIshimHopCastNov19(
+  applyIshimHopCastNov15(
   applyIshimHopCastNov12(
   applyIshimHopCastNov11(
   applyIshimHopCastNov(
@@ -172,6 +174,7 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
   )
       )
     )
+  )
   )
   )
   )
