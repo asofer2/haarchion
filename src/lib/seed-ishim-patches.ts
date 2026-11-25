@@ -48,6 +48,7 @@ import { applyIshimMulan1998 } from "./seed-ishim-mulan-1998";
 import { applyIshimVipo2008 } from "./seed-ishim-ht-vypv-2008";
 import { applyIshimDisney1993Fixes } from "./seed-ishim-disney-1993";
 import { applyIshimHopMid2000s } from "./seed-ishim-ht-mid-2000s";
+import { applyIshimRobots2005 } from "./seed-ishim-ht-robots-2005";
 import { applyIshimHai } from "./seed-ishim-hai";
 import { applyIshimGuyPines } from "./seed-ishim-guy-pines";
 import { applyIshimBambi } from "./seed-ishim-bambi";
@@ -70,7 +71,8 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
       },
     ])
   );
-  const patched = applyIshimHopCastNov19(
+  const patched = applyIshimRobots2005(
+  applyIshimHopCastNov19(
   applyIshimHopCastNov15(
   applyIshimHopCastNov12(
   applyIshimHopCastNov11(
@@ -174,6 +176,7 @@ export function applyIshimPersonPatches(data: ArchiveData): ArchiveData {
   )
       )
     )
+  )
   )
   )
   )

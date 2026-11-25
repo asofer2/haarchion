@@ -20,6 +20,11 @@ import {
 } from "@/lib/seed-ishim-disney-1993";
 import { hopMid2000sProduction } from "@/lib/seed-ishim-ht-mid-2000s";
 import {
+  robotsHopCharacter,
+  robotsProduction,
+} from "@/lib/seed-ishim-ht-robots-2005";
+import { kesemHopCharacter } from "@/lib/seed-ishim-ksm-hmgy";
+import {
   kindToActivity,
   roleToActivity,
   type ActivityCategory,
@@ -194,7 +199,7 @@ function productionFor(
   year: number | undefined,
   kind: ProductionKind | null | undefined
 ): Production {
-  const known = hopMid2000sProduction(title, year);
+  const known = hopMid2000sProduction(title, year) || robotsProduction(title, year);
   if (known) return known;
   const { byId, byTitle } = productionIndexes();
   const preferredId = PREFERRED_PRODUCTION_ID[title];
@@ -312,9 +317,16 @@ export function classicFilmography(rawId: string): {
       seen.add(production.id);
       productions.push(production);
     }
-    const character = fixed.production
-      ? fixed.character
-      : cleanIshimCharacter(credit.character, person.name);
+    const character =
+      (title === "רובוטס"
+        ? robotsHopCharacter(person.name, fixed.role)
+        : undefined) ||
+      (title === "קסם המג'י" || title === "קסם המגי"
+        ? kesemHopCharacter(person.name, fixed.role, credit.year)
+        : undefined) ||
+      (fixed.production
+        ? fixed.character
+        : cleanIshimCharacter(credit.character, person.name));
     credits.push({
       personId: person.id,
       productionId: production.id,

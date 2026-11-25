@@ -17,7 +17,7 @@ const NOW = "2026-10-18T00:00:00.000Z";
 export const KESEM_HA_MAGI_ID = "ishim-ksm-hmgy";
 const TITLE = "קסם המג'י";
 const SOURCE_URL =
-  "https://web.archive.org/web/20220113074753/https://www.ishim.co.il/m.php?s=%D7%A7%D7%A1%D7%9D+%D7%94%D7%9E%D7%92%27%D7%99";
+  "https://sites.google.com/view/hoptamir/%D7%A7%D7%A1%D7%9D-%D7%94%D7%9E%D7%92%D7%99-2008-2011-%D7%90%D7%99%D7%A9%D7%99%D7%9D";
 
 type CreditRow = {
   personName: string;
@@ -34,16 +34,16 @@ const CREDITS: CreditRow[] = [
   { personName: "לירון לב", role: "dubber", heading: "מדבבים", character: "טוני ג'ונס", year: 2011 },
   { personName: "אביטל אברג'ל", role: "dubber", heading: "מדבבים", character: "אידין" },
   { personName: "רועי שגב", role: "dubber", heading: "מדבבים", character: "סטראג'" },
-  { personName: "צביקה פורמן", role: "dubber", heading: "מדבבים", character: "פורוק / אגראם" },
-  { personName: "גיא רושיניאק", role: "dubber", heading: "מדבבים", character: "אגר" },
-  { personName: "שמחה ברבירו", role: "dubber", heading: "מדבבים", character: "פריפ / סבא" },
+  { personName: "צביקה פורמן", role: "dubber", heading: "מדבבים", character: "פורוק / אגראם / דמויות שונות" },
+  { personName: "גיא רושיניאק", role: "dubber", heading: "מדבבים", character: "אגר / דקס / דמויות שונות" },
+  { personName: "שמחה ברבירו", role: "dubber", heading: "מדבבים", character: "פריפ / סבא / דמויות שונות" },
   { personName: "רוברט הניג", role: "dubber", heading: "מדבבים", character: "אורווין" },
-  { personName: "אפי בן ישראל", role: "dubber", heading: "מדבבים", character: "איבו" },
-  { personName: "תומר גלר", role: "dubber", heading: "מדבבים", character: "זד" },
-  { personName: "אלון שר", role: "dubber", heading: "מדבבים", character: "קורג" },
+  { personName: "אפי בן ישראל", role: "dubber", heading: "מדבבים", character: "איבו / דמויות שונות" },
+  { personName: "תומר גלר", role: "dubber", heading: "מדבבים", character: "זד / דמויות שונות" },
+  { personName: "אלון שר", role: "dubber", heading: "מדבבים", character: "קורג / דמויות שונות" },
+  { personName: "שמרית לוי ששון", role: "dubber", heading: "מדבבים אורחים", character: "אינארה / דמויות שונות", year: 2008 },
+  { personName: "מאיה בר שלום", role: "dubber", heading: "מדבבים אורחים", character: "אינארה / דמויות שונות", year: 2011 },
   { personName: "אסף ניב", role: "dubber", heading: "מדבבים אורחים", character: "דמויות אורחות", year: 2008 },
-  { personName: "מאיה בר שלום", role: "dubber", heading: "מדבבים אורחים", character: "דמויות אורחות", year: 2011 },
-  { personName: "שמרית לוי ששון", role: "dubber", heading: "מדבבים אורחים", character: "דמויות אורחות", year: 2008 },
   { personName: "אלי לולאי", role: "singer", heading: "מוזיקה", character: "שיר פתיחה (ביצוע)" },
 ];
 
@@ -59,11 +59,17 @@ const PRODUCTION: Production = {
   genres: ["אנימציה", "ילדים", "מדובב - זר", "מתח", "נוער", "פנטזיה", "פעולה"],
   channel: "ערוץ הילדים",
   runtimeMinutes: 23,
-  episodeCount: 51,
+  episodeCount: 52,
   ishimClassic: true,
+  ishimNotes: [
+    {
+      heading: "ציטוטים",
+      items: ['"מי מבלבל לי כאן את המוח?" - פריפ'],
+    },
+  ],
   imageUrl: portrait(TITLE, "Magi Nation"),
   entryAuthors: ["ברק חננאל"],
-  sourceNote: ISHIM_CLASSIC_SOURCE,
+  sourceNote: "ערוץ הופ תמיר",
   sourceUrl: SOURCE_URL,
   createdAt: NOW,
   updatedAt: NOW,
@@ -113,7 +119,24 @@ function resolvePersonId(
   return person.id;
 }
 
-/** קסם המג'י (2008–2011) מעמוד אישים בארכיון 13 בינואר 2022. */
+/** דמות מעמוד הופ תמיר, לדף האישי כשהארכיון הקלאסי שמר רק את שם המדבב. */
+export function kesemHopCharacter(
+  name: string,
+  role?: CreditRole,
+  year?: number
+): string | undefined {
+  if (role && role !== "dubber" && role !== "singer") return undefined;
+  const rows = CREDITS.filter(
+    (row) => row.personName === name && (role ? row.role === role : true)
+  );
+  const row =
+    rows.find((item) => year && item.year === year) ||
+    rows.find((item) => !item.year) ||
+    rows[0];
+  return row?.character;
+}
+
+/** קסם המג'י (2008–2011) מעמוד הופ תמיר. */
 export function applyIshimKesemHaMagi(data: ArchiveData): ArchiveData {
   const productions = [...data.productions];
   const duplicateIds = new Set<string>();
